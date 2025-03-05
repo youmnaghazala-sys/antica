@@ -123,6 +123,48 @@
             "variant": "h6"
         },
         {
+            "id": "product_background_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون خلفية صورة المنتج",
+            "description": "حدد اللون الخلفي الذي سيظهر خلف صورة المنتج في الصفحة.",
+            "labelHTML": null,
+            "icon": "sicon-format-fill",
+            "value": "#ffeb00",
+            "required": false
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "تفعيل إضافة صورة بانر لصفحة المنتج",
+            "description": "هذه الخاصية تمكنك من إضافة صورة بانر لصفحة المنتج ",
+            "id": "add_image_banner_for_product",
+            "format": "switch",
+            "required": false,
+            "value": false,
+            "selected": false
+        },
+        {
+            "id": "single_banner_image",
+            "type": "string",
+            "format": "image",
+            "label": "إضافة صورة بانر لصفحة المنتج",
+            "description": "قم برفع أو إدخال رابط صورة البانر التي ستظهر أعلى صفحة المنتج.",
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": null,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "add_image_banner_for_product",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تثبيت زر الإضافة والكمية أسفل شاشة الجوال",
