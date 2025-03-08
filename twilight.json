@@ -1124,7 +1124,17 @@
                             "value": null,
                             "required": false,
                             "minLength": 6,
-                            "maxLength": 30
+                            "maxLength": 5000,
+                            "conditions":[
+                                {
+                                    "id":"albome.is_video",
+                                    "operation":"=",
+                                    "value":true,
+                                    "collection_id":"albome",
+                                    "value_index":"."
+
+                                }
+                            ]
                         },
                         {
                             "id": "albome.banner_img",
@@ -1136,7 +1146,17 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": false,
+                            "conditions":[
+                                {
+                                    "id":"albome.is_video",
+                                    "operation":"=",
+                                    "value":false,
+                                    "collection_id":"albome",
+                                    "value_index":"."
+
+                                }
+                            ]
                         }
                     ],
                     "value": [],
