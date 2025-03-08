@@ -919,6 +919,13 @@
                     "source": "brands"
                 }
             ]
+        },
+        {
+            "key": "b79f7e04-80a6-4a60-afb1-b79feeff062e",
+            "title": "شريط الماركات - ألوري",
+            "icon": "sicon-store",
+            "path": "home.AL-brands",
+            "fields": []
         }
     ],
     "support_url": "",
