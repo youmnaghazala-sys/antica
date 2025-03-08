@@ -1121,7 +1121,17 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": false,
+                            "conditions":[
+                                {
+                                    "id":"albome.is_video",
+                                    "operation":"=",
+                                    "value":false,
+                                    "collection_id":"albome",
+                                    "value_index":"."
+
+                                }
+                            ]
                         }
                     ],
                     "value": [],
