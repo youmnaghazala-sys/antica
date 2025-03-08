@@ -1012,19 +1012,24 @@
                     "id": "is_container",
                     "type": "boolean",
                     "format": "switch",
-                    "label": "إدراج داخل الحاوية",
-                    "description": "قم بتفعيل هذا الخيار لوضع المكون داخل حاوية تنسيق متناسقة.",
+                    "label": "تضمين داخل حاوية مرنة",
+                    "description": "فعّل هذا الخيار إذا كنت ترغب في إدراج المكون داخل حاوية مرنة لتحسين التخطيط والتنظيم.",
                     "icon": "sicon-toggle-off",
-                    "value": true
+                    "value": true,
+                    "selected": false,
+                    "required": false
                 },
                 {
                     "id": "main_title",
                     "type": "string",
                     "format": "text",
-                    "label": "العنوان الرئيسي",
-                    "description": "أدخل عنوانًا بارزًا يلفت انتباه العملاء.",
-                    "placeholder": "مثال: عروضنا الحصرية!",
+                    "label": "العنوان الرئيسي المميز",
+                    "description": "أدخل عنوانًا بارزًا لجذب انتباه المستخدمين، يفضل أن يكون موجزًا ومعبّرًا.",
+                    "placeholder": "أدخل العنوان هنا...",
                     "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
                     "minLength": 6,
                     "maxLength": 200
                 },
@@ -1034,18 +1039,22 @@
                     "format": "color",
                     "inputType": "color",
                     "label": "لون العنوان الرئيسي",
-                    "description": "اختر لونًا مناسبًا ليظهر العنوان بشكل واضح وجذاب.",
+                    "description": "حدد لون العنوان الرئيسي ليتناسب مع تصميم المكون ويبرز المحتوى بشكل أفضل.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956"
+                    "value": "#004956",
+                    "required": false
                 },
                 {
                     "id": "sub_title",
                     "type": "string",
                     "format": "text",
-                    "label": "العنوان الفرعي",
-                    "description": "اكتب عنوانًا فرعيًا يدعم العنوان الرئيسي بمعلومة إضافية.",
-                    "placeholder": "مثال: استمتع بخصومات تصل إلى 50٪!",
+                    "label": "العنوان الفرعي التوضيحي",
+                    "description": "أدخل عنوانًا فرعيًا يكمل العنوان الرئيسي ويوضح الفكرة بشكل أكبر.",
+                    "placeholder": "أدخل العنوان الفرعي هنا...",
                     "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
                     "minLength": 6,
                     "maxLength": 200
                 },
@@ -1055,40 +1064,99 @@
                     "format": "color",
                     "inputType": "color",
                     "label": "لون العنوان الفرعي",
-                    "description": "حدد لونًا يعزز من وضوح العنوان الفرعي دون تعارض مع التصميم.",
+                    "description": "حدد لون العنوان الفرعي لتحقيق تناسق بصري مع العنوان الرئيسي.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956"
+                    "value": "#004956",
+                    "required": false
                 },
                 {
                     "id": "text_bg",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون خلفية النص",
-                    "description": "اختر لون الخلفية المناسب ليبرز النص بوضوح.",
+                    "label": "لون خلفية النصوص",
+                    "description": "اختر لونًا لخلفية النصوص داخل المكون لتحسين القابلية للقراءة.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956"
+                    "value": "#004956",
+                    "required": false
                 },
                 {
                     "id": "btn_txt",
                     "type": "string",
                     "format": "text",
-                    "label": "نص الزر",
-                    "description": "اكتب نصًا جذابًا يحث المستخدم على التفاعل.",
-                    "placeholder": "مثال: تسوق الآن",
+                    "label": "نص الزر الجذاب",
+                    "description": "أدخل نصًا واضحًا للزر ليحفز المستخدمين على التفاعل مع المكون.",
+                    "placeholder": "أدخل نص الزر هنا...",
                     "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
                     "minLength": 6,
                     "maxLength": 100
                 },
                 {
+                    "id": "btn_url",
                     "type": "items",
                     "icon": "sicon-link",
-                    "label": "الرابط",
-                    "description": "اختر وجهة الزر من بين المنتجات، التصنيفات، الماركات، أو روابط مخصصة.",
-                    "id": "btn_url",
+                    "label": "رابط الزر",
+                    "description": "حدد الرابط الذي سيتم توجيه المستخدم إليه عند النقر على الزر.",
+                    "value": null,
+                    "required": false,
                     "format": "variable-list",
                     "searchable": true,
-                    "source": "custom"
+                    "source": "custom",
+                    "sources": [
+                        {
+                            "label": "منتج",
+                            "key": "products",
+                            "value": "products"
+                        },
+                        {
+                            "label": "تصنيف",
+                            "key": "categories",
+                            "value": "categories"
+                        },
+                        {
+                            "label": "ماركة تجارية",
+                            "key": "brands",
+                            "value": "brands"
+                        },
+                        {
+                            "label": "صفحة تعريفية",
+                            "key": "pages",
+                            "value": "pages"
+                        },
+                        {
+                            "label": "مقالة",
+                            "key": "blog_articles",
+                            "value": "blog_articles"
+                        },
+                        {
+                            "label": "تصنيف ضمن المدونة",
+                            "key": "blog_categories",
+                            "value": "blog_categories"
+                        },
+                        {
+                            "label": "التخفيضات",
+                            "key": "offers_link",
+                            "value": "offers_link"
+                        },
+                        {
+                            "label": "الماركات التجارية",
+                            "key": "brands_link",
+                            "value": "brands_link"
+                        },
+                        {
+                            "label": "المدونة",
+                            "key": "blog_link",
+                            "value": "blog_link"
+                        },
+                        {
+                            "label": "رابط خارجي",
+                            "key": "custom",
+                            "value": "custom"
+                        }
+                    ]
                 },
                 {
                     "id": "btn_color",
@@ -1096,9 +1164,10 @@
                     "format": "color",
                     "inputType": "color",
                     "label": "لون نص الزر",
-                    "description": "حدد لونًا واضحًا لنص الزر لتعزيز القراءة.",
+                    "description": "اختر لونًا للنص داخل الزر لضمان وضوح القراءة.",
                     "icon": "sicon-format-fill",
-                    "value": "#ffffff"
+                    "value": "#ffffff",
+                    "required": false
                 },
                 {
                     "id": "btn_bg",
@@ -1106,26 +1175,29 @@
                     "format": "color",
                     "inputType": "color",
                     "label": "لون خلفية الزر",
-                    "description": "اختر لونًا يعكس هوية التصميم ويجذب النقر.",
+                    "description": "حدد لون خلفية الزر ليكون متناسقًا مع التصميم العام.",
                     "icon": "sicon-format-fill",
-                    "value": "#000000"
+                    "value": "#000000",
+                    "required": false
                 },
                 {
                     "id": "albome",
                     "type": "collection",
                     "format": "collection",
                     "label": "معرض الوسائط",
-                    "description": "أضف صورًا أو مقاطع فيديو لعرض المحتوى بشكل مرئي جذاب.",
+                    "description": "أضف صورًا أو مقاطع فيديو لعرضها في المكون.",
                     "icon": "sicon-list-add",
                     "fields": [
                         {
                             "id": "albome.is_video",
                             "type": "boolean",
                             "format": "switch",
-                            "label": "إضافة فيديو بدلًا من صورة",
-                            "description": "فعّل هذا الخيار إذا كنت ترغب في عرض فيديو بدلاً من صورة.",
+                            "label": "استخدام فيديو بدلًا من صورة",
+                            "description": "فعّل هذا الخيار لإدراج مقطع فيديو بدلاً من صورة في المعرض.",
                             "icon": "sicon-toggle-off",
-                            "value": true
+                            "value": true,
+                            "selected": false,
+                            "required": false
                         },
                         {
                             "id": "albome.video_url",
@@ -1133,22 +1205,45 @@
                             "format": "url",
                             "inputType": "url",
                             "label": "رابط الفيديو",
-                            "description": "أدخل رابط الفيديو لمشاركته في المعرض.",
+                            "description": "أدخل رابط الفيديو الذي تريد عرضه في المعرض.",
                             "placeholder": "مثال: https://salla.sa",
                             "icon": "sicon-link",
+                            "value": null,
+                            "required": false,
                             "minLength": 6,
-                            "maxLength": 5000
+                            "maxLength": 5000,
+                            "conditions": [
+                                {
+                                    "id": "albome.is_video",
+                                    "operation": "=",
+                                    "value": true,
+                                    "collection_id": "albome",
+                                    "value_index": "."
+                                }
+                            ]
                         },
                         {
                             "id": "albome.banner_img",
                             "type": "string",
                             "format": "image",
-                            "label": "صورة البانر",
-                            "description": "حمّل صورة جذابة لتكون واجهة المعرض.",
+                            "label": "صورة المعرض",
+                            "description": "أضف صورة لاستخدامها في المعرض عند عدم تفعيل خيار الفيديو.",
                             "placeholder": "مثال: https://hostname.com/image.png",
-                            "icon": "sicon-image"
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false,
+                            "conditions": [
+                                {
+                                    "id": "albome.is_video",
+                                    "operation": "=",
+                                    "value": false,
+                                    "collection_id": "albome",
+                                    "value_index": "."
+                                }
+                            ]
                         }
                     ],
+                    "value": [],
                     "minLength": 1,
                     "maxLength": 3
                 }
