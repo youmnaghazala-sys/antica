@@ -1211,6 +1211,13 @@
             "icon": "sicon-store",
             "path": "home.AL-categories",
             "fields": []
+        },
+        {
+            "key": "0eda2055-fc30-4d4b-9f4b-bbb8c127be34",
+            "title": "عروض تنتهى قريبا - ألوري",
+            "icon": "sicon-store",
+            "path": "home.limited-time-offers",
+            "fields": []
         }
     ],
     "support_url": "",
