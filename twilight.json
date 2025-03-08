@@ -1008,6 +1008,13 @@
             "icon": "sicon-frame-image",
             "path": "home.A_fixed_banner",
             "fields": []
+        },
+        {
+            "key": "3edd77c1-90ff-4ddb-abd9-857c6c3038d4",
+            "title": "منتجات مع بانر جانبي - ألورا",
+            "icon": "sicon-store",
+            "path": "home.AL_Poducts_with_sideBanner",
+            "fields": []
         }
     ],
     "support_url": "",
