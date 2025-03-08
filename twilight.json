@@ -1210,7 +1210,128 @@
             "title": "التصنيفات -  ألوري",
             "icon": "sicon-store",
             "path": "home.AL-categories",
-            "fields": []
+            "fields": [
+                {
+                    "id": "category",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "التصنيف",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "category.background_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون خلفية التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#f6f6f6",
+                            "required": false
+                        },
+                        {
+                            "id": "category.background_hover_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون خلفية التصنيف عند تمرير الؤشر",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#597445",
+                            "required": false
+                        },
+                        {
+                            "id": "category.category_image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "صورة التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": "https://cdn.salla.sa/form-builder/ZngOX2M433rQ8CQUmSpN95NtUUSoD6aaUA7Dqd34.png",
+                            "required": false
+                        },
+                        {
+                            "id": "category.category_name",
+                            "type": "string",
+                            "format": "text",
+                            "label": "اسم التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": "العنايـــة بالجســــم",
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": "1",
+                            "maxLength": "100"
+                        },
+                        {
+                            "id": "category.category_name_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون اسم التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#597445",
+                            "required": false
+                        },
+                        {
+                            "id": "category.category_num",
+                            "type": "number",
+                            "format": "integer",
+                            "inputType": "number",
+                            "label": "عدد قطع التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Input an integer number between 5 and 50.",
+                            "icon": "sicon-hashtag",
+                            "value": 55,
+                            "required": false,
+                            "minimum": 0,
+                            "maximum": "100000"
+                        },
+                        {
+                            "id": "category.category_num_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون عدد قطع التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#597445",
+                            "required": false
+                        },
+                        {
+                            "id": "category.category_link",
+                            "type": "string",
+                            "format": "url",
+                            "inputType": "url",
+                            "label": "لينك التصنيف",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://salla.sa",
+                            "icon": "sicon-link",
+                            "value": null,
+                            "required": false,
+                            "minLength": "1",
+                            "maxLength": "300"
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "20"
+                }
+            ]
         },
         {
             "key": "0eda2055-fc30-4d4b-9f4b-bbb8c127be34",
