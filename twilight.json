@@ -994,6 +994,13 @@
                     "maxLength": "15"
                 }
             ]
+        },
+        {
+            "key": "0c199601-251a-40ca-9a3b-737d3362fd7a",
+            "title": "اراء العملاء - الوري",
+            "icon": "sicon-store",
+            "path": "home.AL-testimonials",
+            "fields": []
         }
     ],
     "support_url": "",
