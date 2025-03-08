@@ -2014,6 +2014,13 @@
                     "maxLength": "4"
                 }
             ]
+        },
+        {
+            "key": "bd0c5ac9-94de-4f45-ac12-2318eb9e93ef",
+            "title": "عنوان مميز - ألوري",
+            "icon": "sicon-store",
+            "path": "home.AL-special-title",
+            "fields": []
         }
     ],
     "support_url": "",
