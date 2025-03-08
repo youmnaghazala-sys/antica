@@ -57,28 +57,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
-
     {% include 'pages.partials.loading-screen-assets' %}
-
     <script defer data-cfasync="false" src="{{ 'product-card.js'|asset }}"></script>
     <script defer src="{{ 'main-menu.js'|asset }}"></script>
-
     {% block head_scripts %}{% endblock %}
-
-
     <script data-cfasync="false">
         window.header_is_sticky = "{{theme.settings.get('header_is_sticky', 'Default Value')}}"
         window.imageZoom = "{{theme.settings.get('imageZoom')}}"
         window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
     </script>
-    
     {% hook 'head:start' %}
     {% hook head %}
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ 'app.css' | asset }}">
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
-    
     <style>
         :root {
             --font-main: '{{theme.font.name}}';
@@ -96,28 +89,26 @@
   {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }}
   {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
   ">
-  <div class="loader-init"></div>
-<noscript>
-    To get full functionality of this site you need to enable JavaScript. Here is how
-    <a href="https://www.enable-javascript.com/" rel="noreferrer"
-       target="_blank">To enable JavaScript on webpage</a>.
-</noscript>
-<div class="app-inner flex flex-col min-h-full">
-    {% hook 'body:start' %}
-    {% component 'header.header' %}
-    {% block content %}{% endblock %}
-    {% component 'footer.footer' %}
-</div>
-{% hook 'body:end' %}
-<script defer src="{{ 'app.js' | asset }}"></script>
-
-{# Twilight Components #}
-<salla-offer-modal></salla-offer-modal>
-<salla-search></salla-search>
-
-{% if user.type=='guest' %}
-    <salla-login-modal></salla-login-modal>
-{% endif %}
-{% block scripts %}{% endblock %}
+    <div class="loader-init"></div>
+    <noscript>
+        To get full functionality of this site you need to enable JavaScript. Here is how
+        <a href="https://www.enable-javascript.com/" rel="noreferrer"
+        target="_blank">To enable JavaScript on webpage</a>.
+    </noscript>
+    <div class="app-inner flex flex-col min-h-full">
+        {% hook 'body:start' %}
+        {% component 'header.header' %}
+        {% block content %}{% endblock %}
+        {% component 'footer.footer' %}
+    </div>
+    {% hook 'body:end' %}
+    <script defer src="{{ 'app.js' | asset }}"></script>
+    {# Twilight Components #}
+    <salla-offer-modal></salla-offer-modal>
+    <salla-search></salla-search>
+    {% if user.type=='guest' %}
+        <salla-login-modal></salla-login-modal>
+    {% endif %}
+    {% block scripts %}{% endblock %}
 </body>
 </html>
