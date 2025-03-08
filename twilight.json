@@ -925,7 +925,75 @@
             "title": "شريط الماركات - ألوري",
             "icon": "sicon-store",
             "path": "home.AL-brands",
-            "fields": []
+            "fields": [
+                {
+                    "id": "section_background_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفيه المكون",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#3e582b",
+                    "required": false
+                },
+                {
+                    "id": "brands",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "الماركات",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Brands",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
+                },
+                {
+                    "id": "enable_brands_images",
+                    "type": "boolean",
+                    "format": "checkbox",
+                    "label": "تفعيل صور الماركات",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-check-square",
+                    "value": true,
+                    "selected": true,
+                    "required": false
+                },
+                {
+                    "id": "brands_images",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "صور الماركات",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "brands_images.brand_img",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الماركه",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "15"
+                }
+            ]
         }
     ],
     "support_url": "",
