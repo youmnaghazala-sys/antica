@@ -1191,23 +1191,19 @@
                     "required": false
                 },
                 {
-                    "id": "video_banner",
+                    "id": "video_banner_link",
                     "type": "string",
-                    "format": "image",
-                    "label": "صورة البانر",
+                    "format": "url",
+                    "inputType": "url",
+                    "label": "لينك فيديو البانر",
                     "description": null,
                     "labelHTML": null,
-                    "placeholder": "e.g. https://hostname.com/image.png",
-                    "icon": "sicon-image",
+                    "placeholder": "e.g. https://salla.sa",
+                    "icon": "sicon-link",
                     "value": null,
                     "required": false,
-                    "conditions": [
-                        {
-                            "id": "imaoge_OR_video",
-                            "operation": "=",
-                            "value": true
-                        }
-                    ]
+                    "minLength": 6,
+                    "maxLength": 30
                 },
                 {
                     "id": "image_banner",
