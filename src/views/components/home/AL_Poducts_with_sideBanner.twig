@@ -4,8 +4,8 @@
         <h2 style = "color: {{ c.section_title_color }};">{{ c.Section_title }}</h2>
     </div>
 
-    <div class = "container flex flex-row">
-        <div class = "banner">
+    <div class = "container flex flex-row gap-6">
+        <div class = "banner w-1/4">
             {% if c.switch_video %}
                 <div class = "video_banner">
 					<video autoplay muted loop playsinline>
@@ -19,11 +19,53 @@
                 </div>
             {% endif %}
         </div>
-        <div class = "products flex flex-row">
+        <div class = "products grid grid-cols-2 w-full gap-6">
             {% for product in c.products %}
                 <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
             {% endfor %}
         </div>
         
     </div>
+
+
 </section>
+
+<style>
+    .products custom-salla-product-card {
+        max-width: 384px;
+        height : 178px;
+        border-radius: 0;
+
+    }
+    .products custom-salla-product-card .s-product-card-image{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 45%;
+    }
+    .products custom-salla-product-card .s-product-card-content{
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+    .products custom-salla-product-card .s-product-card-content .s-product-card-content-sub {
+        justify-content: center !important;
+    }
+    
+    .products custom-salla-product-card .s-product-card-image img{
+        
+        background-color: #fff;
+
+    }
+    .s-product-card-content-footer {
+        display: none;
+    }
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".products custom-salla-product-card").forEach(card => {
+            card.classList.remove("s-product-card-vertical");
+            card.classList.add("s-product-card-horizontal");
+        });
+    });
+</script>
