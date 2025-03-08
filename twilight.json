@@ -1001,6 +1001,13 @@
             "icon": "sicon-store",
             "path": "home.AL-testimonials",
             "fields": []
+        },
+        {
+            "key": "4237be22-e55e-4e9b-b29a-43fe40ac3a9a",
+            "title": "بانر متقدم - ألورى",
+            "icon": "sicon-store",
+            "path": "home.A_fixed_banner",
+            "fields": []
         }
     ],
     "support_url": "",
