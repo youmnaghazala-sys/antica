@@ -1135,7 +1135,75 @@
             "title": "منتجات مع بانر جانبي - ألورا",
             "icon": "sicon-store",
             "path": "home.AL_Poducts_with_sideBanner",
-            "fields": []
+            "fields": [
+                {
+                    "id": "Section_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "عنوان السكشن",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": "3",
+                    "maxLength": "255"
+                },
+                {
+                    "id": "section_title_section",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون نص عنوان السكشن",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "imaoge_OR_video",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "صورة او فيديو",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
+                },
+                {
+                    "id": "image_banner",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة البانر",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "products",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "المنتجات",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Products",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
+                }
+            ]
         },
         {
             "key": "3ba1d7cf-45e2-416a-81d7-feef743fca73",
