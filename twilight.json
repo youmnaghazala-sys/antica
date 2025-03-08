@@ -1223,43 +1223,73 @@
             "path": "home.A_fixed_banner",
             "fields": [
                 {
+                    "id": "is_container",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "تضمين داخل حاوية مرنة",
+                    "description": "فعّل هذا الخيار إذا كنت ترغب في إدراج المكون داخل حاوية مرنة لتحسين التخطيط والتنظيم.",
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
+                },
+                {
                     "id": "main_title",
                     "type": "string",
                     "format": "text",
-                    "label": "العنوان الرئيسى",
-                    "description": null,
-                    "labelHTML": null,
-                    "placeholder": "Placeholder text ..",
+                    "label": "العنوان الرئيسي المميز",
+                    "description": "أدخل عنوانًا بارزًا لجذب انتباه المستخدمين، يفضل أن يكون موجزًا ومعبّرًا.",
+                    "placeholder": "أدخل العنوان هنا...",
                     "icon": "sicon-format-text-alt",
                     "value": null,
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": "200"
+                    "maxLength": 200
+                },
+                {
+                    "id": "text_maintitle",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون العنوان الرئيسي",
+                    "description": "حدد لون العنوان الرئيسي ليتناسب مع تصميم المكون ويبرز المحتوى بشكل أفضل.",
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
                 },
                 {
                     "id": "sub_title",
                     "type": "string",
                     "format": "text",
-                    "label": "العنوان الفرعى",
-                    "description": null,
-                    "labelHTML": null,
-                    "placeholder": "Placeholder text ..",
+                    "label": "العنوان الفرعي التوضيحي",
+                    "description": "أدخل عنوانًا فرعيًا يكمل العنوان الرئيسي ويوضح الفكرة بشكل أكبر.",
+                    "placeholder": "أدخل العنوان الفرعي هنا...",
                     "icon": "sicon-format-text-alt",
                     "value": null,
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": "200"
+                    "maxLength": 200
                 },
                 {
-                    "id": "text_color",
+                    "id": "text_subtitle",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون النصوص فى المكون",
-                    "description": null,
-                    "labelHTML": null,
+                    "label": "لون العنوان الفرعي",
+                    "description": "حدد لون العنوان الفرعي لتحقيق تناسق بصري مع العنوان الرئيسي.",
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "text_bg",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفية النصوص",
+                    "description": "اختر لونًا لخلفية النصوص داخل المكون لتحسين القابلية للقراءة.",
                     "icon": "sicon-format-fill",
                     "value": "#004956",
                     "required": false
@@ -1268,16 +1298,79 @@
                     "id": "btn_txt",
                     "type": "string",
                     "format": "text",
-                    "label": "نص الزر",
-                    "description": null,
-                    "labelHTML": null,
-                    "placeholder": "Placeholder text ..",
+                    "label": "نص الزر الجذاب",
+                    "description": "أدخل نصًا واضحًا للزر ليحفز المستخدمين على التفاعل مع المكون.",
+                    "placeholder": "أدخل نص الزر هنا...",
                     "icon": "sicon-format-text-alt",
                     "value": null,
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": "100"
+                    "maxLength": 100
+                },
+                {
+                    "id": "btn_url",
+                    "type": "items",
+                    "icon": "sicon-link",
+                    "label": "رابط الزر",
+                    "description": "حدد الرابط الذي سيتم توجيه المستخدم إليه عند النقر على الزر.",
+                    "value": null,
+                    "required": false,
+                    "format": "variable-list",
+                    "searchable": true,
+                    "source": "custom",
+                    "sources": [
+                        {
+                            "label": "منتج",
+                            "key": "products",
+                            "value": "products"
+                        },
+                        {
+                            "label": "تصنيف",
+                            "key": "categories",
+                            "value": "categories"
+                        },
+                        {
+                            "label": "ماركة تجارية",
+                            "key": "brands",
+                            "value": "brands"
+                        },
+                        {
+                            "label": "صفحة تعريفية",
+                            "key": "pages",
+                            "value": "pages"
+                        },
+                        {
+                            "label": "مقالة",
+                            "key": "blog_articles",
+                            "value": "blog_articles"
+                        },
+                        {
+                            "label": "تصنيف ضمن المدونة",
+                            "key": "blog_categories",
+                            "value": "blog_categories"
+                        },
+                        {
+                            "label": "التخفيضات",
+                            "key": "offers_link",
+                            "value": "offers_link"
+                        },
+                        {
+                            "label": "الماركات التجارية",
+                            "key": "brands_link",
+                            "value": "brands_link"
+                        },
+                        {
+                            "label": "المدونة",
+                            "key": "blog_link",
+                            "value": "blog_link"
+                        },
+                        {
+                            "label": "رابط خارجي",
+                            "key": "custom",
+                            "value": "custom"
+                        }
+                    ]
                 },
                 {
                     "id": "btn_color",
@@ -1285,10 +1378,9 @@
                     "format": "color",
                     "inputType": "color",
                     "label": "لون نص الزر",
-                    "description": null,
-                    "labelHTML": null,
+                    "description": "اختر لونًا للنص داخل الزر لضمان وضوح القراءة.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#ffffff",
                     "required": false
                 },
                 {
@@ -1297,29 +1389,25 @@
                     "format": "color",
                     "inputType": "color",
                     "label": "لون خلفية الزر",
-                    "description": null,
-                    "labelHTML": null,
+                    "description": "حدد لون خلفية الزر ليكون متناسقًا مع التصميم العام.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#000000",
                     "required": false
                 },
                 {
                     "id": "albome",
                     "type": "collection",
                     "format": "collection",
-                    "label": "معرض الصور",
-                    "description": null,
-                    "labelHTML": null,
-                    "item_label": null,
+                    "label": "معرض الوسائط",
+                    "description": "أضف صورًا أو مقاطع فيديو لعرضها في المكون.",
                     "icon": "sicon-list-add",
                     "fields": [
                         {
                             "id": "albome.is_video",
                             "type": "boolean",
                             "format": "switch",
-                            "label": "ادخل فيديو بدلا من صورة",
-                            "description": null,
-                            "labelHTML": null,
+                            "label": "استخدام فيديو بدلًا من صورة",
+                            "description": "فعّل هذا الخيار لإدراج مقطع فيديو بدلاً من صورة في المعرض.",
                             "icon": "sicon-toggle-off",
                             "value": true,
                             "selected": false,
@@ -1330,32 +1418,48 @@
                             "type": "string",
                             "format": "url",
                             "inputType": "url",
-                            "label": "لينك الفيديو",
-                            "description": null,
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://salla.sa",
+                            "label": "رابط الفيديو",
+                            "description": "أدخل رابط الفيديو الذي تريد عرضه في المعرض.",
+                            "placeholder": "مثال: https://salla.sa",
                             "icon": "sicon-link",
                             "value": null,
                             "required": false,
                             "minLength": 6,
-                            "maxLength": 30
+                            "maxLength": 5000,
+                            "conditions": [
+                                {
+                                    "id": "albome.is_video",
+                                    "operation": "=",
+                                    "value": true,
+                                    "collection_id": "albome",
+                                    "value_index": "."
+                                }
+                            ]
                         },
                         {
                             "id": "albome.banner_img",
                             "type": "string",
                             "format": "image",
-                            "label": "صورة البانر",
-                            "description": null,
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "label": "صورة المعرض",
+                            "description": "أضف صورة لاستخدامها في المعرض عند عدم تفعيل خيار الفيديو.",
+                            "placeholder": "مثال: https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": false,
+                            "conditions": [
+                                {
+                                    "id": "albome.is_video",
+                                    "operation": "=",
+                                    "value": false,
+                                    "collection_id": "albome",
+                                    "value_index": "."
+                                }
+                            ]
                         }
                     ],
                     "value": [],
                     "minLength": 1,
-                    "maxLength": "3"
+                    "maxLength": 3
                 }
             ]
         },

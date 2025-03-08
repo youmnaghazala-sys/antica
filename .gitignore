@@ -11,7 +11,7 @@ lerna-debug.log*
 node_modules/
 public/
 jspm_packages/
-
+public/
 # Yarn Integrity file
 .yarn-integrity
 
