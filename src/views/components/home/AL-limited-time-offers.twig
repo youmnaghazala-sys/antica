@@ -16,7 +16,12 @@
                   <button class="offers-slider-item-content-button flex items-center gap-x-2.5 md:gap-x-4" style="color: {{component.button_label_color}}; background-color: {{component.button_color}}"><span>{{offer.button_label}}</span> {% include 'pages.partials.arrow-left-icon.twig' %}</button>
                 </div>
                 <div class="w-full md:w-1/2">
-
+                  <salla-count-down
+                    digits="en"
+                    size="md"
+                    labeled="true"
+                    date="2025-11-12">
+                  </salla-count-down>
                 </div>
               </div>
               <div class="w-full h-full absolute top-0 left-0 z-1">

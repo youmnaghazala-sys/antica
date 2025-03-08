@@ -15,6 +15,7 @@
     &-wrapper{
       @media (max-width: 768px) {
         gap: 50px 0;
+        justify-content: space-between;
       }
     }
     &-content{
@@ -53,6 +54,53 @@
           margin-top: 3px;
         }
       }
+    }
+    .s-count-down-wrapper{
+      display: flex;
+      justify-content: center;
+    }
+    .s-count-down-list{
+      color: white;
+      padding: 0;
+      margin: 0;
+      margin-left: 159px;
+      width: 265px;
+      @media (max-width: 1024px)  {
+        margin-left: 30px;
+      }
+      @media (max-width: 768px) {
+        width: 207px;
+        padding-bottom: 34px;
+      }
+    }
+    .s-count-down-dark .s-count-down-item::after{
+      content: "";
+      height: 560px;
+      background: white;
+      width: 2px;
+      @media (max-width: 768px) {
+        height: 134px;
+        margin-top: 15px;
+      }
+
+    }
+    .s-count-down-dark .s-count-down-item{
+      color: white;
+      gap: 25px 0;
+      @media (max-width: 768px) {
+        gap: 10px 0;
+      }
+    }
+    .s-count-down-item-value{
+      font-size: clamp(2rem, 1.8469rem + 0.6531vw, 2.5rem);
+    }
+    .s-count-down-item-label{
+      font-size: clamp(0.875rem, 0.7602rem + 0.4898vw, 1.25rem);
+      color: white;
+      opacity: 1;
+    }
+    .s-count-down-dark .s-count-down-item:last-child:after{
+      display: none;
     }
   }
 }
