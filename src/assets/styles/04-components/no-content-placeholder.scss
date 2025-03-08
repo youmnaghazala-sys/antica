@@ -9,3 +9,50 @@
       @apply text-base text-gray-500 mb-4;
     }
 }
+
+.LA_limited-time-offers{
+  .offers-slider-item{
+    &-wrapper{
+      @media (max-width: 768px) {
+        gap: 50px 0;
+      }
+    }
+    &-content{
+      padding-right: clamp(1.5rem, -0.7347rem + 9.5347vw, 8.8rem);
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: self-start;
+      @media (max-width: 768px) {
+        padding-top:32px;
+        padding-left: 40px;
+        gap:10px
+      }
+      &-title{
+        font-size: clamp(0.875rem, 0.7602rem + 0.4898vw, 1.25rem);
+      }
+      &-primary{
+        h2{
+          font-size: clamp(1.5rem, 1.1939rem + 1.3061vw, 2.5rem);
+          font-weight: 700;
+          margin-bottom: 22px;
+          @media (max-width: 768px) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+      &-sub{
+        font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
+      }
+      &-button{
+        font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
+        padding: 18px;
+        margin-top: 27px;
+        @media (max-width: 768px) {
+          padding: 10.5px;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+}
