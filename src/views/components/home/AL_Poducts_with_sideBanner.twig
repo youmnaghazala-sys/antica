@@ -1,0 +1,26 @@
+{% set c = component %}
+<section>
+    <div class = "header">
+        <h2>{{ c.Section_title }}</h2>
+        <span></span>
+    </div>
+    <div class = "container flex flex-row">
+        <div class = "banner">
+            {% if c.image_OR_video %}
+                <div>
+                    <video>
+                        <source src="{{ c.image_banner }}" type="video/mp4">
+                    </video>
+                </div>
+            {% else %}
+                <div>
+                    <img src="{{ c.image_banner }}" alt="">
+                </div>
+            {% endif %}
+        </div>
+        <div class = "products">
+            {{c.products}}
+        </div>
+        
+    </div>
+</section>

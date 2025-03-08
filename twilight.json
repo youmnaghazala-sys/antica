@@ -1167,13 +1167,32 @@
                     "id": "imaoge_OR_video",
                     "type": "boolean",
                     "format": "switch",
-                    "label": "صورة او فيديو",
+                    "label": "تفعيل وضع البانر كفيديو",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-toggle-off",
                     "value": true,
                     "selected": false,
                     "required": false
+                },
+                {
+                    "id": "video_banner",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة البانر",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false,
+                    "conditions": [
+                        {
+                            "id": "imaoge_OR_video",
+                            "operation": "=",
+                            "value": true
+                        }
+                    ]
                 },
                 {
                     "id": "image_banner",
@@ -1185,7 +1204,14 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": null,
-                    "required": false
+                    "required": false,
+                    "conditions": [
+                        {
+                            "id": "imaoge_OR_video",
+                            "operation": "=",
+                            "value": false
+                        }
+                    ]
                 },
                 {
                     "id": "products",
