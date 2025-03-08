@@ -1007,7 +1007,128 @@
             "title": "بانر متقدم - ألورى",
             "icon": "sicon-frame-image",
             "path": "home.A_fixed_banner",
-            "fields": []
+            "fields": [
+                {
+                    "id": "main_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان الرئيسى",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": "200"
+                },
+                {
+                    "id": "sub_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان الفرعى",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": "200"
+                },
+                {
+                    "id": "text_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون النصوص فى المكون",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "btn_txt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "نص الزر",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": "100"
+                },
+                {
+                    "id": "btn_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون نص الزر",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "btn_bg",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفية الزر",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "albome",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "معرض الصور",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "albome.is_video",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "ادخل فيديو بدلا من صورة",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-toggle-off",
+                            "value": true,
+                            "selected": false,
+                            "required": false
+                        },
+                        {
+                            "id": "albome.banner_img",
+                            "type": "string",
+                            "format": "image",
+                            "label": "صورة البانر",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "3"
+                }
+            ]
         },
         {
             "key": "3edd77c1-90ff-4ddb-abd9-857c6c3038d4",
