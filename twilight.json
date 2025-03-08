@@ -1665,7 +1665,7 @@
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
-                            "value": null,
+                            "value": "https://cdn.salla.sa/form-builder/KLrqy4MpX6KSbSHcXG1yZcIhYi0T7rWPx91fhRgz.png",
                             "required": false
                         },
                         {
@@ -1677,7 +1677,7 @@
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
-                            "value": null,
+                            "value": "https://cdn.salla.sa/form-builder/ijL86x3Zrb03KsIXiwMcKdd16pr3PTlZApKomQQ2.png",
                             "required": false
                         },
                         {
