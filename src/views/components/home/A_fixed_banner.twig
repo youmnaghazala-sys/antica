@@ -10,14 +10,13 @@
         {% else %}
             <img src="{{item.banner_img}}" alt="image of banner" class="w-full h-full object-cover">
         {% endif %}
-        
         </div>
     {% endfor %}
-		<div class="text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center" style="background-color:{{c.text_bg}};">
+		<div class="text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center sm:gap-6" style="background-color:{{c.text_bg}};">
 			<h1 class="text-[40px] font-bold" style="color:{{c.text_maintitle}}">{{c.main_title}}</h1>
 			<p class="text-2xl" style="color:{{c.text_subtitle}}">{{c.sub_title}}</p>
-			<a href="{{c.btn_url}}" style="color:{{c.btn_color}}; background:{{c.btn_bg}};">{{c.btn_txt}}</a>
-		</div>
+			{# <a href="{{c.btn_url}}" class="All_banner_btn relative sm:text-2xl px-[22px] py-3 flex items-center gap-[14px]" style="color:{{c.btn_color}}; background:{{c.btn_bg}}; --btn-bg:{{c.btn_bg}};">{{c.btn_txt}}<i class="sicon-arrow-left"></i></a> #}
+				{% include 'components.custom.button' with {'btn_txt': c.btn_txt,'btn_url': c.btn_url, 'btn_bg':c.btn_bg, 'btn_color':c.btn_color } %}		</div>
 	</div>
 </section>
 

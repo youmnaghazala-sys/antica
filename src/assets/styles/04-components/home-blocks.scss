@@ -397,3 +397,12 @@
 .s-block--tabs-produtcs + .s-block--tabs-produtcs {
   padding-top: 2em;
 }
+
+.All{
+  &_banner_btn{
+    &::after{
+      content:"";
+      @apply absolute top-1 -right-1 left-0 w-full h-full bg-transparent border border-solid border-[var(--btn-bg)];
+    }
+  } 
+}
