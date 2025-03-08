@@ -1833,6 +1833,13 @@
                     "required": false
                 }
             ]
+        },
+        {
+            "key": "747cd24f-5ec6-4569-83e7-3b596f612e7d",
+            "title": "تابعنا - ألوري",
+            "icon": "sicon-store",
+            "path": "home.AL-followus",
+            "fields": []
         }
     ],
     "support_url": "",
