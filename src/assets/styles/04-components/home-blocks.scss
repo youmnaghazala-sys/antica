@@ -402,7 +402,7 @@
   &_banner_btn{
     &::after{
       content:"";
-      @apply absolute top-1 -right-1 left-0 w-full h-full bg-transparent border border-solid border-[var(--btn-bg)];
+      @apply absolute top-0.5 md:top-1 -right-0.5 md:-right-1 left-0 w-full h-full bg-transparent border border-solid border-[var(--btn-bg)];
     }
   } 
 }

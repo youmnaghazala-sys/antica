@@ -1,5 +1,6 @@
 {% set c = component %}
 <section>
+<div class="{{c.is_container ? 'container' }}"></div>
 	<div class="grid grid-cols-2 sm:grid-cols-4 grid-rows-2">
     {% for item in c.albome %}
         <div class="{{ loop.first ? 'col-span-2 row-span-2' : 'order-2' }}">
@@ -12,11 +13,10 @@
         {% endif %}
         </div>
     {% endfor %}
-		<div class="text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center sm:gap-6" style="background-color:{{c.text_bg}};">
-			<h1 class="text-[40px] font-bold" style="color:{{c.text_maintitle}}">{{c.main_title}}</h1>
-			<p class="text-2xl" style="color:{{c.text_subtitle}}">{{c.sub_title}}</p>
-			{# <a href="{{c.btn_url}}" class="All_banner_btn relative sm:text-2xl px-[22px] py-3 flex items-center gap-[14px]" style="color:{{c.btn_color}}; background:{{c.btn_bg}}; --btn-bg:{{c.btn_bg}};">{{c.btn_txt}}<i class="sicon-arrow-left"></i></a> #}
-				{% include 'components.custom.button' with {'btn_txt': c.btn_txt,'btn_url': c.btn_url, 'btn_bg':c.btn_bg, 'btn_color':c.btn_color } %}		</div>
+		<div class="text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center gap-3.5 md:gap-6 py-12 md:py-0" style="background-color:{{c.text_bg}};">
+			<h1 class="text-xl md:text-[40px] font-bold" style="color:{{c.text_maintitle}}">{{c.main_title}}</h1>
+			<p class="text-base md:text-2xl" style="color:{{c.text_subtitle}}">{{c.sub_title}}</p>
+			{% include 'components.custom.button' with {'btn_txt': c.btn_txt,'btn_url': c.btn_url, 'btn_bg':c.btn_bg, 'btn_color':c.btn_color } %}		</div>
 	</div>
 </section>
 
