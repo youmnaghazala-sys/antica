@@ -1203,7 +1203,14 @@
                     "value": null,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": 30
+                    "maxLength": 2000000,
+                    "conditions": [
+                        {
+                            "id": "imaoge_OR_video",
+                            "operation": "=",
+                            "value": true
+                        }
+                    ]
                 },
                 {
                     "id": "image_banner",
