@@ -1112,6 +1112,21 @@
                             "required": false
                         },
                         {
+                            "id": "albome.video_url",
+                            "type": "string",
+                            "format": "url",
+                            "inputType": "url",
+                            "label": "لينك الفيديو",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://salla.sa",
+                            "icon": "sicon-link",
+                            "value": null,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
                             "id": "albome.banner_img",
                             "type": "string",
                             "format": "image",
@@ -1121,17 +1136,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false,
-                            "conditions":[
-                                {
-                                    "id":"albome.is_video",
-                                    "operation":"=",
-                                    "value":false,
-                                    "collection_id":"albome",
-                                    "value_index":"."
-
-                                }
-                            ]
+                            "required": false
                         }
                     ],
                     "value": [],
