@@ -1167,7 +1167,7 @@
                     "maxLength": "255"
                 },
                 {
-                    "id": "section_title_section",
+                    "id": "section_title_color",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
@@ -1179,7 +1179,7 @@
                     "required": false
                 },
                 {
-                    "id": "imaoge_OR_video",
+                    "id": "switch_video",
                     "type": "boolean",
                     "format": "switch",
                     "label": "تفعيل وضع البانر كفيديو",
@@ -1206,7 +1206,7 @@
                     "maxLength": 2000000,
                     "conditions": [
                         {
-                            "id": "imaoge_OR_video",
+                            "id": "switch_video",
                             "operation": "=",
                             "value": true
                         }
@@ -1225,7 +1225,7 @@
                     "required": false,
                     "conditions": [
                         {
-                            "id": "imaoge_OR_video",
+                            "id": "switch_video",
                             "operation": "=",
                             "value": false
                         }

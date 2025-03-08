@@ -1,25 +1,28 @@
 {% set c = component %}
-<section>
-    <div class = "header">
-        <h2>{{ c.Section_title }}</h2>
-        <span></span>
+<section class = "AL_Products_with_sideBanner my-5">
+    <div class = "header container text-center my-2">
+        <h2 style = "color: {{ c.section_title_color }};">{{ c.Section_title }}</h2>
     </div>
+
     <div class = "container flex flex-row">
         <div class = "banner">
-            {% if c.image_OR_video %}
-                <div>
-                    <video>
-                        <source src="{{ c.image_banner }}" type="video/mp4">
-                    </video>
-                </div>
+            {% if c.switch_video %}
+                <div class = "video_banner">
+					<video autoplay muted loop playsinline>
+						<source src="{{ c.video_banner_link }}" type="video/mp4"/>
+						Your browser does not support the video tag.
+					</video>
+				</div>
             {% else %}
-                <div>
+                <div class = "image_div">
                     <img src="{{ c.image_banner }}" alt="">
                 </div>
             {% endif %}
         </div>
-        <div class = "products">
-            {{c.products}}
+        <div class = "products flex flex-row">
+            {% for product in c.products %}
+                <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+            {% endfor %}
         </div>
         
     </div>
