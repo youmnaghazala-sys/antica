@@ -1024,6 +1024,18 @@
                     "maxLength": "200"
                 },
                 {
+                    "id": "text_maintitle",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون العنوان الرائيسى",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
                     "id": "sub_title",
                     "type": "string",
                     "format": "text",
@@ -1039,11 +1051,23 @@
                     "maxLength": "200"
                 },
                 {
-                    "id": "text_color",
+                    "id": "text_subtitle",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون النصوص فى المكون",
+                    "label": "لون العنوان الفرعى",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "text_bg",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفية النصوص فى المكون",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -1153,18 +1177,7 @@
                     "value": "#000000",
                     "required": false
                 },
-                {
-                    "id": "text_bg",
-                    "type": "string",
-                    "format": "color",
-                    "inputType": "color",
-                    "label": "لون خلفية النصوص فى المكون",
-                    "description": null,
-                    "labelHTML": null,
-                    "icon": "sicon-format-fill",
-                    "value": "#004956",
-                    "required": false
-                },
+                
                 {
                     "id": "albome",
                     "type": "collection",
