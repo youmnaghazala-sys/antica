@@ -1005,7 +1005,7 @@
         {
             "key": "4237be22-e55e-4e9b-b29a-43fe40ac3a9a",
             "title": "بانر متقدم - ألورى",
-            "icon": "sicon-store",
+            "icon": "sicon-frame-image",
             "path": "home.A_fixed_banner",
             "fields": []
         }
