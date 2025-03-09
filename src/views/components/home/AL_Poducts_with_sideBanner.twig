@@ -3,7 +3,6 @@
     <div class = "header container text-center my-2">
         <h2 style = "color: {{ c.section_title_color }};">{{ c.Section_title }}</h2>
     </div>
-
     <div class = "container flex flex-row gap-6">
         <div class = "banner w-1/4">
             {% if c.switch_video %}
@@ -24,15 +23,11 @@
                 <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
             {% endfor %}
         </div>
-        
     </div>
-
-
 </section>
 
 <style>
     .products custom-salla-product-card {
-        max-width: 384px;
         height : 178px;
         border-radius: 0;
 
