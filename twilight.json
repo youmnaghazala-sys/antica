@@ -111,6 +111,142 @@
             "selected": false
         },
         {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "خعل خلفية أسفل الصفحة صورة بدلا من لون",
+            "description": null,
+            "id": "is_bg_image",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": false
+        },
+        {
+            "id": "footer_bg_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون خلفية أسفل الصفحة",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#ffffff",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "is_bg_image",
+                    "operation": "=",
+                    "value": false
+                }
+            ]
+        },
+        {
+            "id": "footer_bg_img",
+            "type": "string",
+            "format": "image",
+            "label": "صورة خلفية أسفل الصفحة",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": null,
+            "required": false,
+           "conditions": [
+                {
+                    "id": "is_bg_image",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "footer_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون النصوص في أسفل الصفحة",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#ffffff",
+            "required": false
+        },
+        {
+            "id": "is_logo",
+            "type": "boolean",
+            "format": "switch",
+            "label": "إضافة لوجو مخصص فى أسفل الصفحة",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
+        },
+        {
+            "id": "footer_logo",
+            "type": "string",
+            "format": "image",
+            "label": "وضع لوجو المتجر أسفل الصفحة",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": null,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "is_logo",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "is_center_footer",
+            "type": "boolean",
+            "format": "switch",
+            "label": "جعل محتوى الفوتر فى المنتصف فى شاشة الجوال",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": false,
+            "selected": false,
+            "required": false
+        },
+        {
+            "id": "has_newsletter",
+            "type": "boolean",
+            "format": "switch",
+            "label": "اظهار النشره البريدية",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
+        },
+        {
+            "id": "newsletter_action",
+            "type": "string",
+            "format": "url",
+            "inputType": "url",
+            "label": "رابط النشره البريدية",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://salla.sa",
+            "icon": "sicon-link",
+            "value": "https://gmail.us22.list-manage.com/subscribe/post?u=d7da51f96ed5732ca7c262453&id=979293c931&f_id=00b0c0e1f0",
+            "required": false,
+            "minLength": 6,
+            "maxLength": 3000,
+            "conditions": [
+                {
+                    "id": "has_newsletter",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "type": "static",
             "id": "static-line5",
             "format": "line"
