@@ -13,22 +13,20 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-
+    </div>
+    <div class = "cards container relative">
         <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
             "breakpoints": {
                 "350": {"slidesPerView": 2, "spaceBetween": 25},
                 "768": {"slidesPerView": 3, "spaceBetween": 10},
                 "1024": {"slidesPerView": 3, "spaceBetween": 10}
             }}'>
-            <div slot="items">
-                <div class = "products flex flex-row gap-4">
+            <div slot="items" class = "products flex flex-row gap-4 !w-full">
                 {% for product in c.best_sell_products %}
                     <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
-                {% endfor %}
-                </div>
+                {% endfor %} 
             </div>
         </salla-slider>
-        
     </div>
 </section>
 
