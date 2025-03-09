@@ -1010,7 +1010,7 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
+                    "value": "https://cdn.salla.sa/form-builder/raiIqjvaOvGG2V5tSZ6cP5ihe51IuSl1RAMHoOtk.png",
                     "required": false
                 },
                 {
@@ -1022,7 +1022,19 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#597445",
+                    "required": false
+                },
+                {
+                    "id": "line_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون الخط",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#597445",
                     "required": false
                 },
                 {
@@ -1034,7 +1046,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#000222",
                     "required": false
                 },
                 {
@@ -1046,7 +1058,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#202020",
                     "required": false
                 },
                 {
@@ -1058,7 +1070,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#597445",
                     "required": false
                 },
                 {
@@ -1070,7 +1082,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#ffffff",
                     "required": false
                 },
                 {
@@ -1082,7 +1094,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#202020",
                     "required": false
                 },
                 {
@@ -1094,7 +1106,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#1e2519",
                     "required": false
                 },
                 {
@@ -1106,7 +1118,19 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#597445",
+                    "required": false
+                },
+                {
+                    "id": "quats_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون علامات التنصيص",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#597445",
                     "required": false
                 },
                 {
@@ -1118,7 +1142,7 @@
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "آراء العملاء",
                     "multilanguage": false,
                     "required": false,
                     "minLength": "1",
@@ -1133,7 +1157,7 @@
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "ماذا يقول  عملاؤنـــــــــــــــــــــــا",
                     "multilanguage": false,
                     "required": false,
                     "minLength": "1",
@@ -1148,7 +1172,7 @@
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "تجارب مميزة وملاحظات قيمة تعكس جودة منتجاتنا وخدماتنا",
                     "multilanguage": false,
                     "required": false,
                     "minLength": "1",
@@ -1159,7 +1183,7 @@
                     "type": "collection",
                     "format": "collection",
                     "label": "شريط التمرير ( اراء العملاء )",
-                    "description": null,
+                    "description": "اضافة التعليقات",
                     "labelHTML": null,
                     "item_label": null,
                     "icon": "sicon-list-add",
@@ -1173,7 +1197,7 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": null,
+                            "value": "لقد جربت عدة منتجات للعناية بالبشرة من متجر الورا، وأستطيع أن أقول إن النتائج كانت مذهلة. البشرة أصبحت أكثر نعومة وإشراقًا، خاصة بعد استخدام السيروم المرطب.",
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
@@ -1188,7 +1212,7 @@
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
-                            "value": null,
+                            "value": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
                             "required": false
                         },
                         {
@@ -1200,7 +1224,7 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": null,
+                            "value": "سيروم عناية بالبشرة",
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
@@ -1215,7 +1239,7 @@
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
-                            "value": null,
+                            "value": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg",
                             "required": false
                         },
                         {
@@ -1227,7 +1251,7 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": null,
+                            "value": "نيرة مجدي (رائدة اعمال)",
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
