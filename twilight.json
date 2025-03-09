@@ -159,6 +159,25 @@
             ]
         },
         {
+            "id": "footer_bg_img_sm",
+            "type": "string",
+            "format": "image",
+            "label": "صورة خلفية أسفل الصفحة فى الموبيل",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": "https://cdn.salla.sa/form-builder/Pxv579XkRlKMkXCV6yyvNrbKGXhyZ5C4sLgnUhn8.png",
+            "required": false,
+           "conditions": [
+                {
+                    "id": "is_bg_image",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "id": "footer_color",
             "type": "string",
             "format": "color",

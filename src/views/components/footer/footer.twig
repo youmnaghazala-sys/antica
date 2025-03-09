@@ -9,7 +9,7 @@
 				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center">
 					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs	 sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
 					<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
-							<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
+						<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
 					</a>
 				</form>
 				<div class="flex gap-2 md:gap-3">
@@ -95,5 +95,10 @@
 	</div>
 </div>
 
-<span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3 opacity-40"></span></footer>
-
+<span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3 opacity-40"></span></footer><style>
+@media(max-width:768px) {
+	{% if theme.settings.get('is_footer_bg_image') %}
+		background-image: url({{theme.settings.get('footer_bg_img_sm')}});
+	{% else %}
+		background-color: {{theme.settings.get('footer_bg_color')}}{% endif %}
+}</style>
