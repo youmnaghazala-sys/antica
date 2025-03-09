@@ -2157,7 +2157,63 @@
             "title": "الأفضل مبيعا - ألوري",
             "icon": "sicon-star2",
             "path": "home.AL_best_seller",
-            "fields": []
+            "fields": [
+                {
+                    "id": "bg_video",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "جعل الخلفية فيديو",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
+                },
+                {
+                    "id": "video_url",
+                    "type": "string",
+                    "format": "url",
+                    "inputType": "url",
+                    "label": "لينك الفيديو",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://salla.sa",
+                    "icon": "sicon-link",
+                    "value": null,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": "2000000000000"
+                },
+                {
+                    "id": "bg_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة الخلفية",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "best_sell_products",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "منتجات الافضل مبيعا",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Products",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
+                }
+            ]
         }
     ],
     "support_url": "",
