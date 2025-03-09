@@ -18,7 +18,7 @@
                 </div>
             {% endif %}
         </div>
-        <div class = "products grid grid-cols-1 md:grid-cols-2 w-full gap-[1rem] md:gap-6">
+        <div class = "items grid grid-cols-1 md:grid-cols-2 w-full gap-[1rem] md:gap-6">
             {% for product in c.products %}
                 <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
             {% endfor %}
@@ -37,23 +37,23 @@
             height: 2px;
             background-color: #597445;
     }
-    .products custom-salla-product-card {
+    .items custom-salla-product-card {
         height : 178px;
         border-radius: 0;
 
     }
-    .products custom-salla-product-card .s-product-card-image{
+    .items custom-salla-product-card .s-product-card-image{
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
     }
-    .products custom-salla-product-card .s-product-card-content{
+    .items custom-salla-product-card .s-product-card-content{
        
         justify-content: center;
         margin: auto;
     }
     
-    .products custom-salla-product-card .s-product-card-image img{
+    .items custom-salla-product-card .s-product-card-image img{
         background-color: #fff;
 
     }
@@ -65,7 +65,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".products custom-salla-product-card").forEach(card => {
+        document.querySelectorAll(".items custom-salla-product-card").forEach(card => {
             card.classList.remove("s-product-card-vertical");
             card.classList.add("s-product-card-horizontal");
         });
