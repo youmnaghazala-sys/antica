@@ -133,7 +133,7 @@
             "required": false,
             "conditions": [
                 {
-                    "id": "is_bg_image",
+                    "id": "is_footer_bg_image",
                     "operation": "=",
                     "value": false
                 }
@@ -152,7 +152,7 @@
             "required": false,
            "conditions": [
                 {
-                    "id": "is_bg_image",
+                    "id": "is_footer_bg_image",
                     "operation": "=",
                     "value": true
                 }
@@ -171,7 +171,7 @@
             "required": false,
            "conditions": [
                 {
-                    "id": "is_bg_image",
+                    "id": "is_footer_bg_image",
                     "operation": "=",
                     "value": true
                 }
