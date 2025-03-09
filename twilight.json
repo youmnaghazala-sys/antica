@@ -102,13 +102,114 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "الوضع الداكن",
+            "label": "خعل خلفية أسفل الصفحة صورة بدلا من لون",
             "description": null,
-            "id": "footer_is_dark",
+            "id": "is_footer_bg_image",
             "format": "switch",
             "required": false,
             "value": true,
-            "selected": false
+            "selected": true
+        },
+        {
+            "id": "footer_bg_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون خلفية أسفل الصفحة",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#f6f6f6",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "is_footer_bg_image",
+                    "operation": "=",
+                    "value": false
+                }
+            ]
+        },
+        {
+            "id": "footer_bg_img",
+            "type": "string",
+            "format": "image",
+            "label": "صورة خلفية أسفل الصفحة",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": "https://cdn.salla.sa/form-builder/Pxv579XkRlKMkXCV6yyvNrbKGXhyZ5C4sLgnUhn8.png",
+            "required": false,
+           "conditions": [
+                {
+                    "id": "is_footer_bg_image",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "footer_bg_img_sm",
+            "type": "string",
+            "format": "image",
+            "label": "صورة خلفية أسفل الصفحة فى الموبيل",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": "https://cdn.salla.sa/form-builder/Pxv579XkRlKMkXCV6yyvNrbKGXhyZ5C4sLgnUhn8.png",
+            "required": false,
+           "conditions": [
+                {
+                    "id": "is_footer_bg_image",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "footer_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون النصوص في أسفل الصفحة",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#202020",
+            "required": false
+        },
+        {
+            "id": "has_newsletter",
+            "type": "boolean",
+            "format": "switch",
+            "label": "اظهار النشره البريدية",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
+        },
+        {
+            "id": "newsletter_action",
+            "type": "string",
+            "format": "url",
+            "inputType": "url",
+            "label": "رابط النشره البريدية",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://salla.sa",
+            "icon": "sicon-link",
+            "value": "",
+            "required": false,
+            "minLength": 6,
+            "maxLength": 3000,
+            "conditions": [
+                {
+                    "id": "has_newsletter",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "static",
