@@ -1880,8 +1880,8 @@
                             "icon": "sicon-link",
                             "value": null,
                             "required": false,
-                            "minLength": 6,
-                            "maxLength": 30
+                            "minLength": "1",
+                            "maxLength": "2000"
                         },
                         {
                             "id": "offers.offer_date",
