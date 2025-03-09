@@ -102,3 +102,147 @@
     }
   }
 }
+
+/* Product card styles */
+
+
+.s-product-card {
+  &-entry {
+    justify-content: start;
+  }
+
+  &-image {
+    aspect-ratio: 1/1;
+    height: unset;
+    background-color: #ffffff;
+    &::before {
+      font-family: "sallaicons";
+      content: "\ec1f" !important;
+    }
+  }
+
+  &-vertical {}
+
+  &-horizontal {}
+
+  &-fit-height {}
+
+  &-special {}
+
+  &-full-image {}
+
+  &-minimal {}
+
+  &-donation {}
+
+  &-shadow {}
+
+  &-out-of-stock {}
+
+  &-wishlist-btn {}
+
+  &-promotion-title {
+    right: 1rem;
+    padding: 8px 10px;
+    background-color: #BD1C1C;
+    color: #FFFFFF;
+    font-size: 16.8px;
+    border-radius: 0;
+    font-weight: 400;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    @media(max-width: 768px) {
+      font-size: 10px;
+    }
+  }
+
+  &-rating{
+    justify-content: center;
+  }
+
+  &-content {
+    align-items: center;
+    text-align: center;
+    &-main {}
+
+    &-sub {
+      justify-content: center;
+      margin-bottom: 1rem;
+      .s-product-card-sale-price h4{
+        font-size: 18px;
+        font-weight: 500;
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
+      }
+      .s-product-card-sale-price span{
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--color-primary);
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &-footer {
+      width: 100%;
+      .s-button-btn, .s-price-range-number-input{
+        border-radius:0 ;
+        -webkit-border-radius:0 ;
+        -moz-border-radius:0 ;
+        -ms-border-radius:0 ;
+        -o-border-radius:0 ;
+        background-color: var(--color-primary);
+        color: var(--color-primary-reverse);
+      }
+      .s-button-text{
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-weight: 400;
+        @media (max-width: 768px) {
+          font-size: 10px;
+        }
+      }
+    }
+
+    &-category {
+      color: var(--color-primary);
+      font-size: 16px;
+      font-weight: 400;
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+
+    &-title {
+      a{
+        font-size: 16px;
+        @media (max-width: 768px){
+          font-size: 13.79px;
+        }
+      }
+    }
+
+    &-subtitle {}
+
+    &-pie {
+      &-svg {
+        circle {}
+
+        &-base {}
+
+        &-bar {}
+      }
+    }
+
+    // for special card
+    &-extra-padding {}
+  }
+
+  &-donation-input {}
+}

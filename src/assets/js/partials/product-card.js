@@ -58,7 +58,7 @@ class ProductCard extends HTMLElement {
 
   getProductBadge() {
     if (this.product.promotion_title) {
-      return `<div class="s-product-card-promotion-title">${this.product.promotion_title}</div>`
+      return `<div class="s-product-card-promotion-title">${this.product.promotion_title}-</div>`
     }
     if (this.showQuantity && this.product?.quantity) {
       return `<div
@@ -114,6 +114,13 @@ class ProductCard extends HTMLElement {
 
     // donating
     return salla.lang.get('pages.products.donation_exceed');
+  }
+
+  renderStars(stars) {
+    if (typeof stars !== "number" || stars < 1) return "";
+    return Array.from({length : stars } , () => {
+      return `<i class="sicon-star2 before:text-orange-300"></i>`
+    }).join('')
   }
 
   getProps(){
@@ -211,8 +218,19 @@ class ProductCard extends HTMLElement {
             : ``}
 
           <div class="s-product-card-content-main ${this.isSpecial ? 's-product-card-content-extra-padding' : ''}">
+
+          ${!this.product?.rating?.stars ?
+            `<div class="s-product-card-rating mb-2.5">
+              ${this.renderStars(5)}  
+            </div>`
+             : ``}
+
+            ${this.product?.category ? `<h5 class="s-product-card-content-category mb-2.5">
+              <a href="${this.product?.category?.url}">${this.product?.category?.name} </a>
+            </h5>`: ''}
+
             <h3 class="s-product-card-content-title">
-              <a href="${this.product?.url}">${this.product?.name}</a>
+              <a class="!line-clamp-2" href="${this.product?.url}">${this.product?.name}</a>
             </h3>
 
             ${this.product?.subtitle && !this.minimal ?
@@ -239,12 +257,6 @@ class ProductCard extends HTMLElement {
             : ''}
           <div class="s-product-card-content-sub ${this.isSpecial ? 's-product-card-content-extra-padding' : ''}">
             ${this.product?.donation?.can_donate ? '' : this.getProductPrice()}
-            ${this.product?.rating?.stars ?
-              `<div class="s-product-card-rating">
-                <i class="sicon-star2 before:text-orange-300"></i>
-                <span>${this.product.rating.stars}</span>
-              </div>`
-               : ``}
           </div>
 
           ${this.isSpecial && this.product.discount_ends
