@@ -2151,6 +2151,13 @@
                     "required": false
                 }
             ]
+        },
+        {
+            "key": "e7b90807-46c6-4518-8e6a-0bcc18053f5f",
+            "title": "الأفضل مبيعا - ألوري",
+            "icon": "sicon-star2",
+            "path": "home.AL_best_seller",
+            "fields": []
         }
     ],
     "support_url": "",
