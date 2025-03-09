@@ -102,17 +102,6 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "الوضع الداكن",
-            "description": null,
-            "id": "footer_is_dark",
-            "format": "switch",
-            "required": false,
-            "value": true,
-            "selected": false
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-toggle-off",
             "label": "خعل خلفية أسفل الصفحة صورة بدلا من لون",
             "description": null,
             "id": "is_footer_bg_image",
@@ -186,18 +175,6 @@
             "description": null,
             "icon": "sicon-format-fill",
             "value": "#202020",
-            "required": false
-        },
-        {
-            "id": "is_center_footer",
-            "type": "boolean",
-            "format": "switch",
-            "label": "جعل محتوى الفوتر فى المنتصف فى شاشة الجوال",
-            "description": null,
-            "labelHTML": null,
-            "icon": "sicon-toggle-off",
-            "value": false,
-            "selected": false,
             "required": false
         },
         {

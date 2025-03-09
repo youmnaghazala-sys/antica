@@ -97,8 +97,12 @@
 
 <span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3 opacity-40"></span></footer><style>
 @media(max-width:768px) {
-	{% if theme.settings.get('is_footer_bg_image') %}
-		background-image: url({{theme.settings.get('footer_bg_img_sm')}});
-	{% else %}
-		background-color: {{theme.settings.get('footer_bg_color')}}{% endif %}
+	.store-footer {
+		{% if theme.settings.get('is_footer_bg_image') and theme.settings.get('footer_bg_img_sm') %}
+			background-image: url({{theme.settings.get('footer_bg_img_sm')}}) !important;
+		{% else %}
+			background-color: {{theme.settings.get('footer_bg_color')}}
+		{% endif %}
+	}
 }</style>
+
