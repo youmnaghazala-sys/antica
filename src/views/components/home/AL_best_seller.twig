@@ -1,68 +1,107 @@
 {% set c = component %}
-<section class="AL_best_seller my-5">  
-    <div class="background container relative h-full">
+<section class="AL_best_seller my-5 max-h-[580px]">  
+    <div class="background container relative">
         {% if c.bg_video %}
-            <div class="video-background absolute inset-0 w-full h-full">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <div class="video-background absolute inset-0 w-full ">
+                <video autoplay muted loop playsinline class="w-full">
                     <source src="{{ c.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
             </div>
         {% else %}
-            <div class="image-div w-full h-full">
-                <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
+            <div class="image-div w-full">
+                <img src="{{ c.bg_image }}" alt="Background Image" class="w-full">
             </div>
         {% endif %}
     </div>
-    <div class = "cards container relative">
-        <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
-            "breakpoints": {
-                "350": {"slidesPerView": 2, "spaceBetween": 25},
-                "768": {"slidesPerView": 3, "spaceBetween": 10},
-                "1024": {"slidesPerView": 3, "spaceBetween": 10}
-            }}'>
-            <div slot="items" class = "products flex flex-row gap-4 !w-full">
-                {% for product in c.best_sell_products %}
-                    <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
-                {% endfor %} 
-            </div>
-        </salla-slider>
+    
+    <div class="products flex flex-row gap-4 !w-full container relative">
+        {% for product in c.best_sell_products %}
+            <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+        {% endfor %} 
     </div>
 </section>
 
 <style>
     .AL_best_seller .products custom-salla-product-card {
-        height : 178px;
+        height: 178px;
         border-radius: 0;
-        
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image{
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-content{
-       
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-content {
         justify-content: center;
         margin: auto;
     }
     
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image img{
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image img {
         background-color: #fff;
-
     }
+    
     .s-product-card-content-footer {
         display: none;
     }
 
+    /* Animation */
+    .products {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 0.5s ease-out, transform 0.8s ease-out;
+    }
+
+    .products.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .custom-salla-product-card {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: transform 0.8s ease-out, opacity 0.5s ease-out;
+    }
+
+    .products.show custom-salla-product-card {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Staggered Animation */
+    .products.show custom-salla-product-card:nth-child(1) { transition-delay: 0.1s; }
+    .products.show custom-salla-product-card:nth-child(2) { transition-delay: 0.2s; }
+    .products.show custom-salla-product-card:nth-child(3) { transition-delay: 0.3s; }
+    .products.show custom-salla-product-card:nth-child(4) { transition-delay: 0.4s; }
 </style>
- 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll("#best-seller-slider custom-salla-product-card").forEach(card => {
-            card.classList.remove("s-product-card-vertical");
-            card.classList.add("s-product-card-horizontal");
-        });
+document.addEventListener("DOMContentLoaded", function () {
+    // Ensure products are displayed correctly as horizontal
+    document.querySelectorAll("custom-salla-product-card").forEach(card => {
+        card.classList.remove("s-product-card-vertical");
+        card.classList.add("s-product-card-horizontal");
     });
+
+    // Scroll animation
+    const productsSection = document.querySelector(".products");
+
+    if (productsSection) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        productsSection.classList.add("show");
+                        observer.unobserve(productsSection);
+                    }
+                });
+            },
+            { threshold: 0.3 } // Trigger when 30% of the section is visible
+        );
+
+        observer.observe(productsSection);
+    }
+});
 </script>
