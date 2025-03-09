@@ -1,0 +1,70 @@
+{% set c = component %}
+<section class="AL_best_seller w-full h-full">  
+    <div class="background container relative h-full">
+        {% if c.bg_video %}
+            <div class="video-background absolute inset-0 w-full h-full">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                    <source src="{{ c.video_url }}" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        {% else %}
+            <div class="image-div absolute inset-0 w-full h-full">
+                <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
+            </div>
+        {% endif %}
+
+        <!-- Product Slider -->
+        <div class="relative z-10 p-4">
+            <salla-slider id="best-seller-slider" show-controls="true" type="carousel" slider-config='{
+            "breakpoints": {
+                "350": {"slidesPerView": 2, "spaceBetween": 25},
+                "768": {"slidesPerView": 4, "spaceBetween": 10},
+                "1024": {"slidesPerView": 3, "spaceBetween": 10}
+            }}'>
+                <div slot="items" class="products flex flex-row">
+                    {% for item in c.best_sell_products %}
+                        <custom-salla-product-card product="{{ item }}">
+                        </custom-salla-product-card>
+                    {% endfor %}
+                </div>
+            </salla-slider>
+        </div>
+    </div>
+</section>
+<style>
+    .products custom-salla-product-card {
+        height : 178px;
+        border-radius: 0;
+
+    }
+    .products custom-salla-product-card .s-product-card-image{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 40%;
+    }
+    .products custom-salla-product-card .s-product-card-content{
+       
+        justify-content: center;
+        margin: auto;
+    }
+    
+    .products custom-salla-product-card .s-product-card-image img{
+        background-color: #fff;
+
+    }
+    .s-product-card-content-footer {
+        display: none;
+    }
+
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("#best-seller-slider custom-salla-product-card").forEach(card => {
+            card.classList.remove("s-product-card-vertical");
+            card.classList.add("s-product-card-horizontal");
+        });
+    });
+</script>
