@@ -47,10 +47,8 @@
       }
       &-button{
         font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
-        padding: 18px;
         margin-top: 27px;
         @media (max-width: 768px) {
-          padding: 10.5px;
           margin-top: 3px;
         }
       }
@@ -60,7 +58,6 @@
       justify-content: center;
     }
     .s-count-down-list{
-      color: white;
       padding: 0;
       margin: 0;
       margin-left: 159px;
@@ -76,16 +73,13 @@
     .s-count-down-dark .s-count-down-item::after{
       content: "";
       height: 560px;
-      background: white;
       width: 2px;
       @media (max-width: 768px) {
         height: 134px;
         margin-top: 15px;
       }
-
     }
     .s-count-down-dark .s-count-down-item{
-      color: white;
       gap: 25px 0;
       @media (max-width: 768px) {
         gap: 10px 0;
@@ -96,7 +90,6 @@
     }
     .s-count-down-item-label{
       font-size: clamp(0.875rem, 0.7602rem + 0.4898vw, 1.25rem);
-      color: white;
       opacity: 1;
     }
     .s-count-down-dark .s-count-down-item:last-child:after{

@@ -13,9 +13,11 @@
                     <div class="absolute h-px w-full b-0 left-0" style="background-color: {{component.primary_text_color}}"></div>
                   </div>
                   <p style="color: {{component.sub_text_color}}" class="offers-slider-item-content-sub">{{offer.sub_text}}</p>
-                  <button class="offers-slider-item-content-button flex items-center gap-x-2.5 md:gap-x-4" style="color: {{component.button_label_color}}; background-color: {{component.button_color}}"><span>{{offer.button_label}}</span> {% include 'pages.partials.arrow-left-icon.twig' %}</button>
+                  <div class="w-fit offers-slider-item-content-button">
+                    {% include 'components.custom.button' with {'btn_txt': offer.button_label, 'btn_bg': component.button_color, 'btn_color': component.button_label_color } %}
+                  </div>
                 </div>
-                <div class="w-full md:w-1/2">
+                <div class="w-full md:w-1/2" style="color: {{component.counter_color}}">
                   <salla-count-down
                     digits="en"
                     size="md"
@@ -37,3 +39,9 @@
     </salla-slider>
   </div>
 </section>
+
+<style>
+  .offers-slider-item .s-count-down-dark .s-count-down-item:after{
+    background-color: {{ component.counter_color ? component.counter_color : '#ffffff' }};
+  }
+</style>

@@ -1959,6 +1959,18 @@
                     "icon": "sicon-format-fill",
                     "value": "#000000",
                     "required": false
+                },
+                {
+                    "id": "counter_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون العداد",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#ffffff",
+                    "required": false
                 }
             ]
         },
