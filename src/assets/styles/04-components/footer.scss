@@ -47,3 +47,28 @@
 .copyright-text p{
   @apply text-gray-700;
 }
+
+.s-social-link a{
+  @apply bg-primary text-white;
+}
+.s-payments-list-item{
+  @apply rounded-sm;
+}
+.s-contacts-icon{
+  @apply border-none text-primary;
+}
+.store-footer h3{
+  @apply text-lg md:text-xl font-semibold;
+}
+.s-contacts-item{
+  @apply text-base md:text-lg;
+}
+#new-location {
+  .s-payments-list-item {
+    @apply bg-transparent;
+
+    img {
+      @apply w-40 h-full;
+    }
+  }
+}

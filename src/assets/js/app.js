@@ -23,7 +23,8 @@ class App extends AppHelpers {
     this.initiateModals();
     this.initiateCollapse();
     this.initAttachWishlistListeners();
-    this.changeMenuDirection()
+    this.changeMenuDirection();
+    this.ALU_extractfooterimage();
     initTootTip();
     this.loadModalImgOnclick();
 
@@ -51,6 +52,31 @@ class App extends AppHelpers {
           }      
         })
       })
+    }
+    ALU_extractfooterimage() {
+      setTimeout(() => {
+        const sallaPayments = document.querySelector(".salla-payments_footer");
+        const verificationContainer = document.querySelector(".verification");
+        const targetImageSrc = "https://cdn.salla.network/cdn-cgi/image/fit=scale-down,width=58,height=58,onerror=redirect,format=auto/images/sbc.png";
+        if (sallaPayments) {
+          const lastLi = sallaPayments.querySelector("li:last-child");
+          if (lastLi) {
+            const img = lastLi.querySelector("img");
+            if (img && img.src === targetImageSrc) {
+              const newLocation = document.querySelector("#new-location");
+              if (newLocation) {
+                newLocation.appendChild(lastLi);
+              }
+            } else {
+              verificationContainer?.remove();
+            }
+          } else {
+            verificationContainer?.remove();
+          }
+        } else {
+          verificationContainer?.remove();
+        }
+      }, 200);
     }
 
   loadModalImgOnclick(){

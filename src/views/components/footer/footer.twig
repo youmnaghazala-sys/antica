@@ -1,44 +1,51 @@
-<footer class="store-footer" style="background-image:url({{theme.settings.get('footer_bg_img')}});">
+<footer class="store-footer bg-no-repeat bg-cover" style="{% if theme.settings.get('is_footer_bg_image') %}background-image:url({{theme.settings.get('footer_bg_img')}}); {% else %} background-color:{{theme.settings.get('footer_bg_color')}}{% endif %}">
 
 	<div
-		aria-label="footer" class="store-footer__inner text-footercolor bg-transparent">
+		aria-label="footer" class="store-footer__inner text-footercolor !bg-transparent">
 		{# ================ newsletter=============== #}
 		{% if theme.settings.get('has_newsletter') %}
-			<div class="flex gap-7 py-12">
-				<h1 class="md:text-2xl font-medium">{{ trans('pages.cart.newlettert')}}</h1>
-				<form class="flex bg-white rounded-sm p-2">
-					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class=" border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
+			<div class="container flex flex-col sm:flex-row sm:items-center gap-7 pb-5 md:py-12 border-b border-solid  border-[#0000001a]">
+				<h1 class="text-lg md:text-2xl font-medium whitespace-nowrap">{{ trans('pages.cart.newlettert')}}</h1>
+				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center">
+					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs	 sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
 					<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
-						<button type="submit" class="text-base text-white bg-footercolor rounded-full pt-2 pb-1 px-3 rotate-[224deg]">
-							<i class="sicon-send-mail"></i>
-						</button>
+							<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
 					</a>
 				</form>
-				<div class="flex items-center gap-3">
-					<div class="flex gap-3">
-						<i class="sicon-phone-talking text-2xl text-white bg-footercolor rounded-full"></i>
-						<p>{{store.contacts.phone }}</p>
-					</div >
-					<div class="flex items-center gap-3">
-						<i class="sicon-mail  text-2xl text-white bg-footercolor rounded-full"></i>
-						<p>{{store.contacts.email }}</p>
+				<div class="flex gap-2 md:gap-3">
+					<div class="flex items-center rounded-sm p-2 md:p-4 gap-3 md:gap-7 border border-solid border-[#20202007]" style="backdrop-filter: contrast(0.9);">
+						<i class="sicon-phone-talking text-base md:text-2xl text-white bg-footercolor rounded-full p-1.5 md:p-3"></i>
+						<div>
+							<p class="text-xs md:text-lg">{{trans('pages.cart.contactus')}}</p>
+							<p>{{store.contacts.phone }}</p>
+						</div>
+					</div>
+
+					<div class="flex items-center rounded-sm border border-solid border-[#20202007] p-2 md:p-4 gap-3 md:gap-7" style="backdrop-filter: contrast(0.9);">
+						<i class="sicon-mail text-base md:text-2xl text-white bg-footercolor rounded-full p-1.5 md:p-3"></i>
+						<div>
+							<p class="text-xs md:text-lg">{{trans('pages.cart.sendus')}}</p>
+							<p>{{store.contacts.email }}</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		{% endif %}
-		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
-			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
-				<a href="{{ link('/') }}" class="flex items-center m-0">
-					<img src="{{store.logo}}" alt="{{store.name}}">
+		<div class="container grid grid-col-2 lg:grid-cols-6 gap-4 lg:gap-11 mt-5 md:mt-8">
+			<div class="col-span-2 rtl:lg:pl-11 ltr:lg:pr-11 border-b md:border-b-0 md:border-l border-solid  border-[#0000001a] pb-4 md:pb-0">
+				<a href="{{ link('/') }}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
+					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
 				</a>
 				{% if store.description %}
-					<p class="max-w-sm leading-6 mb-6">
-						{{ store.description|raw }}
-					</p>
+					<div class="mb-2.5 text-base md:text-lg leading-8 mt-2.5 md:mt-3.5">
+						<p class="max-w-sm ">
+							{{ store.description|raw }}
+						</p>
+					</div>
 				{% endif %}
 
-				<div class="hidden lg:block">
-					<salla-social class="mb-6"></salla-social>
+				<div>
+					<salla-social></salla-social>
 				</div>
 
 				{# vat #}
@@ -65,19 +72,18 @@
 				{% endif %}
 			</div>
 
-			<div>
+			<div class="col-span-2 sm:col-span-1 border-b md:border-b-0 md:border-l border-solid  border-[#0000001a] pb-4 md:pb-0">
 				<h3>{{ trans('blocks.footer.pages_links') }}</h3>
 				<salla-menu source="footer"></salla-menu>
 			</div>
 
-			<div>
+			<div class="md:border-l border-solid  border-[#0000001a]">
 				<salla-contacts></salla-contacts>
-
-				<div class="lg:hidden contact-social">
-					<salla-social></salla-social>
-				</div>
 			</div>
-
+			<div class="verification flex flex-col items-center text-center gap-1 mt-6 md:mt-5">
+				<div id="new-location"></div>
+				<p class="text-sm md:text-base font-normal text-footercolor">{{trans('pages.cart.verification')}}</p>
+			</div>
 			<salla-apps-icons class="lg:col-span-2 rtl:lg:pr-20 ltr:lg:pl-20"></salla-apps-icons>
 
 		</div>
@@ -85,7 +91,7 @@
 
 	<div class="md:flex items-center justify-between py-4 container text-center">
 		<span class="text-sm copyright-text">{% hook copyright %}</span>
-		<salla-payments></salla-payments>
+		<salla-payments class="salla-payments_footer"></salla-payments>
 	</div>
 </div>
 

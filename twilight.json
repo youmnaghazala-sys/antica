@@ -115,7 +115,7 @@
             "icon": "sicon-toggle-off",
             "label": "خعل خلفية أسفل الصفحة صورة بدلا من لون",
             "description": null,
-            "id": "is_bg_image",
+            "id": "is_footer_bg_image",
             "format": "switch",
             "required": false,
             "value": true,
