@@ -119,7 +119,7 @@
             "format": "switch",
             "required": false,
             "value": true,
-            "selected": false
+            "selected": true
         },
         {
             "id": "footer_bg_color",
@@ -129,7 +129,7 @@
             "label": "لون خلفية أسفل الصفحة",
             "description": null,
             "icon": "sicon-format-fill",
-            "value": "#ffffff",
+            "value": "#f6f6f6",
             "required": false,
             "conditions": [
                 {
@@ -148,7 +148,7 @@
             "labelHTML": null,
             "placeholder": "e.g. https://hostname.com/image.png",
             "icon": "sicon-image",
-            "value": null,
+            "value": "https://cdn.salla.sa/form-builder/Pxv579XkRlKMkXCV6yyvNrbKGXhyZ5C4sLgnUhn8.png",
             "required": false,
            "conditions": [
                 {
@@ -166,39 +166,8 @@
             "label": "لون النصوص في أسفل الصفحة",
             "description": null,
             "icon": "sicon-format-fill",
-            "value": "#ffffff",
+            "value": "#202020",
             "required": false
-        },
-        {
-            "id": "is_logo",
-            "type": "boolean",
-            "format": "switch",
-            "label": "إضافة لوجو مخصص فى أسفل الصفحة",
-            "description": null,
-            "labelHTML": null,
-            "icon": "sicon-toggle-off",
-            "value": true,
-            "selected": true,
-            "required": false
-        },
-        {
-            "id": "footer_logo",
-            "type": "string",
-            "format": "image",
-            "label": "وضع لوجو المتجر أسفل الصفحة",
-            "description": null,
-            "labelHTML": null,
-            "placeholder": "e.g. https://hostname.com/image.png",
-            "icon": "sicon-image",
-            "value": null,
-            "required": false,
-            "conditions": [
-                {
-                    "id": "is_logo",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
         },
         {
             "id": "is_center_footer",
@@ -234,7 +203,7 @@
             "labelHTML": null,
             "placeholder": "e.g. https://salla.sa",
             "icon": "sicon-link",
-            "value": "https://gmail.us22.list-manage.com/subscribe/post?u=d7da51f96ed5732ca7c262453&id=979293c931&f_id=00b0c0e1f0",
+            "value": "",
             "required": false,
             "minLength": 6,
             "maxLength": 3000,
