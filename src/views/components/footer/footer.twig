@@ -1,22 +1,31 @@
-<footer
-	class="store-footer">
-	{# ================ newsletter desktop=============== #}
-	{% if theme.settings.get('has_newsletter') %}
-		<div class="hidden md:block">
-			<h1 class="md:text-lg font-medium">{{ trans('pages.cart.newlettert')}}</h1>
-			<p class="text-xs md:text-sm font-light mb-3">{{ trans('pages.cart.newletters')}}</p>
-			<form class="flex gap-1.5">
-				<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="bg-[#FFFFFF2B] border-none focus:outline-none p-2 placeholder:text-xxs sm:placeholder:text-sm placeholder:text-white/45 rounded-4px"/>
-				<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
-					<button type="submit" class="text-base text-primary bg-footercolor rounded-4px py-2 px-8 leading-7 font-bold">
-						{{trans('pages.cart.submit')}}
-					</button>
-				</a>
-			</form>
-		
-		</div>
-	{% endif %}
-	<div aria-label="footer" class="store-footer__inner text-footercolor">
+<footer class="store-footer" style="background-image:url({{theme.settings.get('footer_bg_img')}});">
+
+	<div
+		aria-label="footer" class="store-footer__inner text-footercolor bg-transparent">
+		{# ================ newsletter=============== #}
+		{% if theme.settings.get('has_newsletter') %}
+			<div class="flex gap-7 py-12">
+				<h1 class="md:text-2xl font-medium">{{ trans('pages.cart.newlettert')}}</h1>
+				<form class="flex bg-white rounded-sm p-2">
+					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class=" border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
+					<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
+						<button type="submit" class="text-base text-white bg-footercolor rounded-full pt-2 pb-1 px-3 rotate-[224deg]">
+							<i class="sicon-send-mail"></i>
+						</button>
+					</a>
+				</form>
+				<div class="flex items-center gap-3">
+					<div class="flex gap-3">
+						<i class="sicon-phone-talking text-2xl text-white bg-footercolor rounded-full"></i>
+						<p>{{store.contacts.phone }}</p>
+					</div >
+					<div class="flex items-center gap-3">
+						<i class="sicon-mail  text-2xl text-white bg-footercolor rounded-full"></i>
+						<p>{{store.contacts.email }}</p>
+					</div>
+				</div>
+			</div>
+		{% endif %}
 		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
 			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
 				<a href="{{ link('/') }}" class="flex items-center m-0">

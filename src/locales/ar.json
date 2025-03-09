@@ -9,7 +9,9 @@
   },
   "pages": {
     "cart": {
-      "cart_options": "خيارات السلة"
+      "cart_options": "خيارات السلة",
+      "newlettert":"الاشتراك في النشرة البريدية",
+      "email":"أدخل بريدك الالكتروني"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
