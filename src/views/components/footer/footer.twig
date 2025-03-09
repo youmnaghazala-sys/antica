@@ -7,7 +7,7 @@
 			<div class="container flex flex-col sm:flex-row sm:items-center gap-7 pb-5 md:py-12 border-b border-solid  border-[#0000001a]">
 				<h1 class="text-lg md:text-2xl font-medium whitespace-nowrap">{{ trans('pages.cart.newlettert')}}</h1>
 				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center">
-					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs	 sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
+					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
 					<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
 						<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
 					</a>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 		{% endif %}
-		<div class="container grid grid-col-2 lg:grid-cols-6 gap-4 lg:gap-11 mt-5 md:mt-8">
+		<div class="container grid grid-col-2 md:grid-cols-6 gap-4 lg:gap-11 mt-5 md:mt-8">
 			<div class="col-span-2 rtl:lg:pl-11 ltr:lg:pr-11 border-b md:border-b-0 md:border-l border-solid  border-[#0000001a] pb-4 md:pb-0">
 				<a href="{{ link('/') }}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
 					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
@@ -72,15 +72,15 @@
 				{% endif %}
 			</div>
 
-			<div class="col-span-2 sm:col-span-1 border-b md:border-b-0 md:border-l border-solid  border-[#0000001a] pb-4 md:pb-0">
+			<div class="col-span-2 md:col-span-1 border-b md:border-b-0 md:border-l border-solid  border-[#0000001a] pb-4 md:pb-0">
 				<h3>{{ trans('blocks.footer.pages_links') }}</h3>
 				<salla-menu source="footer"></salla-menu>
 			</div>
 
-			<div class="md:border-l border-solid  border-[#0000001a]">
+			<div class="">
 				<salla-contacts></salla-contacts>
 			</div>
-			<div class="verification flex flex-col items-center text-center gap-1 mt-6 md:mt-5">
+			<div class="verification flex flex-col items-center text-center gap-1 mt-6 md:mt-5 md:border-r border-solid  border-[#0000001a]">
 				<div id="new-location"></div>
 				<p class="text-sm md:text-base font-normal text-footercolor">{{trans('pages.cart.verification')}}</p>
 			</div>

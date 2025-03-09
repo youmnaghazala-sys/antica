@@ -65,8 +65,12 @@
 }
 #new-location {
   .s-payments-list-item {
-    @apply bg-transparent;
-
+    @apply bg-transparent h-full;
+    width: clamp(110px, 10vw, 157px);
+  
+    a{
+      @apply w-full h-full;
+    }
     img {
       @apply w-full h-full;
     }
