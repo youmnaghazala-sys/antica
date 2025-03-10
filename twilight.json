@@ -139,7 +139,7 @@
             "icon": "sicon-image",
             "value": "https://cdn.salla.sa/form-builder/Pxv579XkRlKMkXCV6yyvNrbKGXhyZ5C4sLgnUhn8.png",
             "required": false,
-           "conditions": [
+            "conditions": [
                 {
                     "id": "is_footer_bg_image",
                     "operation": "=",
@@ -158,7 +158,7 @@
             "icon": "sicon-image",
             "value": "https://cdn.salla.sa/form-builder/Pxv579XkRlKMkXCV6yyvNrbKGXhyZ5C4sLgnUhn8.png",
             "required": false,
-           "conditions": [
+            "conditions": [
                 {
                     "id": "is_footer_bg_image",
                     "operation": "=",
@@ -2351,6 +2351,13 @@
                     "value": []
                 }
             ]
+        },
+        {
+            "key": "e116b403-6778-42d6-8120-7eb4324b6fc5",
+            "title": "مننجات - الوري",
+            "icon": "sicon-store",
+            "path": "home.AL-product",
+            "fields": []
         }
     ],
     "support_url": "",
