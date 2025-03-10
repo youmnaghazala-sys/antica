@@ -2632,7 +2632,24 @@
             "title": "المقالات - الورى",
             "icon": "sicon-store",
             "path": "home.AL-blog",
-            "fields": []
+            "fields": [
+                {
+                    "id": "blog_drop_list",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "اختار المقالات التي تود عرضها",
+                    "description": "اختار المقالات التي تود عرضها",
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Blog Articles",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
+                }
+            ]
         }
     ],
     "support_url": "",
