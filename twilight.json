@@ -2631,7 +2631,7 @@
             "key": "ff85bfd2-16aa-414c-aa9e-9d6132c89c97",
             "title": "المقالات - الورى",
             "icon": "sicon-store",
-            "path": "home.AL-blog",
+            "path": "home.AL_blog",
             "fields": [
                 {
                     "id": "blog_drop_list",
