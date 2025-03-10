@@ -1983,25 +1983,6 @@
                     "value": true,
                     "selected": false,
                     "required": false
-                },
-                {
-                    "id": "is_arrow",
-                    "type": "boolean",
-                    "format": "switch",
-                    "label": "تفعيل الاسهم",
-                    "description": null,
-                    "labelHTML": null,
-                    "icon": "sicon-toggle-off",
-                    "value": true,
-                    "selected": false,
-                    "required": false,
-                    "conditions": [
-                        {
-                            "id": "is_slider",
-                            "operation": "=",
-                            "value": true
-                        }
-                    ]
                 }
             ]
         },
