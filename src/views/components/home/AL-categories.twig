@@ -1,5 +1,27 @@
 <section class="al-categories">
     <div class="container">
-        
+        <salla-slider id="thumbs" show-controls="true" type="thumbs">
+            <div slot="items">
+            {% for category in component.category %}
+                <div style="--background:{{category.background_color}} ; --background_hover:{{category.background_hover_color}}" class="category_card">
+                    <img src="{{category.category_image}}" alt="">
+                    <h3 style="color:{{category.category_name_color}}">{{category.category_name}}</h3>
+                    <p style="color:{{category.category_num_color}}">{{category.category_num}} {{trans('common.peice')}}</p>
+                </div>
+            {% endfor %}
+            </div>
+        </salla-slider>
     </div>
 </section>
+
+<style>
+    .al-categories{
+
+    }
+    .al-categories .category_card{
+        background: var(--background);
+    }
+    .al-categories .category_card:hover{
+        background: var(--background_hover);
+    }
+</style>
