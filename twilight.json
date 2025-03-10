@@ -1999,7 +1999,7 @@
                         {
                             "id": "is_slider",
                             "operation": "=",
-                            "value": false
+                            "value": true
                         }
                     ]
                 }
