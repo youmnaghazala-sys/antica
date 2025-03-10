@@ -1909,23 +1909,23 @@
                                     "value": "custom"
                                 }
                             ]
-                        },
-                        {
-                            "id": "category.is_slider",
-                            "type": "boolean",
-                            "format": "switch",
-                            "label": "تشغيل الاسلايدر",
-                            "description": null,
-                            "labelHTML": null,
-                            "icon": "sicon-toggle-off",
-                            "value": true,
-                            "selected": false,
-                            "required": false
                         }
                     ],
                     "value": [],
                     "minLength": 1,
                     "maxLength": "20"
+                },
+                {
+                    "id": "is_slider",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "تشغيل الاسلايدر",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
                 }
             ]
         },
@@ -2388,7 +2388,7 @@
                     "labelHTML": null,
                     "icon": "sicon-toggle-off",
                     "value": true,
-                    "selected": false,
+                    "selected": true,
                     "required": false
                 },
                 {
@@ -2397,7 +2397,7 @@
                     "format": "integer",
                     "inputType": "number",
                     "label": "تخصيص عدد المنتجات الظاهرة",
-                    "description": "ادخال عدد المنتجات الذي يتم عرضه",
+                    "description": "ادخال عدد المنتجات الذي يتم عرضه ما بين (4 - 7 )",
                     "labelHTML": null,
                     "placeholder": null,
                     "icon": "sicon-hashtag",
@@ -2549,6 +2549,105 @@
                     "value": [],
                     "minLength": 1,
                     "maxLength": "10"
+                }
+            ]
+        },
+        {
+            "key": "1033b5c6-e6e2-4c3d-9b4a-4512cd7f1948",
+            "title": "منتجات واستوريز - ألوري",
+            "icon": "sicon-store",
+            "path": "home.AL-products-and-stories",
+            "fields": [
+                {
+                    "id": "stories",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Collection",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "stories.first_story",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الاستورى الاولى",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.second_story",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الاستورى الثانية",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.third_story",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الاستورى الثالثة",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.stories_products",
+                            "type": "items",
+                            "format": "dropdown-list",
+                            "label": "منتجات الاستورى",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-keyboard_arrow_down",
+                            "selected": [],
+                            "options": [],
+                            "source": "Products",
+                            "multichoice": true,
+                            "searchable": true,
+                            "required": false,
+                            "value": []
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "8"
+                }
+            ]
+        },
+        {
+            "key": "ff85bfd2-16aa-414c-aa9e-9d6132c89c97",
+            "title": "المقالات - الورى",
+            "icon": "sicon-store",
+            "path": "home.AL-blog",
+            "fields": [
+                {
+                    "id": "blog_drop_list",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "اختار المقالات التي تود عرضها",
+                    "description": "اختار المقالات التي تود عرضها",
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Blog Articles",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
                 }
             ]
         }
