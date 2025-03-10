@@ -1,11 +1,16 @@
-<section class="al-categories">
+<section class="al-categories my-5">
     <div class="container">
         {% if component.is_slider %}
-            <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
-                "slidesPerView": 6,
-                "spaceBetween": 10,
-                "centerInsufficientSlides": true
-                }'>
+        <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
+            "slidesPerView": 2,
+            "spaceBetween": 10,
+            "centerInsufficientSlides": true,
+            "breakpoints": {
+                "320": { "slidesPerView": 2 },
+                "768": { "slidesPerView": 4 },
+                "1024": { "slidesPerView": 6 }
+            }
+        }'>
             <div slot="items">
         {% else %}
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -13,7 +18,7 @@
                     {% for category in component.category %}
                         <a href="category.category_url" style="--background:{{category.background_color}} ; --background_hover:{{category.background_hover_color}}5d" class="category_card">
                             {% if category.category_image %}
-                                <img src="{{category.category_image}}" class="-translate-y-5" alt="">
+                                <img src="{{category.category_image}}" class="-translate-y-7" alt="">
                             {% endif %}
                             {% if category.category_name_color %}
                                 <h3 style="color:{{category.category_name_color}}">{{category.category_name}}</h3>
@@ -29,13 +34,20 @@
             {% else %}
                 </div>
             {% endif %}
-
     </div>
 </section>
 
 <style>
-    .al-categories{
-
+    .al-categories .container{
+        overflow-x: clip;
+    }
+    .al-categories .swiper{
+        height: 232px !important;
+        overflow: unset;
+    }
+    .al-categories img{
+        width: 95%;
+        height: 141px;
     }
     .al-categories .category_card{
         background: var(--background);
@@ -47,5 +59,9 @@
     }
     .al-categories .category_card:hover{
         background: var(--background_hover);
+    }
+    .al-categories .s-slider-v-centered .s-slider-block__title-nav{
+        left: 13% !important;
+        top: -20% !important;
     }
 </style>
