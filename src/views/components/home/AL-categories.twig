@@ -2,6 +2,7 @@
     <div class="container">
         {% if component.is_slider %}
         <salla-slider id="thumbs"
+            show-controls="false"
             type="thumbs" slider-config='{
             "slidesPerView": 2,
             "spaceBetween": 10,
@@ -49,6 +50,8 @@
     .al-categories img{
         width: 95%;
         height: 141px;
+        scale: 1;
+        transition: 0.5s all;
     }
     .al-categories .category_card{
         background: var(--background);
@@ -56,10 +59,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: 0.5s all ;
+        transition: 0.5s all;
+        transform: scale(1);
     }
     .al-categories .category_card:hover{
         background: var(--background_hover);
+        transform: scale(0.9);
+    }
+    .al-categories .category_card:hover img{
+        scale: 1.2;
     }
     .al-categories .s-slider-v-centered .s-slider-block__title-nav{
         left: 13% !important;
