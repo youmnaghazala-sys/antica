@@ -1,6 +1,6 @@
 <section class="Al_products-and-stories h-[610px]">
   <div class="container">
-    <salla-slider show-controls="false" slider-config='{
+    <salla-slider id="main-stories-slider-{{position}}" show-controls="false" slider-config='{
       "slidesPerView": 3,
       "spaceBetween": 24,
       "centeredSlides": true,
@@ -10,10 +10,7 @@
         {% for story in component.stories %}
           <div class="story-item">
             <salla-slider class="stories-slider" show-controls="false" slider-config='{
-              "autoplay": {
-                "delay": 2000,
-                "disableOnInteraction": false
-              },
+
               "pagination": {
                 "el": ".swiper-pagination",
                 "type": "progressbar"
@@ -47,8 +44,9 @@
 
 <script>
   document.addEventListener("DOMContentLoaded" , () => {
-    const swiperEl = document.querySelector(".Al_products-and-stories .stories-slider");
-    swiperEl.addEventListener("autoplaytimeleft", (e) => {
+    const mainSlider = document.querySelector('#main-stories-slider-{{position}}')
+    console.log(mainSlider)
+    mainSlider.addEventListener("slideChangeTransitionEnd", (e) => {
       console.log(e)
     });
   })
