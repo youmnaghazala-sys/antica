@@ -2388,7 +2388,7 @@
                     "labelHTML": null,
                     "icon": "sicon-toggle-off",
                     "value": true,
-                    "selected": false,
+                    "selected": true,
                     "required": false
                 },
                 {
@@ -2397,7 +2397,7 @@
                     "format": "integer",
                     "inputType": "number",
                     "label": "تخصيص عدد المنتجات الظاهرة",
-                    "description": "ادخال عدد المنتجات الذي يتم عرضه",
+                    "description": "ادخال عدد المنتجات الذي يتم عرضه ما بين (4 - 7 )",
                     "labelHTML": null,
                     "placeholder": null,
                     "icon": "sicon-hashtag",
