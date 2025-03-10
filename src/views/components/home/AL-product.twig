@@ -1,0 +1,51 @@
+<section class="AL_product_slider">
+    <div class="container">
+        {% if component.grid_switch %}
+            <salla-products-slider 
+                source="latest"
+                slider-id="096176"
+                show-controls="false" 
+                    slider-config='{
+                        "slidesPerView": 1,
+                        "spaceBetween": 5,
+                        "breakpoints": {
+                            "320": { "slidesPerView": 1, "spaceBetween": 5 },
+                            "640": { "slidesPerView": 2, "spaceBetween": 8 },
+                            "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 20 }
+                        }
+                    }'>
+            </salla-product-slider>
+        {% else %}
+            <div class="product-grid">
+                {% for product in component.show_product_drop %}
+                    <div class="product-card">
+                        <salla-product-card  product="{{ product }}">
+                        </salla-product-card>
+                    </div>
+                {% endfor %}
+            </div>    
+        {% endif %}
+    </div>
+</section>
+
+
+<style>
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-card {
+        border-radius: 10px;
+        min-height: 460px;
+        text-align: center;
+    }
+
+    .AL_product_slider .s-slider-block__title{
+        display: none !important;
+    }
+
+</style>
