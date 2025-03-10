@@ -1,16 +1,44 @@
 <section class="al-categories">
     <div class="container">
-        <salla-slider id="thumbs" show-controls="true" type="thumbs">
-            <div slot="items">
-            {% for category in component.category %}
-                <div style="--background:{{category.background_color}} ; --background_hover:{{category.background_hover_color}}" class="category_card">
-                    <img src="{{category.category_image}}" alt="">
-                    <h3 style="color:{{category.category_name_color}}">{{category.category_name}}</h3>
-                    <p style="color:{{category.category_num_color}}">{{category.category_num}} {{trans('common.peice')}}</p>
+        {% if component.is_slider %}
+            <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
+                "slidesPerView": 6,
+                "spaceBetween": 10,
+                "centerInsufficientSlides": true
+                }'>
+                    <div slot="items">
+                    {% for category in component.category %}
+                        <a href="category.category_url" style="--background:{{category.background_color}} ; --background_hover:{{category.background_hover_color}}5d" class="category_card">
+                            {% if category.category_image %}
+                                <img src="{{category.category_image}}" alt="">
+                            {% endif %}
+                            {% if category.category_name_color %}
+                                <h3 style="color:{{category.category_name_color}}">{{category.category_name}}</h3>
+                            {% endif %}
+                            {% if category.category_num_color %}
+                                <p style="color:{{category.category_num_color}}">{{category.category_num}} {{trans('common.peice')}}</p>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            </salla-slider>
+        {% else %}
+            <div class="grid grid-cols-2 md:grid-cols-4 lg-grid-cols-6">
+                {% for category in component.category %}
+                    <a href="category.category_url" style="--background:{{category.background_color}} ; --background_hover:{{category.background_hover_color}}5d" class="category_card">
+                        {% if category.category_image %}
+                            <img src="{{category.category_image}}" alt="">
+                        {% endif %}
+                        {% if category.category_name_color %}
+                            <h3 style="color:{{category.category_name_color}}">{{category.category_name}}</h3>
+                        {% endif %}
+                        {% if category.category_num_color %}
+                            <p style="color:{{category.category_num_color}}">{{category.category_num}} {{trans('common.peice')}}</p>
+                        {% endif %}
+                    </a>
+                {% endfor %}
             </div>
-        </salla-slider>
+        {% endif %}
     </div>
 </section>
 
@@ -20,6 +48,11 @@
     }
     .al-categories .category_card{
         background: var(--background);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s all ;
     }
     .al-categories .category_card:hover{
         background: var(--background_hover);
