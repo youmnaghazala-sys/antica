@@ -2558,6 +2558,13 @@
             "icon": "sicon-store",
             "path": "home.AL-products-and-stories",
             "fields": []
+        },
+        {
+            "key": "ff85bfd2-16aa-414c-aa9e-9d6132c89c97",
+            "title": "المقالات - الورى",
+            "icon": "sicon-store",
+            "path": "home.AL-blog",
+            "fields": []
         }
     ],
     "support_url": "",
