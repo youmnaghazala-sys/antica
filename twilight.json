@@ -2551,6 +2551,13 @@
                     "maxLength": "10"
                 }
             ]
+        },
+        {
+            "key": "1033b5c6-e6e2-4c3d-9b4a-4512cd7f1948",
+            "title": "منتجات واستوريز - ألوري",
+            "icon": "sicon-store",
+            "path": "home.AL-products-and-stories",
+            "fields": []
         }
     ],
     "support_url": "",
