@@ -123,7 +123,21 @@
 
   &-vertical {}
 
-  &-horizontal {}
+  &-horizontal {
+    .s-product-card-rating{
+      display: none;
+    }
+    .s-product-card-content {
+      align-items: self-start;
+      text-align: -webkit-auto;
+    }
+    .s-product-card-content-sub{
+      justify-content: flex-start;
+    }
+    .s-product-card-content-subtitle{
+      display: none;
+    }
+  }
 
   &-fit-height {}
 
