@@ -2426,6 +2426,13 @@
                     "value": []
                 }
             ]
+        },
+        {
+            "key": "c1119e99-95e3-4c80-a7f4-f76fdc281aa6",
+            "title": "البانر الرئيسى - الورى",
+            "icon": "sicon-image1",
+            "path": "home.AL_main_section",
+            "fields": []
         }
     ],
     "support_url": "",
