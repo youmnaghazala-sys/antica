@@ -14,7 +14,7 @@
                   </div>
                   <p style="color: {{component.sub_text_color}}" class="offers-slider-item-content-sub">{{offer.sub_text}}</p>
                   <div class="w-fit offers-slider-item-content-button">
-                    {% include 'components.custom.button' with {'btn_txt': offer.button_label, 'btn_bg': component.button_color, 'btn_color': component.button_label_color } %}
+                    {% include 'components.custom.button' with {'btn_txt': offer.button_label, 'btn_url': offer.button_link, 'btn_bg': component.button_color, 'btn_color': component.button_label_color } %}
                   </div>
                 </div>
                 <div class="w-full md:w-1/2" style="color: {{component.counter_color}}">

@@ -20,7 +20,7 @@
         </div>
         <div class = "items grid grid-cols-1 md:grid-cols-2 w-full gap-[1rem] md:gap-6">
             {% for product in c.products %}
-                <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+                <custom-salla-product-card horizontal product="{{product}}"></custom-salla-product-card>
             {% endfor %}
         </div>
     </div>
@@ -56,9 +56,6 @@
     .items custom-salla-product-card .s-product-card-image img{
         background-color: #fff;
 
-    }
-    .s-product-card-content-footer {
-        display: none;
     }
 
 </style>
