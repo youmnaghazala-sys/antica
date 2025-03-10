@@ -2407,7 +2407,7 @@
                     "icon": "sicon-keyboard_arrow_down",
                     "selected": [],
                     "options": [],
-                    "source": "Products",
+                    "source": "products",
                     "multichoice": true,
                     "searchable": true,
                     "required": false,
