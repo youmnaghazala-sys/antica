@@ -19,28 +19,31 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
+    {% if article.has_image %}
+        <img src="{{ article.image.url }}" alt="{{ article.image.alt }}" title="{{ article.image.alt }}"
+                class="h-[375px] md:h-[526px] mb-10 w-full object-cover rounded-md"/>
+    {% endif %}
     <div class="container mb-8 sm:mb-24">
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
-        <nav class="breadcrumbs w-full py-5 center-between">
+        {# <nav class="breadcrumbs w-full py-5 center-between">
             <salla-breadcrumb></salla-breadcrumb>
-        </nav>
-        <div class="md:flex items-start">
-            <div class="main-content blog-category md:w-96 flex-1 bg-white lg:p-8 rounded-md mb-10 md:mb-0">
-                <h1 class="font-bold text-3xl mb-5 leading-10">{{ article.title }}</h1>
-                <div class="mb-10 text-gray-500 rounded-md inline-flex text-sm rtl:space-x-reverse space-x-5">
-                    <div class=" flex items-center">
-                        <i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
-                        <span class="">{{ article.created_at|date }}</span>
+        </nav> #}
+        <div class="md:flex items-start flex-col">
+            <div class="main-content blog-category md:w-full flex-1 bg-white lg:p-8 rounded-md mb-10 md:mb-0">
+                <div class="flex items-center justify-between">
+                    <h1 class="font-bold text-3xl mb-5 leading-10">{{ article.title }}</h1>
+                    <div class="mb-10 text-gray-500 rounded-md inline-flex text-sm rtl:space-x-reverse space-x-5">
+                        <div class=" flex items-center">
+                            <i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
+                            <span class="">{{ article.created_at|date }}</span>
+                        </div>
+                        <a href="{{ article.author.url }}" class=" flex items-center hover:text-dark">
+                            <i class="sicon-user rtl:ml-1 ltr:mr-1"></i>
+                            <span class="">{{ article.author.name }}</span>
+                        </a>
                     </div>
-                    <a href="{{ article.author.url }}" class=" flex items-center hover:text-dark">
-                        <i class="sicon-user rtl:ml-1 ltr:mr-1"></i>
-                        <span class="">{{ article.author.name }}</span>
-                    </a>
                 </div>
-                {% if article.has_image %}
-                    <img src="{{ article.image.url }}" alt="{{ article.image.alt }}" title="{{ article.image.alt }}"
-                         class="h-80 mb-10 w-full object-cover rounded-md"/>
-                {% endif %}
+
                 
                 {% if store.settings.blog.allow_likes_and_comments %}
                 <div class="flex items-center gap-2.5 text-gray-500 text-base mb-2">
