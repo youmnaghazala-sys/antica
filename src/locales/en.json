@@ -1,7 +1,9 @@
 {
   "blocks": {
     "header": {
-      "cart": "Cart"
+      "cart": "Cart",
+         "arabic":"arabic",
+       "english":"English"
     },
     "appBanner": {
       "download_now": "download now"
