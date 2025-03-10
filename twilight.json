@@ -1851,7 +1851,7 @@
                             "icon": "sicon-link",
                             "label": "رابط التصنيف",
                             "id": "category.category_url",
-                            "value": null,
+                            "value": [],
                             "description": null,
                             "required": false,
                             "format": "variable-list",
@@ -1909,6 +1909,18 @@
                                     "value": "custom"
                                 }
                             ]
+                        },
+                        {
+                            "id": "category.is_slider",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "تشغيل الاسلايدر",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-toggle-off",
+                            "value": true,
+                            "selected": false,
+                            "required": false
                         }
                     ],
                     "value": [],
