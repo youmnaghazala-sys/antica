@@ -2383,6 +2383,18 @@
             "path": "home.AL-product",
             "fields": [
                 {
+                    "id": "grid_switch",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "عرض سلايدر ام شبكة",
+                    "description": "اختيار ما بين عرض السلايدر و عرض شبكة",
+                    "labelHTML": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
+                },
+                {
                     "id": "slider_num_preview",
                     "type": "number",
                     "format": "integer",
