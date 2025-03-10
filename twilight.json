@@ -2643,7 +2643,7 @@
                     "icon": "sicon-keyboard_arrow_down",
                     "selected": [],
                     "options": [],
-                    "source": "Blog Articles",
+                    "source": "blog_articles",
                     "multichoice": true,
                     "searchable": true,
                     "required": false,
