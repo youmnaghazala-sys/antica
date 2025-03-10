@@ -2381,7 +2381,39 @@
             "title": "مننجات - الوري",
             "icon": "sicon-store",
             "path": "home.AL-product",
-            "fields": []
+            "fields": [
+                {
+                    "id": "slider_num_preview",
+                    "type": "number",
+                    "format": "integer",
+                    "inputType": "number",
+                    "label": "تخصيص عدد المنتجات الظاهرة",
+                    "description": "ادخال عدد المنتجات الذي يتم عرضه",
+                    "labelHTML": null,
+                    "placeholder": null,
+                    "icon": "sicon-hashtag",
+                    "value": 4,
+                    "required": false,
+                    "minimum": "4",
+                    "maximum": "7"
+                },
+                {
+                    "id": "show_product_drop",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "عرض المنتجات",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Products",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
+                }
+            ]
         }
     ],
     "support_url": "",
