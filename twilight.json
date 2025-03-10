@@ -2105,18 +2105,6 @@
                     "icon": "sicon-format-fill",
                     "value": "#ffffff",
                     "required": false
-                },
-                {
-                    "id": "offer_date_2",
-                    "type": "string",
-                    "format": "date",
-                    "inputType": "date",
-                    "label": "تاريخ انتهاء العرض",
-                    "description": null,
-                    "labelHTML": null,
-                    "icon": "sicon-calendar-date",
-                    "value": "2025-11-12",
-                    "required": false
                 }
             ]
         },
