@@ -1851,7 +1851,7 @@
                             "icon": "sicon-link",
                             "label": "رابط التصنيف",
                             "id": "category.category_url",
-                            "value": null,
+                            "value": [],
                             "description": null,
                             "required": false,
                             "format": "variable-list",
@@ -1909,6 +1909,18 @@
                                     "value": "custom"
                                 }
                             ]
+                        },
+                        {
+                            "id": "category.is_slider",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "تشغيل الاسلايدر",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-toggle-off",
+                            "value": true,
+                            "selected": false,
+                            "required": false
                         }
                     ],
                     "value": [],
@@ -2417,7 +2429,128 @@
             "title": "البانر الرئيسى - الورى",
             "icon": "sicon-image1",
             "path": "home.AL_main_section",
-            "fields": []
+            "fields": [
+                {
+                    "id": "slider_images",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "سلايدر الصور",
+                    "description": "مجموعة من الشرائح تحتوي على صور ونصوص وأزرار قابلة للتخصيص.",
+                    "labelHTML": null,
+                    "item_label": "شريحة سلايدر",
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "slider_images.main_image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصورة الرئيسية",
+                            "description": "الصورة الأساسية التي ستظهر في السلايدر.",
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.secondary_image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصورة الثانوية",
+                            "description": "صورة إضافية يمكن استخدامها كخلفية أو تعزيز المحتوى البصري.",
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العنوان الرئيسي",
+                            "description": "عنوان الشريحة الذي يجذب الانتباه.",
+                            "labelHTML": null,
+                            "placeholder": "مثال: عروض الصيف المميزة",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": "2",
+                            "maxLength": "300"
+                        },
+                        {
+                            "id": "slider_images.subtitle",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العنوان الفرعي",
+                            "description": "نص توضيحي قصير تحت العنوان الرئيسي.",
+                            "labelHTML": null,
+                            "placeholder": "مثال: خصومات تصل إلى 50%",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": "2",
+                            "maxLength": "300"
+                        },
+                        {
+                            "id": "slider_images.button_text",
+                            "type": "string",
+                            "format": "text",
+                            "label": "نص الزر",
+                            "description": "النص الذي سيظهر داخل زر الشريحة.",
+                            "labelHTML": null,
+                            "placeholder": "مثال: تسوق الآن",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": "2",
+                            "maxLength": "300"
+                        },
+                        {
+                            "id": "slider_images.text_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون النص",
+                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.background_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون الخلفية",
+                            "description": "اللون المستخدم في خلفية الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#e7f0dc",
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.show_logo",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "عرض اللوجو",
+                            "description": "تمكين أو تعطيل عرض الشعار داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-toggle-off",
+                            "value": true,
+                            "selected": false,
+                            "required": false
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "10"
+                }
+            ]
         }
     ],
     "support_url": "",
