@@ -2417,7 +2417,113 @@
             "title": "البانر الرئيسى - الورى",
             "icon": "sicon-image1",
             "path": "home.AL_main_section",
-            "fields": []
+            "fields": [
+                {
+                    "id": "slaedr__sor",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "سلايدر  صور",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": "السلايد",
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "slaedr__sor.alsorh_alaola",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصوره الاولى",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "slaedr__sor.alsorh_althanet",
+                            "type": "string",
+                            "format": "image",
+                            "label": "العنوان الرئيسي",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "slaedr__sor.string_1",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العنوان الفرعى",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": "2",
+                            "maxLength": "300"
+                        },
+                        {
+                            "id": "slaedr__sor.ns_alzr",
+                            "type": "string",
+                            "format": "text",
+                            "label": "نص الزر",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": "2",
+                            "maxLength": "300"
+                        },
+                        {
+                            "id": "slaedr__sor.lon_ns_alaanasr",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون نص العناصر",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
+                            "id": "slaedr__sor.lon_hhoeh_alslaed",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون ههويه السلايد",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#e7f0dc",
+                            "required": false
+                        },
+                        {
+                            "id": "slaedr__sor.adafh_allogo",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "اضافه اللوجو",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-toggle-off",
+                            "value": true,
+                            "selected": false,
+                            "required": false
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "10"
+                }
+            ]
         }
     ],
     "support_url": "",
