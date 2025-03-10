@@ -2557,7 +2557,75 @@
             "title": "منتجات واستوريز - ألوري",
             "icon": "sicon-store",
             "path": "home.AL-products-and-stories",
-            "fields": []
+            "fields": [
+                {
+                    "id": "stories",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Collection",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "stories.first_story",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الاستورى الاولى",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.second_story",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الاستورى الثانية",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.third_story",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الاستورى الثالثة",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.stories_products",
+                            "type": "items",
+                            "format": "dropdown-list",
+                            "label": "منتجات الاستورى",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-keyboard_arrow_down",
+                            "selected": [],
+                            "options": [],
+                            "source": "Products",
+                            "multichoice": true,
+                            "searchable": true,
+                            "required": false,
+                            "value": []
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "8"
+                }
+            ]
         },
         {
             "key": "ff85bfd2-16aa-414c-aa9e-9d6132c89c97",
