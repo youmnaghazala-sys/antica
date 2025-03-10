@@ -186,9 +186,9 @@
 					{% endif %}
 
 					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative transition-height duration-1000">
-						<h2 class="font-bold text-sm mb-5">{{ trans('pages.cart.summary') }}</h2>
+						<h2 class="font-medium text-[16.901px] mb-5">{{ trans('pages.cart.summary') }}</h2>
 
-						<div class="flex justify-between text-sm mb-5">
+						<div class="flex justify-between text-sm mb-5" style="border-bottom: 1px solid #CCC; padding-bottom: 20px;">
 							<span class="text-gray-500">
 								{{ trans(cart.tax_amount ? "pages.cart.items_total_without_tax" : "pages.cart.items_total") }}
 							</span>
