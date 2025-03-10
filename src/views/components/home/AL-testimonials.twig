@@ -1,124 +1,100 @@
-<section class="al-testimonial">
-    <div class="m-content relative -z-1">
-        <div>
+<section class="al-testimonial py-10">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+            <!-- معلومات القسم -->
+        <div class="m-content hidden md:flex flex-col items-start justify-center bg-cover bg-center w-full h-[394px] p-6 px-6 rounded-md shadow-lg" 
+            style="background-image: url('{{ component.m_img }}');">
             {% if component.component_name %}
-                <h3 class="text-right text-[14px] font-normal leading-[18px]" style="color: {{component.base_color}};">
-                    {{component.component_name}}
+                <h3 class="text-[16px] font-medium" style="color: {{ component.base_color }};">
+                    {{ component.component_name }}
                 </h3>
             {% endif %}
 
             {% if component.about_component %}
-                <h4 class="text-right text-[28px] not-italic font-medium leading-[48px] w-[130px]" style="color: {{component.tittle_color}};">
-                    {{component.about_component}}
+                <h4 class="text-[20px] font-semibold mt-2" style="color: {{ component.tittle_color }};">
+                    {{ component.about_component }}
                 </h4>
             {% endif %}
 
-            <hr class="w-[141px] h-1 bg-black"> 
+            <hr class="w-[100px] h-[3px]  my-3" style="background-color:{{component.line_color}};">
 
             {% if component.component_description %}
-                <p class="text-right text-[16px] not-italic font-normal leading-[22px] w-[173px]" style="color: {{component.description_color}};">
-                    {{component.component_description}}
+                <p class="text-[14px] font-light max-w-[200px]" style="color: {{ component.description_color }};">
+                    {{ component.component_description }}
                 </p>
             {% endif %}
         </div>
-    </div>
-   
-    <div class="container">
-        <div class="flex items-end">
-            <div class="w-full">
-                <salla-slider id="thumbs" show-controls="true" type="thumbs" 
-                    slider-config='{
-                        "breakpoints": {
-                            "350": {
-                                "slidesPerView": 1,
-                                "spaceBetween": 5
-                            },
-                            "768": {
-                                "slidesPerView": 2,
-                                "spaceBetween": 8
-                            },
-                            "992": {
-                                "slidesPerView": 3,
-                                "spaceBetween": 16
+            
+        <div class="md:col-span-2 flex items-center md:translate-x-[10%] lg:max-w-[90%]">
+            <!-- السلايدر -->
+            {% if component.slider_collection %}
+                <div class="w-full">
+                    <salla-slider id="thumbs" show-controls="true" type="thumbs"
+                        slider-config='{
+                            "slidesPerView": 1,
+                            "spaceBetween": 5,
+                            "breakpoints": {
+                                "320": { "slidesPerView": 1, "spaceBetween": 5 },
+                                "480": { "slidesPerView": 1.5, "spaceBetween": 6 },
+                                "640": { "slidesPerView": 2, "spaceBetween": 8 },
+                                "1024": { "slidesPerView": 3, "spaceBetween": 20 }
                             }
-                        }
-                    }'>
-                    <div slot="items">
-                        {% for card in component.slider_collection %}
-                            <div class="card w-[315px] h-[258px] shadow-lg border border-gray-200 p-4 rounded-lg relative">
-                                
-                                <!-- علامات الاقتباس -->
-                                <span class="absolute top-2 right-2 text-black text-3xl font-bold">
-                                    <span class="sicon-quote-close"></span>
-                                </span>
+                        }'>
+                        <div slot="items" class="flex flex-wrap justify-center gap-4">
+                            {% for card in component.slider_collection %}
+                                <div class="card max-w-[350px] h-auto  shadow-lg border border-gray-200 p-6 rounded-md relative" style="background-color:{{component.card_background_color}};">
+                                    <span class="absolute top-2 right-2  text-2xl" style="color:{{component.quats_color}}">
+                                        <span class="sicon-quote-close"></span>
+                                    </span>
 
-                                <div class="flex items-center justify-between">
-                                    <!-- النص -->
-                                    <p class="text-right text-[14px] font-normal leading-[23px] w-1/2" style="color: {{component.comment_body_color}};">
-                                        {{card.comment_body}}
-                                    </p>
+                                    <div class="flex flex-row  items-center text-center">
+                                        {% if card.comment_body %}
+                                            <p class="text-[14px] font-normal leading-[22px] w-1/2" style="color:{{component.comment_body_color}};">
+                                                {{ card.comment_body }}
+                                            </p>
+                                        {% endif %}
 
-                                    <!-- المنتج -->
-                                    <div class="product-div flex flex-col items-center w-1/2">
-                                        <img src="{{card.product_img}}" alt="" class="w-[100px] h-[85px]">
-                                        <h3 class="text-center font-scheherazade text-[12px] font-medium mt-2" style="color: {{component.product_name_color}};">
-                                            {{card.product_name}}
-                                        </h3>
+                                        <div class="product-div flex flex-col items-center mt-4 w-1/2">
+                                            {% if card.product_img %}
+                                                <img src="{{ card.product_img }}" alt="صورة المنتج" class="w-[100px] h-[85px] rounded-md shadow-md">
+                                            {% endif %}
+
+                                            {% if card.product_name %}
+                                                <h3 class="text-[14px] font-semibold mt-2" style="color:{{component.product_name_color}};">
+                                                    {{ card.product_name }}
+                                                </h3>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- معلومات المستخدم -->
-                                <div class="flex items-center justify-start gap-4 mt-4">
-                                    <img src="{{card.comment_writer_image}}" alt="صورة المستخدم" class="w-8 h-8 rounded-full ml-2">
-                                    <div class="text-right">
-                                        <p class="font-normal text-[14px]" style="color: {{component.comment_writer_color}};">
-                                            {{card.comment_writer_job}}
-                                        </p>
+                                    <div class="flex items-start justify-center gap-4 mt-4">
+                                        {% if card.comment_writer_image %} 
+                                            <img src="{{ card.comment_writer_image }}" alt="صورة المستخدم" class="w-10 h-10 rounded-full border">
+                                        {% endif %}
+
+                                        <div class="text-left">
+                                            {% if card.comment_writer_job %}    
+                                                <p class="font-normal text-[14px]" style="color: {{component.comment_writer_color}};">
+                                                    {{ card.comment_writer_job }}
+                                                </p>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- علامة الاقتباس السفلية -->
-                                <span class="absolute bottom-2 left-2 text-black text-3xl font-bold">
-                                    <span class="sicon-quote-open"></span>
-                                </span>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </salla-slider>
-            </div>
+                                    <span class="absolute bottom-2 left-2 text-2xl" style="color:{{component.quats_color}}" >
+                                        <span class="sicon-quote-open"></span>
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </salla-slider>
+                </div>
+            {% endif %}
         </div>
     </div>
 </section>
 
+
 <style> 
-    .al-testimonial {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .container {
-        position: relative;
-        width: 100%;
-    }
-
-    .m-content {
-        flex: 1;
-        max-width: 40%;
-        background-image: url("{{component.m_img}}");
-        background-size: cover;
-        background-position: center;
-        width: 600px;
-        height: 394px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-   
-
     .s-slider-v-centered .s-slider-block__title-nav {
         color: white;
         width: 35px;
@@ -127,14 +103,14 @@
         position: absolute;
         top: -15% !important;
         left: 10%;
-      
     }
+
     .s-slider-nav-arrow {
-        background-color:red;
-        border-radius:0px;
-
+        border-radius: 0px;
         padding: 10px;
-
+        box-shadow: 1px 1px 2px 2px white !important;
+        background-color : {{component.arrow_color}} !important;
     }
-
 </style>
+
+

@@ -1,0 +1,63 @@
+{% set c = component %}
+<section class="AL_best_seller my-5">  
+    <div class="background container">
+        {% if c.bg_video %}
+            <div class="video-background absolute inset-0 w-full h-[580px]">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                    <source src="{{ c.video_url }}" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        {% else %}
+            <div class="image-div w-full h-[580px]">
+                <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
+            </div>
+        {% endif %}
+    </div>
+    
+        
+        <div class = "products flex flex-row gap-4 !w-full container relative ">
+            {% for product in c.best_sell_products %}
+                <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+            {% endfor %} 
+        </div>
+        
+    
+</section>
+
+<style>
+    .AL_best_seller .products custom-salla-product-card {
+        height : 178px;
+        border-radius: 0;
+        
+    }
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 40%;
+    }
+    .AL_best_seller .products custom-salla-product-card .s-product-card-content{
+        justify-content: center;
+        margin: auto;
+    }
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image img{
+        background-color: #fff;
+
+    }
+    .s-product-card-content-footer {
+        display: none;
+    }
+    
+
+</style>
+ 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("custom-salla-product-card").forEach(card => {
+            card.classList.remove("s-product-card-vertical");
+            card.classList.add("s-product-card-horizontal");
+        });
+    });
+</script>

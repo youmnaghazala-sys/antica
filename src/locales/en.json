@@ -9,7 +9,14 @@
   },
   "pages": {
     "cart": {
-      "cart_options": "Cart Options"
+      "cart_options": "Cart Options",
+      "show_blog":"show article",
+        "newlettert":"Subscribe to the newsletter",
+      "email":"enter your email",
+          "sendus":"send to us",
+      "contactus":"contact us",
+      "verification":"Dating back to platform clients"
+
     },
     "order": {
       "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
