@@ -294,21 +294,20 @@ class ProductCard extends HTMLElement {
             : ``}
         </div>
         ${!this.hideAddBtn && this.horizontal ?
-          `<div class="s-product-card-content-footer gap-2">
-            <salla-add-product-button fill="outline" width="wide"
+          `<div class="s-product-card-content-footer gap-4">
+            <salla-add-product-button shape="icon" color="primary" fill="outline"
               product-id="${this.product.id}"
               product-status="${this.product.status}"
               product-type="${this.product.type}">
               ${this.product.status == 'sale' ? 
                   `<i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>` : ``
                 }
-              <span>${this.product.add_to_cart_label ? this.product.add_to_cart_label : this.getAddButtonLabel() }</span>
             </salla-add-product-button>
 
             <salla-button 
               shape="icon" 
               fill="outline" 
-              color="light" 
+              color="primary"
               id="card-wishlist-btn-${this.product.id}-horizontal"
               aria-label="Add or remove to wishlist"
               class="s-product-card-wishlist-btn animated ${this.isInWishlist ? 's-product-card-wishlist-added pulse-anime' : 'not-added un-favorited'}"
