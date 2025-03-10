@@ -68,9 +68,9 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "شريط علوي داكن",
+            "label": "اخفاء لينكات التصنيفات فى الهيدير و جعلها ايقون",
             "description": null,
-            "id": "topnav_is_dark",
+            "id": "is_header_icon",
             "format": "switch",
             "required": false,
             "value": true,

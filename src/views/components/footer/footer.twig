@@ -4,7 +4,7 @@
 		aria-label="footer" class="store-footer__inner text-footercolor !bg-transparent">
 		{# ================ newsletter=============== #}
 		{% if theme.settings.get('has_newsletter') %}
-			<div class="container flex flex-col sm:flex-row sm:items-center gap-7 pb-5 md:py-12 border-b border-solid  border-[#0000001a]">
+			<div class="container flex flex-col sm:flex-row sm:items-center gap-7 pb-5 md:pb-12 border-b border-solid  border-[#0000001a]">
 				<h1 class="text-lg md:text-2xl font-medium whitespace-nowrap">{{ trans('pages.cart.newlettert')}}</h1>
 				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center">
 					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
