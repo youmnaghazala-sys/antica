@@ -17,7 +17,9 @@
       "email":"enter your email",
           "sendus":"send to us",
       "contactus":"contact us",
-      "verification":"Dating back to platform clients"
+      "verification":"Dating back to platform clients",
+      "show_more":"show article"
+
 
     },
     "order": {
