@@ -1909,23 +1909,23 @@
                                     "value": "custom"
                                 }
                             ]
-                        },
-                        {
-                            "id": "category.is_slider",
-                            "type": "boolean",
-                            "format": "switch",
-                            "label": "تشغيل الاسلايدر",
-                            "description": null,
-                            "labelHTML": null,
-                            "icon": "sicon-toggle-off",
-                            "value": true,
-                            "selected": false,
-                            "required": false
                         }
                     ],
                     "value": [],
                     "minLength": 1,
                     "maxLength": "20"
+                },
+                {
+                    "id": "category.is_slider",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "تشغيل الاسلايدر",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
                 }
             ]
         },
