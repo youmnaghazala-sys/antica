@@ -21,7 +21,7 @@
 {% block content %}
     {% if article.has_image %}
         <img src="{{ article.image.url }}" alt="{{ article.image.alt }}" title="{{ article.image.alt }}"
-                class="h-[375px] md:h-[526px] mb-10 w-full object-cover rounded-md"/>
+                class="h-[375px] md:h-[526px] mb-5 md:mb-10 w-full object-cover rounded-md"/>
     {% endif %}
     <div class="container mb-8 sm:mb-24">
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
@@ -30,14 +30,14 @@
         </nav> #}
         <div class="md:flex items-start flex-col">
             <div class="main-content blog-category md:w-full flex-1 bg-white lg:p-8 rounded-md mb-10 md:mb-0">
-                <div class="flex items-center justify-between">
-                    <h1 class="font-bold text-3xl mb-5 leading-10">{{ article.title }}</h1>
-                    <div class="mb-10 text-gray-500 rounded-md inline-flex text-sm rtl:space-x-reverse space-x-5">
-                        <div class=" flex items-center">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-between mb-5 border-b-2 border-primary">
+                    <h1 class="font-bold text-base md:text-3xl mb-5 leading-10">{{ article.title }}</h1>
+                    <div class=" text-lg text-gray-500 rounded-md inline-flex rtl:space-x-reverse space-x-5">
+                        <div class="text-primary flex items-center">
                             <i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
                             <span class="">{{ article.created_at|date }}</span>
                         </div>
-                        <a href="{{ article.author.url }}" class=" flex items-center hover:text-dark">
+                        <a href="{{ article.author.url }}" class="text-primary text-lg flex items-center hover:text-dark">
                             <i class="sicon-user rtl:ml-1 ltr:mr-1"></i>
                             <span class="">{{ article.author.name }}</span>
                         </a>
@@ -77,12 +77,11 @@
                 {% endif %}
             </div>
 
-            <aside aria-label="Sidebar" class="sticky shrink-0 top-24 md:w-96 rtl:lg:mr-8 ltr:lg:ml-8 pb-11">
+            <aside aria-label="Sidebar" class="sticky shrink-0 top-24 md:w-full rtl:lg:mr-8 ltr:lg:ml-8 pb-11">
+                    <h2 class="font-bold text-center border-b-2 border-primary w-fit m-auto text-2xl pb-1">{{ trans('pages.blog_articles.related') }}</h2>
                 {% if related|length %}
-                    <h2 class="font-bold mb-3">{{ trans('pages.blog_articles.related') }}</h2>
-
                     {% hook 'blog:single.items.start' %}
-
+                    <div class="flex flex-col md:flex-row justify-between items-center">
                     {% for article in related %}
                         <div class="mt-5 flex items-center bg-white p-5 rounded-md">
                             <div class="shrink-0">
@@ -111,6 +110,7 @@
                             </div>
                         </div>
                     {% endfor %}
+                    </div>
 
                     {% hook 'blog:single.items.end' %}
                 {% endif %}
