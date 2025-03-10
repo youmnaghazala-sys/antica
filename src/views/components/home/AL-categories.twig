@@ -20,7 +20,7 @@
                     {% for category in component.category %}
                         <a href="category.category_url" style="--background:{{category.background_color}} ; --background_hover:{{category.background_hover_color}}5d" class="category_card">
                             {% if category.category_image %}
-                                <img src="{{category.category_image}}" class="-translate-y-7" alt="">
+                                <img src="{{category.category_image}}" class="-translate-y-1/3" alt="">
                             {% endif %}
                             {% if category.category_name_color %}
                                 <h3 style="color:{{category.category_name_color}}">{{category.category_name}}</h3>
