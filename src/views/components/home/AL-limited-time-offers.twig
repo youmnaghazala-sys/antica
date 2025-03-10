@@ -15,8 +15,7 @@
 						</div>
 					</div>
 					<div class="w-full md:w-1/2" style="color: {{component.counter_color}}">
-						{% set corrected_timestamp = ( 1757372400000 / 1000) | round %}
-						<salla-count-down digits="en" size="md" labeled="true" date={{ corrected_timestamp | date('Y-m-d') }}></salla-count-down>
+						<salla-count-down digits="en" size="md" labeled="true" date={{ component.offer_date }}></salla-count-down>
 					</div>
 				</div>
 				<div class="w-full h-full absolute top-0 left-0 z-1">
