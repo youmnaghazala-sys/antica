@@ -1,0 +1,55 @@
+<section class="Al_products-and-stories h-[610px]">
+  <div class="container">
+    <salla-slider show-controls="false" slider-config='{
+      "slidesPerView": 3,
+      "spaceBetween": 24,
+      "centeredSlides": true,
+      "loop": true
+    }'>
+      <div slot="items">
+        {% for story in component.stories %}
+          <div class="story-item">
+            <salla-slider class="stories-slider" show-controls="false" slider-config='{
+              "autoplay": {
+                "delay": 2000,
+                "disableOnInteraction": false
+              },
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "progressbar"
+              }
+            }'>
+              <div slot="items">
+                <div>
+                  <div class="story h-[610px]">
+                    <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+                  </div>
+                </div>
+                <div>
+                  <div class="story h-[610px]">
+                    <img src="{{story.second_story}}" class="w-full h-full object-cover" alt="">
+                  </div>
+                </div>
+                {# <div>
+                  <div class="story h-[610px]">
+                    <img src="{{story.third_story}}" class="w-full h-full object-cover" alt="">
+                  </div>
+                </div> #}
+              </div>
+              <div class="swiper-pagination"></div>
+            </salla-slider>
+          </div>
+        {% endfor %}
+      </div>
+    </salla-slider>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded" , () => {
+    const swiperEl = document.querySelector(".Al_products-and-stories .stories-slider");
+    swiperEl.addEventListener("autoplaytimeleft", (e) => {
+      console.log(e)
+    });
+  })
+</script>
