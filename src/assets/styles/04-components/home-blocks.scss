@@ -457,3 +457,14 @@ salla-filters {
 .s-filters-footer {
   text-align: center;
 }
+
+// cart page
+.cart_item_wrapper {
+  display: grid;
+  grid-template-columns: minmax(min-content, 3fr) minmax(min-content, 1fr) minmax(
+      min-content,
+      1fr
+    ) minmax(min-content, 1fr) minmax(min-content, 0.5fr);
+  align-items: center;
+  justify-items: center;
+}
