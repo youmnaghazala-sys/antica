@@ -25,6 +25,7 @@ class App extends AppHelpers {
     this.initAttachWishlistListeners();
     this.changeMenuDirection();
     this.ALU_extractfooterimage();
+    this.ALU_searchIcon();
     initTootTip();
     this.loadModalImgOnclick();
 
@@ -78,7 +79,28 @@ class App extends AppHelpers {
         }
       }, 200);
     }
-
+    ALU_searchIcon(){
+      // salla search
+      let searchElements = document.querySelectorAll(".Moa_search");
+      let searchIcons = document.querySelectorAll(".header-search");
+      
+      searchElements.forEach((search, index) => {
+        let searchIcon = searchIcons[index];
+      
+        search.addEventListener("click", function (event) {
+          event.stopPropagation();
+          searchIcon.classList.toggle("active");
+          searchIcon.classList.toggle("hidden");
+        });
+      
+        document.addEventListener("click", function (event) {
+          if (!search.contains(event.target) && !searchIcon.contains(event.target)) {
+            searchIcon.classList.remove("active");
+            searchIcon.classList.add("hidden");
+          }
+        });
+      });
+      }
   loadModalImgOnclick(){
     document.querySelectorAll('.load-img-onclick').forEach(link => {
       link.addEventListener('click', (event) => {
