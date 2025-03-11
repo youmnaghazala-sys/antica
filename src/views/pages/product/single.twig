@@ -152,15 +152,16 @@
 						</a>
 					</div>
 				{% endif %}
-
-				<h1 class="text-xl md:text-2xl leading-10 font-bold mb-6 text-gray-800">{{ product.name }}</h1>
-				{% if theme.settings.get('is_original') %}
-					<a href="{{product.category.url}}" class="pr-4 py-2 mb-4 rounded-xl text-black block" style="border: 1px solid var(--orange, #F36C42); box-shadow: 2px 2px 0px 0px var(--color-secondary-store);">
-						<h3 class="text-lg">{{trans('pages.cart.product_percent')}}</h3>
-						<p class="text-sm underline font-medium">{{ trans('pages.cart.product_percent_txt') }}
-							{{product.category.name}}</p>
-					</a>
-				{% endif %}
+				<div class="flex items-center gap-2">
+					<h1 class="text-xl md:text-2xl leading-10 font-bold mb-6 text-gray-800">{{ product.name }}</h1>
+					{% if theme.settings.get('is_original') %}
+						<a href="{{product.category.url}}" class="pr-4 py-2 mb-4 text-black block">
+							<p class="text-xxs text-primary">{{trans('pages.cart.product_percent')}}</p>
+							<p class="text-xxs text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
+								{{product.category.name}}</p>
+						</a>
+					{% endif %}
+				</div>
 				{% if product.subtitle %}
 					<h2 class="product-entry__sub-title text-sm text-gray-500 leading-6 mb-2.5">
 						{{ product.subtitle }}
@@ -188,24 +189,23 @@
 							{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
 					</div>
 				</div>
-
-				<div class="product__description p-2 px-5 sm:p-1 leading-7 mb-3">
-					{% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
-					{% if product.has_read_more %}
-						<article class="article article--main relative leading-8 overflow-hidden transition-all max-h-0 duration-300 py-4" id="more-content" style="max-height:5.25rem">
-							{{ product_desc|raw }}
-						</article>
-
-						{# Read More Button #}
-						<a id="btn-show-more" class="link--primary inline-block mt-2 cursor-pointer">
-							{{ trans('pages.products.read_more') }}
-						</a>
-					{% else %}
-						<article class="article--main pb-1">
-							{{ product_desc|raw }}
-						</article>
-					{% endif %}
-				</div>
+				{# 
+								<div class="product__description p-2 px-5 sm:p-1 leading-7 mb-3">
+									{% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
+									{% if product.has_read_more %}
+										<article class="article article--main relative leading-8 overflow-hidden transition-all max-h-0 duration-300 py-4" id="more-content" style="max-height:5.25rem">
+											{{ product_desc|raw }}
+										</article>
+				
+										<a id="btn-show-more" class="link--primary inline-block mt-2 cursor-pointer">
+											{{ trans('pages.products.read_more') }}
+										</a>
+									{% else %}
+										<article class="article--main pb-1">
+											{{ product_desc|raw }}
+										</article>
+									{% endif %}
+								</div> #}
 
 				{% if product.tags|length and theme.settings.get('show_tags', true) %}
 					<div class="mb-3">
@@ -370,20 +370,7 @@
 
 		</salla-tabs>
 	</div>
-    <style>
-		.s-comments-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
-            }
 
-            div { grid-area: 1 / 1 / 2 / 3; }
-            salla-comment-form { grid-area: 2 / 2 / 3 / 3; }
-            .div3 { grid-area: 2 / 1 / 4 / 2; }
-            .s-infinite-scroll-wrapper { grid-area: 3 / 2 / 4 / 3; }
-	</style>
 	{# Similar Products Area #}
 	<div class="container">
 		<salla-products-slider source="related" source-value="{{product.id}}" block-title="{{trans('pages.products.similar_products')}}" display-all-url></salla-products-slider>
