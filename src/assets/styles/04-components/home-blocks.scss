@@ -31,9 +31,7 @@
   }
 }
 
-/*
-  Main slider
-*/
+/* Main slider */
 .s-block--hero-slider {
   .swiper-slide {
     @apply h-80 sm:h-96 lg:h-116 xl:h-132 relative bg-gray-800;
@@ -397,15 +395,15 @@
   padding-top: 2em;
 }
 
-.All{
-  &_banner_btn{
-    &::after{
-      content:"";
+.All {
+  &_banner_btn {
+    &::after {
+      content: "";
       @apply absolute top-0.5 md:top-1 -right-0.5 md:-right-1 left-0 w-full h-full bg-transparent border border-solid border-[var(--btn-bg)] transition-all duration-300;
     }
-    &:hover{
-      &::after{
-        content:"";
+    &:hover {
+      &::after {
+        content: "";
         @apply top-0 right-0;
       }
     }
@@ -424,7 +422,6 @@ salla-breadcrumb {
     height: 22.857px;
   }
 }
-
 salla-filters {
   background-color: #f2f4f7 !important;
   border-radius: 5px;
@@ -459,7 +456,6 @@ salla-filters {
     }
   }
 }
-
 .s-filters-footer {
   text-align: center;
 }
@@ -473,7 +469,6 @@ salla-filters {
   align-items: center;
   justify-items: center;
 }
-
 .cart-submit-wrap salla-button button {
   border-radius: 4px !important;
   -webkit-border-radius: 4px !important;
@@ -482,4 +477,30 @@ salla-filters {
   -o-border-radius: 4px !important;
   font-size: 20px;
   font-weight: 400;
+}
+.btn--coupon button {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+.remove-product-btn salla-button button {
+  width: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
+  height: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
+}
+.quantity-increase-decrease salla-quantity-input .s-quantity-input-container {
+  height: clamp(1.5rem, 1.1939rem + 1.3061vw, 2.5rem) !important;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  .s-quantity-input-input {
+    width: clamp(1.5rem, 1.0408rem + 1.9592vw, 3rem) !important;
+    font-size: 0.9rem;
+  }
+  .s-quantity-input-button {
+    width: clamp(1.2rem, 0.7255rem + 2.0245vw, 2.75rem) !important;
+  }
 }

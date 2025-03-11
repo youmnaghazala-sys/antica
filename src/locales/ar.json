@@ -2,8 +2,8 @@
   "blocks": {
     "header": {
       "cart": "السلة",
-      "arabic":"العربية",
-      "english":"English"
+      "arabic": "العربية",
+      "english": "English"
     },
     "appBanner": {
       "download_now": "حمله الان"
@@ -12,12 +12,18 @@
   "pages": {
     "cart": {
       "cart_options": "خيارات السلة",
-      "newlettert":"الاشتراك في النشرة البريدية",
-      "email":"أدخل بريدك الالكتروني",
-      "sendus":"راسلنا",
-      "contactus":"اتصل بنا",
-      "verification":"موثق لدى منصة العملاء"
-
+      "newlettert": "الاشتراك في النشرة البريدية",
+      "email": "أدخل بريدك الالكتروني",
+      "sendus": "راسلنا",
+      "contactus": "اتصل بنا",
+      "verification": "موثق لدى منصة العملاء",
+      "add": "أضف",
+      "tocart": "إلى السلة واحصل على شحن مجانى",
+      "free_shipping_done": "طلبك مؤهل للشحن المجانى",
+      "product": "المنتج",
+      "price": "السعر",
+      "quantity": "الكمية",
+      "total": "الاجمالى"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
@@ -26,12 +32,12 @@
       "days_since_added": "أيام من إضافته",
       "option_name": "الخيار",
       "option_content": "المحتوى",
-      "show_more":"عرض المقالة"
+      "show_more": "عرض المقالة"
     }
   },
   "common": {
     "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر أحد البطاقات البنكة التالية واحصل على الخصم المحدد",
     "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر أحد بطاقات بنك :bank_name واحصل على خصم بنسبة ",
-    "peice":"قطعة"
+    "peice": "قطعة"
   }
 }

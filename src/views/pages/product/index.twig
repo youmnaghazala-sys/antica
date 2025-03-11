@@ -24,7 +24,7 @@
 				<salla-breadcrumb></salla-breadcrumb>
 			</nav>
 			{% if theme.settings.get('enable_banner_logo') %}
-				<a href="https://salla.design/dev-qvuxklgz9lyczmb7" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
+				<a href="{{ link('/') }}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
 					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
 				</a>
 			{% endif %}
