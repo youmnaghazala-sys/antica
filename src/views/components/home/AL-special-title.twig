@@ -1,8 +1,14 @@
-<section class="special_title my-7">
+<section class="special_title my-5">
 	<div class="wrapper container mx-auto flex flex-col items-center justify-center">
-		<p class="text-sm font-normal" style="color: {{ component.section_title_color }};">{{ component.section_title }}</p>
-		<h3 class="relative w-fit mt-1 mb-3 pb-1 text-[28px] font-bold leading-[48px]" style="color: {{ component.main_text_color }};">{{ component.main_text }}</h3>
-		<h5 class="text-base font-normal" style="color: {{ component.sub_text_color }};">{{ component.sub_text }}</h5>
+		{% if component.section_title %}
+			<p class="text-sm font-normal" style="color: {{ component.section_title_color }};">{{ component.section_title }}</p>
+		{% endif %}
+		{% if component.main_text %}
+			<h3 class="relative w-fit mt-1 mb-3 pb-1 text-xl md:text-[28px] font-bold leading-[48px]" style="color: {{ component.main_text_color }};">{{ component.main_text }}</h3>
+		{% endif %}
+		{% if component.sub_text %}
+			<h5 class="text-sm md:text-base font-normal" style="color: {{ component.sub_text_color }};">{{ component.sub_text }}</h5>
+		{% endif %}
 	</div>
 </section>
 <style>

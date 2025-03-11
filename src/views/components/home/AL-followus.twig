@@ -7,9 +7,9 @@
 		{% endfor %}
 	</div>
 	{% if component.enable_floating_banner %}
-		<div class="floatingbanner absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white text-center rounded-md p-4 w-[254px] bg-[rgba(89,116,69,0.16)] backdrop-blur-md">
-			{% if component.username %}<p class="text-2xl font-semibold">{{ component.username }}</p>{% endif %}
+		<a href="https://instagram.com/{{component.username}}/" target="_blank" class="floatingbanner absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white text-center rounded-md p-4 w-[254px] bg-[rgba(89,116,69,0.16)] backdrop-blur-md">
+			{% if component.username %}<p class="text-2xl font-semibold">{{ component.username }}@</p>{% endif %}
 			{% if component.slogan %}<p class="text-xl leading-10">{{ component.slogan }}</p>{% endif %}
-		</div>
+		</a>
 	{% endif %}
 </section>

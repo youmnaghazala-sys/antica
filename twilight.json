@@ -2242,7 +2242,7 @@
                     "id": "username",
                     "type": "string",
                     "format": "text",
-                    "label": "اسم الستخدم",
+                    "label": "اسم مستخدم الإنستجرام",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
