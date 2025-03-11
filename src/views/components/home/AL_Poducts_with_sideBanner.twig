@@ -1,9 +1,6 @@
 {% set c = component %}
 <section class = "AL_Products_with_sideBanner my-5">
-    <div class = "header container text-center my-2 wrapper mx-auto flex items-center justify-center">
-        <h2 style = "color: {{ c.section_title_color }};" class="relative w-fit text-[24px] font-bold leading-[48px]">{{ c.Section_title }}</h2>
-    </div>
-    <div class = "container flex flex-col md:flex-row gap-6">
+    <div class = "container flex flex-col md:flex-row gap-6 ">
         <div class = "banner md:max-w-[348px] w-full">
             {% if c.switch_video %}
                 <div class = "video_banner w-full h-[432px] md:h-full">
@@ -55,7 +52,6 @@
     
     .items custom-salla-product-card .s-product-card-image img{
         background-color: #fff;
-
     }
 
 </style>

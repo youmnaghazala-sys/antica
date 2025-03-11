@@ -1758,33 +1758,6 @@
             "path": "home.AL_Poducts_with_sideBanner",
             "fields": [
                 {
-                    "id": "Section_title",
-                    "type": "string",
-                    "format": "text",
-                    "label": "عنوان السكشن",
-                    "description": null,
-                    "labelHTML": null,
-                    "placeholder": "Placeholder text ..",
-                    "icon": "sicon-format-text-alt",
-                    "value": null,
-                    "multilanguage": false,
-                    "required": false,
-                    "minLength": "3",
-                    "maxLength": "255"
-                },
-                {
-                    "id": "section_title_color",
-                    "type": "string",
-                    "format": "color",
-                    "inputType": "color",
-                    "label": "لون نص عنوان السكشن",
-                    "description": null,
-                    "labelHTML": null,
-                    "icon": "sicon-format-fill",
-                    "value": "#004956",
-                    "required": false
-                },
-                {
                     "id": "switch_video",
                     "type": "boolean",
                     "format": "switch",
