@@ -420,35 +420,25 @@ salla-quantity-input[max='1']{
   @apply pt-5
 }
 
-// comment in single page
+// comments
 .s-comments-product {
-  salla-comment-item {
-    @apply border-none rounded-xl p-3 sm:p-5 mb-5;
-  }
-
   @apply bg-transparent pt-0;
 
-  salla-comment-form {
-    @apply sm:order-2;
-
-    .s-comment-form-content {
-      @apply flex flex-col items-center;
-    }
-
-    .s-comment-form-input {
-      @apply bg-transparent border-primary placeholder:opacity-80 py-4 px-6 h-44;
-    }
-
-    button {
-      @apply rounded-full px-20 text-white;
-    }
+  .s-comment-form-input {
+    @apply h-52 sm:w-1/2 bg-transparent;
+    border: 0.89px solid #AEAEAE;
   }
 
-  .s-comments-item-timestamp {
-    @apply hidden;
+  .s-comment-form-action {
+    @apply justify-start;
+
+    salla-button button {
+      @apply sm:px-28 rounded-sm;
+    }
+
   }
 
-  .s-comments-item-content {
-    @apply text-xs sm:text-sm;
+  .s-comments-item {
+    @apply border border-solid border-gray-500 rounded-sm px-5 py-7;
   }
 }
