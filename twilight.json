@@ -420,7 +420,8 @@
             "icon": "sicon-image",
             "value": "https://cdn.salla.sa/form-builder/Wq1osD6Zho1385qv9EWUTdnnQjDxswpejwsKgZ3Y.png",
             "required": false
-        }
+        },
+        {
             "id": "free_shipping_limit",
             "type": "number",
             "format": "integer",
