@@ -459,6 +459,47 @@ salla-filters {
 .s-filters-footer {
   text-align: center;
 }
+.special_product_card {
+  .s-products-list-horizontal-cards {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+
+    .s-product-card-content-footer {
+      display: none !important;
+    }
+
+    .s-product-card-image {
+      width: 6rem;
+      height: unset !important;
+      aspect-ratio: 1 / 1.21 !important;
+    }
+
+    .s-product-card-content-title a {
+      font-size: 18px;
+      line-height: 21px;
+      font-weight: 500;
+      color: var(--color-primary);
+      margin-right: 5px;
+    }
+
+    .s-product-card-content-subtitle {
+      display: none;
+    }
+
+    .s-product-card-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--scound-color);
+    }
+
+    .s-product-card-entry {
+      background: transparent !important;
+    }
+
+    .s-product-card-shadow:hover {
+      box-shadow: 5px 7px 17px 9px rgba(43, 45, 52, 0.22);
+    }
+  }
+}
 
 // cart page
 .cart_item_wrapper {
