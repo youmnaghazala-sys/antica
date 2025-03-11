@@ -2,7 +2,7 @@
 <section class="AL_best_seller my-5">  
     <div class="background container relative !overflow-hidden ">
         {% if c.bg_video %}
-            <div class="video-background absolute inset-0 w-full h-[580px]">
+            <div class="video-background w-full h-[580px]">
                 <video autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="{{ c.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
@@ -13,14 +13,14 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div class = "products md:!w-full absolute bottom-[15%] md:-translate-x-[87.5%]">
+        <div class = "products !w-full absolute bottom-[15%] md:-translate-x-[87.5%]">
            
-            <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
+            <salla-slider id="thumbs" show-controls="false" auto-play ="true" type="thumbs" slider-config='{
             "slidesPerView": 3,
             "spaceBetween": 10,
             "breakpoints": {
-                "320": { "slidesPerView": 1 },
-                "768": { "slidesPerView": 3 },
+                "320": { "slidesPerView": 1.2 },
+                "768": { "slidesPerView": 1.8 },
                 "1024": { "slidesPerView": 3 }
             }
         }'>
@@ -78,11 +78,8 @@
 
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { // For large screens
-                    productsContainer.style.transform = "translateX(-4%)";
+                    productsContainer.style.transform = "translateX(0%)";
                     productsContainer.style.transition = "transform 6s linear";
-                } else { // For small screens
-                    productsContainer.style.transform = "translateX(100%)";
-                    productsContainer.style.transition = "transform 15s linear";
                 }
             }
         }
