@@ -224,6 +224,18 @@
             "variant": "h6"
         },
         {
+            "id": "is_original",
+            "type": "boolean",
+            "format": "switch",
+            "label": "اظهار جملة (اصلى 100%)",
+            "description": "",
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
+        },
+        {
             "id": "product_background_color",
             "type": "string",
             "format": "color",

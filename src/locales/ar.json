@@ -12,11 +12,14 @@
   "pages": {
     "cart": {
       "cart_options": "خيارات السلة",
-      "newlettert": "الاشتراك في النشرة البريدية",
-      "email": "أدخل بريدك الالكتروني",
-      "sendus": "راسلنا",
-      "contactus": "اتصل بنا",
-      "verification": "موثق لدى منصة العملاء",
+      "newlettert":"الاشتراك في النشرة البريدية",
+      "email":"أدخل بريدك الالكتروني",
+      "sendus":"راسلنا",
+      "contactus":"اتصل بنا",
+      "verification":"موثق لدى منصة العملاء",
+      "product_percent": "أصلي 100%",
+      "desproduct":"وصف المنتج",
+      "ratingproduct":"التقيمات"
       "add": "أضف",
       "tocart": "إلى السلة واحصل على شحن مجانى",
       "free_shipping_done": "طلبك مؤهل للشحن المجانى",
