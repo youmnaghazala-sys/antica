@@ -379,4 +379,22 @@ isElementLoaded(selector){
   }
 }
 
+class TabComponent extends HTMLElement {
+
+    constructor() {
+
+        super();
+        
+        const template = document.querySelector('#AL-best_category_tabs');
+        const templateToShadow = template.content.cloneNode(true);
+
+        const shadow = this.attachShadow({ mode: 'open' });
+        shadow.appendChild(templateToShadow);
+
+    }
+
+}
+
+window.customElements.define('custom-tabs', TabComponent);     
+
 salla.onReady(() => (new App).loadTheApp());
