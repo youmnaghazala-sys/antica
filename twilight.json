@@ -2481,6 +2481,18 @@
             "path": "home.AL_best_seller",
             "fields": [
                 {
+                    "id": "title_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون السكشن",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#ffffff",
+                    "required": false
+                },
+                {
                     "id": "bg_video",
                     "type": "boolean",
                     "format": "switch",
