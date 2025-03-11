@@ -2722,6 +2722,13 @@
                     "value": []
                 }
             ]
+        },
+        {
+            "key": "14b51b65-c719-4eb1-91ff-a75322f7f4bb",
+            "title": "افضل الاقسام",
+            "icon": "sicon-store",
+            "path": "home.AL-best-categories",
+            "fields": []
         }
     ],
     "support_url": "",
