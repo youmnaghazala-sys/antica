@@ -236,6 +236,40 @@
             "required": false
         },
         {
+            "id": "is_note_product",
+            "type": "boolean",
+            "format": "switch",
+            "label": "إضافة ملاحظة على المنتجات",
+            "description": "",
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
+        },
+        {
+            "id": "note_of_product",
+            "type": "string",
+            "format": "text",
+            "label": "ادخل الملاحظة",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "مثال : *هذا المنتج لا يمكن استرجعه",
+            "icon": "sicon-format-text-alt",
+            "value": "*هذا المنتج لا يمكن استرجعه",
+            "multilanguage": false,
+            "required": false,
+            "minLength": 6,
+            "maxLength": 300,
+            "conditions": [
+                {
+                    "id": "is_note_product",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "id": "product_background_color",
             "type": "string",
             "format": "color",
