@@ -435,6 +435,37 @@
             "required": false,
             "minimum": "0",
             "maximum": "10000"
+        },
+        {
+            "id": "sub_category_section_name",
+            "type": "string",
+            "format": "text",
+            "label": "عنوان قسم المنتجات في صفحة التصنيفات",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "Placeholder text ..",
+            "icon": "sicon-format-text-alt",
+            "value": "منتجات مميزه",
+            "multilanguage": false,
+            "required": false,
+            "minLength": "1",
+            "maxLength": 30
+        },
+        {
+            "id": "sub_categories_products",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "الاقسام",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-keyboard_arrow_down",
+            "selected": [],
+            "options": [],
+            "source": "Products",
+            "multichoice": true,
+            "searchable": true,
+            "required": false,
+            "value": []
         }
     ],
     "components": [
