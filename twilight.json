@@ -421,6 +421,20 @@
             "value": "https://cdn.salla.sa/form-builder/Wq1osD6Zho1385qv9EWUTdnnQjDxswpejwsKgZ3Y.png",
             "required": false
         }
+            "id": "free_shipping_limit",
+            "type": "number",
+            "format": "integer",
+            "inputType": "number",
+            "label": "حد الشحن المحاني",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "Input an integer number between 5 and 50.",
+            "icon": "sicon-hashtag",
+            "value": 2000,
+            "required": false,
+            "minimum": "0",
+            "maximum": "10000"
+        }
     ],
     "components": [
         {
@@ -2717,6 +2731,183 @@
                     "searchable": true,
                     "required": false,
                     "value": []
+                }
+            ]
+        },
+        {
+            "key": "14b51b65-c719-4eb1-91ff-a75322f7f4bb",
+            "title": "افضل الاقسام",
+            "icon": "sicon-store",
+            "path": "home.AL-best-categories",
+            "fields": [
+                {
+                    "id": "category_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "اضافه عنوان",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": "2",
+                    "maxLength": "1000"
+                },
+                {
+                    "id": "category_sub_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "اضافه وصف",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": "2",
+                    "maxLength": "1000"
+                },
+                {
+                    "id": "category_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "اضافه خلفيه",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "categories",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "categories",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "categories.category_name",
+                            "type": "string",
+                            "format": "text",
+                            "label": "اسم الفئه",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "categories.relate_category",
+                            "type": "items",
+                            "format": "dropdown-list",
+                            "label": "المنتجات الخاصه بلفئه",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-keyboard_arrow_down",
+                            "selected": [],
+                            "options": [],
+                            "source": "Categories",
+                            "multichoice": false,
+                            "searchable": true,
+                            "required": false,
+                            "value": []
+                        },
+                        {
+                            "id": "categories.unique_feature_1",
+                            "type": "string",
+                            "format": "text",
+                            "label": "ادخل ميزه للمنتج ( اختيارى )",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "categories.unique_feature_2",
+                            "type": "string",
+                            "format": "text",
+                            "label": "ادخل ميزه للمنتج ( اختيارى )",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "categories.unique_feature_3",
+                            "type": "string",
+                            "format": "text",
+                            "label": "ادخل ميزه للمنتج ( اختيارى )",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": "10"
+                },
+                {
+                    "id": "category_title_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون العنوان",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "category_sub_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون الوصف",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
+                },
+                {
+                    "id": "category_name_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون ل اسم الفئه",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#004956",
+                    "required": false
                 }
             ]
         }
