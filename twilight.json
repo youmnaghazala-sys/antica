@@ -2481,7 +2481,7 @@
             "path": "home.AL_best_seller",
             "fields": [
                 {
-                    "id": "title_color",
+                    "id": "section_bgcolor",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
@@ -2517,7 +2517,14 @@
                     "value": null,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": "2000000000000"
+                    "maxLength": "2000000000000",
+                    "conditions": [
+                    {
+                        "id": "bg_video",
+                        "operation": "=",
+                        "value": true
+                    }
+                ]
                 },
                 {
                     "id": "bg_image",
