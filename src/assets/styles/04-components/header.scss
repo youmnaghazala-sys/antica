@@ -152,7 +152,7 @@
 
 // Mainnav cart icon
 .header-btn{
-  @apply border-none outline-none transition-opacity hover:opacity-80;
+  @apply rounded-full border border-black w-10 h-10 flex items-center justify-center outline-none transition-opacity hover:opacity-80;
 
   &__icon{
     @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;
@@ -203,7 +203,7 @@ salla-user-menu{
 @apply py-4 !important;
 }
 .main-menu li.root-level > a{
-  @apply py-0 border-l border-solid border-[E7E7E7] !important;
+  @apply py-0 border-l border-solid border-[#E7E7E7] text-[var(--main-text-color)] !important;
 }
 .btn--rounded-gray,
 .s-search-input{
