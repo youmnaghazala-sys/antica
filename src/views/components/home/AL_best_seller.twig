@@ -1,5 +1,5 @@
 {% set c = component %}
-<section class="AL_best_seller my-5">  
+<section class="AL_best_seller my-5" style = "background-color : {{c.section_bgcolor}}">  
     <div class="background container relative !overflow-hidden ">
         {% if c.bg_video %}
             <div class="video-background w-full h-[580px]">
@@ -15,15 +15,20 @@
         {% endif %}
         <div class = "products !w-full absolute bottom-[15%] md:-translate-x-[87.5%]">
            
-            <salla-slider id="thumbs" show-controls="false" auto-play ="true" loop ="true" type="thumbs" slider-config='{
-            "slidesPerView": 3,
-            "spaceBetween": 10,
-            "breakpoints": {
-                "320": { "slidesPerView": 1.2 },
-                "768": { "slidesPerView": 1.8 },
-                "1024": { "slidesPerView": 3 }
-            }
-        }'>
+            <salla-slider id="thumbs" show-controls="false"   type="thumbs" slider-config='{
+                "autoplay": {
+                    "delay": 3000
+                    
+                },
+                "slidesPerView": 3,
+                "spaceBetween": 10,
+
+                "breakpoints": {
+                    "320": { "slidesPerView": 1.2 },
+                    "768": { "slidesPerView": 1.8 },
+                    "1024": { "slidesPerView": 3 }
+                }
+            }'>
             <div slot="items">
                 {% for product in c.best_sell_products %}
                     <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
