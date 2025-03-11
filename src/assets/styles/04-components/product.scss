@@ -404,3 +404,51 @@ salla-quantity-input[max='1']{
     @apply cursor-not-allowed
   }
 }
+
+// tabs
+.s-tabs-header{
+  @apply border-none gap-4;
+}
+.s-tabs-active {
+  @apply bg-primary text-white !important;
+}
+
+.s-tabs-header-item {
+  @apply border border-solid border-primary rounded-none md:text-xl text-sm font-normal bg-transparent py-2 px-7.5 text-primary;
+}
+.s-tabs-content-wrapper{
+  @apply pt-5
+}
+
+// comment in single page
+.s-comments-product {
+  salla-comment-item {
+    @apply border-none rounded-xl p-3 sm:p-5 mb-5;
+  }
+
+  @apply bg-transparent pt-0;
+
+  salla-comment-form {
+    @apply sm:order-2;
+
+    .s-comment-form-content {
+      @apply flex flex-col items-center;
+    }
+
+    .s-comment-form-input {
+      @apply bg-transparent border-primary placeholder:opacity-80 py-4 px-6 h-44;
+    }
+
+    button {
+      @apply rounded-full px-20 text-white;
+    }
+  }
+
+  .s-comments-item-timestamp {
+    @apply hidden;
+  }
+
+  .s-comments-item-content {
+    @apply text-xs sm:text-sm;
+  }
+}

@@ -18,7 +18,11 @@
           "sendus":"send to us",
       "contactus":"contact us",
       "verification":"Dating back to platform clients",
-      "show_more":"show article"
+      "show_more":"show article",
+      "product_percent_txt": "للمزيد من ",
+      "desproduct":"product description",
+      "ratingproduct":"ratting"
+
 
 
     },
