@@ -408,6 +408,21 @@
             "value": [],
             "minLength": 1,
             "maxLength": "4"
+        },
+        {
+            "id": "free_shipping_limit",
+            "type": "number",
+            "format": "integer",
+            "inputType": "number",
+            "label": "حد الشحن المحاني",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "Input an integer number between 5 and 50.",
+            "icon": "sicon-hashtag",
+            "value": 2000,
+            "required": false,
+            "minimum": "0",
+            "maximum": "10000"
         }
     ],
     "components": [
