@@ -1,6 +1,6 @@
 {% set c = component %}
 <section class="AL_best_seller my-5">  
-    <div class="background container">
+    <div class="background container relative !overflow-hidden ">
         {% if c.bg_video %}
             <div class="video-background absolute inset-0 w-full h-[580px]">
                 <video autoplay muted loop playsinline class="w-full h-full object-cover">
@@ -13,48 +13,81 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-    </div>
-    
-        
-        <div class = "products flex flex-row gap-4 !w-full container relative ">
-            {% for product in c.best_sell_products %}
-                <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
-            {% endfor %} 
+        <div class = "products md:!w-full absolute bottom-[15%] md:-translate-x-[87.5%]">
+           
+            <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
+            "slidesPerView": 3,
+            "spaceBetween": 10,
+            "breakpoints": {
+                "320": { "slidesPerView": 1 },
+                "768": { "slidesPerView": 3 },
+                "1024": { "slidesPerView": 3 }
+            }
+        }'>
+            <div slot="items">
+                {% for product in c.best_sell_products %}
+                    <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+                {% endfor %}
+            </div>
+            </salla-slider>
         </div>
+
         
-    
+    </div>
 </section>
 
 <style>
     .AL_best_seller .products custom-salla-product-card {
-        height : 178px;
+        height: 178px;
         border-radius: 0;
-        
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image{
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image  {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
+        
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-content{
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-content {
         justify-content: center;
         margin: auto;
     }
-    
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image img{
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image img {
         background-color: #fff;
-
     }
-    
-
 </style>
- 
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Remove vertical class and add horizontal class to product cards
         document.querySelectorAll("custom-salla-product-card").forEach(card => {
             card.classList.remove("s-product-card-vertical");
             card.classList.add("s-product-card-horizontal");
         });
+
+        // Handle scroll event for the products container
+        const productsContainer = document.querySelector(".products");
+        
+        //productsContainer.style.transform = "translateX(-87.5%)";
+
+        function handleScroll() {
+            const section = document.querySelector(".AL_best_seller");
+            const sectionPosition = section.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if (sectionPosition < screenHeight * 0.75) {
+                if (window.innerWidth > 768) { // For large screens
+                    productsContainer.style.transform = "translateX(-4%)";
+                    productsContainer.style.transition = "transform 6s linear";
+                } else { // For small screens
+                    productsContainer.style.transform = "translateX(100%)";
+                    productsContainer.style.transition = "transform 15s linear";
+                }
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initial check
     });
 </script>
