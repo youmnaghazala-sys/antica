@@ -408,6 +408,18 @@
             "value": [],
             "minLength": 1,
             "maxLength": "4"
+        },
+        {
+            "id": "blog_banner_image",
+            "type": "string",
+            "format": "image",
+            "label": "صورة خلفية عنوان صفحة المدونة",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "icon": "sicon-image",
+            "value": "https://cdn.salla.sa/form-builder/Wq1osD6Zho1385qv9EWUTdnnQjDxswpejwsKgZ3Y.png",
+            "required": false
         }
     ],
     "components": [

@@ -19,8 +19,11 @@
 			class="center-between">
 
 			{# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
-			<nav class="breadcrumbs w-full py-5">
-				<salla-breadcrumb></salla-breadcrumb>
+			<nav class="breadcrumbs w-full py-5 relative">
+				<div class="">
+					<img src="{{theme.settings.get('blog_banner_image')}}" alt="blog page banner image" class="w-full h-full">
+				</div>
+				<salla-breadcrumb class="absolute top-[20%] left-1/2"></salla-breadcrumb>
 			</nav>
 
 			{# Categories filter dropdown #}
@@ -62,7 +65,7 @@
 							<div class="overflow-hidden">
 								<a href="{{ article.url }}">
 									{% if article.has_image %}
-										<img class="w-full h-80 object-cover" src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+										<img class="w-full sm:h-80 object-cover" src="{{ article.image.url }}" alt="{{ article.image.alt }}">
 									{% else %}
 										<img class="sm:h-full w-10 object-contain opacity-60" src="{{ 'images/placeholder.png' | asset }}" alt="post image"/>
 									{% endif %}
@@ -71,23 +74,23 @@
 									<a href="{{ article.category.url }}" class="text-sm text-primary">
 										{{ article.category.name }}
 									</a>
-									<h3 class="text-2xl font-medium text-[#222222] pb-3 border-b-2 border-solid border-primary mb-4">
+									<h3 class="text-base sm:text-2xl font-medium text-[#222222] pb-2 sm:pb-3 border-b-2 border-solid border-primary mb-1.5 sm:mb-4">
 										{{ article.title }}
 									</h3>
-									<div class="mb-3 text-primary rounded-md inline-flex text-sm rtl:space-x-reverse space-x-5">
+									<div class="sm:mb-3 text-primary rounded-md inline-flex text-xs sm:text-sm rtl:space-x-reverse space-x-5">
 										<div class=" flex items-center">
 											<i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
 											<span class="">{{ article.created_at|date }}</span>
 										</div>
 										<a href="{{ article.author.url }}" class=" flex items-center hover:text-dark">
 											<i class="sicon-user rtl:ml-1 ltr:mr-1"></i>
-											<span >{{ article.author.name }}</span>
+											<span>{{ article.author.name }}</span>
 										</a>
 									</div>
 									<p class="text-[#202020e8] text-sm sm:text-base line-clamp-2 text-ellipsis mb-1">
 										{{ article.summary }}
 									</p>
-									<a href="{{ article.url }}" class="text-primary text-lg font-semibold underline">
+									<a href="{{ article.url }}" class="text-primary text-sm sm:text-lg font-semibold underline">
 										{{trans('pages.order.show_more')}}
 									</a>
 								</div>
