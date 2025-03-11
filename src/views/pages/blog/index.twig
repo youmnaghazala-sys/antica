@@ -14,20 +14,20 @@
 {% extends "layouts.master" %}
 
 {% block content %}
-	<div class=" container mb-8 sm:mb-24">
+	<div class="  mb-8 sm:mb-24">
 		<div
-			class="center-between">
+			class="">
 
 			{# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
-			<nav class="breadcrumbs w-full py-5 relative">
+			<nav class="breadcrumbs w-full pb-3 sm:pb-16 relative">
 				<div class="">
 					<img src="{{theme.settings.get('blog_banner_image')}}" alt="blog page banner image" class="w-full h-full">
 				</div>
-				<salla-breadcrumb class="absolute top-[20%] left-1/2"></salla-breadcrumb>
+				<salla-breadcrumb class="absolute top-[30%] sm:top-[38%] left-[34%] sm:left-1/2"></salla-breadcrumb>
 			</nav>
 
 			{# Categories filter dropdown #}
-			<div class="dropdown-toggler cat-filter lg:hidden">
+			<div class="container dropdown-toggler cat-filter pb-3 !flex justify-end lg:!hidden">
 				<button aria-label="Categories Trigger" type="button" class="dropdown__trigger rtl:space-x-reverse space-x-1.5 flex text-sm text-primary" aria-expanded="true" aria-haspopup="true">
 					<i class="sicon-filter text-xs pointer-events-none"></i>
 					<span class="fix-align pointer-events-none">{{ trans('pages.blog_categories.categories') }}</span>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 
-		<div class="grid  gap-6">
+		<div class="container grid  gap-6">
 
 			<div class="main-content lg:col-span-6">
 
