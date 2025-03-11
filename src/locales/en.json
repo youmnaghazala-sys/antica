@@ -2,8 +2,8 @@
   "blocks": {
     "header": {
       "cart": "Cart",
-         "arabic":"arabic",
-       "english":"English"
+      "arabic": "arabic",
+      "english": "English"
     },
     "appBanner": {
       "download_now": "download now"
@@ -12,15 +12,20 @@
   "pages": {
     "cart": {
       "cart_options": "Cart Options",
-      "show_blog":"show article",
-        "newlettert":"Subscribe to the newsletter",
-      "email":"enter your email",
-          "sendus":"send to us",
-      "contactus":"contact us",
-      "verification":"Dating back to platform clients",
-      "show_more":"show article"
-
-
+      "show_blog": "show article",
+      "newlettert": "Subscribe to the newsletter",
+      "email": "enter your email",
+      "sendus": "send to us",
+      "contactus": "contact us",
+      "verification": "Dating back to platform clients",
+      "show_more": "show article",
+      "add": "add",
+      "tocart": "to cart and get free shipping",
+      "free_shipping_done": "your order qualifies for free shipping",
+      "product": "Product",
+      "quantity": "Quantity",
+      "price": "Price",
+      "total": "Total"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
@@ -34,6 +39,6 @@
   "common": {
     "bank_offer_sub_title_multiple": "Pay for your purchases via one of the following bank cards and get the specified discount",
     "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get discount",
-    "peice" :"peice"
+    "peice": "peice"
   }
 }
