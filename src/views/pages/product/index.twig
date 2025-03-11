@@ -24,7 +24,7 @@
 				<salla-breadcrumb></salla-breadcrumb>
 			</nav>
 			{% if theme.settings.get('enable_banner_logo') %}
-				<a href="https://salla.design/dev-qvuxklgz9lyczmb7" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
+				<a href="{{ link('/') }}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
 					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
 				</a>
 			{% endif %}
@@ -32,10 +32,17 @@
 	</div>
 	<div class="container px-2.5 ms:px-5 mb-10">
 		<div class="flex items-start flex-col md:flex-row">
-			{% if filters %}
-				<button class="btn--close-sm close-filters sicon-cancel hidden"></button>
-				<salla-filters class="md:w-72 lg:sticky lg:top-20 flex-none" id="filters-menu"></salla-filters>
-			{% endif %}
+			<div class="flex flex-col gap-4 md:w-[300px] ml-[30px]">
+				{% if filters %}
+					<button class="btn--close-sm close-filters sicon-cancel hidden"></button>
+					<salla-filters class="md:w-72 mt-16" id="filters-menu"></salla-filters>
+				{% endif %}
+
+				<div class="special_product_card w-full hidden lg:block">
+					<h3 class="my-7 text-[20px] leading-8 font-medium">{{ theme.settings.get('sub_category_section_name') }}</h3>
+					<salla-products-list class="w-full" source="{{theme.settings.get('sub_categories_products')[0]}}" limit="4" horizontal-cards="true"></salla-products-list>
+				</div>
+			</div>
 
 			<div class="main-content flex-1 w-full {{ filters ? 'ltr:lg:ml-8 rtl:lg:mr-8' : '' }}">
 				<div class="mb-4 sm:mb-6 flex justify-between items-center">
@@ -86,9 +93,9 @@
 				</div>
 
 				{% hook 'product:index.items.start' %}
-				<div class="flex min-h-screen">
-					<salla-products-list class="flex-1 min-w-0 overflow-auto " source="{{ page.slug }}" source-value="{{ page.id }}" {{ filters ?'filters-Results':'' }}></salla-products-list>
-				</div>
+					<div class="flex min-h-screen">
+						<salla-products-list class="flex-1 min-w-0 overflow-auto " source="{{ page.slug }}" source-value="{{ page.id }}" {{ filters ?'filters-Results':'' }}></salla-products-list>
+					</div>
 				{% hook 'product:index.items.end' %}
 			</div>
 		</div>
