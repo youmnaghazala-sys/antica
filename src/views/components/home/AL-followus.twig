@@ -1,7 +1,9 @@
 <section class="followUs w-full relative my-5">
 	<div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
 		{% for img in component.section_images %}
-			<img src="{{ img.image }}" alt="image" class="h-[244px] w-full" loading="lazy"/>
+			<a href="{{img.img_link}}">
+				<img src="{{ img.image }}" alt="image" class="h-[244px] w-full" loading="lazy"/>
+			</a>
 		{% endfor %}
 	</div>
 	{% if component.enable_floating_banner %}
