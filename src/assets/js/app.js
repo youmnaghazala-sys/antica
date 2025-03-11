@@ -382,19 +382,51 @@ isElementLoaded(selector){
 class TabComponent extends HTMLElement {
 
     constructor() {
-
         super();
         
         const template = document.querySelector('#AL-best_category_tabs');
+        if (!template) {
+            console.error("Template #AL-best_category_tabs not found!");
+            return;
+        }
+
         const templateToShadow = template.content.cloneNode(true);
+        this.attachShadow({ mode: 'open' }).appendChild(templateToShadow);
 
-        const shadow = this.attachShadow({ mode: 'open' });
-        shadow.appendChild(templateToShadow);
-
+        this.initTabs();
     }
 
+    initTabs() {
+        const tabs = this.shadowRoot.querySelectorAll('.AL-best_category_tabs_btn');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                this.changeTab(tab);
+            });
+        });
+
+        if (tabs.length > 0) {
+            this.changeTab(tabs[0]);
+        }
+    }
+
+    changeTab(selectedTab) {
+        this.shadowRoot.querySelectorAll('.AL-best_category_tabs_item')
+            .forEach(tab => tab.classList.remove('tab_active'));
+    
+        selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
+    
+        const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
+        slots.forEach(slot => slot.setAttribute('hidden', ''));
+    
+        const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
+        if (activeSlot) {
+            activeSlot.removeAttribute('hidden');
+        }
+    }
+    
 }
 
-window.customElements.define('custom-tabs', TabComponent);     
+window.customElements.define('custom-tabs', TabComponent);
 
 salla.onReady(() => (new App).loadTheApp());
