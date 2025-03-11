@@ -28,7 +28,11 @@
       "product": "Product",
       "quantity": "Quantity",
       "price": "Price",
-      "total": "Total"
+      "total": "Total",
+      "sku":"number of peice :",
+      "weight":"weight :"
+
+
     },
     "order": {
       "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
