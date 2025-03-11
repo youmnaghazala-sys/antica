@@ -1,7 +1,7 @@
 <footer class="store-footer bg-no-repeat bg-cover" style="{% if theme.settings.get('is_footer_bg_image') %}background-image:url({{theme.settings.get('footer_bg_img')}}); {% else %} background-color:{{theme.settings.get('footer_bg_color')}}{% endif %}">
 
 	<div
-		aria-label="footer" class="store-footer__inner text-footercolor !bg-transparent !pt-0">
+		aria-label="footer" class="store-footer__inner text-footercolor !bg-transparent !pt-8">
 		{# ================ newsletter=============== #}
 		{% if theme.settings.get('has_newsletter') %}
 			<div class="container flex flex-col sm:flex-row sm:items-center gap-7 pb-5 md:pb-12 border-b border-solid  border-[#0000001a]">
