@@ -6,26 +6,26 @@
 		{% if theme.settings.get('has_newsletter') %}
 			<div class="container flex flex-col sm:flex-row sm:items-center gap-7 pb-5 md:pb-12 border-b border-solid  border-[#0000001a]">
 				<h1 class="text-lg md:text-2xl font-medium whitespace-nowrap">{{ trans('pages.cart.newlettert')}}</h1>
-				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center">
+				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center flex-1 justify-between">
 					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
 					<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
 						<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
 					</a>
 				</form>
 				<div class="flex gap-2 md:gap-3">
-					<div class="flex items-center rounded-sm p-2 md:p-4 gap-3 md:gap-7 border border-solid border-[#20202007]" style="backdrop-filter: contrast(0.9);">
+					<div class="flex items-center rounded-sm p-2 md:p-4 gap-3 md:gap-7 border border-solid border-[#20202007] w-1/2 md:w-[227px]" style="backdrop-filter: contrast(0.9);">
 						<i class="sicon-phone-talking text-base md:text-2xl text-white bg-footercolor rounded-full p-1.5 md:p-3"></i>
 						<div>
 							<p class="text-xs md:text-lg">{{trans('pages.cart.contactus')}}</p>
-							<p>{{store.contacts.phone }}</p>
+							<p class="text-base">{{store.contacts.phone }}</p>
 						</div>
 					</div>
 
-					<div class="flex items-center rounded-sm border border-solid border-[#20202007] p-2 md:p-4 gap-3 md:gap-7" style="backdrop-filter: contrast(0.9);">
+					<div class="flex items-center rounded-sm border border-solid border-[#20202007] p-2 md:p-4 gap-3 md:gap-7 w-1/2 md:w-[227px]" style="backdrop-filter: contrast(0.9);">
 						<i class="sicon-mail text-base md:text-2xl text-white bg-footercolor rounded-full p-1.5 md:p-3"></i>
 						<div>
 							<p class="text-xs md:text-lg">{{trans('pages.cart.sendus')}}</p>
-							<p>{{store.contacts.email }}</p>
+							<p class="text-base">{{store.contacts.email }}</p>
 						</div>
 					</div>
 				</div>
@@ -90,7 +90,7 @@
 	</div>
 
 	<div class="md:flex items-center justify-between py-4 container text-center">
-		<span class="text-sm copyright-text">{% hook copyright %}</span>
+		<span class="text-xl leading-7 copyright-text">{% hook copyright %}</span>
 		<salla-payments class="salla-payments_footer"></salla-payments>
 	</div>
 </div>
