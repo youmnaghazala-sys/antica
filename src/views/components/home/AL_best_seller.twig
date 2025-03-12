@@ -1,43 +1,43 @@
 {% set c = component %}
-<section id = "AL_best_seller-{{ position }}" class="AL_best_seller my-5" style = "background-color : {{c.section_bgcolor}}">  
-    <div class="background container relative !overflow-hidden ">
+<section id="AL_best_seller-{{ position }}" class="AL_best_seller my-5" style="background-color: {{c.section_bgcolor}}">  
+    <div class="background container relative !overflow-hidden">
         {% if c.bg_video %}
-            <div class="video-background w-full h-[580px]">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <div class="video-background w-full h-[580px] relative">
+                <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="{{ c.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
+                <!-- Play and Pause Buttons -->
+                <div class="video-controls absolute bottom-4 right-4 flex space-x-2">
+                    <button id="play-button-{{ position }}" class="bg-white text-black px-4 py-2 rounded"><i class = "sicon-play"></i></button>
+                    <button id="pause-button-{{ position }}" class="bg-white text-black px-4 py-2 rounded"><i class = "sicon-double-zero"></i></button>
+                </div>
             </div>
         {% else %}
             <div class="image-div w-full h-[580px]">
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div id = "products-{{ position }}" class = "products !w-full absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
-           
-            <salla-slider id="thumbs" show-controls="false"   type="thumbs" slider-config='{
+        <div id="products-{{ position }}" class="products !w-full absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+            <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
                 "autoplay": {
                     "delay": 3000
-                    
                 },
                 "slidesPerView": 3,
                 "spaceBetween": 10,
-
                 "breakpoints": {
                     "320": { "slidesPerView": 1.2 },
                     "768": { "slidesPerView": 1.8 },
                     "1024": { "slidesPerView": 3 }
                 }
             }'>
-            <div slot="items">
-                {% for product in c.best_sell_products %}
-                    <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
-                {% endfor %}
-            </div>
+                <div slot="items">
+                    {% for product in c.best_sell_products %}
+                        <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+                    {% endfor %}
+                </div>
             </salla-slider>
         </div>
-
-        
     </div>
 </section>
 
@@ -51,7 +51,6 @@
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
-        
     }
     
     .AL_best_seller .products custom-salla-product-card .s-product-card-content {
@@ -74,8 +73,6 @@
         // Handle scroll event for the products container
         const productsContainer = document.querySelector("#products-{{ position }}");
         
-        //productsContainer.style.transform = "translateX(-87.5%)";
-
         function handleScroll() {
             const section = document.querySelector("#AL_best_seller-{{ position }}");
             const sectionPosition = section.getBoundingClientRect().top;
@@ -86,11 +83,25 @@
                     productsContainer.style.transform = "translateX(0%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
-                
             }
         }
 
         window.addEventListener("scroll", handleScroll);
         handleScroll(); // Initial check
+
+        // Video Play/Pause Controls
+        const video = document.querySelector("#background-video-{{ position }}");
+        const playButton = document.querySelector("#play-button-{{ position }}");
+        const pauseButton = document.querySelector("#pause-button-{{ position }}");
+
+        if (video && playButton && pauseButton) {
+            playButton.addEventListener("click", () => {
+                video.play();
+            });
+
+            pauseButton.addEventListener("click", () => {
+                video.pause();
+            });
+        }
     });
 </script>
