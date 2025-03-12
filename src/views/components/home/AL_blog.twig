@@ -46,7 +46,7 @@
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide">
                             <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" 
-                                class="w-full h-80 object-cover rounded-sm">
+                                class="w-full h-96 object-cover rounded-sm">
                         </div>
                     {% endfor %}
                 </div>
@@ -55,9 +55,6 @@
     </div>
 </section>
 
-<!-- استدعاء Swiper.js -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 <script>
     var mainSlider = new Swiper(".main-slider", {
