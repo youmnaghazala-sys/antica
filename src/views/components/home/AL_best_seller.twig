@@ -82,7 +82,7 @@
 
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { // For large screens
-                    productsContainer.style.transform = "translateX(-4%)";
+                    productsContainer.style.transform = "translateX(-5%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
             }
@@ -106,11 +106,10 @@
                 }
             });
 
-            // Update button icon based on video state initially
             if (video.paused) {
-                toggleButton.innerHTML = '<i class="sicon-play"></i>';
-            } else {
                 toggleButton.innerHTML = '<i class="sicon-pause"></i>';
+            } else {
+                toggleButton.innerHTML = '<i class="sicon-play"></i>';
             }
         }
     });
