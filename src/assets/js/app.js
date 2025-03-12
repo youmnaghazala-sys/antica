@@ -417,14 +417,16 @@ class TabComponent extends HTMLElement {
         selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
     
         const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
+        
         slots.forEach(slot => slot.setAttribute('hidden', ''));
     
         const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
+        
         if (activeSlot) {
             activeSlot.removeAttribute('hidden');
         }
     }
-    
+
 }
 
 window.customElements.define('custom-tabs', TabComponent);

@@ -69,29 +69,31 @@
 		{% endif %}
 
 		{# custom tab to send data in it #}
-		<custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10">
+		{# {% if component.categories|length > 0 %}
+			<custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10">
 
-			{% for category in component.categories %}
-				
-				<tab-content slot="{{ category.category_name }}" {% if not loop.first %} hidden {% endif %}>
-					<salla-products-slider
-						source-value="{{ category.relate_category[0] }}"
-						slider-id="slider-for-product-{{ loop.index }}"
-						slider-config='{
-							"slidesPerView": 1,
-							"spaceBetween": 0,
-							"centerInsufficientSlides": true
-						}'
-					></salla-products-slider>
-				</tab-content>
+				{% for category in component.categories %}
+					
+					<tab-content slot="{{ category.category_name }}" {% if not loop.first %} hidden {% endif %}>
+						<salla-products-slider
+							source-value="{{ category.relate_category[0] }}"
+							slider-id="slider-for-product-{{ loop.index }}"
+							slider-config='{
+								"slidesPerView": 1,
+								"spaceBetween": 0,
+								"centerInsufficientSlides": true
+							}'
+						></salla-products-slider>
+					</tab-content>
 
-			{% else %}
+				{% else %}
+					when no product show that
+					<p>no products to show</p>
+					
+				{% endfor %}
 
-					<p>no products to show</p>	
-				
-			{% endfor %}
-
-		</custom-tabs>
+			</custom-tabs>
+		{% endif %} #}
 
 	</div>
 </section>
