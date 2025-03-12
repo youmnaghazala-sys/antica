@@ -26,6 +26,7 @@ class App extends AppHelpers {
     this.changeMenuDirection();
     this.ALU_extractfooterimage();
     this.ALU_searchIcon();
+    this. ALU__removeShadowroot();
     initTootTip();
     this.loadModalImgOnclick();
 
@@ -105,6 +106,24 @@ class App extends AppHelpers {
         }
       });
     });
+  }
+  ALU__removeShadowroot() {
+    setTimeout(() => {
+      const hostElements = document.querySelectorAll('.s-add-product-button-main .s-add-product-button-mini-checkout');
+      hostElements.forEach(el => {
+        if (el && el.shadowRoot) {
+          const button = el.shadowRoot.querySelector('.s-fast-checkout-button');
+          if (button) {
+            button.style.borderRadius = '0';
+            console.log('Button styled successfully!');
+          } else {
+            console.error('Button not found inside shadow root');
+          }
+        } else {
+          console.error('Shadow root not found or not accessible');
+        }
+      });
+    }, 200);
   }
   loadModalImgOnclick() {
     document.querySelectorAll(".load-img-onclick").forEach((link) => {
