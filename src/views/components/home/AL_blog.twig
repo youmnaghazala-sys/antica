@@ -1,21 +1,20 @@
-<section class="AL-blog ">
+<section class="AL-blog py-6">
     <div class="container">
-        <div class="flex items-center justify-between gap-6 py-12" style={{component.bg_color}}>
-            <!-- سلايدر المحتوى -->
+        <div class="flex items-center justify-between flex-col sm:flex-row gap-6 py-12" style="background-color:{{component.bg_color}};">
             <div class="swiper content-slider w-2/5">
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide flex items-center">
-                            <div class="content_box p-6 shadow-md rounded-sm">
-                                <h2 class="text-xl font-bold " style="color:{{component.base_color}};">
+                            <div class="content_box p-6 rounded-sm">
+                                <h2 class="text-[14px] font-normal leading-[18px]" style="color:{{component.base_color}};">
                                     {{ component.sec_name }}
                                 </h2>
                                 
-                                <h3 class="text-lg font-semibold" style"color:{{component.secondry_color}};"> 
+                                <h3 class="text-[28px] font-medium leading-[42px]" style"color:{{component.secondry_color}};"> 
                                     {{ item.title }}
                                 </h3>
                                 
-                                <hr class="my-2" style="color:{{component.base_color}};">
+                                <hr class="my-2 h-[2px]" style="background-color:{{component.base_color}};">
                                 
                                 <div class="dta_author flex items-center gap-4 text-sm" style="color:{{component.base_color}};">
                                     <div class="flex items-center gap-1">
@@ -32,7 +31,8 @@
                                     {{ item.summary }}
                                 </p>
                                 
-                                <a href="{{ item.url }}" class="underline font-medium hover:text-blue-800" style="color:{{component.base_color}};">
+                                <a href="{{ item.url }}" class="underline text-[18px] font-medium leading-[28px]" 
+                                    style="color:{{component.base_color}};">
                                     {{ trans('blog.read_more') }}
                                 </a>
                             </div>
@@ -41,12 +41,12 @@
                 </div>
             </div>
             <!-- سلايدر الصور -->
-            <div class="swiper main-slider w-3/5">
+            <div class="swiper main-slider w-full">
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide">
                             <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" 
-                                class="w-full h-80 object-cover rounded-sm shadow-md">
+                                class="w-full h-80 object-cover rounded-sm">
                         </div>
                     {% endfor %}
                 </div>
@@ -64,6 +64,24 @@
         loop: true,
         spaceBetween: 20,
         slidesPerView: 1.3,
+        breakpoints: {
+            1024: { // لابتوب وأجهزة كبيرة
+                spaceBetween: 20,
+                slidesPerView: 1.3
+            },
+            768: { // تابلت وأجهزة متوسطة
+                spaceBetween: 15,
+                slidesPerView: 1
+            },
+            480: { // موبايل صغير
+                spaceBetween: 10,
+                slidesPerView: 1
+            },
+            350: { // موبايل صغير
+                spaceBetween: 10,
+                slidesPerView: 1
+            }
+    }
     });
 
     var contentSlider = new Swiper(".content-slider", {
@@ -113,4 +131,24 @@
         max-width: 320px;
     }
 
+    @media (max-width: 768px) {
+     .AL-blog .content-slider {
+        width: 100%;
+        max-width: none;
+    }
+
+    .AL-blog .main-slider {
+        width: 100%;
+        max-width: none;
+    }
+
+    .AL-blog .content_box {
+        padding: 1rem;
+    }
+
+    .AL-blog .main-slider img {
+        height: auto;
+        max-height: 250px;
+    }
+}
 </style>
