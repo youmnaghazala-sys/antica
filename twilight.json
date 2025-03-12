@@ -2512,6 +2512,7 @@
             "key": "e7b90807-46c6-4518-8e6a-0bcc18053f5f",
             "title": "الأفضل مبيعا - ألوري",
             "icon": "sicon-star2",
+            "image" : "https://cdn.salla.sa/form-builder/crhG5tPKnkN03uTWaBwk1PO1HrukU88aiY6ZoX0b.png",
             "path": "home.AL_best_seller",
             "fields": [
                 {
@@ -2519,11 +2520,11 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون السكشن",
+                    "label": "لون خلفيةالسكشن",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#ffffff",
+                    "value": "#F8FBF5",
                     "required": false
                 },
                 {

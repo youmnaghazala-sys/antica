@@ -7,10 +7,11 @@
                     <source src="{{ c.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
-                <!-- Play and Pause Buttons -->
-                <div class="video-controls absolute bottom-4 right-4 flex space-x-2">
-                    <button id="play-button-{{ position }}" class="bg-white text-black px-4 py-2 rounded"><i class = "sicon-play"></i></button>
-                    <button id="pause-button-{{ position }}" class="bg-white text-black px-4 py-2 rounded"><i class = "sicon-double-zero"></i></button>
+                <!-- Single Toggle Button -->
+                <div class="video-controls absolute top-4 right-4">
+                    <button id="toggle-video-button-{{ position }}" class="bg-white opacity-55 text-black px-[10px] pb-[4px] pt-[7px] rounded-full">
+                        <i class="sicon-pause"></i> <!-- Default icon (pause) -->
+                    </button>
                 </div>
             </div>
         {% else %}
@@ -18,7 +19,7 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div id="products-{{ position }}" class="products !w-full absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+        <div id="products-{{ position }}" class="products w-[90%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
             <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
                 "autoplay": {
                     "delay": 3000
@@ -80,7 +81,7 @@
 
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { // For large screens
-                    productsContainer.style.transform = "translateX(0%)";
+                    productsContainer.style.transform = "translateX(-4%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
             }
@@ -89,19 +90,27 @@
         window.addEventListener("scroll", handleScroll);
         handleScroll(); // Initial check
 
-        // Video Play/Pause Controls
+        // Video Toggle Button Logic
         const video = document.querySelector("#background-video-{{ position }}");
-        const playButton = document.querySelector("#play-button-{{ position }}");
-        const pauseButton = document.querySelector("#pause-button-{{ position }}");
+        const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
 
-        if (video && playButton && pauseButton) {
-            playButton.addEventListener("click", () => {
-                video.play();
+        if (video && toggleButton) {
+            toggleButton.addEventListener("click", () => {
+                if (video.paused) {
+                    video.play();
+                    toggleButton.innerHTML = '<i class="sicon-pause"></i>'; // Change icon to pause
+                } else {
+                    video.pause();
+                    toggleButton.innerHTML = '<i class="sicon-play"></i>'; // Change icon to play
+                }
             });
 
-            pauseButton.addEventListener("click", () => {
-                video.pause();
-            });
+            // Update button icon based on video state initially
+            if (video.paused) {
+                toggleButton.innerHTML = '<i class="sicon-play"></i>';
+            } else {
+                toggleButton.innerHTML = '<i class="sicon-pause"></i>';
+            }
         }
     });
 </script>
