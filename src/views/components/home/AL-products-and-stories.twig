@@ -1,37 +1,42 @@
 <section class="Al_products-and-stories h-[610px]">
 	<div class="container">
-		<div>
-			<div class="story-slide-inactive">
+		<div class="grid grid-cols-3 gap-6">
+			<div class="story-slide-inactive hidden md:block">
 				<div class="story h-[610px]">
-          <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+          <img src="{{component.first_side_image}}" class="w-full h-full object-cover" alt="">
         </div>
 			</div>
-			<div class="story-slide-active">
-				<div class="story-item">
+			<div class="story-slide-active col-span-3 md:col-span-1">
+				<div class="story-item relative">
 					<div class="swiper child-swiper">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<div class="story h-[610px]">
-									<img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="story h-[610px]">
-									<img src="{{story.second_story}}" class="w-full h-full object-cover" alt="">
-								</div>
-							</div>
-							{# <div class="swiper-slide">
-                <div class="story h-[610px]">
-                  <img src="{{story.third_story}}" class="w-full h-full object-cover" alt="">
+              {% for story in component.stories %}
+                <div class="swiper-slide">
+                  <div class="story h-[610px]">
+                    <img src="{{story.story_image}}" class="w-full h-full object-cover" alt="">
+                  </div>
                 </div>
-              </div> #}
+              {% endfor %}
 						</div>
 					</div>
+          <div class="px-4 absolute top-4 w-full z-2">
+            <div class="autoplay-progress flex gap-2 h-2 items-center">
+              {% for story in component.stories %}
+                <div class="relative progress-bar flex-1 rounded-md h-2 bg-[#D9D9D9]">
+                  <span class="absolute top-0 rounded-md h-full right-0 max-w-full bg-white progress-{{loop.index}}"></span>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="flex items-center justify-between mt-2">
+              <div class="store-logo-container"></div>
+              <div class="slider-pagination !text-white"></div>
+            </div>
+          </div>
 				</div>
 			</div>
-			<div class="story-slide-inactive">
+			<div class="story-slide-inactive hidden md:block">
 				<div class="story h-[610px]">
-          <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+          <img src="{{component.second_side_image}}" class="w-full h-full object-cover" alt="">
         </div>
 			</div>
 		</div>
@@ -39,14 +44,37 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => { // Initialize all child swipers and pause autoplay by default
+document.addEventListener('DOMContentLoaded', () => {
   const childSwiper = new Swiper('.story-slide-active .child-swiper', {
     loop: false,
     autoplay: {
       delay: 2000,
       disableOnInteraction: false
     },
-    slidesPerView: 1
+    slidesPerView: 1,
+    pagination:{
+      el: ".slider-pagination",
+      type: "fraction"
+    },
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        const totalSlides = s.slides.length; 
+        const currentIndex = s.realIndex;
+
+        for (let i = 0; i < totalSlides; i++) {
+          const progressEl = document.querySelector(`.autoplay-progress .progress-${i + 1}`);
+          if (progressEl) {
+            if (i < currentIndex) {
+              progressEl.style.width = '100%';
+            } else {
+              progressEl.style.width = '0%'; 
+            }
+          }
+        }
+        
+        document.querySelector(`.autoplay-progress .progress-${s.realIndex + 1}`).style.width = `${(1 - progress) * 100}%`;
+      }
+    }
   });
 })
 </script>
