@@ -103,9 +103,45 @@
   }
 }
 
+.Al_products-and-stories{
+  .story-item.swiper-slide{
+    @apply transition-opacity;
+  }
+  .story-item.swiper-slide-active{
+    opacity: 1;
+  }
+  .story-item.swiper-slide-next, .story-item.swiper-slide-prev {
+    opacity: 0.4;
+  }
+  .pagination-wrapper {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 10;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .progress-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: white;
+    transition: width linear;
+  }
+}
+
 /* Product card styles */
-
-
 .s-product-card {
   &-entry {
     justify-content: start;

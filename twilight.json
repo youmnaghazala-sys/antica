@@ -2513,17 +2513,18 @@
             "title": "الأفضل مبيعا - ألوري",
             "icon": "sicon-star2",
             "path": "home.AL_best_seller",
+            "image" : "https://cdn.salla.sa/form-builder/crhG5tPKnkN03uTWaBwk1PO1HrukU88aiY6ZoX0b.png",
             "fields": [
                 {
                     "id": "section_bgcolor",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون السكشن",
+                    "label": "لون خلفيةالسكشن",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#ffffff",
+                    "value": "#F8FBF5",
                     "required": false
                 },
                 {
@@ -2847,6 +2848,46 @@
             "path": "home.AL-products-and-stories",
             "fields": [
                 {
+                    "id": "first_side_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "الصورة الجانبية الاولى",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "second_side_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "الصورة الجانبية الثانية",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "stories_products",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "منتجات الاستورى",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-keyboard_arrow_down",
+                    "selected": [],
+                    "options": [],
+                    "source": "Products",
+                    "multichoice": true,
+                    "searchable": true,
+                    "required": false,
+                    "value": []
+                },
+                {
                     "id": "stories",
                     "type": "collection",
                     "format": "collection",
@@ -2857,61 +2898,21 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "stories.first_story",
+                            "id": "stories.story_image",
                             "type": "string",
                             "format": "image",
-                            "label": "الاستورى الاولى",
+                            "label": "صورة الاستورى",
                             "description": null,
                             "labelHTML": null,
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
                             "required": false
-                        },
-                        {
-                            "id": "stories.second_story",
-                            "type": "string",
-                            "format": "image",
-                            "label": "الاستورى الثانية",
-                            "description": null,
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://hostname.com/image.png",
-                            "icon": "sicon-image",
-                            "value": null,
-                            "required": false
-                        },
-                        {
-                            "id": "stories.third_story",
-                            "type": "string",
-                            "format": "image",
-                            "label": "الاستورى الثالثة",
-                            "description": null,
-                            "labelHTML": null,
-                            "placeholder": "e.g. https://hostname.com/image.png",
-                            "icon": "sicon-image",
-                            "value": null,
-                            "required": false
-                        },
-                        {
-                            "id": "stories.stories_products",
-                            "type": "items",
-                            "format": "dropdown-list",
-                            "label": "منتجات الاستورى",
-                            "description": null,
-                            "labelHTML": null,
-                            "icon": "sicon-keyboard_arrow_down",
-                            "selected": [],
-                            "options": [],
-                            "source": "Products",
-                            "multichoice": true,
-                            "searchable": true,
-                            "required": false,
-                            "value": []
                         }
                     ],
                     "value": [],
                     "minLength": 1,
-                    "maxLength": "8"
+                    "maxLength": 5
                 }
             ]
         },
@@ -2921,6 +2922,57 @@
             "icon": "sicon-store",
             "path": "home.AL_blog",
             "fields": [
+                {
+                    "id": "sec_name",
+                    "type": "string",
+                    "format": "text",
+                    "label": "اسم السكشن",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": "المدونة",
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": "1",
+                    "maxLength": 30
+                },
+                {
+                    "id": "bg_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفية المقالات",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#f6f6f6",
+                    "required": false
+                },
+                {
+                    "id": "base_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون اساسي",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#597445",
+                    "required": false
+                },
+                {
+                    "id": "secondry_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون فرعي",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#000222",
+                    "required": false
+                },
                 {
                     "id": "blog_drop_list",
                     "type": "items",
