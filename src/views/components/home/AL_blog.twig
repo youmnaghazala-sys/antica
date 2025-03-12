@@ -1,0 +1,70 @@
+<section class="AL-blog">
+    <div class="container">
+        <salla-slider id="thumbs" show-controls="false" type="thumbs" 
+            slider-config='{
+                "slidesPerView": 1,
+                "spaceBetween": 5,
+                "breakpoints": {
+                    "320": { "slidesPerView": 1, "spaceBetween": 5 },
+                    "480": { "slidesPerView": 1.5, "spaceBetween": 6 },
+                    "1024": { "slidesPerView": 1.5, "spaceBetween": 20 }
+                }
+            }'>
+            <div slot="items">
+                {% for item in component.blog_drop_list %}
+                    <a href="{{item.url}}">
+                        <div class="card flex align-center justify-center gap-6">
+                            <div class="blog_content w-1/3 ">
+                               <h2 class="content_tittle">
+                                    {{component.sc_name}}
+                               </h2>
+
+                               <h3>
+                                    {{item.title}}
+                               </h3>
+
+                               <hr>
+
+                                <div class="dta_author flex align-center justify-around gap-2 mt-4">
+                                    <div class="flex align-center justify-center gap-1">
+                                        <i class="sicon-calendar-date"> </i>
+
+                                        <p class="date">
+                                            {{ item.created_at|date("d F Y") }}
+                                        </p>
+                                    </div>
+
+                                    <div class="flex align-center justify-center gap-1">
+                                        <i class="sicon-user"> </i>
+                                        
+                                        <p class="date">
+                                            {{ item.author.name}}
+                                        </p>
+                                    </div>
+    
+                                </div>
+                                
+                                <p>
+
+                                </p> 
+                                <a href="{{item.url}}">
+                                    {{ trans('blog.read_more') }}
+                                </a>
+                            </div>
+
+                            <div class="blog_image w-2/3">
+                                <img 
+                                    src="{{ item.image.url }}" 
+                                    alt="{{ item.image.alt }}" 
+                                    class="w-full h-full object-cover rounded-md"
+                                >
+                            </div>
+                            
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </salla-slider>
+    </div>
+</section>
+
