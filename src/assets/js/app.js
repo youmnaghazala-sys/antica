@@ -378,13 +378,10 @@ isElementLoaded(selector){
     });
   }
 }
-
-
 class TabComponent extends HTMLElement {
-
     constructor() {
         super();
-        
+
         const template = document.querySelector('#AL-best_category_tabs');
         if (!template) {
             console.error("Template #AL-best_category_tabs not found!");
@@ -395,41 +392,7 @@ class TabComponent extends HTMLElement {
         shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.initTabs();
-        this.populateContent();
-
-
-        const swiper = this.shadowRoot.querySelector('.swiper');
-        this.shadowRoot.querySelector('.s-slider-next').addEventListener('click', () => swiper.slideNext());
-        this.shadowRoot.querySelector('.s-slider-prev').addEventListener('click', () => swiper.slidePrev());
-
-        console.log(this.shadowRoot.querySelector('.s-slider-prev'));
-
     }
-
-    populateContent() {
-        const contentContainer = this.shadowRoot.querySelector('.AL-best_category_tabs_content');
-        if (!contentContainer) return;
-    
-        const tabsContent = this.querySelectorAll('tab-content');
-    
-        tabsContent.forEach((tabContent, index) => {
-            const slotName = tabContent.getAttribute('slot');
-            const contentDiv = document.createElement('div');
-            contentDiv.classList.add('tab-content');
-            contentDiv.dataset.tab = slotName;
-    
-            if (index !== 0) {
-                contentDiv.setAttribute("hidden", "");
-            }
-    
-            contentDiv.appendChild(tabContent.cloneNode(true));
-            contentContainer.appendChild(contentDiv);
-        });
-    
-        const slots = this.shadowRoot.querySelectorAll('slot');
-        slots.forEach(slot => slot.remove());
-    }
-    
 
     initTabs() {
         const tabs = this.shadowRoot.querySelectorAll('.AL-best_category_tabs_btn');
@@ -448,24 +411,20 @@ class TabComponent extends HTMLElement {
     changeTab(selectedTab) {
         this.shadowRoot.querySelectorAll('.AL-best_category_tabs_item')
             .forEach(tab => tab.classList.remove('tab_active'));
-
-        const tabItem = selectedTab.closest('.AL-best_category_tabs_item');
-        tabItem.classList.add('tab_active');
-
-        const contents = this.shadowRoot.querySelectorAll('.tab-content');
-        contents.forEach(content => {
-            content.setAttribute("hidden", "");
-        });
-
-        const slotName = selectedTab.textContent.trim();
-        const activeContent = this.shadowRoot.querySelector(`.tab-content[data-tab="${slotName}"]`);
-        if (activeContent) {
-            activeContent.removeAttribute("hidden");
+    
+        selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
+    
+        const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
+        
+        slots.forEach(slot => slot.setAttribute('hidden', ''));
+    
+        const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
+        
+        if (activeSlot) {
+            activeSlot.removeAttribute('hidden');
         }
     }
-
 }
 
 window.customElements.define('custom-tabs', TabComponent);
-
 salla.onReady(() => (new App).loadTheApp());
