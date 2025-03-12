@@ -377,9 +377,12 @@
 	<div class="container mb-12" id="new-place">
 		<salla-tabs>
 			<!-- Tab One -->
+			{% if product.description %}
+			
 			<salla-tab-header slot="header" name="tab_one">
 				<span>{{trans('pages.cart.desproduct')}}</span>
 			</salla-tab-header>
+			{% endif %}
 			<salla-tab-content slot="content" name="tab_one">
 				{% if product.description %}
 					<div class="" id="new-place">

@@ -473,6 +473,10 @@ salla-quantity-input[max='1']{
       @apply fill-white ;
     }
   }
+
+  .s-slider-nav-arrow:not(:disabled):hover svg{
+    @apply fill-white;
+  }
 }
 salla-add-product-button button{
   @apply rounded-none !important;
