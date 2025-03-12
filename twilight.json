@@ -2570,7 +2570,14 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": null,
-                    "required": false
+                    "required": false,
+                    "conditions": [
+                        {
+                            "id": "bg_video",
+                            "operation": "=",
+                            "value": false
+                        }
+                    ]
                 },
                 {
                     "id": "best_sell_products",

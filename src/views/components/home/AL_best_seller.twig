@@ -1,5 +1,5 @@
 {% set c = component %}
-<section class="AL_best_seller my-5" style = "background-color : {{c.section_bgcolor}}">  
+<section id = "AL_best_seller-{{ position }}" class="AL_best_seller my-5" style = "background-color : {{c.section_bgcolor}}">  
     <div class="background container relative !overflow-hidden ">
         {% if c.bg_video %}
             <div class="video-background w-full h-[580px]">
@@ -13,7 +13,7 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div class = "products !w-full absolute bottom-[15%] md:-translate-x-[87.5%]">
+        <div id = "products-{{ position }}" class = "products !w-full absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
            
             <salla-slider id="thumbs" show-controls="false"   type="thumbs" slider-config='{
                 "autoplay": {
@@ -72,12 +72,12 @@
         });
 
         // Handle scroll event for the products container
-        const productsContainer = document.querySelector(".products");
+        const productsContainer = document.querySelector("#products-{{ position }}");
         
         //productsContainer.style.transform = "translateX(-87.5%)";
 
         function handleScroll() {
-            const section = document.querySelector(".AL_best_seller");
+            const section = document.querySelector("#AL_best_seller-{{ position }}");
             const sectionPosition = section.getBoundingClientRect().top;
             const screenHeight = window.innerHeight;
 
@@ -86,6 +86,7 @@
                     productsContainer.style.transform = "translateX(0%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
+                
             }
         }
 
