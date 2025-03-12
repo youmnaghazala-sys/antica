@@ -1,24 +1,35 @@
-<section class="brands_slider w-full h-[100px] flex items-center justify-center" style="background-color: {{ component.section_background_color }};">
+<section class="brands_slider w-full h-[100px] flex items-center justify-center overflow-hidden" style="background-color: {{ component.section_background_color }};">
 	<div class="container mx-auto h-full">
 		<salla-slider class="flex items-center h-full" id="thumbs" show-controls="false" type="thumbs" slider-config='{
-            "breakpoints": {
+            "loop": true,
+			"speed": 5000,
+			"autoplay": {
+				"delay": 0
+			},
+			"breakpoints": {
                 "350": {"slidesPerView": 2, "spaceBetween": 25},
                 "768": {"slidesPerView": 4, "spaceBetween": 10},
                 "1024": {"slidesPerView": 6, "spaceBetween": 10}
             }}'>
 			<div slot="items" class="h-full">
 				{% for brand in (component.enable_brands_images ? component.brands : component.brands_images) %}
-					<div class="flex items-center justify-center h-full">
-						<img src="{{ component.enable_brands_images ? brand.logo : brand.brand_img }}" alt="{{ component.enable_brands_images ? brand.name : 'brand name' }}" class="h-1/2 w-auto my-auto" loading="lazy"/>
+					<div class="flex items-center justify-center h-full min-w-[150px] max-h-[90px]">
+						<img src="{{ component.enable_brands_images ? brand.logo : brand.brand_img }}" 
+								alt="{{ component.enable_brands_images ? brand.name : 'brand name' }}" 
+								class="h-1/2 w-auto my-auto opacity-80 hover:opacity-100 transition-all cursor-pointer" 
+								loading="lazy"/>
 					</div>
 				{% endfor %}
 			</div>
 		</salla-slider>
 	</div>
 </section>
+
+
 <style>
 	.brands_slider .swiper-wrapper {
 		display: flex;
 		align-items: center;
+		transition-timing-function: linear !important;
 	}
 </style>

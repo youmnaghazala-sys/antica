@@ -1,7 +1,9 @@
 {
   "blocks": {
     "header": {
-      "cart": "Cart"
+      "cart": "Cart",
+      "arabic": "arabic",
+      "english": "English"
     },
     "appBanner": {
       "download_now": "download now"
@@ -15,7 +17,21 @@
       "email":"enter your email",
           "sendus":"send to us",
       "contactus":"contact us",
-      "verification":"Dating back to platform clients"
+      "verification":"Dating back to platform clients",
+      "show_more":"show article",
+      "product_percent_txt": "more of",
+      "desproduct":"product description",
+      "ratingproduct":"ratting",
+      "add": "add",
+      "tocart": "to cart and get free shipping",
+      "free_shipping_done": "your order qualifies for free shipping",
+      "product": "Product",
+      "quantity": "Quantity",
+      "price": "Price",
+      "total": "Total",
+      "sku":"number of peice :",
+      "weight":"weight :"
+
 
     },
     "order": {
@@ -30,6 +46,6 @@
   "common": {
     "bank_offer_sub_title_multiple": "Pay for your purchases via one of the following bank cards and get the specified discount",
     "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get discount",
-    "peice" :"peice"
+    "peice": "peice"
   }
 }

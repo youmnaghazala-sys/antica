@@ -404,3 +404,41 @@ salla-quantity-input[max='1']{
     @apply cursor-not-allowed
   }
 }
+
+// tabs
+.s-tabs-header{
+  @apply border-none gap-4;
+}
+.s-tabs-active {
+  @apply bg-primary text-white !important;
+}
+
+.s-tabs-header-item {
+  @apply border border-solid border-primary rounded-none md:text-xl text-sm font-normal bg-transparent py-2 px-7.5 text-primary;
+}
+.s-tabs-content-wrapper{
+  @apply pt-5
+}
+
+// comments
+.s-comments-product {
+  @apply bg-transparent pt-0;
+
+  .s-comment-form-input {
+    @apply h-52 sm:w-1/2 bg-transparent;
+    border: 0.89px solid #AEAEAE;
+  }
+
+  .s-comment-form-action {
+    @apply justify-start;
+
+    salla-button button {
+      @apply sm:px-28 rounded-sm;
+    }
+
+  }
+
+  .s-comments-item {
+    @apply border border-solid border-gray-500 rounded-sm px-5 py-7;
+  }
+}
