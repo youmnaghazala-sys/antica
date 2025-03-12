@@ -2922,6 +2922,57 @@
             "path": "home.AL_blog",
             "fields": [
                 {
+                    "id": "sec_name",
+                    "type": "string",
+                    "format": "text",
+                    "label": "اسم السكشن",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": "المدونة",
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": "1",
+                    "maxLength": 30
+                },
+                {
+                    "id": "bg_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفية المقالات",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#f6f6f6",
+                    "required": false
+                },
+                {
+                    "id": "base_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون اساسي",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#597445",
+                    "required": false
+                },
+                {
+                    "id": "secondry_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون فرعي",
+                    "description": null,
+                    "labelHTML": null,
+                    "icon": "sicon-format-fill",
+                    "value": "#000222",
+                    "required": false
+                },
+                {
                     "id": "blog_drop_list",
                     "type": "items",
                     "format": "dropdown-list",
