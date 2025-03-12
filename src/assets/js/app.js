@@ -379,6 +379,7 @@ isElementLoaded(selector){
   }
 }
 
+
 class TabComponent extends HTMLElement {
 
     constructor() {
@@ -395,6 +396,13 @@ class TabComponent extends HTMLElement {
 
         this.initTabs();
         this.populateContent();
+
+
+        const swiper = this.shadowRoot.querySelector('.swiper');
+        this.shadowRoot.querySelector('.s-slider-next').addEventListener('click', () => swiper.slideNext());
+        this.shadowRoot.querySelector('.s-slider-prev').addEventListener('click', () => swiper.slidePrev());
+
+        console.log(this.shadowRoot.querySelector('.s-slider-prev'));
 
     }
 
@@ -455,7 +463,6 @@ class TabComponent extends HTMLElement {
             activeContent.removeAttribute("hidden");
         }
     }
-
 
 }
 

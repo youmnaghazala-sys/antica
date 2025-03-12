@@ -29,26 +29,26 @@
 				</ul>
 
 				<div class="AL-best_category_tabs_content">
+
 					<custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10">
-
-							{% for category in component.categories %}
-								
-								<tab-content slot="{{ category.category_name }}">
-									<salla-products-slider
-										source-value="{{ category.relate_category[0] }}"
-										source="categories"
-										slider-id="slider-for-product-{{ loop.index }}"
-										slider-config='{
-											"slidesPerView": 1,
-											"spaceBetween": 0,
-											"centerInsufficientSlides": true
-										}'
-									></salla-products-slider>
-								</tab-content>
-								
-							{% endfor %}
-
+						{% for category in component.categories %}
+							
+							<tab-content slot="{{ category.category_name }}">
+								<salla-products-slider
+									source-value="{{ category.relate_category[0] }}"
+									source="categories"
+									slider-id="slider-for-product-{{ loop.index }}"
+									slider-config='{
+										"slidesPerView": 1,
+										"spaceBetween": 0,
+										"centerInsufficientSlides": true
+									}'
+								></salla-products-slider>
+							</tab-content>
+							
+						{% endfor %}
 					</custom-tabs>
+
 				</div>
 
 				<style>
