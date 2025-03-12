@@ -78,35 +78,42 @@
             </div>
 
             <aside aria-label="Sidebar" class="sticky shrink-0 top-24 md:w-full rtl:lg:mr-8 ltr:lg:ml-8 pb-11">
-                    <h2 class="font-bold text-center border-b-2 border-primary w-fit m-auto text-2xl pb-1">{{ trans('pages.blog_articles.related') }}</h2>
+                    <h2 class="font-bold mb-8 text-center border-b-2 border-primary w-fit m-auto text-2xl pb-1">{{ trans('pages.blog_articles.related') }}</h2>
                 {% if related|length %}
                     {% hook 'blog:single.items.start' %}
-                    <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex flex-col md:flex-row gap-6 justify-between items-center">
                     {% for article in related %}
-                        <div class="mt-5 flex items-center bg-white p-5 rounded-md">
-                            <div class="shrink-0">
-                                <a href="{{ article.url }}"
-                                   class="bg-border-color h-24 w-24 rounded-md overflow-hidden flex items-center justify-center">
-                                    <span class="sr-only">{{ article.name }}</span>
-
-                                    {% if article.has_image %}
-                                        <img class="h-full w-full object-cover" src="{{ article.image.url }}"
-                                             alt="{{ article.image.alt }}">
-                                    {% else %}
-                                        <img class="sm:h-full w-10 object-contain opacity-60"
-                                             src="{{ 'images/placeholder.png' | asset }}" alt="post image"/>
-                                    {% endif %}
+                        <div class="overflow-hidden">
+                            <a href="{{ article.url }}">
+                                {% if article.has_image %}
+                                    <img class="w-full h-80 object-cover" src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+                                {% else %}
+                                    <img class="sm:h-full w-10 object-contain opacity-60" src="{{ 'images/placeholder.png' | asset }}" alt="post image"/>
+                                {% endif %}
+                            </a>
+                            <div class="p-4">
+                                <a href="{{ article.category.url }}" class="text-sm text-primary">
+                                    {{ article.category.name }}
                                 </a>
-                            </div>
-                            <div class="rtl:mr-3 ltr:ml-3">
-                                <div class="flex items-center text-sm text-gray-500 mb-2">
-                                    <i class="sicon-calendar-date rtl:ml-1 ltr:mr-1 rtl:pl-px ltr:pr-px"></i>
-                                    <time>{{ article.created_at|date }}</time>
-                                </div>
-
-                                <h3 class="text-sm font-bold text-gray-800 leading-6">
-                                    <a href="{{ article.url }}" class="hover:underline">{{ article.title }}</a>
+                                <h3 class="text-2xl font-medium text-[#222222] pb-3 border-b-2 border-solid border-primary mb-4">
+                                    {{ article.title }}
                                 </h3>
+                                <div class="mb-3 text-primary rounded-md inline-flex text-sm rtl:space-x-reverse space-x-5">
+                                    <div class=" flex items-center">
+                                        <i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
+                                        <span class="">{{ article.created_at|date }}</span>
+                                    </div>
+                                    <a href="{{ article.author.url }}" class=" flex items-center hover:text-dark">
+                                        <i class="sicon-user rtl:ml-1 ltr:mr-1"></i>
+                                        <span >{{ article.author.name }}</span>
+                                    </a>
+                                </div>
+                                <p class="text-[#202020e8] text-sm sm:text-base line-clamp-2 text-ellipsis mb-1">
+                                    {{ article.summary }}
+                                </p>
+                                <a href="{{ article.url }}" class="text-primary text-lg font-semibold underline">
+                                    {{trans('pages.order.show_more')}}
+                                </a>
                             </div>
                         </div>
                     {% endfor %}

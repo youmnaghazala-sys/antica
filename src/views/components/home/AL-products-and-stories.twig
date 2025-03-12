@@ -1,0 +1,52 @@
+<section class="Al_products-and-stories h-[610px]">
+	<div class="container">
+		<div>
+			<div class="story-slide-inactive">
+				<div class="story h-[610px]">
+          <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+        </div>
+			</div>
+			<div class="story-slide-active">
+				<div class="story-item">
+					<div class="swiper child-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="story h-[610px]">
+									<img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="story h-[610px]">
+									<img src="{{story.second_story}}" class="w-full h-full object-cover" alt="">
+								</div>
+							</div>
+							{# <div class="swiper-slide">
+                <div class="story h-[610px]">
+                  <img src="{{story.third_story}}" class="w-full h-full object-cover" alt="">
+                </div>
+              </div> #}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="story-slide-inactive">
+				<div class="story h-[610px]">
+          <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+        </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => { // Initialize all child swipers and pause autoplay by default
+  const childSwiper = new Swiper('.story-slide-active .child-swiper', {
+    loop: false,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 1
+  });
+})
+</script>

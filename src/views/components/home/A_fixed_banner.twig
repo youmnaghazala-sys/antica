@@ -1,9 +1,9 @@
 {% set c = component %}
-<section>
+<section class="al_fixed_banner py-5">
 	<div class="{{c.is_container ? 'container' }}">
 		<div class="grid grid-cols-2 sm:grid-cols-4 grid-rows-2">
 			{% for item in c.albome %}
-				<div class="{{ loop.first ? 'col-span-2 row-span-2' : 'order-2' }} {{ loop.length == 2 ? 'col-span-2' : '' }}">
+				<div class="{{ loop.first ? 'col-span-2 row-span-2 max-h-[712px]' : 'order-2 max-h-[356px]' }} {{ loop.length == 2 ? 'col-span-2' : '' }}">
 					{% if item.is_video %}
 						<video autoplay muted playsinline loop preload="none" loading="eager" class="object-cover" aria-label="Video banner">
 							<source src="{{ item.video_url }}" type="video/mp4">
@@ -15,7 +15,7 @@
 					{% endif %}
 				</div>
 			{% endfor %}
-			<div class="text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center gap-3.5 md:gap-6 py-12 md:py-0" style="background-color:{{c.text_bg}};">
+			<div class="max-h-[356px] text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center gap-3.5 md:gap-6 py-12 md:py-0" style="background-color:{{c.text_bg}};">
 				<h1 class="text-xl md:text-[40px] font-bold" style="color:{{c.text_maintitle}}">{{c.main_title}}</h1>
 				<p class="text-base md:text-2xl" style="color:{{c.text_subtitle}}">{{c.sub_title}}</p>
 				{% include 'components.custom.button' with {'btn_txt': c.btn_txt,'btn_url': c.btn_url, 'btn_bg':c.btn_bg, 'btn_color':c.btn_color } %}

@@ -1,60 +1,116 @@
 {% set c = component %}
-<section class="AL_best_seller my-5">  
-    <div class="background container">
+<section id="AL_best_seller-{{ position }}" class="AL_best_seller my-5" style="background-color: {{c.section_bgcolor}}">  
+    <div class="background container relative !overflow-hidden">
         {% if c.bg_video %}
-            <div class="video-background absolute inset-0 w-full h-[580px]">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <div class="video-background w-full h-[580px] relative">
+                <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="{{ c.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
+                <!-- Single Toggle Button -->
+                <div class="video-controls absolute top-4 right-4">
+                    <button id="toggle-video-button-{{ position }}" class="bg-white opacity-55 text-black px-[10px] pb-[4px] pt-[7px] rounded-full">
+                        <i class="sicon-pause"></i> <!-- Default icon (pause) -->
+                    </button>
+                </div>
             </div>
         {% else %}
             <div class="image-div w-full h-[580px]">
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-    </div>
-    
-        
-        <div class = "products flex flex-row gap-4 !w-full container relative ">
-            {% for product in c.best_sell_products %}
-                <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
-            {% endfor %} 
+        <div id="products-{{ position }}" class="products w-[90%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+            <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
+                "autoplay": {
+                    "delay": 3000
+                },
+                "slidesPerView": 3,
+                "spaceBetween": 10,
+                "breakpoints": {
+                    "320": { "slidesPerView": 1.2 },
+                    "768": { "slidesPerView": 1.8 },
+                    "1024": { "slidesPerView": 3 }
+                }
+            }'>
+                <div slot="items">
+                    {% for product in c.best_sell_products %}
+                        <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+                    {% endfor %}
+                </div>
+            </salla-slider>
         </div>
-        
-    
+    </div>
 </section>
 
 <style>
     .AL_best_seller .products custom-salla-product-card {
-        height : 178px;
+        height: 178px;
         border-radius: 0;
-        
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image{
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image  {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-content{
+    
+    .AL_best_seller .products custom-salla-product-card .s-product-card-content {
         justify-content: center;
         margin: auto;
     }
-    
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image img{
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image img {
         background-color: #fff;
-
     }
-    
-
 </style>
- 
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Remove vertical class and add horizontal class to product cards
         document.querySelectorAll("custom-salla-product-card").forEach(card => {
             card.classList.remove("s-product-card-vertical");
             card.classList.add("s-product-card-horizontal");
         });
+
+        // Handle scroll event for the products container
+        const productsContainer = document.querySelector("#products-{{ position }}");
+        
+        function handleScroll() {
+            const section = document.querySelector("#AL_best_seller-{{ position }}");
+            const sectionPosition = section.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if (sectionPosition < screenHeight * 0.75) {
+                if (window.innerWidth > 768) { // For large screens
+                    productsContainer.style.transform = "translateX(-4%)";
+                    productsContainer.style.transition = "transform 6s linear";
+                }
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initial check
+
+        // Video Toggle Button Logic
+        const video = document.querySelector("#background-video-{{ position }}");
+        const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
+
+        if (video && toggleButton) {
+            toggleButton.addEventListener("click", () => {
+                if (video.paused) {
+                    video.play();
+                    toggleButton.innerHTML = '<i class="sicon-pause"></i>'; // Change icon to pause
+                } else {
+                    video.pause();
+                    toggleButton.innerHTML = '<i class="sicon-play"></i>'; // Change icon to play
+                }
+            });
+
+            // Update button icon based on video state initially
+            if (video.paused) {
+                toggleButton.innerHTML = '<i class="sicon-play"></i>';
+            } else {
+                toggleButton.innerHTML = '<i class="sicon-pause"></i>';
+            }
+        }
     });
 </script>

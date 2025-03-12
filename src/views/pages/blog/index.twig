@@ -14,17 +14,17 @@
 {% extends "layouts.master" %}
 
 {% block content %}
-	<div class=" container mb-8 sm:mb-24">
-		<div
-			class="center-between">
-
-			{# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
-			<nav class="breadcrumbs w-full py-5">
-				<salla-breadcrumb></salla-breadcrumb>
-			</nav>
-
+	<div class="  mb-8 sm:mb-24">
+		<div class="">
+			<div
+				class="mb-10 w-full flex items-center justify-center h-40 sm:h-[300px] bg-cover bg-center " style="background-image: url('{{ theme.settings.get('blog_banner_image') }}');">
+				{# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
+				<nav class="breadcrumbs py-5">
+					<salla-breadcrumb></salla-breadcrumb>
+				</nav>
+			</div>
 			{# Categories filter dropdown #}
-			<div class="dropdown-toggler cat-filter lg:hidden">
+			<div class="container dropdown-toggler cat-filter pb-3 !flex justify-end lg:!hidden">
 				<button aria-label="Categories Trigger" type="button" class="dropdown__trigger rtl:space-x-reverse space-x-1.5 flex text-sm text-primary" aria-expanded="true" aria-haspopup="true">
 					<i class="sicon-filter text-xs pointer-events-none"></i>
 					<span class="fix-align pointer-events-none">{{ trans('pages.blog_categories.categories') }}</span>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div class="grid  gap-6">
+		<div class="container grid  gap-6">
 
 			<div class="main-content lg:col-span-6">
 
@@ -62,7 +62,7 @@
 							<div class="overflow-hidden">
 								<a href="{{ article.url }}">
 									{% if article.has_image %}
-										<img class="w-full h-80 object-cover" src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+										<img class="w-full sm:h-80 object-cover" src="{{ article.image.url }}" alt="{{ article.image.alt }}">
 									{% else %}
 										<img class="sm:h-full w-10 object-contain opacity-60" src="{{ 'images/placeholder.png' | asset }}" alt="post image"/>
 									{% endif %}
@@ -71,23 +71,23 @@
 									<a href="{{ article.category.url }}" class="text-sm text-primary">
 										{{ article.category.name }}
 									</a>
-									<h3 class="text-2xl font-medium text-[#222222] pb-3 border-b-2 border-solid border-primary mb-4">
+									<h3 class="text-base sm:text-2xl font-medium text-[#222222] pb-2 sm:pb-3 border-b-2 border-solid border-primary mb-1.5 sm:mb-4">
 										{{ article.title }}
 									</h3>
-									<div class="mb-3 text-primary rounded-md inline-flex text-sm rtl:space-x-reverse space-x-5">
+									<div class="sm:mb-3 text-primary rounded-md inline-flex text-xs sm:text-sm rtl:space-x-reverse space-x-5">
 										<div class=" flex items-center">
 											<i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
 											<span class="">{{ article.created_at|date }}</span>
 										</div>
 										<a href="{{ article.author.url }}" class=" flex items-center hover:text-dark">
 											<i class="sicon-user rtl:ml-1 ltr:mr-1"></i>
-											<span >{{ article.author.name }}</span>
+											<span>{{ article.author.name }}</span>
 										</a>
 									</div>
 									<p class="text-[#202020e8] text-sm sm:text-base line-clamp-2 text-ellipsis mb-1">
 										{{ article.summary }}
 									</p>
-									<a href="{{ article.url }}" class="text-primary text-lg font-semibold underline">
+									<a href="{{ article.url }}" class="text-primary text-sm sm:text-lg font-semibold underline">
 										{{trans('pages.order.show_more')}}
 									</a>
 								</div>
