@@ -1,4 +1,4 @@
-<section class="AL_product_slider">
+<section class="AL_product_slider my-5">
     <div class="container">
         {% if component.grid_switch %}
             <salla-products-slider 
@@ -11,7 +11,7 @@
                         "breakpoints": {
                             "320": { "slidesPerView": 1, "spaceBetween": 5 },
                             "640": { "slidesPerView": 2, "spaceBetween": 8 },
-                            "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 20 }
+                            "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 10 }
                         }
                     }'>
             </salla-product-slider>
