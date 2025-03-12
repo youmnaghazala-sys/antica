@@ -1,6 +1,7 @@
 {% set c = component %}
-<section id="AL_best_seller-{{ position }}" class="AL_best_seller my-5" style="background-color: {{c.section_bgcolor}}">  
-    <div class="background container relative !overflow-hidden">
+<section id = "AL_best_seller-{{ position }}" class="AL_best_seller mb-5 pb-12" style = "background-color : {{c.section_bgcolor}}">  
+    <div class="background container relative !overflow-hidden ">
+
         {% if c.bg_video %}
             <div class="video-background w-full h-[580px] relative">
                 <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover">

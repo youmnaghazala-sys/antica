@@ -76,3 +76,9 @@
     }
   }
 }
+.s-menu-footer-list a{
+  @apply text-right text-lg font-normal leading-6;
+}
+.s-payments-list .s-payments-list-item{
+  @apply cursor-pointer ;
+}
