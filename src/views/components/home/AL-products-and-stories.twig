@@ -1,53 +1,52 @@
 <section class="Al_products-and-stories h-[610px]">
-  <div class="container">
-    <salla-slider id="main-stories-slider-{{position}}" show-controls="false" slider-config='{
-      "slidesPerView": 3,
-      "spaceBetween": 24,
-      "centeredSlides": true,
-      "loop": true
-    }'>
-      <div slot="items">
-        {% for story in component.stories %}
-          <div class="story-item">
-            <salla-slider class="stories-slider" show-controls="false" slider-config='{
-
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "progressbar"
-              }
-            }'>
-              <div slot="items">
-                <div>
-                  <div class="story h-[610px]">
-                    <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
-                  </div>
+	<div class="container">
+		<div>
+			<div class="story-slide-inactive">
+				<div class="story h-[610px]">
+          <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+        </div>
+			</div>
+			<div class="story-slide-active">
+				<div class="story-item">
+					<div class="swiper child-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="story h-[610px]">
+									<img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="story h-[610px]">
+									<img src="{{story.second_story}}" class="w-full h-full object-cover" alt="">
+								</div>
+							</div>
+							{# <div class="swiper-slide">
+                <div class="story h-[610px]">
+                  <img src="{{story.third_story}}" class="w-full h-full object-cover" alt="">
                 </div>
-                <div>
-                  <div class="story h-[610px]">
-                    <img src="{{story.second_story}}" class="w-full h-full object-cover" alt="">
-                  </div>
-                </div>
-                {# <div>
-                  <div class="story h-[610px]">
-                    <img src="{{story.third_story}}" class="w-full h-full object-cover" alt="">
-                  </div>
-                </div> #}
-              </div>
-              <div class="swiper-pagination"></div>
-            </salla-slider>
-          </div>
-        {% endfor %}
-      </div>
-    </salla-slider>
-  </div>
+              </div> #}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="story-slide-inactive">
+				<div class="story h-[610px]">
+          <img src="{{story.first_story}}" class="w-full h-full object-cover" alt="">
+        </div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded" , () => {
-    const mainSlider = document.querySelector('#main-stories-slider-{{position}}')
-    console.log(mainSlider)
-    mainSlider.addEventListener("slideChangeTransitionEnd", (e) => {
-      console.log(e)
-    });
-  })
+document.addEventListener('DOMContentLoaded', () => { // Initialize all child swipers and pause autoplay by default
+  const childSwiper = new Swiper('.story-slide-active .child-swiper', {
+    loop: false,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 1
+  });
+})
 </script>
