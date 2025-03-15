@@ -2513,7 +2513,7 @@
             "title": "الأفضل مبيعا - ألوري",
             "icon": "sicon-star2",
             "path": "home.AL_best_seller",
-            "image" : "https://cdn.salla.sa/form-builder/crhG5tPKnkN03uTWaBwk1PO1HrukU88aiY6ZoX0b.png",
+            "image": "https://cdn.salla.sa/form-builder/crhG5tPKnkN03uTWaBwk1PO1HrukU88aiY6ZoX0b.png",
             "fields": [
                 {
                     "id": "section_bgcolor",
@@ -2898,6 +2898,18 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
+                            "id": "stories.is_products",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "اضافة منتجات بديلة للصورة",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-toggle-off",
+                            "value": true,
+                            "selected": false,
+                            "required": false
+                        },
+                        {
                             "id": "stories.story_image",
                             "type": "string",
                             "format": "image",
@@ -2907,6 +2919,18 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
+                            "required": false
+                        },
+                        {
+                            "id": "stories.bg_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون الخلفية",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#004956",
                             "required": false
                         }
                     ],
