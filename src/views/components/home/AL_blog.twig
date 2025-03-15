@@ -1,6 +1,6 @@
 <section class="AL-blog py-6">
     <div class="container">
-        <div class="flex items-center justify-between flex-col sm:flex-row gap-6 py-12" style="background-color:{{component.bg_color}};">
+        <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6  py-0  sm:py-12" style="background-color:{{component.bg_color}};">
             <div class="swiper content-slider ">
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
@@ -13,12 +13,12 @@
                                 {% endif %}
                                 
                                 {% if item.title %}
-                                    <h3 class="text-[28px] font-medium leading-[42px]" style"color:{{component.secondry_color}};"> 
+                                    <h3 class="text-[20px] sm:text-[28px] font-medium leading-[42px]" style"color:{{component.secondry_color}};"> 
                                         {{ item.title }}
                                     </h3>
                                 {% endif %}
                                 
-                                <hr class="my-2 h-[2px] w-[286px]" style="background-color:{{component.base_color}};">
+                                <hr class="my-1 h-[2px] w-[286px]" style="background-color:{{component.base_color}};">
                                 
                                 <div class="dta_author flex items-center gap-4 text-sm" style="color:{{component.base_color}};">
                                     <div class="flex items-center gap-1">
@@ -84,8 +84,8 @@
                 slidesPerView: 1
             },
             350: { // موبايل صغير
-                spaceBetween: 10,
-                slidesPerView: 1
+                spaceBetween: 15,
+                slidesPerView: 1.1
             }
     }
     });
