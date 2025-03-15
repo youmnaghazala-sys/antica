@@ -91,5 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+  childSwiper.slides.forEach((slide) => {
+    slide.addEventListener('touchstart', () => childSwiper.autoplay.stop());
+    slide.addEventListener('touchend', () => childSwiper.autoplay.start());
+  });
 })
 </script>
