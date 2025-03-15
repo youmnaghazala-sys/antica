@@ -219,9 +219,9 @@ class ProductCard extends HTMLElement {
 
           <div class="s-product-card-content-main ${this.isSpecial ? 's-product-card-content-extra-padding' : ''}">
 
-          ${!this.product?.rating?.stars ?
+          ${this.product?.rating?.stars ?
             `<div class="s-product-card-rating mb-2.5">
-              ${this.renderStars(5)}  
+              ${this.renderStars(this.product.rating.stars)}  
             </div>`
              : ``}
 
