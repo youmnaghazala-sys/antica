@@ -85,17 +85,14 @@
 
 						{% if category.unique_feature_1 %}
 							<span class="product-unique-feature feature-1" style="border-color: {{ component.category_name_color }};"> {{ category.unique_feature_1 }} </span>
-                            <div class="dot"></div>
 						{% endif %}
 
 						{% if category.unique_feature_2 %}
 							<span class="product-unique-feature feature-2" style="border-color: {{ component.category_name_color }};" > {{ category.unique_feature_2 }} </span>
-                            <div class="dot"></div>
 						{% endif %}
 						
 						{% if category.unique_feature_3 %}
 							<span class="product-unique-feature feature-3"  style="border-color: {{ component.category_name_color }};"> {{ category.unique_feature_3 }} </span>
-                            <div class="dot"></div>
 						{% endif %}
 
                     </tab-content>
@@ -159,7 +156,9 @@
             right: 9%;
     
 		}
-
+		.product-unique-feature.feature-1::after{
+            color: #000;
+        }
 		.product-unique-feature.feature-2 {
             top: 60%;
             right: 9%;
