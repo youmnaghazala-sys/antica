@@ -496,9 +496,7 @@ class TabComponent extends HTMLElement {
             });
         });
 
-        if (tabs.length > 0) {
-            this.changeTab(tabs[0]);
-        }
+        if (tabs.length > 0) this.changeTab(tabs[0]);
     }
 
     changeTab(selectedTab) {
@@ -513,9 +511,7 @@ class TabComponent extends HTMLElement {
     
         const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
         
-        if (activeSlot) {
-            activeSlot.removeAttribute('hidden');
-        }
+        if (activeSlot) activeSlot.removeAttribute('hidden');
     }
 }
 
