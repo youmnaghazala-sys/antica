@@ -15,19 +15,17 @@
                   <div class="story h-[610px]">
                     {% if story.is_products %}
                     <div style="background-color: {{story.bg_color}}" class="w-full h-full flex items-center justify-center">
-                      <div class="grid grid-cols-1 w-4/5 gap-y-2">
+                      <div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper">
                         {% for product in component.stories_products %}
                           {% if loop.index < 4 %}
                             <custom-salla-product-card product="{{product}}" horizontal></custom-salla-product-card>
                           {% endif %}
-                          
                         {% endfor %}
                       </div>
                     </div>
                     {% else %}
-                    <img src="{{story.story_image}}" class="w-full h-full object-cover" alt="">
+                      <img src="{{story.story_image}}" class="w-full h-full object-cover" alt="">
                     {% endif %}
-                    
                   </div>
                 </div>
               {% endfor %}
@@ -92,6 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(`.autoplay-progress .progress-${s.realIndex + 1}`).style.width = `${(1 - progress) * 100}%`;
       }
     }
+  });
+  childSwiper.slides.forEach((slide) => {
+    slide.addEventListener('touchstart', () => {childSwiper.autoplay.pause()});
+    slide.addEventListener('touchend', () => childSwiper.autoplay.resume());
   });
 })
 </script>

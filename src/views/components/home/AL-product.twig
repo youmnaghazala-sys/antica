@@ -29,3 +29,30 @@
 </section>
 
 
+<style>
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .product-card {
+        border-radius: 10px;
+        min-height: 460px;
+        text-align: center;
+        height: 100%;
+        @media (max-width: 768px) {
+            min-height: 0;
+        }
+    }
+
+    .AL_product_slider .s-slider-block__title{
+        display: none !important;
+    }
+
+</style>

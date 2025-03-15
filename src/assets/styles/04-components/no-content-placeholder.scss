@@ -105,10 +105,13 @@
 
 .Al_products-and-stories{
   .story-slide-inactive{
-    opacity: .5;
+    opacity: 0.65;
   }
   .slider-pagination{
     direction: ltr;
+  }
+  .swiper-slide-active .products-wrapper{
+    animation: toTop 1s ease;
   }
   .story {
     .s-product-card{
@@ -132,8 +135,12 @@
 .s-product-card {
   &-entry {
     justify-content: start;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
   }
-
   &-image {
     aspect-ratio: 1/1;
     height: unset;
@@ -145,6 +152,7 @@
   }
 
   &-vertical {
+    box-shadow: 0px 0px 12px 0px #0000000F;
     .s-product-card-content-footer{
       width: 100%;
       .s-button-btn, .s-price-range-number-input{
