@@ -151,8 +151,8 @@
 }
 
 // Mainnav cart icon
-.header-btn{
-  @apply rounded-full border border-black w-10 h-10 flex items-center justify-center outline-none transition-opacity hover:opacity-80;
+.header-btn ,.search_mobile_icon{
+  @apply rounded-full border border-black w-8 h-8 md:w-10 md:h-10 flex items-center justify-center outline-none transition-opacity hover:opacity-80;
 
   &__icon{
     @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;

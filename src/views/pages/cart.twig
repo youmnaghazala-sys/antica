@@ -150,6 +150,7 @@
 											<span style="font-size: clamp(0.664rem, 0.2617rem + 0.8633vw, 1.125rem);font-weight: 600;" class="inline-block item-total">{{ item.is_available?item.total|money: trans('pages.cart.out_of_stock') }}</span>
 										</p>
 									</div>
+									
 									<div class="remove-product-btn">
 										<span class="">
 											<salla-button type="button" shape="icon" size="small" class="btn--delete" aria-label="Remove from the cart" onclick="salla.cart.deleteItem({{ item.id }}).then(() => document.querySelector('#item-{{ item.id }}').remove())">
