@@ -2920,7 +2920,7 @@
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-toggle-off",
-                            "value": true,
+                            "value": false,
                             "selected": false,
                             "required": false
                         },
@@ -2945,7 +2945,7 @@
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
-                            "value": "#004956",
+                            "value": "#E7F0DC",
                             "required": false
                         }
                     ],

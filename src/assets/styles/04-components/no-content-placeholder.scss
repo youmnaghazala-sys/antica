@@ -107,6 +107,25 @@
   .story-slide-inactive{
     opacity: .5;
   }
+  .slider-pagination{
+    direction: ltr;
+  }
+  .story {
+    .s-product-card{
+      &-entry{
+        border-radius: 0;
+      }
+      &-image{
+        width: 107px;
+      }
+      &-content-footer{
+        display: none;
+      }
+      &-content{
+        padding: 10px !important;
+      }
+    }
+  }
 }
 
 /* Product card styles */

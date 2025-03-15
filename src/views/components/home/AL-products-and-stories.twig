@@ -13,7 +13,21 @@
               {% for story in component.stories %}
                 <div class="swiper-slide">
                   <div class="story h-[610px]">
+                    {% if story.is_products %}
+                    <div style="background-color: {{story.bg_color}}" class="w-full h-full flex items-center justify-center">
+                      <div class="grid grid-cols-1 w-4/5 gap-y-2">
+                        {% for product in component.stories_products %}
+                          {% if loop.index < 4 %}
+                            <custom-salla-product-card product="{{product}}" horizontal></custom-salla-product-card>
+                          {% endif %}
+                          
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {% else %}
                     <img src="{{story.story_image}}" class="w-full h-full object-cover" alt="">
+                    {% endif %}
+                    
                   </div>
                 </div>
               {% endfor %}
@@ -28,8 +42,11 @@
               {% endfor %}
             </div>
             <div class="flex items-center justify-between mt-2">
-              <div class="store-logo-container"></div>
-              <div class="slider-pagination !text-white"></div>
+              <div class="store-logo-container flex items-center gap-x-1.5">
+                <div class="rounded-full w-6 h-6 bg-white flex items-center justify-center"><img src="{{store.logo}}" class="w-4 h-auto" alt="{{store.name}}"></div>
+                <h4 class="text-base text-primary font-normal">{{store.name}}</h4>
+              </div>
+              <div class="!w-fit slider-pagination !text-white"></div>
             </div>
           </div>
 				</div>
