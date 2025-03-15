@@ -1,25 +1,25 @@
 <section class="al-testimonial py-10">
     <div class="grid grid-cols-1 md:grid-cols-3">
             <!-- معلومات القسم -->
-        <div  class="hidden md:flex flex-col items-center text-right justify-center bg-cover bg-center h-[394px] p-6 px-6 rounded-md shadow-lg"
+        <div  class="hidden md:flex flex-col items-center text-right justify-center bg-cover bg-center w-[600px] h-[394px] p-6 px-6 rounded-sm"
             style="background-image: url('{{ component.m_img }}');">
                 <div class="w-44">
                     {% if component.component_name %}
-                        <h4 class="text-sm font-medium" style="color: {{ component.base_color }};">
+                        <h4 class="text-sm font-normal" style="color: {{ component.base_color }};">
                             {{ component.component_name }}
                         </h4>
                     {% endif %}
 
                     {% if component.about_component %}
-                        <h3 class="text-xl md:text-[28px] font-semibold mt-2 leading-12" style="color: {{ component.tittle_color }};">
+                        <h3 class="text-xl md:text-[28px] font-medium mt-2 leading-12" style="color: {{ component.tittle_color }};">
                             {{ component.about_component }}
                         </h3>
                     {% endif %}
 
-                    <hr class="w-auto h-[3px]  my-3" style="background-color:{{component.line_color}};">
+                    <hr class="w-[140px] h-[2px]  " style="background-color:{{component.line_color}};">
 
                     {% if component.component_description %}
-                        <p class="text-sm md:text-base font-light" style="color: {{ component.description_color }};">
+                        <p class="text-sm md:text-base font-normal" style="color: {{ component.description_color }};">
                             {{ component.component_description }}
                         </p>
                     {% endif %}
@@ -43,47 +43,63 @@
                         }'>
                         <div slot="items" class="flex flex-wrap justify-center gap-4">
                             {% for card in component.slider_collection %}
-                                <div class="card h-auto shadow-lg border border-gray-200 p-6 rounded-md relative" style="background-color:{{component.card_background_color}};">
-                                    <span class="absolute top-2 right-2  text-2xl" style="color:{{component.quats_color}}">
-                                        <span class="sicon-quote-close"></span>
+                                <div class="card w-[315px] h-[285px] shadow-xl border border-gray-200 p-4  rounded-sm relative" style="background-color:{{component.card_background_color}};">
+                                    <span class="absolute top-4 right-4  text-2xl" style="color:{{component.quats_color}}"> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                            <g opacity="0.3">
+                                            <path d="M8.15489 15.377H4.74145V6.7124H15.2V12.6462C15.2 18.6698 10.9971 23.8884 5.10529 25.1422C4.57761 25.2545 4.26049 25.2871 4.26049 25.2871L3.20001 22.7034C7.88513 20.3674 8.15489 15.377 8.15489 15.377Z" fill="#597445"/>
+                                            <path d="M21.7536 15.377H18.3401V6.7124H28.8V12.6462C28.8 18.6698 24.5968 23.8884 18.7049 25.1422C18.1773 25.2545 17.8605 25.2871 17.8605 25.2871L16.8 22.7034C21.4835 20.3674 21.7536 15.377 21.7536 15.377Z" fill="#597445"/>
+                                            </g>
+                                        </svg>
                                     </span>
 
-                                    <div class="flex flex-row  items-center text-center">
+                                    <div class="flex flex-row  items-center text-center mt-8 gap-2">
                                         {% if card.comment_body %}
-                                            <p class="text-[14px] font-normal leading-[22px] w-1/2" style="color:{{component.comment_body_color}};">
+                                            <p class="text-[14px] font-normal text-start leading-[22px] w-2/3" style="color:{{component.comment_body_color}};">
                                                 {{ card.comment_body }}
                                             </p>
                                         {% endif %}
 
-                                        <div class="product-div flex flex-col items-center mt-4 w-1/2">
+                                        <div class="product-div flex flex-col items-center w-1/3">
                                             {% if card.product_img %}
                                                 <img src="{{ card.product_img }}" alt="صورة المنتج" class="w-[100px] h-[85px] rounded-md shadow-md">
                                             {% endif %}
 
                                             {% if card.product_name %}
-                                                <h3 class="text-[14px] font-semibold mt-2" style="color:{{component.product_name_color}};">
+                                                <h3 class="text-[12px] font-medium" style="color:{{component.product_name_color}};">
                                                     {{ card.product_name }}
                                                 </h3>
                                             {% endif %}
                                         </div>
                                     </div>
 
-                                    <div class="flex items-center justify-start gap-4 mt-4">
+                                    <div class="flex items-center justify-start gap-4 mt-6">
                                         {% if card.comment_writer_image %} 
-                                            <img src="{{ card.comment_writer_image }}" alt="صورة المستخدم" class="w-10 h-10 rounded-full border">
+                                            <img src="{{ card.comment_writer_image }}" alt="صورة المستخدم" class="w-10  h-10 rounded-full border">
                                         {% endif %}
 
                                         <div class="text-left">
                                             {% if card.comment_writer_job %}    
                                                 <p class="font-normal text-[14px]" style="color: {{component.comment_writer_color}};">
-                                                    {{ card.comment_writer_job }}
+                                                    {{ card.comment_writer_name }}
+
+                                                        <span>
+                                                            {{ card.comment_writer_job }}
+                                                        </span>
                                                 </p>
                                             {% endif %}
                                         </div>
                                     </div>
 
-                                    <span class="absolute bottom-2 left-2 text-2xl" style="color:{{component.quats_color}}" >
-                                        <span class="sicon-quote-open"></span>
+                                    <span class="absolute bottom-4 left-4 text-2xl" style="color:{{component.quats_color}}" >
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                                <g opacity="0.3">
+                                                <path d="M23.8451 16.623H27.2585V25.2876H16.8V19.3538C16.8 13.3302 21.0029 8.1116 26.8947 6.85784C27.4224 6.74552 27.7395 6.71288 27.7395 6.71288L28.8 9.29656C24.1149 11.6326 23.8451 16.623 23.8451 16.623Z" fill="#597445"/>
+                                                <path d="M10.2464 16.623H13.6599V25.2876H3.20001V19.3538C3.20001 13.3302 7.40321 8.1116 13.2951 6.85784C13.8227 6.74552 14.1395 6.71288 14.1395 6.71288L15.2 9.29656C10.5165 11.6326 10.2464 16.623 10.2464 16.623Z" fill="#597445"/>
+                                                </g>
+                                            </svg>
+                                        </span>
                                     </span>
                                 </div>
                             {% endfor %}
