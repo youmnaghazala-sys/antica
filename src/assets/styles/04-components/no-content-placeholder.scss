@@ -110,6 +110,10 @@
   .slider-pagination{
     direction: ltr;
   }
+  .siwper-slide-active .products-wrapper{
+    animation: toTopFromBottom 1s ease;
+    -webkit-animation: toTopFromBottom 1s ease;
+  }
   .story {
     .s-product-card{
       &-entry{
