@@ -46,9 +46,9 @@
             <div class="header-search flex-1 hidden sm:block">
 							<salla-search inline oval height="48"></salla-search>
 						</div>
-						<div class="flex items-center justify-end">
-            <div class="sm:hidden relative">
-            	<i class="sicon-search cursor-pointer Moa_search text-lg ml-3" style="color:{{theme.settings.get('color_text_header','#000')}};"></i>
+						<div class="flex items-center justify-end gap-1">
+            <div class="sm:hidden relative search_mobile_icon">
+            	<i class="sicon-search cursor-pointer Moa_search text-lg" style="color:{{theme.settings.get('color_text_header','#000')}};"></i>
             </div>
 							{% if user.type=='user' %}
 								<salla-user-menu avatar-only show-header></salla-user-menu>

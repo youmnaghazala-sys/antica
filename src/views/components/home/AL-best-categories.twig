@@ -84,18 +84,24 @@
                         ></salla-products-slider>
 
 						{% if category.unique_feature_1 %}
-							<span class="product-unique-feature feature-1" style="border-color: {{ component.category_name_color }};"> {{ category.unique_feature_1 }} </span>
-                            <div class="dot"></div>
+                            <div class="product-unique-feature feature-1" style="--border-color: {{ component.category_name_color }};">
+                                <span> {{ category.unique_feature_1 }} </span>
+                                <div class="dot"></div>
+                            </div>
 						{% endif %}
 
 						{% if category.unique_feature_2 %}
-							<span class="product-unique-feature feature-2" style="border-color: {{ component.category_name_color }};" > {{ category.unique_feature_2 }} </span>
-                            <div class="dot"></div>
+                        <div class="product-unique-feature feature-2" >
+							<span > {{ category.unique_feature_2 }} </span>
+                            <div style="--borderColor: {{ component.category_name_color }};"  class="dot"></div>
+                        </div>
 						{% endif %}
 						
 						{% if category.unique_feature_3 %}
-							<span class="product-unique-feature feature-3"  style="border-color: {{ component.category_name_color }};"> {{ category.unique_feature_3 }} </span>
-                            <div class="dot"></div>
+                        <div class="product-unique-feature feature-3" >
+							<span> {{ category.unique_feature_3 }} </span>
+                            <div  style="--borderColor: {{ component.category_name_color }};" class="dot"></div>
+                        </div>
 						{% endif %}
 
                     </tab-content>
@@ -146,28 +152,109 @@
 
 		.product-unique-feature {
 			position: absolute;
-            border-bottom: 2px solid #000;
             padding-bottom: 15px;
             padding-inline: 15px;
             font-size: 29.021px;
             line-height: 29px; 
             z-index: 2;
 		}
-
+        .product-unique-feature .dot{
+            border: 1px solid var(--border-color);
+            margin-top: 8px;
+            width: 120%;
+            position: relative;
+        }
 		.product-unique-feature.feature-1 {
             top: 15%;
             right: 9%;
-    
+            @media (max-width:768px) {
+                right: 0%;
+            }
 		}
+        .product-unique-feature {
+            --border-color: #000;
+        }
+        .product-unique-feature.feature-1::after ,.product-unique-feature.feature-2::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            top: 33%;
+            left: -20%;
+            border-radius: 50%;
+            border: 1px solid var(--border-color); 
+            @media (max-width:768px) {
+                top: 35%;
+                left: -20%;
+            }
+        }
 
+        .product-unique-feature.feature-1::before,.product-unique-feature.feature-2::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--border-color);
+            top: 61%;
+            right: 104%;
+            border-radius: 50%;
+            @media (max-width:768px) {
+                top: 63%;
+                right: 97%;
+            }
+        }
+        .product-unique-feature.feature-1,.product-unique-feature.feature-2{
+            font-size :30px;
+            @media (max-width:768px) {
+                font-size :20px;
+            }
+        }
 		.product-unique-feature.feature-2 {
             top: 60%;
             right: 9%;
+            @media (max-width:768px) {
+                right: 0%;
+            }
 		}
 
+        .product-unique-feature.feature-3::after{
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            top: 33%;
+            right: -15%;
+            border-radius: 50%;
+            border: 1px solid var(--border-color); 
+            @media (max-width:768px) {
+                right: -18%;
+            }
+        }
+
+        .product-unique-feature.feature-3::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            top: 63%;
+            right: -6%;
+            border-radius: 50%;
+            background-color: var(--border-color);
+        }
+        .product-unique-feature.feature-3 span{
+            font-size :30px;
+            @media (max-width:768px) {
+                font-size :20px;
+            }
+        }
 		.product-unique-feature.feature-3 {
-            top: 50%;
+            top: 55%;
+            left: 0%;
 		}
-
+        .product-unique-feature.feature-3 .dot{
+            margin-right: -22px;
+        }
 	}
 </style>
