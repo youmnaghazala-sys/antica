@@ -5,7 +5,7 @@
 			{% for item in c.albome %}
 				<div class="{{ loop.first ? 'col-span-2 row-span-2 max-h-[712px]' : 'order-2 max-h-[356px]' }} {{ loop.length == 2 ? 'col-span-2' : '' }}">
 					{% if item.is_video %}
-						<video autoplay muted playsinline loop preload="none" loading="eager" class="object-cover" aria-label="Video banner">
+						<video autoplay muted playsinline loop preload="none" loading="eager" class="object-cover h-full w-full" aria-label="Video banner">
 							<source src="{{ item.video_url }}" type="video/mp4">
 						</video>
 					{% else %}
