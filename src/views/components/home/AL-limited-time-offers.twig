@@ -33,6 +33,7 @@
               <img src="{{ component.offer_image }}" alt="Offer Image" class="w-full h-full object-cover">
             </picture>
           </div>
+		  <div class="overlay"></div>
         {% endif %}
 			</div>
 		</div>
@@ -48,5 +49,18 @@
 	.offers-item .s-count-down-item {
 		color: {{component.counter_color ? component.counter_color : '#ffffff'}}
 		;
+	}
+	.LA_limited-time-offers{
+		position: relative;
+	}
+	.LA_limited-time-offers .overlay{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: 0.5;
+		z-index: 1;
 	}
 </style>
