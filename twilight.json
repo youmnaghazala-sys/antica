@@ -1221,8 +1221,15 @@
             "key": "b79f7e04-80a6-4a60-afb1-b79feeff062e",
             "title": "شريط الماركات - ألوري",
             "icon": "sicon-store",
+            "image": "https://cdn.salla.sa/form-builder/M5OBiyIonl0dGH7vmPYwc2l9awP02eGT3b5BESeU.png",
             "path": "home.AL-brands",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/M5OBiyIonl0dGH7vmPYwc2l9awP02eGT3b5BESeU.png'></div>"
+                },
                 {
                     "id": "section_background_color",
                     "type": "string",
@@ -1296,8 +1303,15 @@
             "key": "0c199601-251a-40ca-9a3b-737d3362fd7a",
             "title": "اراء العملاء - الوري",
             "icon": "sicon-store",
+            "image" :"https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png",
             "path": "home.AL-testimonials",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
+                },
                 {
                     "id": "m_img",
                     "type": "string",
@@ -1580,8 +1594,15 @@
             "key": "4237be22-e55e-4e9b-b29a-43fe40ac3a9a",
             "title": "بانر متقدم - ألورى",
             "icon": "sicon-frame-image",
+            "image" : "https://cdn.salla.sa/form-builder/LMudeFFJpC6amfnKWfRhrD2Ph27MusX8VHL5RziG.png",
             "path": "home.A_fixed_banner",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/LMudeFFJpC6amfnKWfRhrD2Ph27MusX8VHL5RziG.png'></div>"
+                },
                 {
                     "id": "is_container",
                     "type": "boolean",
@@ -1826,9 +1847,16 @@
         {
             "key": "3edd77c1-90ff-4ddb-abd9-857c6c3038d4",
             "title": "منتجات مع بانر جانبي - ألورا",
+            "image" : "https://cdn.salla.sa/form-builder/Su6kujn8wAJxN2eoTYIlBZzHl3ECeL4jNZWhKLpF.png",
             "icon": "sicon-store",
             "path": "home.AL_Poducts_with_sideBanner",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/Su6kujn8wAJxN2eoTYIlBZzHl3ECeL4jNZWhKLpF.png'></div>"
+                },
                 {
                     "id": "switch_video",
                     "type": "boolean",
@@ -1904,8 +1932,15 @@
             "key": "3ba1d7cf-45e2-416a-81d7-feef743fca73",
             "title": "التصنيفات -  ألوري",
             "icon": "sicon-store",
+            "image" : "https://cdn.salla.sa/form-builder/kK3uKIyeRfC2s5TRApCXJPBwuF2uCKk8USn9BLnJ.png",
             "path": "home.AL-categories",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/kK3uKIyeRfC2s5TRApCXJPBwuF2uCKk8USn9BLnJ.png'></div>"
+                },
                 {
                     "id": "category",
                     "type": "collection",
@@ -1933,7 +1968,7 @@
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": "لون خلفية التصنيف عند تمرير الؤشر",
+                            "label": "لون خلفية التصنيف عند تمرير المؤشر",
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
@@ -2093,8 +2128,15 @@
             "key": "0eda2055-fc30-4d4b-9f4b-bbb8c127be34",
             "title": "عروض تنتهى قريبا - ألوري",
             "icon": "sicon-store",
+            "image" : "https://cdn.salla.sa/form-builder/svsyC2RC5J9ZyzTem5XPAscNymeqIuxW0HH4luXd.png",
             "path": "home.AL-limited-time-offers",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/svsyC2RC5J9ZyzTem5XPAscNymeqIuxW0HH4luXd.png'></div>"
+                },
                 {
                     "id": "offer_image",
                     "type": "string",
@@ -2284,8 +2326,15 @@
             "key": "747cd24f-5ec6-4569-83e7-3b596f612e7d",
             "title": "تابعنا - ألوري",
             "icon": "sicon-store",
+            "image" : "https://cdn.salla.sa/form-builder/ITwVQmj3PwNaKVq8MHpoWT0LJVZfNdOkp2lV6MMd.png",
             "path": "home.AL-followus",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/ITwVQmj3PwNaKVq8MHpoWT0LJVZfNdOkp2lV6MMd.png'></div>"
+                },
                 {
                     "id": "enable_floating_banner",
                     "type": "boolean",
@@ -2424,9 +2473,16 @@
         {
             "key": "bd0c5ac9-94de-4f45-ac12-2318eb9e93ef",
             "title": "عنوان مميز - ألوري",
+            "image" : "https://cdn.salla.sa/form-builder/urTXJNATlNZmAXjCXTeRZtaKVt31jDtJZDCsv6NR.png",
             "icon": "sicon-store",
             "path": "home.AL-special-title",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/urTXJNATlNZmAXjCXTeRZtaKVt31jDtJZDCsv6NR.png'></div>"
+                },
                 {
                     "id": "section_title",
                     "type": "string",
@@ -2539,14 +2595,20 @@
             "title": "الأفضل مبيعا - ألوري",
             "icon": "sicon-star2",
             "path": "home.AL_best_seller",
-            "image": "https://cdn.salla.sa/form-builder/crhG5tPKnkN03uTWaBwk1PO1HrukU88aiY6ZoX0b.png",
+            "image": "https://cdn.salla.sa/form-builder/ZKdesIqbsX6V1XCCoPKXMEZbFTlVLK8sOlHjvW3C.png",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/ZKdesIqbsX6V1XCCoPKXMEZbFTlVLK8sOlHjvW3C.png'></div>"
+                },
                 {
                     "id": "section_bgcolor",
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون خلفيةالسكشن",
+                    "label": "لون خلفية السكشن",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -2627,9 +2689,16 @@
         {
             "key": "e116b403-6778-42d6-8120-7eb4324b6fc5",
             "title": "مننجات - الوري",
+            "image" : "https://cdn.salla.sa/form-builder/Fwmvr0F92qVUUrCgAot6DFMSwKrqb6C5vH8cCIXY.png",
             "icon": "sicon-store",
             "path": "home.AL-product",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/Fwmvr0F92qVUUrCgAot6DFMSwKrqb6C5vH8cCIXY.png'></div>"
+                },
                 {
                     "id": "grid_switch",
                     "type": "boolean",
@@ -2679,8 +2748,15 @@
             "key": "c1119e99-95e3-4c80-a7f4-f76fdc281aa6",
             "title": "البانر الرئيسى - الورى",
             "icon": "sicon-image1",
+            "image": "https://cdn.salla.sa/form-builder/kQZhe1c5wBdGw44wULykeM7pG1gaXT2FmaJD2pce.png",
             "path": "home.AL_main_section",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/kQZhe1c5wBdGw44wULykeM7pG1gaXT2FmaJD2pce.png'></div>"
+                },
                 {
                     "id": "slider_images",
                     "type": "collection",
@@ -2871,8 +2947,15 @@
             "key": "1033b5c6-e6e2-4c3d-9b4a-4512cd7f1948",
             "title": "منتجات واستوريز - ألوري",
             "icon": "sicon-store",
+            "image": "https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png",
             "path": "home.AL-products-and-stories",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
+                },
                 {
                     "id": "first_side_image",
                     "type": "string",
@@ -2970,8 +3053,15 @@
             "key": "ff85bfd2-16aa-414c-aa9e-9d6132c89c97",
             "title": "المقالات - الورى",
             "icon": "sicon-store",
+            "image" : "https://cdn.salla.sa/form-builder/Z0zYaVEdpwNcjA6HCYlNYI59hlsYWb6xvmz2RTWB.png",
             "path": "home.AL_blog",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/Z0zYaVEdpwNcjA6HCYlNYI59hlsYWb6xvmz2RTWB.png'></div>"
+                },
                 {
                     "id": "sec_name",
                     "type": "string",
@@ -3045,8 +3135,15 @@
             "key": "14b51b65-c719-4eb1-91ff-a75322f7f4bb",
             "title": "افضل الاقسام",
             "icon": "sicon-store",
+            "image" : "https://cdn.salla.sa/form-builder/s1egklSLSkP3RYXj6da8XtMeaDYqQkN3r2zW2jkX.png",
             "path": "home.AL-best-categories",
             "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "with-bg",
+                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/s1egklSLSkP3RYXj6da8XtMeaDYqQkN3r2zW2jkX.png'></div>"
+                },
                 {
                     "id": "category_title",
                     "type": "string",
