@@ -442,13 +442,15 @@ class App extends AppHelpers {
       const animationType = section.getAttribute("data-anim-allura") || "fade";
       const duration = section.getAttribute("data-dur-allura") || "1s";
       section.classList.add(animationType);
-      section.style.transition = `opacity ${duration} ease-in-out, transform ${duration} ease-in-out`;
+      section.style.transition = `opacity ${duration} cubic-bezier(0.22, 1, 0.36, 1), 
+                                  transform ${duration} cubic-bezier(0.22, 1, 0.36, 1)`;
       section.style.opacity = "0";
-      section.style.transform = "translateY(20px)";
+      section.style.transform = "translateY(150px) scale(0.8)";
     });
   
     const observerOptions = {
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -100px 0px", // يبدأ التأثير قبل دخول العنصر للشاشة بالكامل
+      threshold: 0.2 // يضمن أن التأثير يبدأ عند اقتراب العنصر من الشاشة
     };
   
     function observerCallback(entries) {
@@ -456,11 +458,11 @@ class App extends AppHelpers {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
           entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
+          entry.target.style.transform = "translateY(0) scale(1)";
         } else {
           entry.target.classList.remove("active");
           entry.target.style.opacity = "0";
-          entry.target.style.transform = "translateY(20px)";
+          entry.target.style.transform = "translateY(150px) scale(0.8)";
         }
       });
     }
@@ -468,6 +470,7 @@ class App extends AppHelpers {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     sections_anime.forEach(section => observer.observe(section));
   }
+  
   
   initAddToCart() {
     salla.cart.event.onUpdated((summary) => {

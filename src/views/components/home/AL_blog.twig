@@ -1,7 +1,7 @@
 <section class="AL-blog py-6">
     <div class="container">
         <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6  py-0  sm:py-12" style="background-color:{{component.bg_color}};">
-            <div class="swiper content-slider ">
+            <div class="swiper content-slider {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide flex items-center">
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <!-- سلايدر الصور -->
-            <div class="swiper main-slider w-full">
+            <div class="swiper main-slider w-full {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="1.0s" {% endif %}>
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide">

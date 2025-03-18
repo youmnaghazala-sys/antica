@@ -34,9 +34,7 @@
             }'>
                 <div slot="items">
                     {% for product in c.best_sell_products %}
-                    <div class="{{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
                         <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
-                    </div>
                     {% endfor %}
                 </div>
             </salla-slider>

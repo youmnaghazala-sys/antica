@@ -23,7 +23,7 @@
 
                 <ul class="AL-best_category_tabs_container">
                     {% for tab in component.categories %}
-                        <li class="AL-best_category_tabs_item {{ loop.first ? 'tab_active' : '' }}">
+                        <li class="AL-best_category_tabs_item {{ loop.first ? 'tab_active' : '' }}  {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
                             <button class="AL-best_category_tabs_btn" style="{{ component.category_name_color }}"> {{ tab.category_name }} </button>
                         </li>
                     {% endfor %}
@@ -68,7 +68,7 @@
                 </style>
             </template>
 
-            <custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10">
+            <custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10 {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
                 
 				{% for category in component.categories %}
                     <tab-content class="relative" slot="{{ category.category_name }}" {% if not loop.first %} hidden {% endif %}>

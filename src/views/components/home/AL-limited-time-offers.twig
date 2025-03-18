@@ -4,37 +4,37 @@
 			<div class="relative offers-item min-h-[388px] md:min-h-[550px]">
 				<div class="offers-item-wrapper flex flex-col md:flex-row items-center relative z-2 min-h-[388px] md:min-h-[550px]">
 					<div class="offers-item-content w-full md:w-1/2">
-            {% if component.title %}
-					  	<p style="color: {{component.title_color}}" class="offers-item-content-title">{{component.title}}</p>
-            {% endif %}
-            {% if component.primary_text %}
-              <div class="relative offers-item-content-primary w-fit">
-                <h2 style="color: {{component.primary_text_color}}">{{component.primary_text}}</h2>
-                <div class="absolute h-px w-full b-0 left-0" style="background-color: {{component.primary_text_color}}"></div>
-              </div>
-            {% endif %}
-            {% if component.sub_text %}
-						  <p style="color: {{component.sub_text_color}}" class="offers-item-content-sub">{{component.sub_text}}</p>
-            {% endif %}
-            {% if component.button_label %}
-              <div class="w-fit offers-item-content-button">
-                {% include 'components.custom.button' with {'btn_txt': component.button_label, 'btn_url': component.button_link, 'btn_bg': component.button_color, 'btn_color': component.button_label_color } %}
-              </div>
-            {% endif %}
+						{% if component.title %}
+							<p style="color: {{component.title_color}}" class="offers-item-content-title {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.4s" {% endif %}>{{component.title}}</p>
+						{% endif %}
+						{% if component.primary_text %}
+							<div class="relative offers-item-content-primary w-fit">
+								<h2 style="color: {{component.primary_text_color}}">{{component.primary_text}}</h2>
+								<div class="absolute h-px w-full b-0 left-0" style="background-color: {{component.primary_text_color}}"></div>
+							</div>
+						{% endif %}
+						{% if component.sub_text %}
+							<p style="color: {{component.sub_text_color}}" class="offers-item-content-sub {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.6s" {% endif %}>{{component.sub_text}}</p>
+						{% endif %}
+						{% if component.button_label %}
+							<div class="w-fit offers-item-content-button {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
+								{% include 'components.custom.button' with {'btn_txt': component.button_label, 'btn_url': component.button_link, 'btn_bg': component.button_color, 'btn_color': component.button_label_color } %}
+							</div>
+						{% endif %}
 					</div>
-					<div class="w-full md:w-1/2" style="color: {{component.counter_color}}">
+					<div class="w-full md:w-1/2 {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="1.0s" {% endif %} style="color: {{component.counter_color}}">
 						<salla-count-down digits="en" size="md" labeled="true" date={{ component.offer_date }}></salla-count-down>
 					</div>
 				</div>
-        {% if component.offer_image %}
-          <div class="w-full h-full absolute top-0 left-0 z-1">
-            <picture class="w-full h-full object-cover">
-              <source media="(max-width: 767px)" srcset="{{ component.offer_image_mobile }}">
-              <img src="{{ component.offer_image }}" alt="Offer Image" class="w-full h-full object-cover">
-            </picture>
-          </div>
-		  <div class="overlay"></div>
-        {% endif %}
+				{% if component.offer_image %}
+					<div class="w-full h-full absolute top-0 left-0 z-1 {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.7s" {% endif %}>
+						<picture class="w-full h-full object-cover">
+							<source media="(max-width: 767px)" srcset="{{ component.offer_image_mobile }}">
+							<img src="{{ component.offer_image }}" alt="Offer Image" class="w-full h-full object-cover">
+						</picture>
+					</div>
+					<div class="overlay"></div>
+				{% endif %}
 			</div>
 		</div>
 	</div>
@@ -42,13 +42,11 @@
 
 <style>
 	.offers-item .s-count-down-dark .s-count-down-item:after {
-		background-color: {{component.counter_color ? component.counter_color : '#ffffff'}}
-		;
+		background-color: {{component.counter_color ? component.counter_color : '#ffffff'}};
 	}
 	.offers-item .s-count-down-item-label,
 	.offers-item .s-count-down-item {
-		color: {{component.counter_color ? component.counter_color : '#ffffff'}}
-		;
+		color: {{component.counter_color ? component.counter_color : '#ffffff'}};
 	}
 	.LA_limited-time-offers{
 		position: relative;

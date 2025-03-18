@@ -1,7 +1,7 @@
 <section class="followUs w-full relative my-14">
 	<div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
 		{% for img in component.section_images %}
-			<a href="{{img.img_link}}">
+			<a href="{{img.img_link}}" class="{{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
 				<img src="{{ img.image }}" alt="image" class="h-[244px] w-full" loading="lazy"/>
 			</a>
 		{% endfor %}

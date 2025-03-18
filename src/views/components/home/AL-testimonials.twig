@@ -67,7 +67,7 @@
                         }'>
                         <div slot="items" class="flex flex-wrap justify-center gap-4">
                             {% for card in component.slider_collection %}
-                                <div class="card w-[315px] h-[285px] shadow-xl border border-gray-200 p-4  rounded-sm relative" style="background-color:{{component.card_background_color}};">
+                                <div class="card w-[315px] h-[285px] shadow-xl border border-gray-200 p-4  rounded-sm relative {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %} style="background-color:{{component.card_background_color}};">
                                     <span class="absolute top-4 right-4  text-2xl" style="color:{{component.quats_color}}"> 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                                             <g opacity="0.3">

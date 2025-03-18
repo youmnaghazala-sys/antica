@@ -1,12 +1,12 @@
 <section class="Al_products-and-stories md:h-[610px]">
 	<div class="container">
 		<div class="grid md:grid-cols-3 grid-cols-1 gap-2 md:gap-6">
-			<div class="story-slide-inactive hidden md:block">
+			<div class="story-slide-inactive hidden md:block {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}>
 				<div class="story h-[610px]">
           <img src="{{component.first_side_image}}" class="w-full h-full object-cover" alt="">
         </div>
 			</div>
-			<div class="story-slide-active">
+			<div class="story-slide-active {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.7s" {% endif %}>
 				<div class="story-item relative">
 					<div class="swiper child-swiper">
 						<div class="swiper-wrapper">
@@ -49,7 +49,7 @@
           </div>
 				</div>
 			</div>
-			<div class="story-slide-inactive hidden md:block">
+			<div class="story-slide-inactive hidden md:block {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.9s" {% endif %}>
 				<div class="story h-[610px]">
           <img src="{{component.second_side_image}}" class="w-full h-full object-cover" alt="">
         </div>
