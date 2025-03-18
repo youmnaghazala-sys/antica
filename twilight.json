@@ -43,6 +43,17 @@
             "format": "switch"
         },
         {
+            "id": "has_animation",
+            "type": "boolean",
+            "format": "switch",
+            "label": "تـفـعيـل انـيـميـشــن ✨",
+            "description": "قم بتشغيل هذا الخيار لإضافة تأثيرات حركية ساحرة تجعل واجهة متجرك أكثر حيوية وجاذبية.",
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": false,
+            "required": false
+        },
+        {
             "type": "static",
             "id": "static-line1",
             "format": "line"

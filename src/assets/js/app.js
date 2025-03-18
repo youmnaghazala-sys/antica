@@ -18,6 +18,7 @@ class App extends AppHelpers {
       this.initiateStickyMenu();
     }
     this.initAddToCart();
+    this.Al_anime();
     this.initiateAdAlert();
     this.initiateDropdowns();
     this.initiateModals();
@@ -26,7 +27,7 @@ class App extends AppHelpers {
     this.changeMenuDirection();
     this.ALU_extractfooterimage();
     this.ALU_searchIcon();
-    this. ALU__removeShadowroot();
+    this.ALU__removeShadowroot();
     initTootTip();
     this.loadModalImgOnclick();
 
@@ -434,10 +435,40 @@ class App extends AppHelpers {
     return options === false ? anime : anime.play();
   }
 
-  /**
-   * These actions are responsible for pressing "add to cart" button,
-   * they can be from any page, especially when mega-menu is enabled
-   */
+  Al_anime() {
+    const sections_anime = document.querySelectorAll(".Al__anime");
+  
+    sections_anime.forEach(section => {
+      const animationType = section.getAttribute("data-anim-allura") || "fade";
+      const duration = section.getAttribute("data-dur-allura") || "1s";
+      section.classList.add(animationType);
+      section.style.transition = `opacity ${duration} ease-in-out, transform ${duration} ease-in-out`;
+      section.style.opacity = "0";
+      section.style.transform = "translateY(20px)";
+    });
+  
+    const observerOptions = {
+      rootMargin: "0px 0px -50px 0px"
+    };
+  
+    function observerCallback(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        } else {
+          entry.target.classList.remove("active");
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = "translateY(20px)";
+        }
+      });
+    }
+  
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections_anime.forEach(section => observer.observe(section));
+  }
+  
   initAddToCart() {
     salla.cart.event.onUpdated((summary) => {
       document
@@ -461,58 +492,58 @@ class App extends AppHelpers {
     const free_shipping_limit = parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
 
     salla.event.on('cart::updated', function (data) {
-        document.querySelector('.progress_filler').style.width = `${(data.total / free_shipping_limit) * 100}%`;
-        const freeShippingLimitRemaining = document.querySelector('.free_shipping_limit_remaining');
-        if (freeShippingLimitRemaining) {
-            freeShippingLimitRemaining.innerText = salla.money(
-                free_shipping_limit - data.total > 0 ? free_shipping_limit - data.total : 0
-            );
-        }
+      document.querySelector('.progress_filler').style.width = `${(data.total / free_shipping_limit) * 100}%`;
+      const freeShippingLimitRemaining = document.querySelector('.free_shipping_limit_remaining');
+      if (freeShippingLimitRemaining) {
+        freeShippingLimitRemaining.innerText = salla.money(
+          free_shipping_limit - data.total > 0 ? free_shipping_limit - data.total : 0
+        );
+      }
     });
   }
 }
 class TabComponent extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        const template = document.querySelector('#AL-best_category_tabs');
-        if (!template) {
-            console.error("Template #AL-best_category_tabs not found!");
-            return;
-        }
-
-        const shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.appendChild(template.content.cloneNode(true));
-
-        this.initTabs();
+    const template = document.querySelector('#AL-best_category_tabs');
+    if (!template) {
+      console.error("Template #AL-best_category_tabs not found!");
+      return;
     }
 
-    initTabs() {
-        const tabs = this.shadowRoot.querySelectorAll('.AL-best_category_tabs_btn');
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.appendChild(template.content.cloneNode(true));
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                this.changeTab(tab);
-            });
-        });
+    this.initTabs();
+  }
 
-        if (tabs.length > 0) this.changeTab(tabs[0]);
-    }
+  initTabs() {
+    const tabs = this.shadowRoot.querySelectorAll('.AL-best_category_tabs_btn');
 
-    changeTab(selectedTab) {
-        this.shadowRoot.querySelectorAll('.AL-best_category_tabs_item')
-            .forEach(tab => tab.classList.remove('tab_active'));
-    
-        selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
-    
-        const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
-        
-        slots.forEach(slot => slot.setAttribute('hidden', ''));
-    
-        const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
-        
-        if (activeSlot) activeSlot.removeAttribute('hidden');
-    }
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        this.changeTab(tab);
+      });
+    });
+
+    if (tabs.length > 0) this.changeTab(tabs[0]);
+  }
+
+  changeTab(selectedTab) {
+    this.shadowRoot.querySelectorAll('.AL-best_category_tabs_item')
+      .forEach(tab => tab.classList.remove('tab_active'));
+
+    selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
+
+    const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
+
+    slots.forEach(slot => slot.setAttribute('hidden', ''));
+
+    const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
+
+    if (activeSlot) activeSlot.removeAttribute('hidden');
+  }
 }
 
 window.customElements.define('custom-tabs', TabComponent);
