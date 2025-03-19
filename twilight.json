@@ -1575,7 +1575,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
-                            "maxLength": "50"
+                            "maxLength": "30"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -1590,7 +1590,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
-                            "maxLength": "50"
+                            "maxLength": "30"
                         }
                     ],
                     "value": [],
