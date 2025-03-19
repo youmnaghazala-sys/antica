@@ -1472,7 +1472,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "1",
-                    "maxLength": "100"
+                    "maxLength": "70"
                 },
                 {
                     "id": "component_description",
@@ -1503,7 +1503,7 @@
                             "id": "slider_collection.comment_body",
                             "type": "string",
                             "format": "text",
-                            "label": "نص العليق",
+                            "label": "نص التعليق",
                             "description": null,
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
@@ -1539,7 +1539,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
-                            "maxLength": "100"
+                            "maxLength": "60"
                         },
                         {
                             "id": "slider_collection.comment_writer_image",
@@ -1566,7 +1566,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
-                            "maxLength": "100"
+                            "maxLength": "50"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -1581,7 +1581,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "1",
-                            "maxLength": "100"
+                            "maxLength": "50"
                         }
                     ],
                     "value": [],
