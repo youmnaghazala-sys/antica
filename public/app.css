@@ -888,6 +888,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .leading-6{line-height:1.5rem}
 .leading-7{line-height:1.75rem}
 .leading-8{line-height:2rem}
+.leading-9{line-height:2.25rem}
 .leading-\[18px\]{line-height:18px}
 .leading-\[22px\]{line-height:22px}
 .leading-\[25\.811px\]{line-height:25.811px}
@@ -896,7 +897,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .leading-\[48px\]{line-height:48px}
 .leading-none{line-height:1}
 .leading-tight{line-height:1.25}
-.leading-9{line-height:2.25rem}
 .\!text-primary{color:#414042 !important;color:var(--color-primary) !important}
 .\!text-red-800{--tw-text-opacity:1 !important;color:rgba(153, 27, 27, 1) !important;color:rgba(153, 27, 27, var(--tw-text-opacity, 1)) !important}
 .\!text-white{--tw-text-opacity:1 !important;color:rgba(255, 255, 255, 1) !important;color:rgba(255, 255, 255, var(--tw-text-opacity, 1)) !important}
