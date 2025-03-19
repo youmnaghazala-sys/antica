@@ -1252,7 +1252,7 @@
                     "icon": "sicon-keyboard_arrow_down",
                     "selected": [],
                     "options": [],
-                    "source": "Brands",
+                    "source": "brands",
                     "multichoice": true,
                     "searchable": true,
                     "required": false,
@@ -1279,6 +1279,14 @@
                     "labelHTML": null,
                     "item_label": null,
                     "icon": "sicon-list-add",
+                    "conditions": [
+                        {
+                            "id": "enable_brands_images",
+                            "operation": "=",
+                            "value": true
+                          
+                        }
+                    ],
                     "fields": [
                         {
                             "id": "brands_images.brand_img",
@@ -1290,15 +1298,8 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false,
-                        "conditions": [
-                                {
-                                    "id": "enable_brands_images",
-                                    "operation": "=",
-                                    "value": true
-                                  
-                                }
-                            ]
+                            "required": false
+                       
                         }
                     ],
                     "value": [],
