@@ -9,18 +9,18 @@
 <header class="store-header">
 	{# Top Nav #}
 	{# <div class="top-navbar">
-			<div class="container flex justify-between">
-				<div
-					class="flex-1 flex items-center gap-2">
-					{% if store.scope %}
-						<button class="btn--rounded-gray" onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
-							<i class="sicon-location rtl:ml-1 ltr:mr-1"></i>
-							{{ store.scope.name }}
-						</button>
-					{% endif %}
-				</div>
-			</div>
-		</div> #}
+					<div class="container flex justify-between">
+						<div
+							class="flex-1 flex items-center gap-2">
+							{% if store.scope %}
+								<button class="btn--rounded-gray" onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
+									<i class="sicon-location rtl:ml-1 ltr:mr-1"></i>
+									{{ store.scope.name }}
+								</button>
+							{% endif %}
+						</div>
+					</div>
+				</div> #}
 
 	{# Main Nav #}
 		<div id="mainnav" class="main-nav-container shadow-default bg-white"> <div class="inner bg-inherit">
@@ -28,9 +28,9 @@
 				<div class="border-b border-solid border-[E7E7E7]">
 					<div class="container flex items-center justify-between relative md:py-7 gap-3 md:gap-16 ">
 						<div class="flex items-center">
-            		<a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-						<i class="sicon-menu text-primary text-2xl"></i>
-					</a>
+							<a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
+								<i class="sicon-menu text-primary text-2xl"></i>
+							</a>
 							<a class="navbar-brand" href="{{ store.url }}">
 								<img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo }}" alt="{{ store.name }} logo">
 								{% if is_page('index') %}
@@ -42,14 +42,14 @@
 
 						</div>
 						{# Search bar #}
-            
-            <div class="header-search flex-1 hidden sm:block">
+
+						<div class="header-search flex-1 hidden sm:block">
 							<salla-search inline oval height="48"></salla-search>
 						</div>
 						<div class="flex items-center justify-end gap-1">
-            <div class="sm:hidden relative search_mobile_icon">
-            	<i class="sicon-search cursor-pointer Moa_search text-lg" style="color:{{theme.settings.get('color_text_header','#000')}};"></i>
-            </div>
+								<button onclick="salla.event.dispatch('search::open')" class="header-btn sm:hidden" aria-label="فتح البحث" role="button" tabindex="0">
+									<i class="sicon-search header-btn__icon cursor-pointer text-xl before:text-sm before:text-gray-300 border-gray-300 " style="color:{{theme.settings.get('color_text_header','#000')}};"></i>
+								</button>
 							{% if user.type=='user' %}
 								<salla-user-menu avatar-only show-header></salla-user-menu>
 							{% else %}
@@ -65,18 +65,23 @@
 				</div>
 				<div class="flex justify-between items-center p-0 container">
 					<custom-main-menu></custom-main-menu>
-					<div class="flex items-center">
+					<div
+						class="flex items-center">
 						{# Language & Currency Component #}
 						<div class="header-buttons md:pl-2">
 							{% if store.settings.is_multilingual or store.settings.currencies_enabled %}
 								<button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0">
 									<span class="flag iti__flag iti__{{ user.language.country_code }} rounded-sm ml-2"></span>
-                  			{% if user.language.code == 'ar' %}
-											<span class="hidden md:inline-block">{{trans('blocks.header.arabic')}} - </span>
-										{% else %}
-											<span class="hidden md:inline-block">{{trans('blocks.header.english')}} - </span>
+									{% if user.language.code == 'ar' %}
+										<span class="hidden md:inline-block">{{trans('blocks.header.arabic')}}
+											-
+										</span>
+									{% else %}
+										<span class="hidden md:inline-block">{{trans('blocks.header.english')}}
+											-
+										</span>
 
-										{% endif %}
+									{% endif %}
 									<span>{{ currency.symbol }}</span>
 								</button>
 								<salla-localization-modal></salla-localization-modal>
