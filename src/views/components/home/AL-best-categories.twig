@@ -10,7 +10,7 @@
                 {% endif %}
 
                 {% if component.category_sub_title %}
-                    <p class="AL-best_category_titles_description font-bold text-xl md:text-[28px]" style="color: {{ component.category_sub_color }}"> {{ component.category_sub_title }} </p>
+                    <p class="AL-best_category_titles_description font-bold text-xl md:text-[28px] leading-9" style="color: {{ component.category_sub_color }}"> {{ component.category_sub_title }} </p>
                 {% endif %}
 
             </div>
@@ -158,10 +158,19 @@
             line-height: 29px; 
             z-index: 2;
 		}
+        .product-unique-feature span{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            max-width: 52%;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
         .product-unique-feature .dot{
             border: 1px solid var(--border-color);
             margin-top: 8px;
-            width: 120%;
+            width: 55%;
             position: relative;
         }
 		.product-unique-feature.feature-1 {
@@ -181,12 +190,12 @@
             height: 40px;
             background-color: transparent;
             top: 33%;
-            left: -20%;
+            left: 41%;
             border-radius: 50%;
             border: 1px solid var(--border-color); 
             @media (max-width:768px) {
                 top: 35%;
-                left: -20%;
+                left: 38%;
             }
         }
 
@@ -197,11 +206,11 @@
             height: 8px;
             background-color: var(--border-color);
             top: 61%;
-            right: 104%;
+            right: 53%;
             border-radius: 50%;
             @media (max-width:768px) {
                 top: 63%;
-                right: 97%;
+                right: 53%;
             }
         }
         .product-unique-feature.feature-1,.product-unique-feature.feature-2{
@@ -225,11 +234,11 @@
             height: 40px;
             background-color: transparent;
             top: 33%;
-            right: -15%;
+            right: 41%;
             border-radius: 50%;
             border: 1px solid var(--border-color); 
             @media (max-width:768px) {
-                right: -18%;
+                right: 39%;
             }
         }
 
@@ -239,7 +248,7 @@
             width: 8px;
             height: 8px;
             top: 63%;
-            right: -6%;
+            right: 45%;
             border-radius: 50%;
             background-color: var(--border-color);
         }
@@ -252,6 +261,8 @@
 		.product-unique-feature.feature-3 {
             top: 55%;
             left: 0%;
+            text-align: left;
+            text-align: -webkit-left;
 		}
         .product-unique-feature.feature-3 .dot{
             margin-right: -22px;
