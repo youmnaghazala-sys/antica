@@ -1252,7 +1252,7 @@
                     "icon": "sicon-keyboard_arrow_down",
                     "selected": [],
                     "options": [],
-                    "source": "Brands",
+                    "source": "brands",
                     "multichoice": true,
                     "searchable": true,
                     "required": false,
