@@ -227,3 +227,9 @@ salla-user-menu{
 .s-menu-topnav-list{
   @apply flex !important;
 }
+.s-search-modal .s-modal-close{
+  @apply top-0 translate-y-0 w-10 !important;
+}
+.s-search-container{
+  @apply  w-[89%] sm:w-full;
+}
