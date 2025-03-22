@@ -1892,7 +1892,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-toggle-off",
-                    "value": true,
+                    "value": false,
                     "selected": false,
                     "required": false
                 },
@@ -1927,7 +1927,7 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
+                    "value": "https://cdn.salla.sa/form-builder/TSz4Du6MrH3D8V1Yi3ruI524NxSlksKDtGbOnV2V.png",
                     "required": true,
                     "conditions": [
                         {
