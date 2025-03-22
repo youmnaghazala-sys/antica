@@ -191,7 +191,9 @@
       @apply flex-1;
     }
     .s-product-card-content-sub{
-      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0;
+      flex-direction: column;
     }
     .s-product-card-content-subtitle{
       display: none;
@@ -273,7 +275,7 @@
       .s-product-card-sale-price span{
         font-size: 18px;
         font-weight: 400;
-        color: var(--color-primary);
+        color: #1e2519a6;
         @media (max-width: 768px) {
           font-size: 12px;
         }
