@@ -1638,7 +1638,7 @@
                     "label": "تضمين داخل حاوية مرنة",
                     "description": "فعّل هذا الخيار إذا كنت ترغب في إدراج المكون داخل حاوية مرنة لتحسين التخطيط والتنظيم.",
                     "icon": "sicon-toggle-off",
-                    "value": true,
+                    "value": false,
                     "selected": false,
                     "required": false
                 },
@@ -1650,7 +1650,7 @@
                     "description": "أدخل عنوانًا بارزًا لجذب انتباه المستخدمين، يفضل أن يكون موجزًا ومعبّرًا.",
                     "placeholder": "أدخل العنوان هنا...",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "منتجات للعناية بالبشرة والوجه",
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
@@ -1664,7 +1664,7 @@
                     "label": "لون العنوان الرئيسي",
                     "description": "حدد لون العنوان الرئيسي ليتناسب مع تصميم المكون ويبرز المحتوى بشكل أفضل.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#000000",
                     "required": false
                 },
                 {
@@ -1675,7 +1675,7 @@
                     "description": "أدخل عنوانًا فرعيًا يكمل العنوان الرئيسي ويوضح الفكرة بشكل أكبر.",
                     "placeholder": "أدخل العنوان الفرعي هنا...",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "اكتشفي أفضل منتجات العناية ببشرتك ووجهك لروتين يومي فعّال ومناسب لك",
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
@@ -1689,7 +1689,7 @@
                     "label": "لون العنوان الفرعي",
                     "description": "حدد لون العنوان الفرعي لتحقيق تناسق بصري مع العنوان الرئيسي.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#1e2519",
                     "required": false
                 },
                 {
@@ -1700,7 +1700,7 @@
                     "label": "لون خلفية النصوص",
                     "description": "اختر لونًا لخلفية النصوص داخل المكون لتحسين القابلية للقراءة.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#f7f6f6",
                     "required": false
                 },
                 {
@@ -1711,7 +1711,7 @@
                     "description": "أدخل نصًا واضحًا للزر ليحفز المستخدمين على التفاعل مع المكون.",
                     "placeholder": "أدخل نص الزر هنا...",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "تسوقي الآن",
                     "multilanguage": false,
                     "required": false,
                     "minLength": 3,
@@ -1723,7 +1723,7 @@
                     "icon": "sicon-link",
                     "label": "رابط الزر",
                     "description": "حدد الرابط الذي سيتم توجيه المستخدم إليه عند النقر على الزر.",
-                    "value": null,
+                    "value": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/1544535658",
                     "required": false,
                     "format": "variable-list",
                     "searchable": true,
@@ -1866,7 +1866,23 @@
                             ]
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "albome.is_video": false,
+                            "albome.video_url": "https://s3-figma-videos-production-sig.figma.com/video/TEAM/1040212401812181761/738092fac2dc22224e7011af8c80699ca7c7d8bf?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lYda-8JeNOCpx~1PZMf1JjaitYais4qH1hqcMmygRO~QoR5rYT95-5G0DfltwTr7RRbOZWIZIxRadd8e~2VTelVvqWlCo-LNaVCm6OCcJDHXtK-NYZWV2DBBPknWk~wPFZEKeSooROlo4bsbXvZdsYEQLtdhasPy9GLaUTJ46KovUaXXvgfliOs93BipFzOKDf~W1jqqA9~g8tb~Eq3YIuZuk4Bqc0tYLg2bSvQ~xK1kktBawMwTjlvsR6IG7lWBYMpVdu1lcpSZ2DhGQwDWD4fVKP8wAglQkOJGEw6pnMjPUttZ1nIj73vtfcgjnzxlFlo28vGeC1iA87k1ENpaOw__",
+                            "albome.banner_img": "https://cdn.salla.sa/form-builder/o5gf1DYyimWjVI69WitmA3scVBSC8dp8Pw1JBpMy.png"
+                        },
+                        {
+                            "albome.is_video": false,
+                            "albome.video_url": "https://s3-figma-videos-production-sig.figma.com/video/TEAM/1040212401812181761/738092fac2dc22224e7011af8c80699ca7c7d8bf?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lYda-8JeNOCpx~1PZMf1JjaitYais4qH1hqcMmygRO~QoR5rYT95-5G0DfltwTr7RRbOZWIZIxRadd8e~2VTelVvqWlCo-LNaVCm6OCcJDHXtK-NYZWV2DBBPknWk~wPFZEKeSooROlo4bsbXvZdsYEQLtdhasPy9GLaUTJ46KovUaXXvgfliOs93BipFzOKDf~W1jqqA9~g8tb~Eq3YIuZuk4Bqc0tYLg2bSvQ~",
+                            "albome.banner_img": "https://cdn.salla.sa/form-builder/PYwpnrUvl8F7Dx4NuydvhBNUHArK87xgVtcd9X0b.png"
+                        },
+                        {
+                            "albome.is_video": false,
+                            "albome.video_url": "",
+                            "albome.banner_img": "https://cdn.salla.sa/form-builder/vX5JLHa8vC5xiKxUnv7O7MqqSCha3Msg9Y7CXVGy.png"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": 3
                 }
