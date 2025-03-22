@@ -1299,7 +1299,29 @@
                             "required": false
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/20XthP3dr9h6jnAxHIjrByYpkvKapH3njkoSIv6C.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/XBI4xBQcycdFxL1jFJfYbwagEYVhRv8F0epRFoYX.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/BWIn5mhArWvrDar5JhRTdhtGs0JhOzPko5JzUv0W.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/2fHpxx25LP8kSU4IV7YMsHbLzUL4JFb6btInQFxN.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/Dd7Su936OZyisOa1tnoIfgZ65Tq2PTIevcnXkgnl.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/2O3Rc55uT4BPlLmcV80Eo5x6Hx0yrIm6kdHy3eo3.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/k2H5uR2CQBxLjNLnij49TXkRnuw1z5Az7M6kiaWn.png"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "15"
                 }
