@@ -2786,7 +2786,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_images.secondary_image",
@@ -2798,7 +2798,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_images.title",
@@ -2844,6 +2844,18 @@
                             "required": false,
                             "minLength": "2",
                             "maxLength": "300"
+                        },
+                        {
+                            "id": "slider_images.button_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": " لون خلفية الزر",
+                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
                         },
                         {
                             "type": "items",
@@ -2910,11 +2922,23 @@
                             ]
                         },
                         {
-                            "id": "slider_images.text_color",
+                            "id": "slider_images.main_text_color",
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": "لون النص",
+                            "label": " لون العنوان الرئيسي",
+                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.sub_text_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": " لون العنوان الفرعي",
                             "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
