@@ -2133,7 +2133,68 @@
                             ]
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "category.category_num": 54,
+                            "category.category_url": "#",
+                            "category.category_name": "العنايـــة بالجســــم",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/QgqB54LKTucLoIz1cGiGvt18mhmJq0lFg4RN1rTn.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/35823465",
+                            "category.category_name": "العنايـــة بالشعر",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/K6p6SGZf8ZQmkXM8mFOR9DHzZJn97UubkBGgtMej.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/35823465",
+                            "category.category_name": "العنايـــة بالبشــــــرة",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/GEmVJd2qBK3JUfFLFrElpSVkfGva8yLkm90WEDav.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/1544535658",
+                            "category.category_name": "اليــــدين والقــــدمين",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/WN6n7JLYuUADDvowsIUjfampyxthGnTxbMThi72z.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/1263509560",
+                            "category.category_name": "المكيــــــاج",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/X5nBZawV65Dd9PVibccOQI12towYRrr2HBliqJkj.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/622120761",
+                            "category.category_name": "العطـــــــــور",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/LmmmfTre9YJwBuakDhZj1tF7jJ6GcTJKwC1hJDN9.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "20"
                 },
