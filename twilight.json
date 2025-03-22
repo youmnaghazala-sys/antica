@@ -1773,7 +1773,17 @@
                     "value": "#ffffff",
                     "required": false
                 },
-                
+                {
+                    "id": "btn_bg",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون خلفية الزر",
+                    "description": "حدد لون خلفية الزر ليكون متناسقًا مع التصميم العام.",
+                    "icon": "sicon-format-fill",
+                    "value": "#000000",
+                    "required": false
+                },
                 {
                     "id": "albome",
                     "type": "collection",
@@ -2836,18 +2846,6 @@
                             "maxLength": "300"
                         },
                         {
-                            "id": "slider_images.button_color",
-                            "type": "string",
-                            "format": "color",
-                            "inputType": "color",
-                            "label": " لون خلفية الزر",
-                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
-                            "labelHTML": null,
-                            "icon": "sicon-format-fill",
-                            "value": "#5b7247",
-                            "required": false
-                        },
-                        {
                             "type": "items",
                             "icon": "sicon-link",
                             "label": "الرابط",
@@ -2912,24 +2910,24 @@
                             ]
                         },
                         {
-                            "id": "slider_images.main_text_color",
+                            "id": "slider_images.maintext_color",
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": " لون العنوان الرئيسي",
-                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
+                            "label": "لون النص",
+                            "description": "اللون المستخدم في العناوين الرئيسية داخل الشريحة.",
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
                             "value": "#5b7247",
                             "required": false
                         },
                         {
-                            "id": "slider_images.sub_text_color",
+                            "id": "slider_images.subtext_color",
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": " لون العنوان الفرعي",
-                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
+                            "label": "لون النص",
+                            "description": "اللون المستخدم في العناوين الفرعية داخل الشريحة.",
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
                             "value": "#5b7247",
