@@ -1773,17 +1773,7 @@
                     "value": "#ffffff",
                     "required": false
                 },
-                {
-                    "id": "btn_bg",
-                    "type": "string",
-                    "format": "color",
-                    "inputType": "color",
-                    "label": "لون خلفية الزر",
-                    "description": "حدد لون خلفية الزر ليكون متناسقًا مع التصميم العام.",
-                    "icon": "sicon-format-fill",
-                    "value": "#000000",
-                    "required": false
-                },
+                
                 {
                     "id": "albome",
                     "type": "collection",
