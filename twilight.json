@@ -2501,7 +2501,7 @@
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
                     "icon": "sicon-format-text-alt",
-                    "value": "@Allura.Cosmetics",
+                    "value": "Allura.Cosmetics",
                     "multilanguage": false,
                     "required": false,
                     "minLength": "1",
@@ -2609,7 +2609,24 @@
                             ]
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/Nplz6ZtoCOyN0nYGstyhUdlTrDzVhB8rSqx4Yd6h.png",
+                            "section_images.img_link": ""
+                        },
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/vZr4zMYIuPXZugE6P1n6B5XCItqz99XUkC2PoL1b.png",
+                            "section_images.img_link": ""
+                        },
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/lKUC1VO48lOAm4QSuYVi4AWWCthyS77u3IMwwcOJ.png",
+                            "section_images.img_link": ""
+                        },
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/siJjXKj3pt8ym8VlRPVPoTcNK6sgJQ67P6CdhRKI.png",
+                            "section_images.img_link": ""
+                        }
+                    ],
                     "minLength": "1",
                     "maxLength": "4"
                 }
