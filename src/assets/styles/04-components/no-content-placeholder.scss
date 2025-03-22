@@ -191,7 +191,9 @@
       @apply flex-1;
     }
     .s-product-card-content-sub{
-      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0;
+      flex-direction: column;
     }
     .s-product-card-content-subtitle{
       display: none;

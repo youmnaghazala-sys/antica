@@ -6540,7 +6540,9 @@ salla-add-product-button button span{display:flex;gap:0.625rem}
   flex:1 1 0%;
 }
 .s-product-card-horizontal .s-product-card-content-sub {
-  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  flex-direction: column;
 }
 .s-product-card-horizontal .s-product-card-content-subtitle {
   display: none;
