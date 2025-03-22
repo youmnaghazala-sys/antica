@@ -1612,7 +1612,48 @@
                             "maxLength": "20"
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IFE5AQnV3ybE3wecCaTtN74gPaq3IypEUB0scW3r.png",
+                            "slider_collection.comment_body": "جربت كذا منتج للعناية بالبشرة من متجر ألورا، وبصراحة، النتايج كانت خرافية، بشرتي صارت أنعم وأصفى، خصوصًا بعد ما استخدمت السيروم المرطب",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "(رائدة اعمال)",
+                            "slider_collection.comment_writer_name": "نيرة مهدي",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/COl8c6g5xnrN5OYfwmKv8UMFnOCqnGKjlWSEutAm.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "بصراحة، منتجات ألورا فرقت معي كثير، استخدمت الكريم الليلي، وصحيت الصباح وبشرتي مرطبة وناعمة بشكل ما توقعت.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "( معلمة )",
+                            "slider_collection.comment_writer_name": "سارة المطيري",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "أنا دايمًا أعاني من جفاف البشرة، لكن بعد ما جربت الغسول المرطب من ألورا، فرق معي من أول أسبوع! أنصح فيه وبقوة.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "(مهندس)",
+                            "slider_collection.comment_writer_name": "فيصل الحربي",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "كمنتجات طبية، دايم أدقق على المكونات، وألورا فاجأتني بجودتها السيروم حق التفتيح صار أساسي في روتيني اليومي.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "(طبيبة)",
+                            "slider_collection.comment_writer_name": "نوف الدوسري",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "ما كنت أهتم بالبشرة كثير، لكن بعد ما جربت المرطب من ألورا، لاحظت فرق واضح ترطيب يدوم بدون إحساس دهني.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "( رجل اعمال)",
+                            "slider_collection.comment_writer_name": "عبدالله القحطاني",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "10"
                 }
