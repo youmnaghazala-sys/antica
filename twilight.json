@@ -1885,7 +1885,7 @@
                     "placeholder": "e.g. https://salla.sa",
                     "icon": "sicon-link",
                     "value": null,
-                    "required": false,
+                    "required": true,
                     "minLength": 6,
                     "maxLength": 2000000,
                     "conditions": [
@@ -1906,7 +1906,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": null,
-                    "required": false,
+                    "required": true,
                     "conditions": [
                         {
                             "id": "switch_video",
