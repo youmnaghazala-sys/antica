@@ -3206,7 +3206,7 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
+                    "value": "https://cdn.salla.sa/form-builder/M77VLI07vKONwDOIkDjiLL6dXssoDTaQCSTkhEyc.png",
                     "required": false
                 },
                 {
@@ -3218,7 +3218,7 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
+                    "value": "https://cdn.salla.sa/form-builder/POq43rp0mFrr7pKEcj2OMBFXlUoZRI5ij57AKH3A.png",
                     "required": false
                 },
                 {
@@ -3533,30 +3533,35 @@
                     "value": [
                         {
                             "category_name": "ماسكــــــــــــــــارا",
+                            "relate_category": [],
                             "unique_feature_1": "مضادة للمياه",
                             "unique_feature_2": "سواد فحمي",
                             "unique_feature_3": ""
                         },
                         {
                             "category_name": "كريم أســـــــــــاس",
+                            "relate_category": [],
                             "unique_feature_1": "تغطية عالية",
                             "unique_feature_2": "دائم وطويل الأمد",
                             "unique_feature_3": "ترطيب عالي"
                         },
                         {
                             "category_name": "حمرة شفــــــــــاه",
+                            "relate_category": [],
                             "unique_feature_1": "ثبات طويل",
                             "unique_feature_2": "تعدد الألوان",
                             "unique_feature_3": "سهولة التطبيق"
                         },
                         {
                             "category_name": "حمرة خدود",
+                            "relate_category": [],
                             "unique_feature_1": "ثبات طويل",
                             "unique_feature_2": "تعدد الألوان",
                             "unique_feature_3": "سهولة التطبيق"
                         },
                         {
                             "category_name": "أيشــــــــــــــــادو",
+                            "relate_category": [],
                             "unique_feature_1": "مقاوم للمياه",
                             "unique_feature_2": "لون كريمي غني",
                             "unique_feature_3": "ثبات 24/7"
