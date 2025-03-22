@@ -3267,7 +3267,23 @@
                             "required": false
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "stories.bg_color": "#E7F0DC",
+                            "stories.is_products": false,
+                            "stories.story_image": "https://cdn.salla.sa/form-builder/zfV6DTmwWEYyntLEf7wucPRXN41xbVQFWJb1iGDW.png"
+                        },
+                        {
+                            "stories.bg_color": "#E7F0DC",
+                            "stories.is_products": false,
+                            "stories.story_image": "https://cdn.salla.sa/form-builder/D6ptF8qQ88X6aKEOecOZAcYJiaTvWu2dmxKVcutD.png"
+                        },
+                        {
+                            "stories.bg_color": "#E7F0DC",
+                            "stories.is_products": true,
+                            "stories.story_image": ""
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": 5
                 }
