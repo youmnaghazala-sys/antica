@@ -1,7 +1,7 @@
 {% set c = component %}
 
 <section class="Alo__main">
-	<salla-slider id="main-slider-{{ position }}" auto-play type="fullwidth" show-controls="false" pagination = "true">
+	<salla-slider id="main-slider-{{ position }}" auto-play type="fullwidth" show-controls="false" pagination = "true" slider-config='{"centeredSlides": true}'>
 		<div slot="items">
 			{% for i in c.slider_images %}
 				<div class="swiper-slide {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
@@ -43,4 +43,19 @@ el.style.setProperty('--after-color', color);
 });
 });
 </script>
+<style>
+	.Alo__main salla-slider .swiper-pagination .swiper-pagination-bullet {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background-color: rgb(53 65 43 / 28%);
+		opacity: 1;
+		outline: 1px solid rgb(53 65 43 / 28%);	
+		}
 
+	/* تنسيق النقطة النشطة */
+	.Alo__main salla-slider .swiper-pagination .swiper-pagination-bullet-active {
+		background-color: rgba(89, 116, 69, 1);
+		outline: 1px solid rgba(89, 116, 69, 1);
+	}
+</style>
