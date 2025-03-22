@@ -2978,7 +2978,50 @@
                             "required": false
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "slider_images.url": "#",
+                            "slider_images.title": "دلّلي بشرتك بالعناية اللي تستحقها",
+                            "slider_images.subtitle": "منتجات طبيعية 100% تغذي بشرتك",
+                            "slider_images.show_logo": false,
+                            "slider_images.main_image": "https://cdn.salla.sa/form-builder/lmSyW89938OQR0xwidvFmM8vo1CVjqSzOIE11jis.png",
+                            "slider_images.button_text": "تسوقي الآن",
+                            "slider_images.button_color": "#5c7148",
+                            "slider_images.subtext_color": "#1e2519",
+                            "slider_images.maintext_color": "#5c7148",
+                            "slider_images.secondary_image": "https://cdn.salla.sa/form-builder/NDGNLbW4rr9B9BgzGzAPW9sdFaBB0ZwGhf18qKEE.png",
+                            "slider_images.background_color": "#e7f0dc",
+                            "slider_images.button_text_color": "#fcfcfc"
+                        },
+                        {
+                            "slider_images.url": "#",
+                            "slider_images.title": "سر نضارة بشرتك يبدأ من هنا",
+                            "slider_images.subtitle": "اكتشفي سر العناية ببشرتك مع ألورا وتألقي بإشراقة تدوم.",
+                            "slider_images.show_logo": true,
+                            "slider_images.main_image": "https://cdn.salla.sa/form-builder/tbIdZ8svlwZ9vxNPcv7qtQ6tP4p3E1Q7HPjQ2uVD.webp",
+                            "slider_images.button_text": "تسوقي الآن",
+                            "slider_images.button_color": "#e7f0cd",
+                            "slider_images.subtext_color": "#e7f0cd",
+                            "slider_images.maintext_color": "#e7f0cd",
+                            "slider_images.secondary_image": "https://cdn.salla.sa/form-builder/EWyFsUx4z1X0CcXwthVejkS6pS2G3xTwyVZ3oiRg.webp",
+                            "slider_images.background_color": "#5c7148",
+                            "slider_images.button_text_color": "#5b7247"
+                        },
+                        {
+                            "slider_images.url": "#",
+                            "slider_images.title": "تألقي بثقة",
+                            "slider_images.subtitle": "بمنتجات طبيعية تغذّي وتدلّل بشرتك",
+                            "slider_images.show_logo": true,
+                            "slider_images.main_image": "https://cdn.salla.sa/form-builder/PFSEfSeMOA2zdjyCOzgPyv1g5fo205lBr0pvUzcY.jpg",
+                            "slider_images.button_text": "تسوقي الآن",
+                            "slider_images.button_color": "#5c7148",
+                            "slider_images.subtext_color": "#5b7247",
+                            "slider_images.maintext_color": "#5b7247",
+                            "slider_images.secondary_image": "https://cdn.salla.sa/form-builder/EtyMIIIRJrQtEg6hS4SibfbEwuXxk4Sf5jRkLajY.jpg",
+                            "slider_images.background_color": "#e7f0dc",
+                            "slider_images.button_text_color": "#e7f0cd"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "10"
                 }
