@@ -1,7 +1,7 @@
 {% set c = component %}
 
 <section class="Alo__main">
-	<salla-slider id="main-slider-{{ position }}" auto-play type="fullwidth" show-controls="false">
+	<salla-slider id="main-slider-{{ position }}" auto-play type="fullwidth" show-controls="false" pagination = "true">
 		<div slot="items">
 			{% for i in c.slider_images %}
 				<div class="swiper-slide {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
@@ -21,7 +21,7 @@
 								<p class="text-lg sm:text-xl lg:text-2xl" style = "color: {{i.subtext_color}};">{{i.subtitle}}</p>
 							</div>
 							<div class="">
-								{% include 'components.custom.button' with {'btn_txt': i.button_text, 'btn_url': i.url, 'btn_bg': i.text_color, 'btn_color': i.background_color } %}
+								{% include 'components.custom.button' with {'btn_txt': i.button_text, 'btn_url': i.url, 'btn_bg': i.button_color, 'btn_color': i.button_text_color } %}
 							</div>
 						</div>
 						<div class="lg:block hidden lg:w-1/3 w-1/2 spacespacespace h-full" data-after-color="{{ i.background_color }}"><img src="{{i.secondary_image}}" alt="{{i.title}}" class="object-cover w-full h-full"></div>

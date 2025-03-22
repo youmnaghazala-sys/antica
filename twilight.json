@@ -2846,6 +2846,30 @@
                             "maxLength": "300"
                         },
                         {
+                            "id": "slider_images.button_text_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون نص الزر",
+                            "description": "اللون المستخدم في نص الزر.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.button_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون خلفية الزر",
+                            "description": "اللون المستخدم في العناوين الرئيسية داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
                             "type": "items",
                             "icon": "sicon-link",
                             "label": "الرابط",
@@ -2914,7 +2938,7 @@
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": "لون النص",
+                            "label": "لون العنوان الرئيسي",
                             "description": "اللون المستخدم في العناوين الرئيسية داخل الشريحة.",
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
@@ -2926,7 +2950,7 @@
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": "لون النص",
+                            "label": "لون العنوان الفرعي",
                             "description": "اللون المستخدم في العناوين الفرعية داخل الشريحة.",
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
