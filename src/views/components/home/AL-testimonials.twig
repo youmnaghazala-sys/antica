@@ -51,7 +51,6 @@
         </div>
             
         <div class="md:col-span-2 flex items-center md:translate-x-[10%] lg:max-w-[90%]">
-            <!-- السلايدر -->
             {% if component.slider_collection %}
                 <div class="w-full">
                     <salla-slider id="thumbs" show-controls="true" type="thumbs"
@@ -107,9 +106,11 @@
                                                 <p class="font-normal text-[20px]" style="color: {{component.comment_writer_color}};">
                                                     {{ card.comment_writer_name }}
 
+                                                    {% if card.comment_writer_job %}
                                                         <span class="font-normal text-[14px] text-black">
                                                             {{ card.comment_writer_job }}
                                                         </span>
+                                                    {% endif %}
                                                 </p>
                                             {% endif %}
                                         </div>
