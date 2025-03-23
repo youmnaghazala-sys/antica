@@ -19,7 +19,7 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div id="products-{{ position }}" class="products w-[90%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+        <div id="products-{{ position }}" class="products w-[97%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
             <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
                 "autoplay": {
                     "delay": 3000
@@ -83,7 +83,7 @@
 
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { // For large screens
-                    productsContainer.style.transform = "translateX(-5%)";
+                    productsContainer.style.transform = "translateX(-1%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
             }
