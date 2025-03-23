@@ -21,9 +21,23 @@
                 {% endif %}
             </div>
         {% endif %}
+        <div id="products-{{ position }}" class="products w-[97%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+            <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
+                "autoplay": {
+                    "delay": 3000
+                },
+                "slidesPerView": 3,
+                "spaceBetween": 10,
+                "breakpoints": {
+                    "320": { "slidesPerView": 1 },
+                    "768": { "slidesPerView": 1.8 },
+                    "1024": { "slidesPerView": 3 }
+                }
+            }'>
 
         <div id="products-{{ position }}" class="products w-[90%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
             <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{"autoplay": {"delay": 3000}, "slidesPerView": 3, "spaceBetween": 10, "breakpoints": {"320": {"slidesPerView": 1}, "768": {"slidesPerView": 1.8}, "1024": {"slidesPerView": 3}}}'>
+
                 <div slot="items">
                     {% for product in c.best_sell_products %}
                         <custom-salla-product-card product="{{ product }}"></custom-salla-product-card>
@@ -61,6 +75,11 @@
         const productsContainer = document.querySelector("#products-{{ position }}");
         const section = document.querySelector("#AL_best_seller-{{ position }}");
 
+            if (sectionPosition < screenHeight * 0.75) {
+                if (window.innerWidth > 768) { // For large screens
+                    productsContainer.style.transform = "translateX(-1%)";
+                    productsContainer.style.transition = "transform 6s linear";
+                }
         function handleScroll() {
             if (section.getBoundingClientRect().top < window.innerHeight * 0.75 && window.innerWidth > 768) {
                 productsContainer.style.transform = "translateX(-5%)";
