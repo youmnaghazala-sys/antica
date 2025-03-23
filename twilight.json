@@ -2543,7 +2543,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         },
                         {
                             "type": "items",
@@ -2552,7 +2552,7 @@
                             "id": "img_link",
                             "value": [],
                             "description": "عند إختيار رابط فارغ سيتم إخفاء زر 'عرض الكل'",
-                            "required": false,
+                            "required": true,
                             "format": "variable-list",
                             "searchable": true,
                             "source": "custom",
