@@ -257,6 +257,7 @@ class ProductCard extends HTMLElement {
             : ''}
           <div class="s-product-card-content-sub ${this.isSpecial ? 's-product-card-content-extra-padding' : ''}">
             ${this.product?.donation?.can_donate ? '' : this.getProductPrice()}
+            ${this.product?.is_out_of_stock ? `<p class="s-product-card-out-of-stock">${this.outOfStock}</p>` : ''}
           </div>
 
           ${this.isSpecial && this.product.discount_ends
@@ -299,9 +300,7 @@ class ProductCard extends HTMLElement {
               product-id="${this.product.id}"
               product-status="${this.product.status}"
               product-type="${this.product.type}">
-              ${this.product.status == 'sale' ? 
-                  `<i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>` : ``
-                }
+              <i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>
             </salla-add-product-button>
 
             <salla-button 
