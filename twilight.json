@@ -1538,7 +1538,7 @@
                             "icon": "sicon-format-text-alt",
                             "value": "لقد جربت عدة منتجات للعناية بالبشرة من متجر الورا، وأستطيع أن أقول إن النتائج كانت مذهلة. البشرة أصبحت أكثر نعومة وإشراقًا، خاصة بعد استخدام السيروم المرطب.",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
                             "maxLength": "200"
                         },
@@ -1552,7 +1552,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_collection.product_name",
@@ -1565,7 +1565,7 @@
                             "icon": "sicon-format-text-alt",
                             "value": "سيروم عناية بالبشرة",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
                             "maxLength": "50"
                         },
@@ -1579,7 +1579,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg",
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_collection.comment_writer_name",
@@ -1592,7 +1592,7 @@
                             "icon": "sicon-format-text-alt",
                             "value": "نيرة مجدي",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
                             "maxLength": "20"
                         },
@@ -1607,7 +1607,7 @@
                             "icon": "sicon-format-text-alt",
                             "value": "(رائدة اعمال)",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
                             "maxLength": "20"
                         }
