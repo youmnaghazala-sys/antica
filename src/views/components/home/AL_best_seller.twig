@@ -1,22 +1,24 @@
 {% set c = component %}
-<section id = "AL_best_seller-{{ position }}" class="AL_best_seller mb-5 pb-12" style="background-color : {{c.section_bgcolor}}">  
-    <div class="background container relative !overflow-hidden ">
-
+<section id="AL_best_seller-{{ position }}" class="AL_best_seller mb-5 pb-12" style="background-color: {{ c.section_bgcolor }}">
+    <div class="background container relative !overflow-hidden">
         {% if c.bg_video %}
             <div class="video-background w-full h-[580px] relative Al__anime" data-anim-allura="fade" data-dur-allura="0.8s">
                 <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="{{ c.video_url }}" type="video/mp4"/>
+                    <source src="{{ c.video_url }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                
                 <div class="video-controls absolute top-4 right-4">
-                    <button id="toggle-video-button-{{ position }}" class="bg-white opacity-55 text-black px-[10px] pb-[4px] pt-[7px] rounded-full">
-                        <i class="sicon-pause"></i> <!-- Default icon (pause) -->
+                    <button id="toggle-video-button-{{ position }}" class="bg-white opacity-55 text-black px-2 pb-1 pt-2 rounded-full">
+                        <i class="sicon-pause"></i>
                     </button>
                 </div>
             </div>
         {% else %}
             <div class="image-div w-full h-[580px] Al__anime" data-anim-allura="fade" data-dur-allura="0.8s">
-                <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
+                {% if c.bg_image %}
+                    <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
+                {% endif %}
             </div>
         {% endif %}
         <div id="products-{{ position }}" class="products w-[97%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
@@ -32,9 +34,13 @@
                     "1024": { "slidesPerView": 3 }
                 }
             }'>
+
+        <div id="products-{{ position }}" class="products w-[90%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+            <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{"autoplay": {"delay": 3000}, "slidesPerView": 3, "spaceBetween": 10, "breakpoints": {"320": {"slidesPerView": 1}, "768": {"slidesPerView": 1.8}, "1024": {"slidesPerView": 3}}}'>
+
                 <div slot="items">
                     {% for product in c.best_sell_products %}
-                        <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+                        <custom-salla-product-card product="{{ product }}"></custom-salla-product-card>
                     {% endfor %}
                 </div>
             </salla-slider>
@@ -48,70 +54,49 @@
         display: flex !important;
         border-radius: 0;
     }
-    
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image  {
+    .AL_best_seller .products custom-salla-product-card .s-product-card-image {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
+        background-color: #fff;
     }
-    
     .AL_best_seller .products custom-salla-product-card .s-product-card-content {
         justify-content: center;
         margin: auto;
     }
-    .AL_best_seller .products custom-salla-product-card .s-product-card-image img {
-        background-color: #fff;
-    }
-    
 </style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Remove vertical class and add horizontal class to product cards
         document.querySelectorAll("custom-salla-product-card").forEach(card => {
-            card.classList.remove("s-product-card-vertical");
-            card.classList.add("s-product-card-horizontal");
+            card.classList.replace("s-product-card-vertical", "s-product-card-horizontal");
         });
 
-        // Handle scroll event for the products container
         const productsContainer = document.querySelector("#products-{{ position }}");
-        
-        function handleScroll() {
-            const section = document.querySelector("#AL_best_seller-{{ position }}");
-            const sectionPosition = section.getBoundingClientRect().top;
-            const screenHeight = window.innerHeight;
+        const section = document.querySelector("#AL_best_seller-{{ position }}");
 
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { // For large screens
                     productsContainer.style.transform = "translateX(-1%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
+        function handleScroll() {
+            if (section.getBoundingClientRect().top < window.innerHeight * 0.75 && window.innerWidth > 768) {
+                productsContainer.style.transform = "translateX(-5%)";
+                productsContainer.style.transition = "transform 6s linear";
             }
         }
-
         window.addEventListener("scroll", handleScroll);
-        handleScroll(); // Initial check
+        handleScroll();
 
-        // Video Toggle Button Logic
         const video = document.querySelector("#background-video-{{ position }}");
         const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
 
         if (video && toggleButton) {
             toggleButton.addEventListener("click", () => {
-                if (video.paused) {
-                    video.play();
-                    toggleButton.innerHTML = '<i class="sicon-pause"></i>'; // Change icon to pause
-                } else {
-                    video.pause();
-                    toggleButton.innerHTML = '<i class="sicon-play"></i>'; // Change icon to play
-                }
+                video.paused ? video.play() : video.pause();
+                toggleButton.innerHTML = `<i class="sicon-${video.paused ? 'play' : 'pause'}"></i>`;
             });
-
-            if (video.paused) {
-                toggleButton.innerHTML = '<i class="sicon-pause"></i>';
-            } else {
-                toggleButton.innerHTML = '<i class="sicon-play"></i>';
-            }
         }
     });
 </script>
