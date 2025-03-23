@@ -3,97 +3,124 @@
 		<div class="grid md:grid-cols-3 grid-cols-1 gap-2 md:gap-6">
 			<div class="story-slide-inactive hidden md:block {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}>
 				<div class="story h-[610px]">
-          <img src="{{component.first_side_image}}" class="w-full h-full object-cover" alt="">
-        </div>
+					{% if component.first_side_image %}
+						<img src="{{component.first_side_image}}" class="w-full h-full object-cover" alt="">
+					{% endif %}
+				</div>
 			</div>
+
 			<div class="story-slide-active {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.7s" {% endif %}>
 				<div class="story-item relative">
 					<div class="swiper child-swiper">
 						<div class="swiper-wrapper">
-              {% for story in component.stories %}
-                <div class="swiper-slide">
-                  <div class="story h-[610px]">
-                    {% if story.is_products %}
-                    <div style="background-color: {{story.bg_color}}" class="w-full h-full flex items-center justify-center">
-                      <div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper">
-                        {% for product in component.stories_products %}
-                          {% if loop.index < 4 %}
-                            <custom-salla-product-card product="{{product}}" horizontal></custom-salla-product-card>
-                          {% endif %}
-                        {% endfor %}
-                      </div>
-                    </div>
-                    {% else %}
-                      <img src="{{story.story_image}}" class="w-full h-full object-cover" alt="">
-                    {% endif %}
-                  </div>
-                </div>
-              {% endfor %}
+							{% for story in component.stories %}
+								<div class="swiper-slide">
+									<div class="story h-[610px]">
+										{% if story.is_products %}
+											<div style="background-color: {{story.bg_color}}" class="w-full h-full flex items-center justify-center">
+												<div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper">
+													{% for product in component.stories_products %}
+														{% if loop.index < 4 %}
+															<custom-salla-product-card product="{{product}}" horizontal></custom-salla-product-card>
+														{% endif %}
+													{% endfor %}
+												</div>
+											</div>
+										{% else %}
+											{% if story.story_image %}
+												<img src="{{story.story_image}}" class="w-full h-full object-cover" alt="">
+											{% endif %}
+										{% endif %}
+									</div>
+								</div>
+							{% endfor %}
 						</div>
 					</div>
-          <div class="px-4 absolute top-4 w-full z-2">
-            <div class="autoplay-progress flex gap-2 h-2 items-center">
-              {% for story in component.stories %}
-                <div class="relative progress-bar flex-1 rounded-md h-2 bg-[#D9D9D9]">
-                  <span class="absolute top-0 rounded-md h-full right-0 max-w-full bg-white progress-{{loop.index}}"></span>
-                </div>
-              {% endfor %}
-            </div>
-            <div class="flex items-center justify-between mt-2">
-              <div class="store-logo-container flex items-center gap-x-1.5">
-                <div class="rounded-full w-6 h-6 bg-white flex items-center justify-center"><img src="{{store.logo}}" class="w-4 h-auto" alt="{{store.name}}"></div>
-                <h4 class="text-base text-primary font-normal">{{store.name}}</h4>
-              </div>
-              <div class="!w-fit slider-pagination !text-white"></div>
-            </div>
-          </div>
+
+					<div class="px-4 absolute top-4 w-full z-2">
+						<div class="autoplay-progress flex gap-2 h-2 items-center">
+							{% for story in component.stories %}
+								<div class="relative progress-bar flex-1 rounded-md h-2 bg-[#D9D9D9]">
+									{% if loop.index %}
+										<span class="absolute top-0 rounded-md h-full right-0 max-w-full bg-white progress-{{loop.index}}"></span>
+									{% endif %}
+								</div>
+							{% endfor %}
+						</div>
+
+						<div class="flex items-center justify-between mt-2">
+							<div class="store-logo-container flex items-center gap-x-1.5">
+								<div class="rounded-full w-6 h-6 bg-white flex items-center justify-center">
+									{% if store.logo %}
+										<img src="{{store.logo}}" class="w-4 h-auto" alt="{{store.name}}">
+									{% endif %}
+								</div>
+
+								{% if store.name %}
+									<h4 class="text-base text-primary font-normal">{{store.name}}</h4>
+								{% endif %}
+							</div>
+							<div class="!w-fit slider-pagination !text-white"></div>
+						</div>
+					</div>
 				</div>
 			</div>
+
 			<div class="story-slide-inactive hidden md:block {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.9s" {% endif %}>
 				<div class="story h-[610px]">
-          <img src="{{component.second_side_image}}" class="w-full h-full object-cover" alt="">
-        </div>
+					{% if component.second_side_image %}
+						<img src="{{component.second_side_image}}" class="w-full h-full object-cover" alt="">
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const childSwiper = new Swiper('.story-slide-active .child-swiper', {
-    loop: false,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 1,
-    pagination:{
-      el: ".slider-pagination",
-      type: "fraction"
-    },
-    on: {
-      autoplayTimeLeft(s, time, progress) {
-        const totalSlides = s.slides.length; 
-        const currentIndex = s.realIndex;
+	document.addEventListener('DOMContentLoaded', () => {
+const childSwiper = new Swiper('.story-slide-active .child-swiper', {
+loop: false,
+autoplay: {
+delay: 2000,
+disableOnInteraction: false
+},
+slidesPerView: 1,
+pagination: {
+el: ".slider-pagination",
+type: "fraction"
+},
+on: {
+autoplayTimeLeft(s, time, progress) {
+const totalSlides = s.slides.length;
+const currentIndex = s.realIndex;
 
-        for (let i = 0; i < totalSlides; i++) {
-          const progressEl = document.querySelector(`.autoplay-progress .progress-${i + 1}`);
-          if (progressEl) {
-            if (i < currentIndex) {
-              progressEl.style.width = '100%';
-            } else {
-              progressEl.style.width = '0%'; 
-            }
-          }
-        }
-        
-        document.querySelector(`.autoplay-progress .progress-${s.realIndex + 1}`).style.width = `${(1 - progress) * 100}%`;
-      }
-    }
-  });
-  childSwiper.slides.forEach((slide) => {
-    slide.addEventListener('touchstart', () => {childSwiper.autoplay.pause()});
-    slide.addEventListener('touchend', () => childSwiper.autoplay.resume());
-  });
+for (let i = 0; i < totalSlides; i++) {
+const progressEl = document.querySelector(`.autoplay-progress .progress-${
+i + 1
+}`);
+if (progressEl) {
+if (i < currentIndex) {
+progressEl.style.width = '100%';
+} else {
+progressEl.style.width = '0%';
+}
+}
+}
+
+document.querySelector(`.autoplay-progress .progress-${
+s.realIndex + 1
+}`).style.width = `${
+(1 - progress) * 100
+}%`;
+}
+}
+});
+childSwiper.slides.forEach((slide) => {
+slide.addEventListener('touchstart', () => {
+childSwiper.autoplay.pause()
+});
+slide.addEventListener('touchend', () => childSwiper.autoplay.resume());
+});
 })
 </script>

@@ -1,66 +1,69 @@
 {% set c = component %}
 <section class="AL_Products_with_sideBanner mb-5">
-	<div class="container flex flex-col md:flex-row gap-6 ">
-		<div class="banner md:max-w-[348px] w-full {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.9s" {% endif %}>
+    <div class="container flex flex-col md:flex-row gap-6">
+        <div class="banner md:max-w-[348px] w-full {% if theme.settings.get('has_animation') %} Al__anime {% endif %}" 
+            {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.9s" {% endif %}>
+            
 			{% if c.switch_video %}
-				<div class="video_banner w-full h-[432px] md:h-full">
-					<video autoplay muted loop playsinline class="w-full object-cover h-full">
-						<source src="{{ c.video_banner_link }}" type="video/mp4"/>
-						Your browser does not support the video tag.
-					</video>
-				</div>
-			{% else %}
-				<div class="image_div w-full h-[432px] md:h-full">
-					<img src="{{ c.image_banner }}" alt="" class="w-full object-fill md:object-cover h-full">
-				</div>
-			{% endif %}
-		</div>
-		<div class="items grid grid-cols-1 md:grid-cols-2 w-full gap-[1rem] md:gap-6">
-			{% for product in c.products %}
-				<div class=" {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
-					<custom-salla-product-card horizontal product="{{product}}"></custom-salla-product-card>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
+                <video autoplay muted loop playsinline class="w-full object-cover h-[432px] md:h-full">
+                    <source src="{{ c.video_banner_link }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% elseif c.image_banner %}
+                <img src="{{ c.image_banner }}" alt="Banner" class="w-full object-fill md:object-cover h-full">
+            {% endif %}
+        </div>
+
+   
+        <div class="items grid grid-cols-1 md:grid-cols-2 w-full gap-4 md:gap-6">
+            {% for product in c.products %}
+                <div class="{% if theme.settings.get('has_animation') %} Al__anime {% endif %}" 
+                     {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{ loop.index + 2 }}s" {% endif %}>
+                    <custom-salla-product-card horizontal product="{{ product }}"></custom-salla-product-card>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
 </section>
 
 <style>
-	.header h2::after {
-		content: "";
-		position: absolute;
-		bottom: -1px;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 2px;
-		background-color: #597445;
-	}
-	.items custom-salla-product-card {
-		height: 178px;
-		border-radius: 0;
+    .header h2::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #597445;
+    }
+    
+    .items custom-salla-product-card {
+        height: 178px;
+        border-radius: 0;
+    }
+    
+    .items custom-salla-product-card .s-product-card-image {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 40%;
+    }
+    
+    .items custom-salla-product-card .s-product-card-content {
+        justify-content: center;
+        margin: auto;
+    }
 
-	}
-	.items custom-salla-product-card .s-product-card-image {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-		width: 40%;
-	}
-	.items custom-salla-product-card .s-product-card-content {
-		justify-content: center;
-		margin: auto;
-	}
-
-	.items custom-salla-product-card .s-product-card-image img {
-		background-color: #fff;
-	}
+    .items custom-salla-product-card .s-product-card-image img {
+        background-color: #fff;
+    }
 </style>
 
 <script>
-	document.addEventListener("DOMContentLoaded", function () {
-document.querySelectorAll(".items custom-salla-product-card").forEach(card => {
-card.classList.remove("s-product-card-vertical");
-card.classList.add("s-product-card-horizontal");
-});
-});
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".items custom-salla-product-card").forEach(card => {
+            card.classList.replace("s-product-card-vertical", "s-product-card-horizontal");
+        });
+    });
 </script>
