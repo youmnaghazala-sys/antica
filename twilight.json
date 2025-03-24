@@ -1604,7 +1604,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "20"
+                            "maxLength": "15"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -3424,7 +3424,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "1000"
+                    "maxLength": "50"
                 },
                 {
                     "id": "category_sub_title",
@@ -3439,7 +3439,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "1000"
+                    "maxLength": "100"
                 },
                 {
                     "id": "category_image",
@@ -3454,7 +3454,7 @@
                     "required": false
                 },
                 {
-                    "id": "categories.",
+                    "id": "categories",
                     "type": "collection",
                     "format": "collection",
                     "label": "الفئات",
@@ -3542,39 +3542,39 @@
                     ],
                     "value": [
                         {
-                            "categories.category_name": "ماسكــــــــــــــــارا",
-                            "categories.relate_category": [],
-                            "categories.unique_feature_1": "مضادة للمياه",
-                            "categories.unique_feature_2": "سواد فحمي",
-                            "categories.unique_feature_3": ""
+                            "category_name": "ماسكــــــــــــــــارا",
+                            "relate_category": [],
+                            "unique_feature_1": "مضادة للمياه",
+                            "unique_feature_2": "سواد فحمي",
+                            "unique_feature_3": ""
                         },
                         {
-                            "categories.category_name": "كريم أســـــــــــاس",
-                            "categories.relate_category": [],
-                            "categories.unique_feature_1": "تغطية عالية",
-                            "categories.unique_feature_2": "دائم وطويل الأمد",
-                            "categories.unique_feature_3": "ترطيب عالي"
+                            "category_name": "كريم أســـــــــــاس",
+                            "relate_category": [],
+                            "unique_feature_1": "تغطية عالية",
+                            "unique_feature_2": "دائم وطويل الأمد",
+                            "unique_feature_3": "ترطيب عالي"
                         },
                         {
-                            "categories.category_name": "حمرة شفــــــــــاه",
-                            "categories.relate_category": [],
-                            "categories.unique_feature_1": "ثبات طويل",
-                            "categories.unique_feature_2": "تعدد الألوان",
-                            "categories.unique_feature_3": "سهولة التطبيق"
+                            "category_name": "حمرة شفــــــــــاه",
+                            "relate_category": [],
+                            "unique_feature_1": "ثبات طويل",
+                            "unique_feature_2": "تعدد الألوان",
+                            "unique_feature_3": "سهولة التطبيق"
                         },
                         {
-                            "categories.category_name": "حمرة خدود",
-                            "categories.relate_category": [],
-                            "categories.unique_feature_1": "ثبات طويل",
-                            "categories.unique_feature_2": "تعدد الألوان",
-                            "categories.unique_feature_3": "سهولة التطبيق"
+                            "category_name": "حمرة خدود",
+                            "relate_category": [],
+                            "unique_feature_1": "ثبات طويل",
+                            "unique_feature_2": "تعدد الألوان",
+                            "unique_feature_3": "سهولة التطبيق"
                         },
                         {
-                            "categories.category_name": "أيشــــــــــــــــادو",
-                            "categories.relate_category": [],
-                            "categories.unique_feature_1": "مقاوم للمياه",
-                            "categories.unique_feature_2": "لون كريمي غني",
-                            "categories.unique_feature_3": "ثبات 24/7"
+                            "category_name": "أيشــــــــــــــــادو",
+                            "relate_category": [],
+                            "unique_feature_1": "مقاوم للمياه",
+                            "unique_feature_2": "لون كريمي غني",
+                            "unique_feature_3": "ثبات 24/7"
                         }
                     ],
                     "minLength": 1,

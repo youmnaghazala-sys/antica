@@ -604,6 +604,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-\[375px\]{height:375px}
 .h-\[394px\]{height:394px}
 .h-\[432px\]{height:432px}
+.h-\[514px\]{height:514px}
 .h-\[535px\]{height:535px}
 .h-\[580px\]{height:580px}
 .h-\[610px\]{height:610px}
@@ -627,6 +628,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .min-h-\[388px\]{min-height:388px}
 .min-h-full{min-height:100%}
 .min-h-screen{min-height:100vh}
+.min-h-\[285px\]{min-height:285px}
 .\!w-36{width:9rem !important}
 .\!w-\[160px\]{width:160px !important}
 .\!w-fit{width:-moz-fit-content !important;width:fit-content !important}
@@ -818,6 +820,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .px-4{padding-left:1rem;padding-right:1rem}
 .px-5{padding-left:1.25rem;padding-right:1.25rem}
 .px-6{padding-left:1.5rem;padding-right:1.5rem}
+.px-7{padding-left:1.75rem;padding-right:1.75rem}
 .px-8{padding-left:2rem;padding-right:2rem}
 .px-\[10px\]{padding-left:10px;padding-right:10px}
 .py-0{padding-top:0px;padding-bottom:0px}
@@ -6929,7 +6932,6 @@ input[type=radio].sr-only:checked ~ div.landing-page > header:before {
 .al-testimonial .s-slider-next::before {
   content: "";
   position: absolute;
-  top: 7px;
   right: 48px;
   left: 0px;
   height: 100%;
@@ -6960,7 +6962,41 @@ input[type=radio].sr-only:checked ~ div.landing-page > header:before {
 }
 @media (max-width: 576px) {
   .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+    top: -27% !important;
+  }
+  .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
     left: 20%;
+    color: white;
+    width: 30px;
+    height: 30px;
+  }
+  .al-testimonial .s-slider-prev::after {
+    top: 12px;
+    right: 12px;
+  }
+  .al-testimonial .s-slider-next::before {
+    bottom: -12px;
+    right: 48px;
+  }
+}
+@media (max-width: 375px) {
+  .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+    top: -26% !important;
+  }
+  .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+    left: 23%;
+    width: 30px;
+    height: 30px;
+  }
+  .al-testimonial .s-slider-prev::after {
+    top: 40%;
+    right: 38%;
+    left: 0px;
+  }
+  .al-testimonial .s-slider-next::before {
+    bottom: -41%;
+    right: 160%;
+    left: 0px;
   }
 }
 .s-slider-nav-arrow svg {
@@ -7295,7 +7331,8 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .sm\:grid{display:grid}
 .sm\:hidden{display:none}
 .sm\:h-80{height:20rem}
-.sm\:h-\[300px\]{height:300px}
+.sm\:h-\[300px\]{height:300px
+.sm\:h-\[500px\]{height:500px
 .sm\:h-auto{height:auto}
 .sm\:h-full{height:100%}
 .sm\:\!w-\[220px\]{width:220px !important}
@@ -7315,6 +7352,8 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .sm\:gap-8{gap:2rem}
 .sm\:p-1{padding:0.25rem}
 .sm\:p-3{padding:0.75rem}
+.sm\:p-5{padding:1.25rem}
+.sm\:p-6{padding:1.5rem}
 .sm\:py-12{padding-top:3rem;padding-bottom:3rem}
 .sm\:py-16{padding-top:4rem;padding-bottom:4rem}
 .sm\:pb-0{padding-bottom:0px}
