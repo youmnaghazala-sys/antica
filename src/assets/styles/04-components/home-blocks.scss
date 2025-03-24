@@ -537,6 +537,11 @@ salla-filters {
   width: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
   height: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
 }
+.remove-product-btn{
+  .s-button-primary{
+    @apply bg-secondary border-secondary;
+  }
+}
 .quantity-increase-decrease salla-quantity-input .s-quantity-input-container {
   height: clamp(1.5rem, 1.1939rem + 1.3061vw, 2.5rem) !important;
   border-radius: 0;

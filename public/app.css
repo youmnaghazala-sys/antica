@@ -787,6 +787,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .bg-green-50{--tw-bg-opacity:1;background-color:rgba(240, 253, 244, 1);background-color:rgba(240, 253, 244, var(--tw-bg-opacity, 1))}
 .bg-inherit{background-color:inherit}
 .bg-primary{background-color:#414042;background-color:var(--color-primary)}
+.bg-secondary{background-color:var(--color-secondary)}
 .bg-white{--tw-bg-opacity:1;background-color:rgba(255, 255, 255, 1);background-color:rgba(255, 255, 255, var(--tw-bg-opacity, 1))}
 .bg-cover{background-size:cover}
 .bg-center{background-position:center}
@@ -931,6 +932,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .text-red-600{--tw-text-opacity:1;color:rgba(220, 38, 38, 1);color:rgba(220, 38, 38, var(--tw-text-opacity, 1))}
 .text-red-700{--tw-text-opacity:1;color:rgba(185, 28, 28, 1);color:rgba(185, 28, 28, var(--tw-text-opacity, 1))}
 .text-red-800{--tw-text-opacity:1;color:rgba(153, 27, 27, 1);color:rgba(153, 27, 27, var(--tw-text-opacity, 1))}
+.text-secondary{color:var(--color-secondary)}
 .text-white{--tw-text-opacity:1;color:rgba(255, 255, 255, 1);color:rgba(255, 255, 255, var(--tw-text-opacity, 1))}
 .underline{text-decoration-line:underline}
 .line-through{text-decoration-line:line-through}
@@ -5780,6 +5782,7 @@ salla-filters salla-button button {
   width: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
   height: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
 }
+.remove-product-btn .s-button-primary{border-color:var(--color-secondary);background-color:var(--color-secondary)}
 .quantity-increase-decrease salla-quantity-input .s-quantity-input-container {
   height: clamp(1.5rem, 1.1939rem + 1.3061vw, 2.5rem) !important;
 }
