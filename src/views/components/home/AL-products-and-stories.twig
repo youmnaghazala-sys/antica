@@ -78,49 +78,48 @@
 </section>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-const childSwiper = new Swiper('.story-slide-active .child-swiper', {
-loop: false,
-autoplay: {
-delay: 2000,
-disableOnInteraction: false
-},
-slidesPerView: 1,
-pagination: {
-el: ".slider-pagination",
-type: "fraction"
-},
-on: {
-autoplayTimeLeft(s, time, progress) {
-const totalSlides = s.slides.length;
-const currentIndex = s.realIndex;
+document.addEventListener("DOMContentLoaded", () => {
+  const childSwiper = new Swiper(".story-slide-active .child-swiper", {
+    loop: false,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    pagination: {
+      el: ".slider-pagination",
+      type: "fraction",
+    },
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        const totalSlides = s.slides.length;
+        const currentIndex = s.realIndex;
 
-for (let i = 0; i < totalSlides; i++) {
-const progressEl = document.querySelector(`.autoplay-progress .progress-${
-i + 1
-}`);
-if (progressEl) {
-if (i < currentIndex) {
-progressEl.style.width = '100%';
-} else {
-progressEl.style.width = '0%';
-}
-}
-}
+        for (let i = 0; i < totalSlides; i++) {
+          const progressEl = document.querySelector(`.autoplay-progress .progress-${i + 1}`);
+          if (progressEl) {
+            if (i < currentIndex) {
+              progressEl.style.width = "100%";
+            } else {
+              progressEl.style.width = "0%";
+            }
+          }
+        }
 
-document.querySelector(`.autoplay-progress .progress-${
-s.realIndex + 1
-}`).style.width = `${
-(1 - progress) * 100
-}%`;
-}
-}
+        document.querySelector(`.autoplay-progress .progress-${s.realIndex + 1}`).style.width = `${(1 - progress) * 100}%`;
+      },
+    },
+  });
+  childSwiper.slides.forEach((slide) => {
+    slide.addEventListener("touchstart", () => {
+      childSwiper.autoplay.pause();
+    });
+    slide.addEventListener("touchend", () => childSwiper.autoplay.resume());
+
+		slide.addEventListener("mouseenter", () => {
+      childSwiper.autoplay.pause();
+    });
+    slide.addEventListener("mouseleave", () => childSwiper.autoplay.resume());
+  });
 });
-childSwiper.slides.forEach((slide) => {
-slide.addEventListener('touchstart', () => {
-childSwiper.autoplay.pause()
-});
-slide.addEventListener('touchend', () => childSwiper.autoplay.resume());
-});
-})
 </script>

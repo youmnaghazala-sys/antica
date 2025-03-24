@@ -6594,6 +6594,10 @@ salla-add-product-button button span{display:flex;gap:0.625rem}
 .s-product-card-rating {
   justify-content: center;
 }
+.s-product-card-price {
+  font-size: 18px;
+  font-weight: 500;
+}
 .s-product-card-content {
   align-items: center;
   text-align: center;
