@@ -19,7 +19,7 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div id="products-{{ position }}" class="products w-[90%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+        <div id="products-{{ position }}" class="products w-[97%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
             <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
                 "autoplay": {
                     "delay": 3000
@@ -34,7 +34,7 @@
             }'>
                 <div slot="items">
                     {% for product in c.best_sell_products %}
-                        <custom-salla-product-card product="{{product}}"></custom-salla-product-card>
+                        <custom-salla-product-card horizontal product="{{ product }}"></custom-salla-product-card>
                     {% endfor %}
                 </div>
             </salla-slider>
@@ -68,10 +68,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Remove vertical class and add horizontal class to product cards
-        document.querySelectorAll("custom-salla-product-card").forEach(card => {
-            card.classList.remove("s-product-card-vertical");
-            card.classList.add("s-product-card-horizontal");
-        });
+        
 
         // Handle scroll event for the products container
         const productsContainer = document.querySelector("#products-{{ position }}");
@@ -83,7 +80,7 @@
 
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { // For large screens
-                    productsContainer.style.transform = "translateX(-5%)";
+                    productsContainer.style.transform = "translateX(-1%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
             }

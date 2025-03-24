@@ -1235,7 +1235,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون خلفيه المكون",
+                    "label": "لون خلفية العنصر",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -1269,7 +1269,6 @@
                     "selected": false,
                     "required": false
                 },
-               
                 {
                     "id": "brands_images",
                     "type": "collection",
@@ -1284,7 +1283,6 @@
                             "id": "enable_brands_images",
                             "operation": "=",
                             "value": true
-                          
                         }
                     ],
                     "fields": [
@@ -1299,10 +1297,31 @@
                             "icon": "sicon-image",
                             "value": null,
                             "required": false
-                       
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/20XthP3dr9h6jnAxHIjrByYpkvKapH3njkoSIv6C.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/XBI4xBQcycdFxL1jFJfYbwagEYVhRv8F0epRFoYX.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/BWIn5mhArWvrDar5JhRTdhtGs0JhOzPko5JzUv0W.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/2fHpxx25LP8kSU4IV7YMsHbLzUL4JFb6btInQFxN.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/Dd7Su936OZyisOa1tnoIfgZ65Tq2PTIevcnXkgnl.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/2O3Rc55uT4BPlLmcV80Eo5x6Hx0yrIm6kdHy3eo3.png"
+                        },
+                        {
+                            "brands_images.brand_img": "https://cdn.salla.sa/form-builder/k2H5uR2CQBxLjNLnij49TXkRnuw1z5Az7M6kiaWn.png"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "15"
                 }
@@ -1310,22 +1329,21 @@
         },
         {
             "key": "0c199601-251a-40ca-9a3b-737d3362fd7a",
-            "title": "اراء العملاء - الوري",
+            "title": "آراء العملاء - الوري",
             "icon": "sicon-store",
-            "image" :"https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png",
             "path": "home.AL-testimonials",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
                 },
                 {
                     "id": "m_img",
                     "type": "string",
                     "format": "image",
-                    "label": "صورة اساسية للمكون",
+                    "label": "الصورة الأساسية للعنصر",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
@@ -1338,7 +1356,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون عنوان المكون الرئيسي",
+                    "label": "لون عنوان العنصر الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -1362,7 +1380,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون النبذه عن المكون",
+                    "label": "لون وصف العنصر",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -1374,7 +1392,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون وصف المكون",
+                    "label": "لون وصف العنصر",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -1386,7 +1404,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون ازرار الانتقال",
+                    "label": "لون ازرار التنقل",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -1457,7 +1475,7 @@
                     "id": "component_name",
                     "type": "string",
                     "format": "text",
-                    "label": "عنوان المكون الرئيسي",
+                    "label": "العنوان الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -1472,7 +1490,7 @@
                     "id": "about_component",
                     "type": "string",
                     "format": "text",
-                    "label": "نبذه عن المكون",
+                    "label": "العنوان الفرعي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -1487,7 +1505,7 @@
                     "id": "component_description",
                     "type": "string",
                     "format": "text",
-                    "label": "وصف المكون",
+                    "label": "وصف العنوان",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -1502,7 +1520,7 @@
                     "id": "slider_collection",
                     "type": "collection",
                     "format": "collection",
-                    "label": "شريط التمرير ( اراء العملاء )",
+                    "label": "شريط التمرير ( آراء العملاء )",
                     "description": "اضافة التعليقات",
                     "labelHTML": null,
                     "item_label": null,
@@ -1519,9 +1537,9 @@
                             "icon": "sicon-format-text-alt",
                             "value": "لقد جربت عدة منتجات للعناية بالبشرة من متجر الورا، وأستطيع أن أقول إن النتائج كانت مذهلة. البشرة أصبحت أكثر نعومة وإشراقًا، خاصة بعد استخدام السيروم المرطب.",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
-                            "maxLength": "200"
+                            "maxLength": "190"
                         },
                         {
                             "id": "slider_collection.product_img",
@@ -1533,7 +1551,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_collection.product_name",
@@ -1546,9 +1564,9 @@
                             "icon": "sicon-format-text-alt",
                             "value": "سيروم عناية بالبشرة",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
-                            "maxLength": "50"
+                            "maxLength": "20"
                         },
                         {
                             "id": "slider_collection.comment_writer_image",
@@ -1560,7 +1578,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg",
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_collection.comment_writer_name",
@@ -1573,9 +1591,9 @@
                             "icon": "sicon-format-text-alt",
                             "value": "نيرة مجدي",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
-                            "maxLength": "20"
+                            "maxLength": "15"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -1586,14 +1604,55 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": "(رائدة اعمال)",
+                            "value": "رائدة اعمال",
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": "1",
-                            "maxLength": "20"
+                            "maxLength": "15"
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IFE5AQnV3ybE3wecCaTtN74gPaq3IypEUB0scW3r.png",
+                            "slider_collection.comment_body": "جربت كذا منتج للعناية بالبشرة من متجر ألورا، وبصراحة، النتايج كانت خرافية، بشرتي صارت أنعم وأصفى، خصوصًا بعد ما استخدمت السيروم المرطب",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "(رائدة اعمال)",
+                            "slider_collection.comment_writer_name": "نيرة مهدي",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/COl8c6g5xnrN5OYfwmKv8UMFnOCqnGKjlWSEutAm.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "بصراحة، منتجات ألورا فرقت معي كثير، استخدمت الكريم الليلي، وصحيت الصباح وبشرتي مرطبة وناعمة بشكل ما توقعت.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "( معلمة )",
+                            "slider_collection.comment_writer_name": "سارة المطيري",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "أنا دايمًا أعاني من جفاف البشرة، لكن بعد ما جربت الغسول المرطب من ألورا، فرق معي من أول أسبوع! أنصح فيه وبقوة.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "(مهندس)",
+                            "slider_collection.comment_writer_name": "فيصل الحربي",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "كمنتجات طبية، دايم أدقق على المكونات، وألورا فاجأتني بجودتها السيروم حق التفتيح صار أساسي في روتيني اليومي.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "(طبيبة)",
+                            "slider_collection.comment_writer_name": "نوف الدوسري",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        },
+                        {
+                            "slider_collection.product_img": "https://cdn.salla.sa/form-builder/IHP9FxwHvYrfNjhTuoOiUip2q8kbCoCcQfTEjiYp.png",
+                            "slider_collection.comment_body": "ما كنت أهتم بالبشرة كثير، لكن بعد ما جربت المرطب من ألورا، لاحظت فرق واضح ترطيب يدوم بدون إحساس دهني.",
+                            "slider_collection.product_name": "سيروم عناية بالبشرة",
+                            "slider_collection.comment_writer_job": "( رجل اعمال)",
+                            "slider_collection.comment_writer_name": "عبدالله القحطاني",
+                            "slider_collection.comment_writer_image": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "10"
                 }
@@ -1603,7 +1662,7 @@
             "key": "4237be22-e55e-4e9b-b29a-43fe40ac3a9a",
             "title": "بانر متقدم - ألورى",
             "icon": "sicon-frame-image",
-            "image" : "https://cdn.salla.sa/form-builder/LMudeFFJpC6amfnKWfRhrD2Ph27MusX8VHL5RziG.png",
+            "image": "https://cdn.salla.sa/form-builder/LMudeFFJpC6amfnKWfRhrD2Ph27MusX8VHL5RziG.png",
             "path": "home.A_fixed_banner",
             "fields": [
                 {
@@ -1619,7 +1678,7 @@
                     "label": "تضمين داخل حاوية مرنة",
                     "description": "فعّل هذا الخيار إذا كنت ترغب في إدراج المكون داخل حاوية مرنة لتحسين التخطيط والتنظيم.",
                     "icon": "sicon-toggle-off",
-                    "value": true,
+                    "value": false,
                     "selected": false,
                     "required": false
                 },
@@ -1631,7 +1690,7 @@
                     "description": "أدخل عنوانًا بارزًا لجذب انتباه المستخدمين، يفضل أن يكون موجزًا ومعبّرًا.",
                     "placeholder": "أدخل العنوان هنا...",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "منتجات للعناية بالبشرة والوجه",
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
@@ -1645,7 +1704,7 @@
                     "label": "لون العنوان الرئيسي",
                     "description": "حدد لون العنوان الرئيسي ليتناسب مع تصميم المكون ويبرز المحتوى بشكل أفضل.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#000000",
                     "required": false
                 },
                 {
@@ -1656,7 +1715,7 @@
                     "description": "أدخل عنوانًا فرعيًا يكمل العنوان الرئيسي ويوضح الفكرة بشكل أكبر.",
                     "placeholder": "أدخل العنوان الفرعي هنا...",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "اكتشفي أفضل منتجات العناية ببشرتك ووجهك لروتين يومي فعّال ومناسب لك",
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
@@ -1670,7 +1729,7 @@
                     "label": "لون العنوان الفرعي",
                     "description": "حدد لون العنوان الفرعي لتحقيق تناسق بصري مع العنوان الرئيسي.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#1e2519",
                     "required": false
                 },
                 {
@@ -1681,7 +1740,7 @@
                     "label": "لون خلفية النصوص",
                     "description": "اختر لونًا لخلفية النصوص داخل المكون لتحسين القابلية للقراءة.",
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#f7f6f6",
                     "required": false
                 },
                 {
@@ -1692,7 +1751,7 @@
                     "description": "أدخل نصًا واضحًا للزر ليحفز المستخدمين على التفاعل مع المكون.",
                     "placeholder": "أدخل نص الزر هنا...",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "تسوقي الآن",
                     "multilanguage": false,
                     "required": false,
                     "minLength": 3,
@@ -1704,7 +1763,7 @@
                     "icon": "sicon-link",
                     "label": "رابط الزر",
                     "description": "حدد الرابط الذي سيتم توجيه المستخدم إليه عند النقر على الزر.",
-                    "value": null,
+                    "value": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/1544535658",
                     "required": false,
                     "format": "variable-list",
                     "searchable": true,
@@ -1847,7 +1906,23 @@
                             ]
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "albome.is_video": false,
+                            "albome.video_url": "https://s3-figma-videos-production-sig.figma.com/video/TEAM/1040212401812181761/738092fac2dc22224e7011af8c80699ca7c7d8bf?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lYda-8JeNOCpx~1PZMf1JjaitYais4qH1hqcMmygRO~QoR5rYT95-5G0DfltwTr7RRbOZWIZIxRadd8e~2VTelVvqWlCo-LNaVCm6OCcJDHXtK-NYZWV2DBBPknWk~wPFZEKeSooROlo4bsbXvZdsYEQLtdhasPy9GLaUTJ46KovUaXXvgfliOs93BipFzOKDf~W1jqqA9~g8tb~Eq3YIuZuk4Bqc0tYLg2bSvQ~xK1kktBawMwTjlvsR6IG7lWBYMpVdu1lcpSZ2DhGQwDWD4fVKP8wAglQkOJGEw6pnMjPUttZ1nIj73vtfcgjnzxlFlo28vGeC1iA87k1ENpaOw__",
+                            "albome.banner_img": "https://cdn.salla.sa/form-builder/o5gf1DYyimWjVI69WitmA3scVBSC8dp8Pw1JBpMy.png"
+                        },
+                        {
+                            "albome.is_video": false,
+                            "albome.video_url": "https://s3-figma-videos-production-sig.figma.com/video/TEAM/1040212401812181761/738092fac2dc22224e7011af8c80699ca7c7d8bf?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lYda-8JeNOCpx~1PZMf1JjaitYais4qH1hqcMmygRO~QoR5rYT95-5G0DfltwTr7RRbOZWIZIxRadd8e~2VTelVvqWlCo-LNaVCm6OCcJDHXtK-NYZWV2DBBPknWk~wPFZEKeSooROlo4bsbXvZdsYEQLtdhasPy9GLaUTJ46KovUaXXvgfliOs93BipFzOKDf~W1jqqA9~g8tb~Eq3YIuZuk4Bqc0tYLg2bSvQ~",
+                            "albome.banner_img": "https://cdn.salla.sa/form-builder/PYwpnrUvl8F7Dx4NuydvhBNUHArK87xgVtcd9X0b.png"
+                        },
+                        {
+                            "albome.is_video": false,
+                            "albome.video_url": "",
+                            "albome.banner_img": "https://cdn.salla.sa/form-builder/vX5JLHa8vC5xiKxUnv7O7MqqSCha3Msg9Y7CXVGy.png"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": 3
                 }
@@ -1856,15 +1931,15 @@
         {
             "key": "3edd77c1-90ff-4ddb-abd9-857c6c3038d4",
             "title": "منتجات مع بانر جانبي - ألورا",
-            "image" : "https://cdn.salla.sa/form-builder/Su6kujn8wAJxN2eoTYIlBZzHl3ECeL4jNZWhKLpF.png",
             "icon": "sicon-store",
+            "image": "https://cdn.salla.sa/form-builder/Su6kujn8wAJxN2eoTYIlBZzHl3ECeL4jNZWhKLpF.png",
             "path": "home.AL_Poducts_with_sideBanner",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/Su6kujn8wAJxN2eoTYIlBZzHl3ECeL4jNZWhKLpF.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/Su6kujn8wAJxN2eoTYIlBZzHl3ECeL4jNZWhKLpF.png'></div>"
                 },
                 {
                     "id": "switch_video",
@@ -1874,7 +1949,7 @@
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-toggle-off",
-                    "value": true,
+                    "value": false,
                     "selected": false,
                     "required": false
                 },
@@ -1889,7 +1964,7 @@
                     "placeholder": "e.g. https://salla.sa",
                     "icon": "sicon-link",
                     "value": null,
-                    "required": false,
+                    "required": true,
                     "minLength": 6,
                     "maxLength": 2000000,
                     "conditions": [
@@ -1909,8 +1984,8 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
-                    "required": false,
+                    "value": "https://cdn.salla.sa/form-builder/TSz4Du6MrH3D8V1Yi3ruI524NxSlksKDtGbOnV2V.png",
+                    "required": true,
                     "conditions": [
                         {
                             "id": "switch_video",
@@ -1941,7 +2016,7 @@
             "key": "3ba1d7cf-45e2-416a-81d7-feef743fca73",
             "title": "التصنيفات -  ألوري",
             "icon": "sicon-store",
-            "image" : "https://cdn.salla.sa/form-builder/kK3uKIyeRfC2s5TRApCXJPBwuF2uCKk8USn9BLnJ.png",
+            "image": "https://cdn.salla.sa/form-builder/kK3uKIyeRfC2s5TRApCXJPBwuF2uCKk8USn9BLnJ.png",
             "path": "home.AL-categories",
             "fields": [
                 {
@@ -2115,7 +2190,68 @@
                             ]
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "category.category_num": 54,
+                            "category.category_url": "#",
+                            "category.category_name": "العنايـــة بالجســــم",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/QgqB54LKTucLoIz1cGiGvt18mhmJq0lFg4RN1rTn.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/35823465",
+                            "category.category_name": "العنايـــة بالشعر",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/K6p6SGZf8ZQmkXM8mFOR9DHzZJn97UubkBGgtMej.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/35823465",
+                            "category.category_name": "العنايـــة بالبشــــــرة",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/GEmVJd2qBK3JUfFLFrElpSVkfGva8yLkm90WEDav.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/1544535658",
+                            "category.category_name": "اليــــدين والقــــدمين",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/WN6n7JLYuUADDvowsIUjfampyxthGnTxbMThi72z.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/1263509560",
+                            "category.category_name": "المكيــــــاج",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/X5nBZawV65Dd9PVibccOQI12towYRrr2HBliqJkj.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        },
+                        {
+                            "category.category_num": 55,
+                            "category.category_url": "https://salla.design/ar/dev-qvuxklgz9lyczmb7/redirect/categories/622120761",
+                            "category.category_name": "العطـــــــــور",
+                            "category.category_image": "https://cdn.salla.sa/form-builder/LmmmfTre9YJwBuakDhZj1tF7jJ6GcTJKwC1hJDN9.png",
+                            "category.background_color": "#f6f6f6",
+                            "category.category_num_color": "#767676",
+                            "category.category_name_color": "#597445",
+                            "category.background_hover_color": "#597445"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "20"
                 },
@@ -2137,7 +2273,7 @@
             "key": "0eda2055-fc30-4d4b-9f4b-bbb8c127be34",
             "title": "عروض تنتهى قريبا - ألوري",
             "icon": "sicon-store",
-            "image" : "https://cdn.salla.sa/form-builder/svsyC2RC5J9ZyzTem5XPAscNymeqIuxW0HH4luXd.png",
+            "image": "https://cdn.salla.sa/form-builder/svsyC2RC5J9ZyzTem5XPAscNymeqIuxW0HH4luXd.png",
             "path": "home.AL-limited-time-offers",
             "fields": [
                 {
@@ -2162,7 +2298,7 @@
                     "id": "offer_image_mobile",
                     "type": "string",
                     "format": "image",
-                    "label": "صورة العرض فى الموبايل (اختيارى)",
+                    "label": "صورة العرض على الجوال (اختيارى)",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
@@ -2335,7 +2471,7 @@
             "key": "747cd24f-5ec6-4569-83e7-3b596f612e7d",
             "title": "تابعنا - ألوري",
             "icon": "sicon-store",
-            "image" : "https://cdn.salla.sa/form-builder/ITwVQmj3PwNaKVq8MHpoWT0LJVZfNdOkp2lV6MMd.png",
+            "image": "https://cdn.salla.sa/form-builder/ITwVQmj3PwNaKVq8MHpoWT0LJVZfNdOkp2lV6MMd.png",
             "path": "home.AL-followus",
             "fields": [
                 {
@@ -2365,7 +2501,7 @@
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
                     "icon": "sicon-format-text-alt",
-                    "value": "@Allura.Cosmetics",
+                    "value": "Allura.Cosmetics",
                     "multilanguage": false,
                     "required": false,
                     "minLength": "1",
@@ -2390,7 +2526,7 @@
                     "id": "section_images",
                     "type": "collection",
                     "format": "collection",
-                    "label": "صور المكون",
+                    "label": "صور العنصر",
                     "description": null,
                     "labelHTML": null,
                     "item_label": null,
@@ -2406,7 +2542,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         },
                         {
                             "type": "items",
@@ -2415,7 +2551,7 @@
                             "id": "img_link",
                             "value": [],
                             "description": "عند إختيار رابط فارغ سيتم إخفاء زر 'عرض الكل'",
-                            "required": false,
+                            "required": true,
                             "format": "variable-list",
                             "searchable": true,
                             "source": "custom",
@@ -2473,7 +2609,24 @@
                             ]
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/Nplz6ZtoCOyN0nYGstyhUdlTrDzVhB8rSqx4Yd6h.png",
+                            "section_images.img_link": ""
+                        },
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/vZr4zMYIuPXZugE6P1n6B5XCItqz99XUkC2PoL1b.png",
+                            "section_images.img_link": ""
+                        },
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/lKUC1VO48lOAm4QSuYVi4AWWCthyS77u3IMwwcOJ.png",
+                            "section_images.img_link": ""
+                        },
+                        {
+                            "section_images.image": "https://cdn.salla.sa/form-builder/siJjXKj3pt8ym8VlRPVPoTcNK6sgJQ67P6CdhRKI.png",
+                            "section_images.img_link": ""
+                        }
+                    ],
                     "minLength": "1",
                     "maxLength": "4"
                 }
@@ -2482,7 +2635,7 @@
         {
             "key": "bd0c5ac9-94de-4f45-ac12-2318eb9e93ef",
             "title": "عنوان مميز - ألوري",
-            "image" : "https://cdn.salla.sa/form-builder/urTXJNATlNZmAXjCXTeRZtaKVt31jDtJZDCsv6NR.png",
+            "image": "https://cdn.salla.sa/form-builder/urTXJNATlNZmAXjCXTeRZtaKVt31jDtJZDCsv6NR.png",
             "icon": "sicon-store",
             "path": "home.AL-special-title",
             "fields": [
@@ -2496,7 +2649,7 @@
                     "id": "section_title",
                     "type": "string",
                     "format": "text",
-                    "label": "عنوان المكون",
+                    "label": "عنوان العنصر",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -2512,7 +2665,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون عنوان المكون",
+                    "label": "لون عنوان العنصر",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -2523,7 +2676,7 @@
                     "id": "main_text",
                     "type": "string",
                     "format": "text",
-                    "label": "نص رئيسي",
+                    "label": "العنوان الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -2539,7 +2692,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون نص رئيسي",
+                    "label": "لون العنوان الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -2574,7 +2727,7 @@
                     "id": "sub_text",
                     "type": "string",
                     "format": "text",
-                    "label": "نص فرعي",
+                    "label": "العنوان الفرعي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -2590,7 +2743,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون النص الفرعي",
+                    "label": "لون العنوان الفرعي",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -2601,7 +2754,7 @@
         },
         {
             "key": "e7b90807-46c6-4518-8e6a-0bcc18053f5f",
-            "title": "الأفضل مبيعا - ألوري",
+            "title": "الأكثر مبيعًا - ألوري",
             "icon": "sicon-star2",
             "path": "home.AL_best_seller",
             "image": "https://cdn.salla.sa/form-builder/ZKdesIqbsX6V1XCCoPKXMEZbFTlVLK8sOlHjvW3C.png",
@@ -2617,7 +2770,7 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون خلفية السكشن",
+                    "label": "لون خلفية القسم",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
@@ -2641,12 +2794,12 @@
                     "type": "string",
                     "format": "url",
                     "inputType": "url",
-                    "label": "لينك الفيديو",
+                    "label": "رابط الفيديو",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "e.g. https://salla.sa",
                     "icon": "sicon-link",
-                    "value": null,
+                    "value": "https://s3-figma-videos-production-sig.figma.com/video/TEAM/1173991632806411733/1182cf6309397c974ebe0781f227c1af9e9d012e?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=e0CvPDT~O6dsXOb9r8pk~o519fZBdVYLZL7yiIHp-yRIcJmx-ieVP8TFXqjpG84JffKr2DVjRfWRwycMuNrfexSr3YuK-zUc1PNY3dfXkhwm-0zH6AxKCNxFv6a0-aHiZs7w4Ufd2bjUWRsQbIPjMtgVyOMbWwNn9Cl08a0EGWBhiD24u4Z1TtrhRR7fwHlcdCJvAkenkWfKC4wo8K6RRyja3dV4RuAW4SrvHxBam-oFRO2tQdivaUkwgLB5fMDNr92Ln~It4ZBZlmImrZ~cwqkpVgxGocB-yZoC-V7SVBnX5ryS80ooU0DvPtGrPC6C9fs6IrFckuhmNDssR3LZ0A__",
                     "required": false,
                     "minLength": 6,
                     "maxLength": "2000000000000",
@@ -2681,7 +2834,7 @@
                     "id": "best_sell_products",
                     "type": "items",
                     "format": "dropdown-list",
-                    "label": "منتجات الافضل مبيعا",
+                    "label": "المنتجات الأكثر مبيعًا",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-keyboard_arrow_down",
@@ -2697,8 +2850,8 @@
         },
         {
             "key": "e116b403-6778-42d6-8120-7eb4324b6fc5",
-            "title": "مننجات - الوري",
-            "image" : "https://cdn.salla.sa/form-builder/Fwmvr0F92qVUUrCgAot6DFMSwKrqb6C5vH8cCIXY.png",
+            "title": "منتجات - الوري",
+            "image": "https://cdn.salla.sa/form-builder/Fwmvr0F92qVUUrCgAot6DFMSwKrqb6C5vH8cCIXY.png",
             "icon": "sicon-store",
             "path": "home.AL-product",
             "fields": [
@@ -2712,8 +2865,8 @@
                     "id": "grid_switch",
                     "type": "boolean",
                     "format": "switch",
-                    "label": "عرض سلايدر ام شبكة",
-                    "description": "اختيار ما بين عرض السلايدر و عرض شبكة",
+                    "label": "عرض بشريط تمرير أو شبكة",
+                    "description": "اختر بين العرض بشريط تمرير أو بطريقة الشبكة لتنظيم المحتوى.",
                     "labelHTML": null,
                     "icon": "sicon-toggle-off",
                     "value": true,
@@ -2770,10 +2923,10 @@
                     "id": "slider_images",
                     "type": "collection",
                     "format": "collection",
-                    "label": "سلايدر الصور",
-                    "description": "مجموعة من الشرائح تحتوي على صور ونصوص وأزرار قابلة للتخصيص.",
+                    "label": "شريط تمرير الصور",
+                    "description": "شرائح تحتوي على صور ونصوص وأزرار قابلة للتخصيص.",
                     "labelHTML": null,
-                    "item_label": "شريحة سلايدر",
+                    "item_label": "",
                     "icon": "sicon-list-add",
                     "fields": [
                         {
@@ -2786,7 +2939,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_images.secondary_image",
@@ -2798,7 +2951,7 @@
                             "placeholder": "e.g. https://hostname.com/image.png",
                             "icon": "sicon-image",
                             "value": null,
-                            "required": false
+                            "required": true
                         },
                         {
                             "id": "slider_images.title",
@@ -2844,6 +2997,30 @@
                             "required": false,
                             "minLength": "2",
                             "maxLength": "300"
+                        },
+                        {
+                            "id": "slider_images.button_text_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون نص الزر",
+                            "description": "اللون المستخدم في نص الزر.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.button_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون خلفية الزر",
+                            "description": "اللون المستخدم في العناوين الرئيسية داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
                         },
                         {
                             "type": "items",
@@ -2910,12 +3087,24 @@
                             ]
                         },
                         {
-                            "id": "slider_images.text_color",
+                            "id": "slider_images.maintext_color",
                             "type": "string",
                             "format": "color",
                             "inputType": "color",
-                            "label": "لون النص",
-                            "description": "اللون المستخدم في العناوين والنصوص داخل الشريحة.",
+                            "label": "لون العنوان الرئيسي",
+                            "description": "اللون المستخدم في العناوين الرئيسية داخل الشريحة.",
+                            "labelHTML": null,
+                            "icon": "sicon-format-fill",
+                            "value": "#5b7247",
+                            "required": false
+                        },
+                        {
+                            "id": "slider_images.subtext_color",
+                            "type": "string",
+                            "format": "color",
+                            "inputType": "color",
+                            "label": "لون العنوان الفرعي",
+                            "description": "اللون المستخدم في العناوين الفرعية داخل الشريحة.",
                             "labelHTML": null,
                             "icon": "sicon-format-fill",
                             "value": "#5b7247",
@@ -2946,7 +3135,50 @@
                             "required": false
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "slider_images.url": "#",
+                            "slider_images.title": "دلّلي بشرتك بالعناية اللي تستحقها",
+                            "slider_images.subtitle": "منتجات طبيعية 100% تغذي بشرتك",
+                            "slider_images.show_logo": false,
+                            "slider_images.main_image": "https://cdn.salla.sa/form-builder/lmSyW89938OQR0xwidvFmM8vo1CVjqSzOIE11jis.png",
+                            "slider_images.button_text": "تسوقي الآن",
+                            "slider_images.button_color": "#5c7148",
+                            "slider_images.subtext_color": "#1e2519",
+                            "slider_images.maintext_color": "#5c7148",
+                            "slider_images.secondary_image": "https://cdn.salla.sa/form-builder/NDGNLbW4rr9B9BgzGzAPW9sdFaBB0ZwGhf18qKEE.png",
+                            "slider_images.background_color": "#e7f0dc",
+                            "slider_images.button_text_color": "#fcfcfc"
+                        },
+                        {
+                            "slider_images.url": "#",
+                            "slider_images.title": "سر نضارة بشرتك يبدأ من هنا",
+                            "slider_images.subtitle": "اكتشفي سر العناية ببشرتك مع ألورا وتألقي بإشراقة تدوم.",
+                            "slider_images.show_logo": true,
+                            "slider_images.main_image": "https://cdn.salla.sa/form-builder/tbIdZ8svlwZ9vxNPcv7qtQ6tP4p3E1Q7HPjQ2uVD.webp",
+                            "slider_images.button_text": "تسوقي الآن",
+                            "slider_images.button_color": "#e7f0cd",
+                            "slider_images.subtext_color": "#e7f0cd",
+                            "slider_images.maintext_color": "#e7f0cd",
+                            "slider_images.secondary_image": "https://cdn.salla.sa/form-builder/EWyFsUx4z1X0CcXwthVejkS6pS2G3xTwyVZ3oiRg.webp",
+                            "slider_images.background_color": "#5c7148",
+                            "slider_images.button_text_color": "#5b7247"
+                        },
+                        {
+                            "slider_images.url": "#",
+                            "slider_images.title": "تألقي بثقة",
+                            "slider_images.subtitle": "بمنتجات طبيعية تغذّي وتدلّل بشرتك",
+                            "slider_images.show_logo": true,
+                            "slider_images.main_image": "https://cdn.salla.sa/form-builder/PFSEfSeMOA2zdjyCOzgPyv1g5fo205lBr0pvUzcY.jpg",
+                            "slider_images.button_text": "تسوقي الآن",
+                            "slider_images.button_color": "#5c7148",
+                            "slider_images.subtext_color": "#5b7247",
+                            "slider_images.maintext_color": "#5b7247",
+                            "slider_images.secondary_image": "https://cdn.salla.sa/form-builder/EtyMIIIRJrQtEg6hS4SibfbEwuXxk4Sf5jRkLajY.jpg",
+                            "slider_images.background_color": "#e7f0dc",
+                            "slider_images.button_text_color": "#e7f0cd"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "10"
                 }
@@ -2954,16 +3186,15 @@
         },
         {
             "key": "1033b5c6-e6e2-4c3d-9b4a-4512cd7f1948",
-            "title": "منتجات واستوريز - ألوري",
+            "title": "منتجات و قصص - ألوري",
             "icon": "sicon-store",
-            "image": "https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png",
             "path": "home.AL-products-and-stories",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
                 },
                 {
                     "id": "first_side_image",
@@ -2974,8 +3205,8 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
-                    "required": false
+                    "value": "https://cdn.salla.sa/form-builder/M77VLI07vKONwDOIkDjiLL6dXssoDTaQCSTkhEyc.png",
+                    "required": true
                 },
                 {
                     "id": "second_side_image",
@@ -2986,8 +3217,8 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
-                    "required": false
+                    "value": "https://cdn.salla.sa/form-builder/POq43rp0mFrr7pKEcj2OMBFXlUoZRI5ij57AKH3A.png",
+                    "required": true
                 },
                 {
                     "id": "stories_products",
@@ -3009,7 +3240,7 @@
                     "id": "stories",
                     "type": "collection",
                     "format": "collection",
-                    "label": "Collection",
+                    "label": "الاستويز",
                     "description": null,
                     "labelHTML": null,
                     "item_label": null,
@@ -3052,7 +3283,23 @@
                             "required": false
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "stories.bg_color": "#E7F0DC",
+                            "stories.is_products": false,
+                            "stories.story_image": "https://cdn.salla.sa/form-builder/zfV6DTmwWEYyntLEf7wucPRXN41xbVQFWJb1iGDW.png"
+                        },
+                        {
+                            "stories.bg_color": "#E7F0DC",
+                            "stories.is_products": false,
+                            "stories.story_image": "https://cdn.salla.sa/form-builder/D6ptF8qQ88X6aKEOecOZAcYJiaTvWu2dmxKVcutD.png"
+                        },
+                        {
+                            "stories.bg_color": "#E7F0DC",
+                            "stories.is_products": true,
+                            "stories.story_image": null
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": 5
                 }
@@ -3062,7 +3309,7 @@
             "key": "ff85bfd2-16aa-414c-aa9e-9d6132c89c97",
             "title": "المقالات - الورى",
             "icon": "sicon-store",
-            "image" : "https://cdn.salla.sa/form-builder/Z0zYaVEdpwNcjA6HCYlNYI59hlsYWb6xvmz2RTWB.png",
+            "image": "https://cdn.salla.sa/form-builder/Z0zYaVEdpwNcjA6HCYlNYI59hlsYWb6xvmz2RTWB.png",
             "path": "home.AL_blog",
             "fields": [
                 {
@@ -3075,7 +3322,7 @@
                     "id": "sec_name",
                     "type": "string",
                     "format": "text",
-                    "label": "اسم السكشن",
+                    "label": "العنوان الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -3144,7 +3391,7 @@
             "key": "14b51b65-c719-4eb1-91ff-a75322f7f4bb",
             "title": "افضل الاقسام",
             "icon": "sicon-store",
-            "image" : "https://cdn.salla.sa/form-builder/s1egklSLSkP3RYXj6da8XtMeaDYqQkN3r2zW2jkX.png",
+            "image": "https://cdn.salla.sa/form-builder/s1egklSLSkP3RYXj6da8XtMeaDYqQkN3r2zW2jkX.png",
             "path": "home.AL-best-categories",
             "fields": [
                 {
@@ -3157,7 +3404,7 @@
                     "id": "category_title",
                     "type": "string",
                     "format": "text",
-                    "label": "اضافه عنوان",
+                    "label": "العنوان الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
@@ -3172,12 +3419,12 @@
                     "id": "category_sub_title",
                     "type": "string",
                     "format": "text",
-                    "label": "اضافه وصف",
+                    "label": "العنوان الفرعي",
                     "description": null,
                     "labelHTML": null,
                     "placeholder": "Placeholder text ..",
                     "icon": "sicon-format-text-alt",
-                    "value": null,
+                    "value": "استكشف مجموعة متنوعة من الأقسام المتاحة",
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
@@ -3192,14 +3439,14 @@
                     "labelHTML": null,
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
-                    "value": null,
+                    "value": "https://cdn.salla.sa/form-builder/3APb2grgxsKDS7KYvNZY4yxkgPRxlTysEWG7mXsa.png",
                     "required": false
                 },
                 {
                     "id": "categories",
                     "type": "collection",
                     "format": "collection",
-                    "label": "categories",
+                    "label": "الفئات",
                     "description": null,
                     "labelHTML": null,
                     "item_label": null,
@@ -3224,7 +3471,7 @@
                             "id": "categories.relate_category",
                             "type": "items",
                             "format": "dropdown-list",
-                            "label": "المنتجات الخاصه بلفئه",
+                            "label": "المنتجات الخاصه بالفئة",
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-keyboard_arrow_down",
@@ -3282,7 +3529,43 @@
                             "maxLength": 20
                         }
                     ],
-                    "value": [],
+                    "value": [
+                        {
+                            "category_name": "ماسكــــــــــــــــارا",
+                            "relate_category": [],
+                            "unique_feature_1": "مضادة للمياه",
+                            "unique_feature_2": "سواد فحمي",
+                            "unique_feature_3": ""
+                        },
+                        {
+                            "category_name": "كريم أســـــــــــاس",
+                            "relate_category": [],
+                            "unique_feature_1": "تغطية عالية",
+                            "unique_feature_2": "دائم وطويل الأمد",
+                            "unique_feature_3": "ترطيب عالي"
+                        },
+                        {
+                            "category_name": "حمرة شفــــــــــاه",
+                            "relate_category": [],
+                            "unique_feature_1": "ثبات طويل",
+                            "unique_feature_2": "تعدد الألوان",
+                            "unique_feature_3": "سهولة التطبيق"
+                        },
+                        {
+                            "category_name": "حمرة خدود",
+                            "relate_category": [],
+                            "unique_feature_1": "ثبات طويل",
+                            "unique_feature_2": "تعدد الألوان",
+                            "unique_feature_3": "سهولة التطبيق"
+                        },
+                        {
+                            "category_name": "أيشــــــــــــــــادو",
+                            "relate_category": [],
+                            "unique_feature_1": "مقاوم للمياه",
+                            "unique_feature_2": "لون كريمي غني",
+                            "unique_feature_3": "ثبات 24/7"
+                        }
+                    ],
                     "minLength": 1,
                     "maxLength": "10"
                 },
@@ -3291,11 +3574,11 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون العنوان",
+                    "label": "لون العنوان الرئيسي",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#202020",
                     "required": false
                 },
                 {
@@ -3303,11 +3586,11 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون الوصف",
+                    "label": "لون العنوان الفرعي",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#202020",
                     "required": false
                 },
                 {
@@ -3315,11 +3598,11 @@
                     "type": "string",
                     "format": "color",
                     "inputType": "color",
-                    "label": "لون ل اسم الفئه",
+                    "label": "لون اسم الفئة",
                     "description": null,
                     "labelHTML": null,
                     "icon": "sicon-format-fill",
-                    "value": "#004956",
+                    "value": "#202020",
                     "required": false
                 }
             ]

@@ -1,6 +1,6 @@
 <section class="AL-blog py-6">
     <div class="container">
-        <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6  py-0  sm:py-12" style="background-color:{{component.bg_color}};">
+        <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6 py-0 sm:py-12" style="background-color:{{component.bg_color}};">
             <div class="swiper content-slider {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
@@ -13,7 +13,7 @@
                                 {% endif %}
                                 
                                 {% if item.title %}
-                                    <h3 class="text-[20px] sm:text-[28px] font-medium leading-[42px]" style"color:{{component.secondry_color}};"> 
+                                    <h3 class="text-[20px] sm:text-[28px] font-medium leading-[42px]" style="color:{{component.secondry_color}};"> 
                                         {{ item.title }}
                                     </h3>
                                 {% endif %}
@@ -28,14 +28,14 @@
                                     
                                     <div class="flex items-center gap-1">
                                         <i class="sicon-user"></i>
-                                        {% if  item.author.name  %}
+                                        {% if item.author.name %}
                                             <p class="date">{{ item.author.name }}</p>
                                         {% endif %}
                                     </div>
                                 </div>
                                 
                                 {% if item.summary %}
-                                    <p class="text-base font-normal " style="color:{{component.secondry_color}};">
+                                    <p class="text-base font-normal" style="color:{{component.secondry_color}};">
                                         {{ item.summary }}
                                     </p>
                                 {% endif %}
@@ -49,13 +49,15 @@
                     {% endfor %}
                 </div>
             </div>
-            <!-- سلايدر الصور -->
+            
             <div class="swiper main-slider w-full {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="1.0s" {% endif %}>
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide">
-                            <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" 
-                                class="w-full h-96 object-cover rounded-sm">
+                            {% if item.image.url %}
+                                <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" 
+                                    class="w-full h-96 object-cover rounded-sm">
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -64,30 +66,17 @@
     </div>
 </section>
 
-
 <script>
     var mainSlider = new Swiper(".main-slider", {
         loop: true,
         spaceBetween: 20,
         slidesPerView: 1.3,
         breakpoints: {
-            1024: { // لابتوب وأجهزة كبيرة
-                spaceBetween: 20,
-                slidesPerView: 1.3
-            },
-            768: { // تابلت وأجهزة متوسطة
-                spaceBetween: 15,
-                slidesPerView: 1
-            },
-            480: { // موبايل صغير
-                spaceBetween: 10,
-                slidesPerView: 1
-            },
-            350: { // موبايل صغير
-                spaceBetween: 15,
-                slidesPerView: 1.1
-            }
-    }
+            1024: { spaceBetween: 20, slidesPerView: 1.3 },
+            768: { spaceBetween: 15, slidesPerView: 1 },
+            480: { spaceBetween: 10, slidesPerView: 1 },
+            350: { spaceBetween: 15, slidesPerView: 1.1 }
+        }
     });
 
     var contentSlider = new Swiper(".content-slider", {
@@ -104,15 +93,15 @@
                 });
             },
             slideChangeTransitionEnd: function () {
-                document.querySelector(".content-slider .swiper-slide-active .content_box").style.opacity = "1";
-                document.querySelector(".content-slider .swiper-slide-active .content_box").style.transform = "translateX(0)";
+                var activeSlide = document.querySelector(".content-slider .swiper-slide-active .content_box");
+                if (activeSlide) {
+                    activeSlide.style.opacity = "1";
+                    activeSlide.style.transform = "translateX(0)";
+                }
             }
         }
     });
 
-    // ربط السلايدر الأول بالثاني
     mainSlider.controller.control = contentSlider;
     contentSlider.controller.control = mainSlider;
 </script>
-
-
