@@ -3480,7 +3480,7 @@
                             "source": "Categories",
                             "multichoice": false,
                             "searchable": true,
-                            "required": true,
+                            "required": false,
                             "value": []
                         },
                         {
