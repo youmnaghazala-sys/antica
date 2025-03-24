@@ -209,9 +209,9 @@
 								{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
 						</div>
 					</div>
-					{# {% if product.rating %} #}
+					{% if product.rating %}
 					<salla-rating-stars value="{{ product.rating.stars }}" reviews="{{ product.rating.count }}"></salla-rating-stars>
-					{# {% endif %} #}
+					{% endif %}
 				</div>
 				{% if theme.settings.get('is_note_product') %}
 					<p class="text-sm text-[#BD1C1C] pb-4">{{theme.settings.get('note_of_product')}}</p>
