@@ -3413,7 +3413,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "50"
+                    "maxLength": "1000"
                 },
                 {
                     "id": "category_sub_title",
@@ -3428,7 +3428,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "100"
+                    "maxLength": "1000"
                 },
                 {
                     "id": "category_image",
