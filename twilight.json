@@ -1593,7 +1593,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "15"
+                            "maxLength": "20"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
