@@ -1331,14 +1331,13 @@
             "key": "0c199601-251a-40ca-9a3b-737d3362fd7a",
             "title": "آراء العملاء - الوري",
             "icon": "sicon-store",
-            "image": "https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png",
             "path": "home.AL-testimonials",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
                 },
                 {
                     "id": "m_img",
@@ -1540,7 +1539,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "100"
+                            "maxLength": "190"
                         },
                         {
                             "id": "slider_collection.product_img",
@@ -1594,7 +1593,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "10"
+                            "maxLength": "15"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -1605,11 +1604,11 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": "(رائدة اعمال)",
+                            "value": "رائدة اعمال",
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "10"
+                            "maxLength": "15"
                         }
                     ],
                     "value": [
