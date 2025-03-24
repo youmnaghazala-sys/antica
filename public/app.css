@@ -617,6 +617,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .max-h-\[300px\]{max-height:300px}
 .max-h-\[356px\]{max-height:356px}
 .max-h-\[712px\]{max-height:712px}
+.max-h-\[80\%\]{max-height:80%}
 .max-h-\[90px\]{max-height:90px}
 .max-h-full{max-height:100%}
 .min-h-7{min-height:1.75rem}
@@ -740,6 +741,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .overflow-auto{overflow:auto}
 .\!overflow-hidden{overflow:hidden !important}
 .overflow-hidden{overflow:hidden}
+.overflow-y-auto{overflow-y:auto}
 .overflow-x-hidden{overflow-x:hidden}
 .text-ellipsis{text-overflow:ellipsis}
 .whitespace-nowrap{white-space:nowrap}
@@ -6459,6 +6461,23 @@ salla-add-product-button button span{display:flex;gap:0.625rem}
 }
 .Al_products-and-stories .swiper-slide-active .products-wrapper {
   animation: toTop 1s ease;
+}
+.Al_products-and-stories .swiper-slide-active .products-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.Al_products-and-stories .swiper-slide-active .products-wrapper::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+.Al_products-and-stories .swiper-slide-active .products-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  -webkit-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.Al_products-and-stories .swiper-slide-active .products-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .Al_products-and-stories .story .s-product-card-entry {
   border-radius: 0;

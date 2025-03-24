@@ -110,9 +110,31 @@
   .slider-pagination{
     direction: ltr;
   }
-  .swiper-slide-active .products-wrapper{
-    animation: toTop 1s ease;
-  }
+  .swiper-slide-active{
+
+    .products-wrapper{
+      animation: toTop 1s ease;
+}
+    .products-wrapper::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    .products-wrapper::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .products-wrapper::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .products-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  } 
   .story {
     .s-product-card{
       &-entry{
