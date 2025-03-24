@@ -3189,14 +3189,13 @@
             "key": "1033b5c6-e6e2-4c3d-9b4a-4512cd7f1948",
             "title": "منتجات و قصص - ألوري",
             "icon": "sicon-store",
-            "image": "https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png",
             "path": "home.AL-products-and-stories",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
                 },
                 {
                     "id": "first_side_image",
@@ -3208,7 +3207,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/M77VLI07vKONwDOIkDjiLL6dXssoDTaQCSTkhEyc.png",
-                    "required": false
+                    "required": true
                 },
                 {
                     "id": "second_side_image",
@@ -3220,7 +3219,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/POq43rp0mFrr7pKEcj2OMBFXlUoZRI5ij57AKH3A.png",
-                    "required": false
+                    "required": true
                 },
                 {
                     "id": "stories_products",
@@ -3242,7 +3241,7 @@
                     "id": "stories",
                     "type": "collection",
                     "format": "collection",
-                    "label": "المنتجات",
+                    "label": "الاستويز",
                     "description": null,
                     "labelHTML": null,
                     "item_label": null,
@@ -3299,7 +3298,7 @@
                         {
                             "stories.bg_color": "#E7F0DC",
                             "stories.is_products": true,
-                            "stories.story_image": ""
+                            "stories.story_image": null
                         }
                     ],
                     "minLength": 1,
