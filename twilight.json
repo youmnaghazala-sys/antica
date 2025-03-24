@@ -1593,7 +1593,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "20"
+                            "maxLength": "15"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -3413,7 +3413,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "1000"
+                    "maxLength": "50"
                 },
                 {
                     "id": "category_sub_title",
@@ -3428,7 +3428,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "1000"
+                    "maxLength": "100"
                 },
                 {
                     "id": "category_image",
