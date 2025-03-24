@@ -27,7 +27,7 @@
 .al-testimonial .s-slider-next::before{
     content: "";
     position: absolute;
-    top: 7px;
+    bottom: -7px;
     right: 48px;
     left: 0px;
     height: 100%;
@@ -61,7 +61,48 @@
 @media (max-width: 576px) { 
     .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
         left: 20%;
+        top: -27% !important;
     }
+
+    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+        color: white;
+        width: 30px;
+        height: 30px;
+    }
+
+    .al-testimonial .s-slider-prev::after{
+        top: 12px;
+        right: 12px;
+    }
+    .al-testimonial .s-slider-next::before {
+        bottom: -12px;
+        right: 48px;
+    }
+}
+
+@media (max-width: 375px) { 
+    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+        left: 23%;
+        top: -26% !important;
+    }
+
+    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+        width: 30px;
+        height: 30px;
+    }
+
+    .al-testimonial .s-slider-prev::after{
+        top: 40%;
+        right: 38%;
+        left: 0px;
+    }
+    
+    .al-testimonial .s-slider-next::before{
+        bottom: -41%;
+        right: 160%;
+        left: 0px;
+    }
+    
 }
 
 .s-slider-nav-arrow svg{

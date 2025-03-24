@@ -43,6 +43,17 @@
             "format": "switch"
         },
         {
+            "id": "text_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون النص",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#2E2E2E",
+            "required": true
+        },
+        {
             "id": "has_animation",
             "type": "boolean",
             "format": "switch",
@@ -1331,14 +1342,13 @@
             "key": "0c199601-251a-40ca-9a3b-737d3362fd7a",
             "title": "آراء العملاء - الوري",
             "icon": "sicon-store",
-            "image": "https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png",
             "path": "home.AL-testimonials",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
                 },
                 {
                     "id": "m_img",
@@ -1540,7 +1550,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "100"
+                            "maxLength": "190"
                         },
                         {
                             "id": "slider_collection.product_img",
@@ -1594,7 +1604,7 @@
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "10"
+                            "maxLength": "15"
                         },
                         {
                             "id": "slider_collection.comment_writer_job",
@@ -1605,11 +1615,11 @@
                             "labelHTML": null,
                             "placeholder": "Placeholder text ..",
                             "icon": "sicon-format-text-alt",
-                            "value": "(رائدة اعمال)",
+                            "value": "رائدة اعمال",
                             "multilanguage": false,
                             "required": true,
                             "minLength": "1",
-                            "maxLength": "10"
+                            "maxLength": "15"
                         }
                     ],
                     "value": [
@@ -3189,14 +3199,13 @@
             "key": "1033b5c6-e6e2-4c3d-9b4a-4512cd7f1948",
             "title": "منتجات و قصص - ألوري",
             "icon": "sicon-store",
-            "image": "https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png",
             "path": "home.AL-products-and-stories",
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/SsdskcA6yzmriUgjWwFkf9VK4nf3jOsmNzyuJYdk.png'></div>"
                 },
                 {
                     "id": "first_side_image",
@@ -3208,7 +3217,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/M77VLI07vKONwDOIkDjiLL6dXssoDTaQCSTkhEyc.png",
-                    "required": false
+                    "required": true
                 },
                 {
                     "id": "second_side_image",
@@ -3220,7 +3229,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/POq43rp0mFrr7pKEcj2OMBFXlUoZRI5ij57AKH3A.png",
-                    "required": false
+                    "required": true
                 },
                 {
                     "id": "stories_products",
@@ -3242,7 +3251,7 @@
                     "id": "stories",
                     "type": "collection",
                     "format": "collection",
-                    "label": "المنتجات",
+                    "label": "الاستويز",
                     "description": null,
                     "labelHTML": null,
                     "item_label": null,
@@ -3299,7 +3308,7 @@
                         {
                             "stories.bg_color": "#E7F0DC",
                             "stories.is_products": true,
-                            "stories.story_image": ""
+                            "stories.story_image": null
                         }
                     ],
                     "minLength": 1,
@@ -3415,7 +3424,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "1000"
+                    "maxLength": "50"
                 },
                 {
                     "id": "category_sub_title",
@@ -3430,7 +3439,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "1000"
+                    "maxLength": "100"
                 },
                 {
                     "id": "category_image",

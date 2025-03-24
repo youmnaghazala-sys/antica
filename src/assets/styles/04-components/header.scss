@@ -127,6 +127,7 @@
     .main-menu > li > a {
       padding-top: 20px;
       padding-bottom: 20px;
+    
     }
   }
 
@@ -141,7 +142,9 @@
     }
   }
 }
-
+.main-menu > li > a span{
+  font-weight: 400 ;
+}
 .navbar-brand {
   @apply items-center flex my-2 lg:my-0;
 
