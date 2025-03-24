@@ -43,6 +43,17 @@
             "format": "switch"
         },
         {
+            "id": "text_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون النص",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#2E2E2E",
+            "required": true
+        },
+        {
             "id": "has_animation",
             "type": "boolean",
             "format": "switch",
