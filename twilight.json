@@ -3261,7 +3261,7 @@
                             "id": "stories.is_products",
                             "type": "boolean",
                             "format": "switch",
-                            "label": "اضافة منتجات بديلة للصورة",
+                            "label": "اضافة المنتجات",
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-toggle-off",

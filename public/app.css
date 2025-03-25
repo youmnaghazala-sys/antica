@@ -5808,6 +5808,9 @@ salla-filters salla-button button {
 .quantity-increase-decrease salla-quantity-input .s-quantity-input-container .s-quantity-input-input {
   font-size: 0.9rem;
   border: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
 }
 .quantity-increase-decrease salla-quantity-input .s-quantity-input-container .s-quantity-input-button {
   width: clamp(1.2rem, 0.7255rem + 2.0245vw, 2.75rem) !important;
