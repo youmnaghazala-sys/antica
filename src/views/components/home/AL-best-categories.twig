@@ -1,5 +1,6 @@
 <section class="AL-best_category my-5 py-7 md:my-10"
-    {% if component.category_image %} style="background-image: url('{{ component.category_image }}');" {% endif %}>
+    {% if component.category_image %} style="background-image: url('{{ component.category_image }}'); background-position: center;
+    background-size: cover;" {% endif %}>
     <div class="container">
 
         {% if component.category_title or component.category_sub_title %}
@@ -59,7 +60,7 @@
                     .AL-best_category_tabs_item.tab_active .AL-best_category_tabs_btn::after {
                         content: '';
                         position: absolute;
-                        bottom: 0;
+                        bottom: -8px;
                         right: 0;
                         width: 100%;
                         height: 2px;
