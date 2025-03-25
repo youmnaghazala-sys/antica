@@ -28,6 +28,7 @@ class App extends AppHelpers {
     this.ALU_extractfooterimage();
     this.ALU_searchIcon();
     this.ALU__removeShadowroot();
+    this.addCartListener();
     initTootTip();
     this.loadModalImgOnclick();
 
@@ -140,6 +141,22 @@ class App extends AppHelpers {
         img.src = imgSrc;
         img.classList.add("loaded");
       });
+    });
+  }
+
+  addCartListener() {
+    const free_shipping_element = document.querySelector('.free_shipping_progress_bar');
+    if (!free_shipping_element) return;
+    const free_shipping_limit = parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
+
+    salla.event.on('cart::updated', function (data) {
+      document.querySelector('.progress_filler').style.width = `${(data.total / free_shipping_limit) * 100}%`;
+      const freeShippingLimitRemaining = document.querySelector('.free_shipping_limit_remaining');
+      if (freeShippingLimitRemaining) {
+        freeShippingLimitRemaining.innerText = salla.money(
+          free_shipping_limit - data.total > 0 ? free_shipping_limit - data.total : 0
+        );
+      }
     });
   }
 
