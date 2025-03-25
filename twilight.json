@@ -3261,7 +3261,7 @@
                             "id": "stories.is_products",
                             "type": "boolean",
                             "format": "switch",
-                            "label": "اضافة منتجات بديلة للصورة",
+                            "label": "اضافة المنتجات",
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-toggle-off",
@@ -3424,7 +3424,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "50"
+                    "maxLength": "80"
                 },
                 {
                     "id": "category_sub_title",
@@ -3439,7 +3439,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "100"
+                    "maxLength": "200"
                 },
                 {
                     "id": "category_image",
@@ -3451,7 +3451,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/3APb2grgxsKDS7KYvNZY4yxkgPRxlTysEWG7mXsa.png",
-                    "required": false
+                    "required": true
                 },
                 {
                     "id": "categories",
@@ -3474,7 +3474,7 @@
                             "icon": "sicon-format-text-alt",
                             "value": null,
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": 6,
                             "maxLength": 30
                         },
@@ -3491,7 +3491,7 @@
                             "source": "Categories",
                             "multichoice": false,
                             "searchable": true,
-                            "required": false,
+                            "required": true,
                             "value": []
                         },
                         {

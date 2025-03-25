@@ -48,7 +48,7 @@
 						</div>
 						<div class="flex items-center justify-end gap-1">
 								<button onclick="salla.event.dispatch('search::open')" class="header-btn sm:hidden" aria-label="فتح البحث" role="button" tabindex="0">
-									<i class="sicon-search header-btn__icon cursor-pointer text-xl before:text-sm before:text-gray-300 border-gray-300 " style="color:{{theme.settings.get('color_text_header','#000')}};"></i>
+									<i class="sicon-search header-btn__icon cursor-pointer text-xl before:text-sm border-gray-300 " style="color:{{theme.settings.get('color_text_header','#000')}};"></i>
 								</button>
 							{% if user.type=='user' %}
 								<salla-user-menu avatar-only show-header></salla-user-menu>

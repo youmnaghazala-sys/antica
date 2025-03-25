@@ -17,8 +17,11 @@
 								<div class="swiper-slide">
 									<div class="story h-[610px]">
 										{% if story.is_products %}
-											<div style="background-color: {{story.bg_color}}" class="w-full h-full flex items-center justify-center">
-												<div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper max-h-[80%] overflow-y-auto">
+											<div style="background-color: {{story.bg_color}}" class="w-full h-full flex items-center justify-center relative">
+												{% if story.story_image %}
+													<img src="{{story.story_image}}" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
+												{% endif %}
+												<div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper max-h-[80%] overflow-y-auto relative z-2">
 													{% for product in component.stories_products %}
 														<custom-salla-product-card product="{{product}}" horizontal></custom-salla-product-card>
 													{% endfor %}
