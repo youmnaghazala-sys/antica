@@ -43,6 +43,11 @@
         height: 178px;
         border-radius: 0;
     }
+    @media(max-width:768px){
+        .items custom-salla-product-card {
+            height: 151px;
+        }
+    }
     
     .items custom-salla-product-card .s-product-card-image {
         border-top-right-radius: 0;
@@ -58,12 +63,23 @@
     .items custom-salla-product-card .s-product-card-image img {
         background-color: #fff;
     }
+    @media (max-width: 480px) {
+        .s-product-card-horizontal salla-button.s-product-card-wishlist-btn{
+            position: unset;
+        }
+    }
 </style>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".items custom-salla-product-card").forEach(card => {
             card.classList.replace("s-product-card-vertical", "s-product-card-horizontal");
+        });
+       
+        let iconElements = document.querySelectorAll(".text-base.sicon-shopping-bag");
+
+        iconElements.forEach(icon => {
+            icon.classList.replace("sicon-shopping-bag", "sicon-cart2");
         });
     });
 </script>
