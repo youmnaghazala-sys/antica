@@ -7,6 +7,9 @@
     },
     "appBanner": {
       "download_now": "حمله الان"
+    },
+    "footer":{
+      "email":"أدخل بريدك الالكتروني"
     }
   },
   "pages": {

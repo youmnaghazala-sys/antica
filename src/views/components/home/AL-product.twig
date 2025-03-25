@@ -1,31 +1,24 @@
 <section class="AL_product_slider my-5">
     <div class="container">
         {% if component.grid_switch %}
-   <salla-slider 
-  id="thumbs" 
-  show-controls="true" 
-  type="thumbs" 
-  slider-config='{
-    "slidesPerView": 4,
-    "spaceBetween": 5,
-    "breakpoints": {
-      "400": { "slidesPerView": 2, "spaceBetween": 5 },
-      "640": { "slidesPerView": 3, "spaceBetween": 8 },
-      "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
-    }
-  }'>
+        <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
+            "breakpoints": {
+                "320": { "slidesPerView": 2, "spaceBetween": 0 },
+                "640": { "slidesPerView": 3, "spaceBetween": 8 },
+                "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
+            }
+        }'>
+
             <div slot="items">
                 {% for product in component.show_product_drop %}
-                        <salla-product-card  product="{{ product }}">
-                        </salla-product-card>
+                    <salla-product-card product="{{ product }}"></salla-product-card>
                 {% endfor %}
             </div>
         </salla-slider>
         {% else %}
             <div class="product-grid">
                 {% for product in component.show_product_drop %}
-                        <salla-product-card  product="{{ product }}">
-                        </salla-product-card>
+                    <salla-product-card product="{{ product }}"></salla-product-card>
                 {% endfor %}
             </div>    
         {% endif %}
