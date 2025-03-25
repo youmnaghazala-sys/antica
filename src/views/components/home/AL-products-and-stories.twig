@@ -21,7 +21,7 @@
 												{% if story.story_image %}
 													<img src="{{story.story_image}}" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
 												{% endif %}
-												<div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper max-h-[80%] overflow-y-auto">
+												<div class="grid grid-cols-1 w-4/5 gap-y-2 products-wrapper max-h-[80%] overflow-y-auto relative z-2">
 													{% for product in component.stories_products %}
 														<custom-salla-product-card product="{{product}}" horizontal></custom-salla-product-card>
 													{% endfor %}
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: false,
     autoplay: {
       delay: 2000,
-      disableOnInteraction: true,
+      disableOnInteraction: false,
     },
     slidesPerView: 1,
     pagination: {
@@ -117,10 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     slide.addEventListener("touchend", () => childSwiper.autoplay.resume());
 
-		/* slide.addEventListener("mouseenter", () => {
+		slide.addEventListener("mouseenter", () => {
       childSwiper.autoplay.pause();
     });
-    slide.addEventListener("mouseleave", () => childSwiper.autoplay.resume()); */
+    slide.addEventListener("mouseleave", () => childSwiper.autoplay.resume());
   });
 });
 </script>
