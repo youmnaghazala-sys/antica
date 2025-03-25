@@ -504,9 +504,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .top-20{top:5rem}
 .top-24{top:6rem}
 .top-4{top:1rem}
-
 .top-48{top:12rem}
-.top-\[4rem\]{top:4rem}
 .top-full{top:100%}
 .-z-1{z-index:-1}
 .z-1{z-index:1}
@@ -598,7 +596,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-96{height:24rem}
 .h-\[100px\]{height:100px}
 .h-\[244px\]{height:244px}
-.h-\[285px\]{height:285px}
 .h-\[2px\]{height:2px}
 .h-\[34px\]{height:34px}
 .h-\[353px\]{height:353px}
@@ -624,12 +621,12 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .max-h-\[90px\]{max-height:90px}
 .max-h-full{max-height:100%}
 .min-h-7{min-height:1.75rem}
+.min-h-\[285px\]{min-height:285px}
 .min-h-\[300px\]{min-height:300px}
 .min-h-\[34px\]{min-height:34px}
 .min-h-\[388px\]{min-height:388px}
 .min-h-full{min-height:100%}
 .min-h-screen{min-height:100vh}
-.min-h-\[285px\]{min-height:285px}
 .\!w-36{width:9rem !important}
 .\!w-\[160px\]{width:160px !important}
 .\!w-fit{width:-moz-fit-content !important;width:fit-content !important}
@@ -835,7 +832,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}
 .py-4{padding-top:1rem;padding-bottom:1rem}
 .py-5{padding-top:1.25rem;padding-bottom:1.25rem}
-.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
 .py-7{padding-top:1.75rem;padding-bottom:1.75rem}
 .py-8{padding-top:2rem;padding-bottom:2rem}
 .\!pt-1{padding-top:0.25rem !important}
@@ -6962,6 +6958,7 @@ input[type=radio].sr-only:checked ~ div.landing-page > header:before {
 .al-testimonial .s-slider-next::before {
   content: "";
   position: absolute;
+  bottom: -7px;
   right: 48px;
   left: 0px;
   height: 100%;
@@ -7360,8 +7357,8 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .sm\:grid{display:grid}
 .sm\:hidden{display:none}
 .sm\:h-80{height:20rem}
-.sm\:h-\[300px\]{height:300px
-.sm\:h-\[500px\]{height:500px
+.sm\:h-\[300px\]{height:300px}
+.sm\:h-\[500px\]{height:500px}
 .sm\:h-auto{height:auto}
 .sm\:h-full{height:100%}
 .sm\:\!w-\[220px\]{width:220px !important}
@@ -7381,7 +7378,6 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .sm\:gap-8{gap:2rem}
 .sm\:p-1{padding:0.25rem}
 .sm\:p-3{padding:0.75rem}
-.sm\:p-5{padding:1.25rem}
 .sm\:p-6{padding:1.5rem}
 .sm\:py-12{padding-top:3rem;padding-bottom:3rem}
 .sm\:py-16{padding-top:4rem;padding-bottom:4rem}
