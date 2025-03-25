@@ -231,8 +231,11 @@ salla-user-menu{
   @apply flex !important;
 }
 .s-search-modal .s-modal-close{
-  @apply top-0 translate-y-0 w-10 !important;
+  @apply top-0 translate-y-0 w-9 !important;
 }
 .s-search-container{
   @apply  w-[89%] sm:w-full;
 }
+.s-search-input,.s-search-input:hover{
+  @apply bg-white !important;
+ }
