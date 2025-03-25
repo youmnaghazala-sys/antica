@@ -97,28 +97,10 @@
   {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }}
   {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
   ">
-    {% if theme.settings.get("is_default_loader") %}
-        <div class="loader-init"></div>
-    {% else %}
-        <div class="loader-init">
-        <div class="circle">
-            <div class="dot"></div>
-            <div class="outline"></div>
-        </div>
-        <div class="circle">
-            <div class="dot"></div>
-            <div class="outline"></div>
-        </div>
-        <div class="circle">
-            <div class="dot"></div>
-            <div class="outline"></div>
-        </div>
-        <div class="circle">
-            <div class="dot"></div>
-            <div class="outline"></div>
-        </div>
-        </div>
-    {% endif %}
+
+    <div class="loader-init">
+
+    </div>
     <noscript>
         To get full functionality of this site you need to enable JavaScript. Here is how
         <a href="https://www.enable-javascript.com/" rel="noreferrer"
