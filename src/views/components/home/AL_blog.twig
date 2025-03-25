@@ -1,11 +1,11 @@
-<section class="AL-blog py-6">
+<section class="AL-blog h-[514px] sm:h-[500px]">
     <div class="container">
         <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6 py-0 sm:py-12" style="background-color:{{component.bg_color}};">
             <div class="swiper content-slider {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}
                         <div class="swiper-slide flex items-center">
-                            <div class="content_box p-6 rounded-sm flex flex-col gap-2">
+                            <div class="content_box px-7 py-0 sm:p-6 rounded-sm flex flex-col gap-2">
                                 {% if component.sec_name %}
                                     <h2 class="text-[14px] font-normal leading-[18px]" style="color:{{component.base_color}};">
                                         {{ component.sec_name }}
@@ -68,7 +68,7 @@
 
 <script>
     var mainSlider = new Swiper(".main-slider", {
-        loop: true,
+    
         spaceBetween: 20,
         slidesPerView: 1.3,
         breakpoints: {
@@ -80,7 +80,7 @@
     });
 
     var contentSlider = new Swiper(".content-slider", {
-        loop: true,
+   
         spaceBetween: 10,
         slidesPerView: 1,
         autoHeight: true,

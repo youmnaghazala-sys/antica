@@ -9,8 +9,8 @@
                     Your browser does not support the video tag.
                 </video>
                 <div class="video-controls absolute top-4 right-4">
-                    <button id="toggle-video-button-{{ position }}" class="bg-white opacity-55 text-black px-[10px] pb-[4px] pt-[7px] rounded-full">
-                        <i class="sicon-pause"></i> <!-- Default icon (pause) -->
+                    <button id="toggle-video-button-{{ position }}" class="bg-white opacity-55 text-black md:px-[10px] md:pb-[4px] md:pt-[7px] rounded-full w-[24px] h-[24px] md:h-[48px] md:w-[48px]">
+                        <i class="sicon-pause text-[13px] md:text-[21px]"></i> 
                     </button>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
-        <div id="products-{{ position }}" class="products w-[97%] absolute bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
+        <div id="products-{{ position }}" class="products w-[93%] md:w-[97%] absolute bottom-[7%] md:bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
             <salla-slider id="thumbs" show-controls="false" type="thumbs" slider-config='{
                 "autoplay": {
                     "delay": 3000
@@ -28,7 +28,7 @@
                 "spaceBetween": 10,
                 "breakpoints": {
                     "320": { "slidesPerView": 1 },
-                    "768": { "slidesPerView": 1.8 },
+                    "768": { "slidesPerView": 1 },
                     "1024": { "slidesPerView": 3 }
                 }
             }'>
@@ -48,7 +48,12 @@
         display: flex !important;
         border-radius: 0;
     }
-    
+    @media(max-width:768px){
+        .AL_best_seller .products custom-salla-product-card {
+            height: 151px;
+            width:326px !important;
+    }
+    }
     .AL_best_seller .products custom-salla-product-card .s-product-card-image  {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
@@ -67,10 +72,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Remove vertical class and add horizontal class to product cards
-        
-
-        // Handle scroll event for the products container
+       
         const productsContainer = document.querySelector("#products-{{ position }}");
         
         function handleScroll() {
@@ -79,7 +81,7 @@
             const screenHeight = window.innerHeight;
 
             if (sectionPosition < screenHeight * 0.75) {
-                if (window.innerWidth > 768) { // For large screens
+                if (window.innerWidth > 768) { 
                     productsContainer.style.transform = "translateX(-1%)";
                     productsContainer.style.transition = "transform 6s linear";
                 }
@@ -87,9 +89,8 @@
         }
 
         window.addEventListener("scroll", handleScroll);
-        handleScroll(); // Initial check
+        handleScroll(); 
 
-        // Video Toggle Button Logic
         const video = document.querySelector("#background-video-{{ position }}");
         const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
 
@@ -97,10 +98,10 @@
             toggleButton.addEventListener("click", () => {
                 if (video.paused) {
                     video.play();
-                    toggleButton.innerHTML = '<i class="sicon-pause"></i>'; // Change icon to pause
+                    toggleButton.innerHTML = '<i class="sicon-pause"></i>'; 
                 } else {
                     video.pause();
-                    toggleButton.innerHTML = '<i class="sicon-play"></i>'; // Change icon to play
+                    toggleButton.innerHTML = '<i class="sicon-play"></i>'; 
                 }
             });
 
@@ -110,5 +111,12 @@
                 toggleButton.innerHTML = '<i class="sicon-play"></i>';
             }
         }
+        
+        let iconElements = document.querySelectorAll(".text-base.sicon-shopping-bag");
+
+        iconElements.forEach(icon => {
+            icon.classList.replace("sicon-shopping-bag", "sicon-cart2");
+        });
+    
     });
 </script>

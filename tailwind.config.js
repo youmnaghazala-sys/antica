@@ -35,6 +35,7 @@ module.exports = {
                 'darker'       : '#0E0F0F',
                 'danger'       : '#AE0A0A',
                 'footercolor'       : 'var(--footer-text-color)',
+                'secondary'    : 'var(--color-secondary)'
 
             },
             spacing: {
