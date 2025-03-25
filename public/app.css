@@ -5807,6 +5807,9 @@ salla-filters salla-button button {
 .quantity-increase-decrease salla-quantity-input .s-quantity-input-container .s-quantity-input-button {
   width: clamp(1.2rem, 0.7255rem + 2.0245vw, 2.75rem) !important;
 }
+.free_shipping_progress_bar .progress_filler {
+  transition: all 0.5s ease;
+}
 .Alo__main {
   /* تأثير النصوص */
   /* تأخير ظهور النصوص */
