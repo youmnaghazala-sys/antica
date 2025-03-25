@@ -2977,7 +2977,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "2",
-                            "maxLength": "300"
+                            "maxLength": "150"
                         },
                         {
                             "id": "slider_images.subtitle",
@@ -2992,7 +2992,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "2",
-                            "maxLength": "300"
+                            "maxLength": "250"
                         },
                         {
                             "id": "slider_images.button_text",
@@ -3007,7 +3007,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "2",
-                            "maxLength": "300"
+                            "maxLength": "30"
                         },
                         {
                             "id": "slider_images.button_text_color",

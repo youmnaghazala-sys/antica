@@ -614,6 +614,9 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-full{height:100%}
 .h-lg-banner{height:428px}
 .h-px{height:1px}
+.h-\[px\]{height:px}
+.h-\[600px\]{height:600px}
+.h-\[0px\]{height:0px}
 .max-h-0{max-height:0px}
 .max-h-8{max-height:2rem}
 .max-h-\[300px\]{max-height:300px}
@@ -622,6 +625,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .max-h-\[80\%\]{max-height:80%}
 .max-h-\[90px\]{max-height:90px}
 .max-h-full{max-height:100%}
+.max-h-\[535px\]{max-height:535px}
 .min-h-7{min-height:1.75rem}
 .min-h-\[285px\]{min-height:285px}
 .min-h-\[300px\]{min-height:300px}
@@ -7435,6 +7439,8 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .md\:h-\[610px\]{height:610px}
 .md\:h-\[700px\]{height:700px}
 .md\:h-full{height:100%}
+.md\:h-\[900px\]{height:900px}
+.md\:h-\[1000px\]{height:1000px}
 .md\:min-h-\[550px\]{min-height:550px}
 .md\:\!w-2\/4{width:50% !important}
 .md\:w-1\/2{width:50%}
