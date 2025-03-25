@@ -6,12 +6,15 @@
 		{% if theme.settings.get('has_newsletter') %}
 			<div class="container flex flex-wrap flex-col sm:flex-row sm:items-center gap-7 pb-5 md:pb-12 border-b border-solid  border-[#0000001a]">
 				<h1 class="text-lg md:text-2xl font-medium whitespace-nowrap">{{ trans('pages.cart.newlettert')}}</h1>
-				<form class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center flex-1 justify-between">
-					<input type="email" placeholder="{{ trans('pages.cart.email')}}" required class="w-full border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
-					<a href="{{theme.settings.get('newsletter_action')}}" class="!my-0 !py-0">
-						<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
-					</a>
-				</form>
+
+						<form action="{{ theme.settings.get('newsletter_action') }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center flex-1 justify-between" target="_blank">
+							<div id="mc_embed_signup_scroll" class="w-full">
+								<input type="email" name="EMAIL" id="mce-EMAIL" required placeholder="{{ trans('blocks.footer.email') }}" class="w-full border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
+							</div>
+						<button type="submit" name="subscribe">
+							<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
+						</button>
+						</form>
 				<div class="flex gap-2 md:gap-3">
 					<div class="flex items-center rounded-sm p-2 md:p-4 gap-3 md:gap-7 border border-solid border-[#20202007] w-1/2 lg:w-[227px]" style="backdrop-filter: contrast(0.9);">
 						<i class="sicon-phone-talking text-base md:text-2xl text-white bg-footercolor rounded-full p-1.5 md:p-3"></i>
@@ -31,6 +34,8 @@
 				</div>
 			</div>
 		{% endif %}
+
+
 		<div class="container grid grid-col-2 md:grid-cols-6 gap-4 lg:gap-11 mt-5 md:mt-8">
 			<div class="col-span-2 rtl:lg:pl-11 ltr:lg:pr-11 border-b md:border-b-0 md:border-l border-solid  border-[#0000001a] pb-4 md:pb-0">
 				<a href="{{ link('/') }}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">

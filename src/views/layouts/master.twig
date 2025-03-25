@@ -60,6 +60,7 @@
     {% include 'pages.partials.loading-screen-assets' %}
     <script defer data-cfasync="false" src="{{ 'product-card.js'|asset }}"></script>
     <script defer src="{{ 'main-menu.js'|asset }}"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {% block head_scripts %}{% endblock %}
     <script data-cfasync="false">
@@ -72,6 +73,7 @@
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ 'app.css' | asset }}">
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" integrity="sha512-pmAAV1X4Nh5jA9m+jcvwJXFQvCBi3T17aZ1KWkqXr7g/O2YMvO8rfaa5ETWDuBvRq6fbDjlw4jHL44jNTScaKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
