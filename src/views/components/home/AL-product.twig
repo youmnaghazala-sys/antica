@@ -1,20 +1,21 @@
 <section class="AL_product_slider my-5">
     <div class="container">
         {% if component.grid_switch %}
-            <salla-products-slider 
-                source="latest"
-                slider-id="096176"
-                show-controls="false" 
-                    slider-config='{
-                        "slidesPerView": 1,
-                        "spaceBetween": 5,
-                        "breakpoints": {
-                            "320": { "slidesPerView": 1, "spaceBetween": 5 },
-                            "640": { "slidesPerView": 2, "spaceBetween": 8 },
-                            "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
-                        }
-                    }'>
-            </salla-product-slider>
+        <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
+            "slidesPerView": 2,
+            "spaceBetween": 5,
+            "breakpoints": {
+                "400": { "slidesPerView": 2, "spaceBetween": 5 },
+                "640": { "slidesPerView": 3, "spaceBetween": 8 },
+                "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
+            }'>
+            <div slot="items">
+                {% for product in component.show_product_drop %}
+                        <salla-product-card  product="{{ product }}">
+                        </salla-product-card>
+                {% endfor %}
+            </div>
+        </salla-slider>
         {% else %}
             <div class="product-grid">
                 {% for product in component.show_product_drop %}
