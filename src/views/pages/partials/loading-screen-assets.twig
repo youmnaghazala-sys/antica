@@ -13,6 +13,8 @@
       background: white;
       transition: opacity 0.75s, visibility 0.75s;
       z-index: 9999;
+      --color: hsl(0, 0%, 87%);
+      --animation: 2s ease-in-out infinite;
   }
 
   .loader-init--hidden {
@@ -20,34 +22,7 @@
       visibility: hidden;
   }
 
-  .loader-init::after {
-      content: "";
-      width: 36px;
-      height: 36px;
-      border: 3px solid #eee;
-      border-top-color: #5bd5c4;
-      border-radius: 50%;
-      animation: loading 0.75s ease infinite;
-  }
-
-  @keyframes loading {
-      from {
-        transform: rotate(0turn);
-      }
-      to {
-        transform: rotate(1turn);
-      }
-  }
-  /* From Uiverse.io by Li-Deheng */ 
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  --color: hsl(0, 0%, 87%);
-  --animation: 2s ease-in-out infinite;
-}
-
-.loader .circle {
+.loader-init .circle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +36,7 @@
   animation: circle-keys var(--animation);
 }
 
-.loader .circle .dot {
+.loader-init .circle .dot {
   position: absolute;
   transform: translate(-50%, -50%);
   width: 16px;
@@ -71,7 +46,7 @@
   animation: dot-keys var(--animation);
 }
 
-.loader .circle .outline {
+.loader-init .circle .outline {
   position: absolute;
   transform: translate(-50%, -50%);
   width: 20px;
