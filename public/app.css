@@ -612,7 +612,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-full{height:100%}
 .h-lg-banner{height:428px}
 .h-px{height:1px}
-.h-\[535px\]{height:535px}
 .max-h-0{max-height:0px}
 .max-h-8{max-height:2rem}
 .max-h-\[300px\]{max-height:300px}
@@ -626,14 +625,9 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .min-h-\[300px\]{min-height:300px}
 .min-h-\[34px\]{min-height:34px}
 .min-h-\[388px\]{min-height:388px}
+.min-h-\[700px\]{min-height:700px}
 .min-h-full{min-height:100%}
 .min-h-screen{min-height:100vh}
-.min-h-\[\]{min-height:}
-.min-h-\[670px\]{min-height:670px}
-.min-h-\[650px\]{min-height:650px}
-.min-h-\[660px\]{min-height:660px}
-.min-h-\[700\]{min-height:700}
-.min-h-\[700px\]{min-height:700px}
 .\!w-36{width:9rem !important}
 .\!w-\[160px\]{width:160px !important}
 .\!w-fit{width:-moz-fit-content !important;width:fit-content !important}
