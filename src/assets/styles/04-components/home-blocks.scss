@@ -424,7 +424,7 @@ salla-breadcrumb {
 }
 salla-filters {
   background-color: #fff !important;
-  box-shadow: 0px 0px 12px 0px #0000000F;
+  box-shadow: 0px 0px 12px 0px #0000000f;
   border-radius: 5px;
 
   salla-filters-widget {
@@ -520,7 +520,7 @@ salla-filters {
   font-size: 20px;
   font-weight: 400;
 }
-.s-product-options-wrapper{
+.s-product-options-wrapper {
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -538,8 +538,8 @@ salla-filters {
   width: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
   height: clamp(0.9rem, 0.2936rem + 0.9744vw, 1.268rem) !important;
 }
-.remove-product-btn{
-  .s-button-primary{
+.remove-product-btn {
+  .s-button-primary {
     @apply bg-secondary border-secondary;
   }
 }
@@ -550,7 +550,7 @@ salla-filters {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-  border-color: #AEAEAE;
+  border-color: #aeaeae;
   .s-quantity-input-input {
     width: clamp(1.5rem, 1.0408rem + 1.9592vw, 3rem) !important;
     font-size: 0.9rem;
@@ -562,15 +562,15 @@ salla-filters {
     width: clamp(1.2rem, 0.7255rem + 2.0245vw, 2.75rem) !important;
   }
 }
-.free_shipping_progress_bar{
-  .progress_filler{
-    transition: all .5s ease;
+.free_shipping_progress_bar {
+  .progress_filler {
+    transition: all 0.5s ease;
   }
 }
 .Alo__main {
   .spacespacespace {
     @apply relative overflow-hidden;
-    
+
     &::after {
       content: "";
       position: absolute;
@@ -590,10 +590,10 @@ salla-filters {
       transform: translateX(-100%);
     }
   }
-  
+
   .swiper-slide-active .spacespacespace:first-child::after {
     transform: translateX(-100%);
-    
+
     @media (max-width: 1024px) {
       transform: translateX(-400%);
       -webkit-transform: translateX(-400%);
@@ -602,7 +602,7 @@ salla-filters {
       -o-transform: translateX(-400%);
     }
   }
-  
+
   @media (max-width: 1024px) {
     .swiper-slide-active .spacespacespace:nth-child(2)::after {
       transform: translateX(-200%);
@@ -612,53 +612,75 @@ salla-filters {
       -o-transform: translateX(-200%);
     }
   }
-  
+
   .swiper-slide-active .spacespacespace:last-child::after {
     transform: translateX(100%);
   }
-  
+
   .swiper-slide-active .spacespacespace::after {
     background-color: var(--after-color) !important;
   }
-  
+
   /* تأثير النصوص */
   .centered > * {
     opacity: 0;
     transform: translateY(15px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
-  
+
   .swiper-slide-active .centered > * {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   /* تأخير ظهور النصوص */
   .swiper-slide-active .centered > *:nth-child(1) {
     transition-delay: 0.5s;
   }
-  
+
   .swiper-slide-active .centered > *:nth-child(2) {
     transition-delay: 0.9s;
   }
-  
+
   .swiper-slide-active .centered > *:nth-child(3) {
     transition-delay: 1.4s;
   }
-  
+
   /* تأثير ظهور الصور */
   .spacespacespace img {
     opacity: 0;
     transform: translateY(-100%);
     transition: opacity 1s ease-out, transform 1s ease-out;
   }
-  
+
   .spacespacespace:last-child img {
     transform: translateY(100%);
   }
-  
+
   .swiper-slide-active .spacespacespace img {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.s-filters-footer {
+  salla-button button {
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    -ms-border-radius: 5px !important;
+    -o-border-radius: 5px !important;
+    .s-button-text {
+      overflow: visible !important;
+    }
+  }
+}
+.special_product_card .s-product-card-content-title a {
+  overflow: unset !important;
+}
+.s-infinite-scroll-wrapper .s-infinite-scroll-btn {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
