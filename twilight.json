@@ -1254,6 +1254,17 @@
                     "required": false
                 },
                 {
+                    "id": "enable_brands_images",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "تفعيل صور الماركات",
+                    "description": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
+                },
+                {
                     "id": "brands",
                     "type": "items",
                     "format": "dropdown-list",
@@ -1267,18 +1278,14 @@
                     "multichoice": true,
                     "searchable": true,
                     "required": false,
-                    "value": []
-                },
-                {
-                    "id": "enable_brands_images",
-                    "type": "boolean",
-                    "format": "switch",
-                    "label": "تفعيل صور الماركات",
-                    "description": null,
-                    "icon": "sicon-toggle-off",
-                    "value": true,
-                    "selected": false,
-                    "required": false
+                    "value": [],
+                    "conditions": [
+                        {
+                            "id": "enable_brands_images",
+                            "operation": "=",
+                            "value": false
+                        }
+                    ]
                 },
                 {
                     "id": "brands_images",
