@@ -1,21 +1,20 @@
-{% set c = component %}
-
 {% set has_animation = theme.settings.get('has_animation') %}
 
 <section class="al_fixed_banner py-5">
-    <div class="{{ c.is_container ? 'container' }}">
+    <div {% if component.is_container %} class="container" {% endif %}>
         <div class="grid grid-cols-2 sm:grid-cols-4 grid-rows-2">
-            {% for item in c.albome %}
+            {% for item in component.albome %}
                 {% set is_first = loop.first %}
                 {% set is_two_items = loop.length == 2 %}
                 <div class="
                     {{ is_first ? 'col-span-2 row-span-2 max-h-[712px]' : 'order-2 max-h-[356px]' }} 
                     {{ is_two_items ? 'col-span-2' : '' }} 
                     {{ has_animation ? 'Al__anime' }}" 
-                    {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.{{ loop.index + 2 }}s" {% endif %}>
+                    {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.{{ loop.index + 2 }}s" {% endif %}
+                >
 
                     {% if item.is_video %}
-                        <video autoplay muted playsinline loop class="object-cover h-full w-full" aria-label="Video banner">
+                        <video autoplay muted webkit-playsinline playsinline loop class="object-cover h-full w-full" aria-label="Video banner">
                             <source src="{{ item.video_url }}" type="video/mp4">
                         </video>
                     {% elseif item.banner_img %}
@@ -24,25 +23,35 @@
                 </div>
             {% endfor %}
             
-            <div class="max-h-[356px] text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center  md:gap-6 py-8 md:py-0" style="background-color:{{ c.text_bg }};">
-                <h3 class="text-xl md:text-[40px] font-bold leading-12 {{ has_animation ? 'Al__anime' }}" 
-                    {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
-                    style="color:{{ c.text_maintitle }};">
-                    {{ c.main_title }}
-                </h3>
-
-                <p class="text-base md:text-2xl pb-3.5 {{ has_animation ? 'Al__anime' }}" 
-                   {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.7s" {% endif %}
-                   style="color:{{ c.text_subtitle }};">
-                    {{ c.sub_title }}
-                </p>
+            <div class="max-h-[356px] text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center  md:gap-6 py-8 md:py-0 p-5" {% if component.text_bg %} style="background-color: {{ component.text_bg }};" {% endif %}>
                 
-                {% include 'components.custom.button' with {
-                    'btn_txt': c.btn_txt,
-                    'btn_url': c.btn_url,
-                    'btn_bg': c.btn_bg,
-                    'btn_color': c.btn_color
-                } %}
+                {% if component.main_title %}
+                    <h3 class="font-bold leading-12 {{ has_animation ? 'Al__anime' }}"
+                        {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+                        style="color:{{ component.text_maintitle }}; font-size: clamp(1.25rem, 0.8099rem + 1.8779vw, 2.5rem);"
+                    >
+                        {{ component.main_title }}
+                    </h3>
+                {% endif %}
+
+                {% if component.sub_title %}
+                    <p class="text-base md:text-2xl pb-3.5 {{ has_animation ? 'Al__anime' }}" 
+                        {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.7s" {% endif %}
+                        style="color:{{ component.text_subtitle }};"
+                    >
+                        {{ component.sub_title }}
+                    </p>
+                {% endif %}
+                
+                {% if component.btn_txt %}
+                    {% include 'components.custom.button' with {
+                        'btn_txt': component.btn_txt,
+                        'btn_url': component.btn_url,
+                        'btn_bg': component.btn_bg,
+                        'btn_color': component.btn_color
+                    } %}
+                {% endif %}
+
             </div>
         </div>
     </div>

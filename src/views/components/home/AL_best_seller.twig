@@ -1,11 +1,10 @@
-{% set c = component %}
-<section id = "AL_best_seller-{{ position }}" class="AL_best_seller mb-5 pb-12" style="background-color : {{c.section_bgcolor}}">  
+<section id = "AL_best_seller-{{ position }}" class="AL_best_seller mb-5 pb-12" style="background-color : {{component.section_bgcolor}}">  
     <div class="background container relative !overflow-hidden ">
 
-        {% if c.bg_video %}
+        {% if component.bg_video %}
             <div class="video-background w-full h-[580px] relative Al__anime" data-anim-allura="fade" data-dur-allura="0.8s">
                 <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="{{ c.video_url }}" type="video/mp4"/>
+                    <source src="{{ component.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
                 <div class="video-controls absolute top-4 right-4">
@@ -16,7 +15,7 @@
             </div>
         {% else %}
             <div class="image-div w-full h-[580px] Al__anime" data-anim-allura="fade" data-dur-allura="0.8s">
-                <img src="{{ c.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
+                <img src="{{ component.bg_image }}" alt="Background Image" class="w-full h-full object-cover">
             </div>
         {% endif %}
         <div id="products-{{ position }}" class="products w-[93%] md:w-[97%] absolute bottom-[7%] md:bottom-[15%] -translate-x-[0%] md:-translate-x-[87.5%]">
@@ -33,7 +32,7 @@
                 }
             }'>
                 <div slot="items">
-                    {% for product in c.best_sell_products %}
+                    {% for product in component.best_sell_products %}
                         <custom-salla-product-card horizontal product="{{ product }}"></custom-salla-product-card>
                     {% endfor %}
                 </div>
