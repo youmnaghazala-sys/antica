@@ -23,7 +23,10 @@
                 </div>
             {% endfor %}
             
-            <div class="max-h-[356px] text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center  md:gap-6 py-8 md:py-0 p-5" {% if component.text_bg %} style="background-color: {{ component.text_bg }};" {% endif %}>
+            <div class="max-h-[356px] text-center col-span-2 order-1 w-full h-full flex flex-col items-center justify-center md:gap-4 py-8 p-5 {{ has_animation ? 'Al__anime' }}"
+                {% if component.text_bg %} style="background-color: {{ component.text_bg }};" {% endif %}
+                {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+            >
                 
                 {% if component.main_title %}
                     <h3 class="font-bold leading-12 {{ has_animation ? 'Al__anime' }}"
@@ -35,9 +38,9 @@
                 {% endif %}
 
                 {% if component.sub_title %}
-                    <p class="text-base md:text-2xl pb-3.5 {{ has_animation ? 'Al__anime' }}" 
+                    <p class="pb-3.5 {{ has_animation ? 'Al__anime' }}" 
                         {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.7s" {% endif %}
-                        style="color:{{ component.text_subtitle }};"
+                        style="color: {{ component.text_subtitle }}; font-size: clamp(1rem, 0.8770rem + 0.5246vw, 1.5rem);"
                     >
                         {{ component.sub_title }}
                     </p>

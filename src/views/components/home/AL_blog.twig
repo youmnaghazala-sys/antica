@@ -1,6 +1,10 @@
+{% set has_animation = theme.settings.get('has_animation') %}
+
 <section class="AL-blog h-[514px] sm:h-[500px]">
     <div class="container">
-        <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6 py-0 sm:py-12" style="background-color:{{component.bg_color}};">
+        <div class="flex items-center justify-between flex-col sm:flex-row gap-1 sm:gap-6 py-0 sm:py-12 {{ has_animation ? 'Al__anime' }}" style="background-color:{{component.bg_color}};"
+            {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+        >
             <div class="swiper content-slider {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
                 <div class="swiper-wrapper">
                     {% for item in component.blog_drop_list %}

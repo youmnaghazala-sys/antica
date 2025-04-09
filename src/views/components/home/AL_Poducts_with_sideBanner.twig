@@ -19,7 +19,7 @@
         </div>
 
    
-        <div class="items grid grid-cols-1 md:grid-cols-2 w-full gap-4 md:gap-6">
+        <div class="items grid grid-cols-1 lg:grid-cols-2 w-full gap-4 md:gap-6">
             {% for product in component.products %}
                 <div class="{% if has_animation %} Al__anime {% endif %}" 
                      {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.{{ loop.index + 2 }}s" {% endif %}>

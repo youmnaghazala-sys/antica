@@ -9,17 +9,17 @@
                     "delay": 0
                 },
                 "breakpoints": {
-                    "350": {"slidesPerView": 2, "spaceBetween": 25},
-                    "768": {"slidesPerView": 4, "spaceBetween": 10},
-                    "1024": {"slidesPerView": 5, "spaceBetween": 10}
+                    "350": { "slidesPerView": 2, "spaceBetween": 25 },
+                    "768": { "slidesPerView": 4, "spaceBetween": 10 },
+                    "1024": { "slidesPerView": 5, "spaceBetween": 10 }
                 }
             }'>
             <div slot="items" class="h-full">
-                {% for brand in (component.enable_brands_images ? component.brands : component.brands_images) %}
+                {% for brand in (component.enable_brands_images ? component.brands_images : component.brands) %}
                     <div class="flex items-center justify-center h-full min-w-[150px] max-h-[90px]">
                         <img
-                            src="{{ component.enable_brands_images ? brand.logo : brand.brand_img }}" 
-                            alt="{{ component.enable_brands_images ? brand.name : 'brand name' }}" 
+                            src="{{ component.enable_brands_images ? brand.brand_img : brand.logo }}" 
+                            alt="{{ component.enable_brands_images ? 'brand name' : brand.name }}" 
                             class="h-1/2 w-auto my-auto opacity-80 hover:opacity-100 transition-all cursor-pointer" 
                             loading="lazy"
                         />
