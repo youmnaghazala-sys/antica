@@ -7487,6 +7487,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .md\:gap-6{gap:1.5rem}
 .md\:gap-7{gap:1.75rem}
 .md\:gap-8{gap:2rem}
+.md\:gap-4{gap:1rem}
 .md\:gap-x-6{-moz-column-gap:1.5rem;column-gap:1.5rem}
 .md\:gap-y-20{row-gap:5rem}
 .md\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * (1 - 0));margin-top:calc(0px * (1 - var(--tw-space-y-reverse)));margin-top:calc(0px * calc(1 - 0));margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * 0);margin-bottom:calc(0px * var(--tw-space-y-reverse))}
@@ -7517,7 +7518,6 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .md\:text-\[1\.5rem\]{font-size:1.5rem}
 .md\:text-\[21px\]{font-size:21px}
 .md\:text-\[28px\]{font-size:28px}
-.md\:text-\[40px\]{font-size:40px}
 .md\:text-base{font-size:1rem;line-height:1.5rem}
 .md\:text-lg{font-size:1.125rem;line-height:1.75rem}
 .md\:text-xl{font-size:1.25rem;line-height:1.75rem}

@@ -1,17 +1,27 @@
+{% set has_animation = theme.settings.get('has_animation') %}
+
 <section class="AL-best_category my-5 py-7 md:my-10"
-    {% if component.category_image %} style="background-image: url('{{ component.category_image }}'); background-position: center;
-    background-size: cover;" {% endif %}>
+    {% if component.category_image %} style="background-image: url('{{ component.category_image }}'); background-position: center; background-size: cover;" {% endif %}
+    >
     <div class="container">
 
         {% if component.category_title or component.category_sub_title %}
 
             <div class="AL-best_category_titles text-center">
                 {% if component.category_title %}
-                    <h3 class="AL-best_category_titles_title md:text-xl opacity-70 mb-3" style="color: {{ component.category_title_color }}"> {{ component.category_title }} </h3>
+                    <h3 class="AL-best_category_titles_title md:text-xl opacity-70 mb-3 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_title_color }}"
+                        {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+                    >
+                        {{ component.category_title }}
+                    </h3>
                 {% endif %}
 
                 {% if component.category_sub_title %}
-                    <p class="AL-best_category_titles_description font-bold text-xl md:text-[28px] leading-9" style="color: {{ component.category_sub_color }}"> {{ component.category_sub_title }} </p>
+                    <p class="AL-best_category_titles_description font-bold text-xl md:text-[28px] leading-9 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_sub_color }}"
+                        {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+                    >
+                        {{ component.category_sub_title }}
+                    </p>
                 {% endif %}
 
             </div>
@@ -24,7 +34,7 @@
 
                 <ul class="AL-best_category_tabs_container">
                     {% for tab in component.categories %}
-                        <li class="AL-best_category_tabs_item {{ loop.first ? 'tab_active' : '' }}  {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
+                        <li class="AL-best_category_tabs_item {{ loop.first ? 'tab_active' : '' }}  {{ has_animation ? 'Al__anime' }}" {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
                             <button class="AL-best_category_tabs_btn" style="{{ component.category_name_color }}"> {{ tab.category_name }} </button>
                         </li>
                     {% endfor %}
@@ -69,7 +79,7 @@
                 </style>
             </template>
 
-            <custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10 {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
+            <custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10 {{ has_animation ? 'Al__anime' }}" {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
                 
 				{% for category in component.categories %}
                     <tab-content class="relative" slot="{{ category.category_name }}" {% if not loop.first %} hidden {% endif %}>
