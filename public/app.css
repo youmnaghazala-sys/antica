@@ -484,6 +484,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .static{position:static}
 .fixed{position:fixed}
 .absolute{position:absolute}
+.\!relative{position:relative !important}
 .relative{position:relative}
 .sticky{position:sticky}
 .inset-0{top:0px;right:0px;bottom:0px;left:0px}
@@ -880,6 +881,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .text-xl{font-size:1.25rem;line-height:1.75rem}
 .text-xs{font-size:0.75rem;line-height:1rem}
 .text-xxs{font-size:10px}
+.text-\[1\.1rem\]{font-size:1.1rem}
 .font-bold{font-weight:700}
 .font-medium{font-weight:500}
 .font-normal{font-weight:400}
@@ -7484,10 +7486,10 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .md\:items-center{align-items:center}
 .md\:gap-16{gap:4rem}
 .md\:gap-3{gap:0.75rem}
+.md\:gap-4{gap:1rem}
 .md\:gap-6{gap:1.5rem}
 .md\:gap-7{gap:1.75rem}
 .md\:gap-8{gap:2rem}
-.md\:gap-4{gap:1rem}
 .md\:gap-x-6{-moz-column-gap:1.5rem;column-gap:1.5rem}
 .md\:gap-y-20{row-gap:5rem}
 .md\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * (1 - 0));margin-top:calc(0px * (1 - var(--tw-space-y-reverse)));margin-top:calc(0px * calc(1 - 0));margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * 0);margin-bottom:calc(0px * var(--tw-space-y-reverse))}
