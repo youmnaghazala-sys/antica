@@ -484,8 +484,8 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .static{position:static}
 .fixed{position:fixed}
 .absolute{position:absolute}
-.relative{position:relative}
 .\!relative{position:relative !important}
+.relative{position:relative}
 .sticky{position:sticky}
 .inset-0{top:0px;right:0px;bottom:0px;left:0px}
 .-top-5{top:-1.25rem}
@@ -881,6 +881,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .text-xl{font-size:1.25rem;line-height:1.75rem}
 .text-xs{font-size:0.75rem;line-height:1rem}
 .text-xxs{font-size:10px}
+.text-\[1\.1rem\]{font-size:1.1rem}
 .font-bold{font-weight:700}
 .font-medium{font-weight:500}
 .font-normal{font-weight:400}

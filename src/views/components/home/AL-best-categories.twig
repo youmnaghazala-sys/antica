@@ -17,7 +17,7 @@
                 {% endif %}
 
                 {% if component.category_sub_title %}
-                    <p class="AL-best_category_titles_description !relative font-bold text-xl md:text-[28px] leading-9 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_sub_color }}"
+                    <p class="AL-best_category_titles_description !relative font-bold text-[1.1rem] sm:text-xl md:text-[28px] leading-9 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_sub_color }}"
                         {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
                     >
                         {{ component.category_sub_title }}
@@ -283,6 +283,9 @@
             width: 40%;
             height: 2px;
             background-color: var(--color-primary);
+            @media (max-width: 500px) {
+                width: 75% !important;
+            }
             @media (max-width: 768px) {
                 width: 60%;
             }
