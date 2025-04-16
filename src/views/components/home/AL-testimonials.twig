@@ -1,5 +1,5 @@
-<section class="al-testimonial py-10">
-    <div class="grid grid-cols-1 md:grid-cols-3">
+<section class="al-testimonial mt-4 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 pr-4 sm:pr-0">
         <div  class="hidden md:flex flex-col items-center text-right justify-center bg-cover bg-center w-[600px] h-[394px] p-6 px-6 rounded-sm"
             style="background-image: url('{{ component.m_img }}');">
                 <div class="w-44">
@@ -65,7 +65,7 @@
                         }'>
                         <div slot="items" class="flex flex-wrap justify-center gap-4">
                             {% for card in component.slider_collection %}
-                                <div class="card w-[315px] min-h-[285px] shadow-xl border border-gray-200 p-4  rounded-sm relative {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %} style="background-color:{{component.card_background_color}};">
+                                <div class="card w-[315px] min-h-[243px] sm:min-h-[285px] shadow-xl border border-gray-200 p-4  rounded-sm relative {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %} style="background-color:{{component.card_background_color}};">
                                     <span class="absolute top-4 right-4  text-2xl" style="color:{{component.quats_color}}"> 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                                             <g opacity="0.3">
