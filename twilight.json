@@ -4,7 +4,7 @@
         "en": "Allure"
     },
     "repository": "https://github.com/themiify/Allure-salla",
-    "author_email": "partners@themiify.com",
+    "author_email": "info@themiify.com",
     "features": [
         "mega-menu",
         "fonts",
@@ -41,6 +41,17 @@
             "id": "is_more_button_enabled",
             "label": "عرض (زر الكل) في الصفحة الرئيسية",
             "format": "switch"
+        },
+        {
+            "id": "text_color",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون النص",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#2E2E2E",
+            "required": true
         },
         {
             "id": "has_animation",
@@ -1243,6 +1254,17 @@
                     "required": false
                 },
                 {
+                    "id": "enable_brands_images",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "تفعيل صور الماركات",
+                    "description": null,
+                    "icon": "sicon-toggle-off",
+                    "value": true,
+                    "selected": false,
+                    "required": false
+                },
+                {
                     "id": "brands",
                     "type": "items",
                     "format": "dropdown-list",
@@ -1256,18 +1278,14 @@
                     "multichoice": true,
                     "searchable": true,
                     "required": false,
-                    "value": []
-                },
-                {
-                    "id": "enable_brands_images",
-                    "type": "boolean",
-                    "format": "switch",
-                    "label": "تفعيل صور الماركات",
-                    "description": null,
-                    "icon": "sicon-toggle-off",
-                    "value": true,
-                    "selected": false,
-                    "required": false
+                    "value": [],
+                    "conditions": [
+                        {
+                            "id": "enable_brands_images",
+                            "operation": "=",
+                            "value": false
+                        }
+                    ]
                 },
                 {
                     "id": "brands_images",
@@ -2966,7 +2984,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "2",
-                            "maxLength": "300"
+                            "maxLength": "150"
                         },
                         {
                             "id": "slider_images.subtitle",
@@ -2981,7 +2999,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "2",
-                            "maxLength": "300"
+                            "maxLength": "250"
                         },
                         {
                             "id": "slider_images.button_text",
@@ -2996,7 +3014,7 @@
                             "multilanguage": false,
                             "required": false,
                             "minLength": "2",
-                            "maxLength": "300"
+                            "maxLength": "30"
                         },
                         {
                             "id": "slider_images.button_text_color",
@@ -3250,7 +3268,7 @@
                             "id": "stories.is_products",
                             "type": "boolean",
                             "format": "switch",
-                            "label": "اضافة منتجات بديلة للصورة",
+                            "label": "اضافة المنتجات",
                             "description": null,
                             "labelHTML": null,
                             "icon": "sicon-toggle-off",
@@ -3413,7 +3431,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "50"
+                    "maxLength": "80"
                 },
                 {
                     "id": "category_sub_title",
@@ -3428,7 +3446,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": "2",
-                    "maxLength": "100"
+                    "maxLength": "200"
                 },
                 {
                     "id": "category_image",
@@ -3440,7 +3458,7 @@
                     "placeholder": "e.g. https://hostname.com/image.png",
                     "icon": "sicon-image",
                     "value": "https://cdn.salla.sa/form-builder/3APb2grgxsKDS7KYvNZY4yxkgPRxlTysEWG7mXsa.png",
-                    "required": false
+                    "required": true
                 },
                 {
                     "id": "categories",
@@ -3463,7 +3481,7 @@
                             "icon": "sicon-format-text-alt",
                             "value": null,
                             "multilanguage": false,
-                            "required": false,
+                            "required": true,
                             "minLength": 6,
                             "maxLength": 30
                         },
@@ -3480,7 +3498,7 @@
                             "source": "Categories",
                             "multichoice": false,
                             "searchable": true,
-                            "required": false,
+                            "required": true,
                             "value": []
                         },
                         {
@@ -3608,9 +3626,15 @@
             ]
         }
     ],
-    "support_url": "",
+    "support_url": "https://themiify.com/",
     "description": {
         "ar": null,
         "en": null
     }
 }
+
+
+
+
+
+

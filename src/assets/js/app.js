@@ -28,6 +28,7 @@ class App extends AppHelpers {
     this.ALU_extractfooterimage();
     this.ALU_searchIcon();
     this.ALU__removeShadowroot();
+    this.addCartListener();
     initTootTip();
     this.loadModalImgOnclick();
 
@@ -140,6 +141,22 @@ class App extends AppHelpers {
         img.src = imgSrc;
         img.classList.add("loaded");
       });
+    });
+  }
+
+  addCartListener() {
+    const free_shipping_element = document.querySelector('.free_shipping_progress_bar');
+    if (!free_shipping_element) return;
+    const free_shipping_limit = parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
+
+    salla.event.on('cart::updated', function (data) {
+      document.querySelector('.progress_filler').style.width = `${(data.total / free_shipping_limit) * 100}%`;
+      const freeShippingLimitRemaining = document.querySelector('.free_shipping_limit_remaining');
+      if (freeShippingLimitRemaining) {
+        freeShippingLimitRemaining.innerText = salla.money(
+          free_shipping_limit - data.total > 0 ? free_shipping_limit - data.total : 0
+        );
+      }
     });
   }
 
@@ -505,7 +522,51 @@ class App extends AppHelpers {
     });
   }
 }
+class TabComponent extends HTMLElement {
+  constructor() {
+    super();
 
+    const template = document.querySelector('#AL-best_category_tabs');
+    if (!template) {
+      console.error("Template #AL-best_category_tabs not found!");
+      return;
+    }
+
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.appendChild(template.content.cloneNode(true));
+
+    this.initTabs();
+  }
+
+  initTabs() {
+    const tabs = this.shadowRoot.querySelectorAll('.AL-best_category_tabs_btn');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        this.changeTab(tab);
+      });
+    });
+
+    if (tabs.length > 0) this.changeTab(tabs[0]);
+  }
+
+  changeTab(selectedTab) {
+    this.shadowRoot.querySelectorAll('.AL-best_category_tabs_item')
+      .forEach(tab => tab.classList.remove('tab_active'));
+
+    selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
+
+    const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
+
+    slots.forEach(slot => slot.setAttribute('hidden', ''));
+
+    const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
+
+    if (activeSlot) activeSlot.removeAttribute('hidden');
+  }
+}
+
+window.customElements.define('custom-tabs', TabComponent);
 
 salla.onReady(() => (new App).loadTheApp());
 

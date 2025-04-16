@@ -71,9 +71,12 @@
 									<a href="{{ article.category.url }}" class="text-sm text-primary">
 										{{ article.category.name }}
 									</a>
-									<h3 class="text-base sm:text-2xl font-medium text-[#222222] pb-2 sm:pb-3 border-b-2 border-solid border-primary mb-1.5 sm:mb-4">
-										{{ article.title }}
-									</h3>
+									<div class="max-w-fit">
+										<h3 class="text-base sm:text-2xl font-medium text-[#222222]">
+											{{ article.title }}
+										</h3>
+										<hr class="border-primary my-3 border-[-0.25px]">
+									</div>
 									<div class="sm:mb-3 text-primary rounded-md inline-flex text-xs sm:text-sm rtl:space-x-reverse space-x-5">
 										<div class=" flex items-center">
 											<i class="sicon-calendar-date rtl:ml-1 ltr:mr-1"></i>
@@ -87,7 +90,7 @@
 									<p class="text-[#202020e8] text-sm sm:text-base line-clamp-2 text-ellipsis mb-1">
 										{{ article.summary }}
 									</p>
-									<a href="{{ article.url }}" class="text-primary text-sm sm:text-lg font-semibold underline">
+									<a href="{{ article.url }}" class="text-primary text-lg underline font-medium">
 										{{trans('pages.order.show_more')}}
 									</a>
 								</div>

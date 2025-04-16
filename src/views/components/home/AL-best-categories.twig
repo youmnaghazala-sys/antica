@@ -1,15 +1,25 @@
+{% set has_animation = theme.settings.get('has_animation') %}
 <section class="AL-best_category my-5 py-7 md:my-10"
-    {% if component.category_image %} style="background-image: url('{{ component.category_image }}');" {% endif %}>
+    {% if component.category_image %} style="background-image: url('{{ component.category_image }}'); background-position: center; background-size: cover;" {% endif %}
+    >
     <div class="container">
         {% if component.category_title or component.category_sub_title %}
 
             <div class="AL-best_category_titles text-center">
                 {% if component.category_title %}
-                    <h3 class="AL-best_category_titles_title md:text-xl opacity-70 mb-3" style="color: {{ component.category_title_color }}"> {{ component.category_title }} </h3>
+                    <h3 class="AL-best_category_titles_title md:text-xl opacity-70 mb-3 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_title_color }}"
+                        {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+                    >
+                        {{ component.category_title }}
+                    </h3>
                 {% endif %}
 
                 {% if component.category_sub_title %}
-                    <p class="AL-best_category_titles_description font-bold text-xl md:text-[28px] leading-9" style="color: {{ component.category_sub_color }}"> {{ component.category_sub_title }} </p>
+                    <p class="AL-best_category_titles_description !relative font-bold text-[1.1rem] sm:text-xl md:text-[28px] leading-9 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_sub_color }}"
+                        {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
+                    >
+                        {{ component.category_sub_title }}
+                    </p>
                 {% endif %}
 
             </div>
@@ -17,234 +27,275 @@
         {% endif %}
 
         {% if component.categories|length > 0 %}
-                <salla-tabs class="AL-best_category_tabs_container">
-                    {% for category in component.categories %}
-                        <salla-tab-header name="{{category.category_name}}" slot="header" class="AL-best_category_tabs_item {{ loop.first ? 'tab_active' : '' }}  {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
-                            <button class="AL-best_category_tabs_btn" style="{{ component.category_name_color }}"> {{ category.category_name }} </button>
-                        </salla-tab-header>
+            <template id="AL-best_category_tabs">
 
-                        <salla-tab-content name="{{category.category_name}}" slot="content" id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10 {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
-                            <div class="relative" slot="{{ category.category_name }}" {% if not loop.first %} hidden {% endif %}>
-                                <salla-products-slider
-                                    source-value="{{ category.relate_category[0] }}"
-                                    source="categories"
-                                    slider-id="slider-for-product-{{ loop.index }}"
-                                    slider-config='{
-                                        "slidesPerView": 1,
-                                        "spaceBetween": 0,
-                                        "centerInsufficientSlides": true
-                                    }'
-                                ></salla-products-slider>
-
-                                {% if category.unique_feature_1 %}
-                                    <div class="product-unique-feature feature-1" style="--border-color: {{ component.category_name_color }};">
-                                        <span> {{ category.unique_feature_1 }} </span>
-                                        <div class="dot"></div>
-                                    </div>
-                                {% endif %}
-
-                                {% if category.unique_feature_2 %}
-                                <div class="product-unique-feature feature-2" >
-                                    <span > {{ category.unique_feature_2 }} </span>
-                                    <div style="--borderColor: {{ component.category_name_color }};"  class="dot"></div>
-                                </div>
-                                {% endif %}
-                                
-                                {% if category.unique_feature_3 %}
-                                <div class="product-unique-feature feature-3" >
-                                    <span> {{ category.unique_feature_3 }} </span>
-                                    <div  style="--borderColor: {{ component.category_name_color }};" class="dot"></div>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </salla-tab-content>
+                <ul class="AL-best_category_tabs_container">
+                    {% for tab in component.categories %}
+                        <li class="AL-best_category_tabs_item {{ loop.first ? 'tab_active' : '' }}  {{ has_animation ? 'Al__anime' }}" {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
+                            <button class="AL-best_category_tabs_btn" style="{{ component.category_name_color }}"> {{ tab.category_name }} </button>
+                        </li>
                     {% endfor %}
-                </salla-tabs>
-        {% endif %}
+                </ul>
 
+                <div class="AL-best_category_tabs_content">
+                    {% for tab in component.categories %}
+                        <slot name="{{ tab.category_name }}"></slot>
+                    {% endfor %}
+                </div>
+
+                <style>
+                    .AL-best_category_tabs_container {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        gap: 32px;
+                    }
+                    .AL-best_category_tabs_item .AL-best_category_tabs_btn {
+                        cursor: pointer;
+                        background: transparent;
+                        border: none;
+                        position: relative;
+                        padding-right: 0;
+                        font-weight: 700;
+                        font-size: clamp(1.25rem, 1.0656rem + 0.7869vw, 2rem);
+                        opacity: 0.5;
+                    }
+                    .AL-best_category_tabs_item.tab_active .AL-best_category_tabs_btn {
+                        opacity: 1;
+                    }
+                    .AL-best_category_tabs_item.tab_active .AL-best_category_tabs_btn::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -8px;
+                        right: 0;
+                        width: 100%;
+                        height: 2px;
+                        background: #000;
+                    }
+                </style>
+            </template>
+
+            <custom-tabs id="AL-best_category_products" class="grid grid-cols-1 md:grid-cols-2 mt-10 {{ has_animation ? 'Al__anime' }}" {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.8s" {% endif %}>
+                
+				{% for category in component.categories %}
+                    <tab-content class="relative" slot="{{ category.category_name }}" {% if not loop.first %} hidden {% endif %}>
+                        <salla-products-slider
+                            source-value="{{ category.relate_category[0] }}"
+                            source="categories"
+                            slider-id="slider-for-product-{{ loop.index }}"
+                            slider-config='{
+                                "slidesPerView": 1,
+                                "spaceBetween": 0,
+                                "centerInsufficientSlides": true
+                            }'
+                        ></salla-products-slider>
+
+						{% if category.unique_feature_1 %}
+                            <div class="product-unique-feature feature-1" style="--border-color: {{ component.category_name_color }};">
+                                <span> {{ category.unique_feature_1 }} </span>
+                                <div class="dot"></div>
+                            </div>
+						{% endif %}
+
+						{% if category.unique_feature_2 %}
+                        <div class="product-unique-feature feature-2" >
+							<span > {{ category.unique_feature_2 }} </span>
+                            <div style="--borderColor: {{ component.category_name_color }};"  class="dot"></div>
+                        </div>
+						{% endif %}
+						
+						{% if category.unique_feature_3 %}
+                        <div class="product-unique-feature feature-3" >
+							<span> {{ category.unique_feature_3 }} </span>
+                            <div  style="--borderColor: {{ component.category_name_color }};" class="dot"></div>
+                        </div>
+						{% endif %}
+
+                    </tab-content>
+                {% endfor %}
+
+            </custom-tabs>
+        {% endif %}
     </div>
 </section>
 
 <style>
-	.AL-best_category {
-		.s-products-slider-slider {
-			    max-width: 50%;
-    			margin: 0 auto;
-				@media (max-width: 400px) {
-			    	max-width: 65%;
-				}
-				@media (min-width: 400px) and (max-width: 768px) {
-			    	max-width: 45%;
-				}
-				.swiper {
-					margin: 0 auto;
-					padding: 0 !important;
-				}
+	.AL-best_category .s-products-slider-slider {
+		max-width: 50%;
+		margin: 0 auto;
+	}
+	@media(max-width: 400px) {
+		.AL-best_category .s-products-slider-slider {
+			max-width: 65%;
 		}
-		.s-slider-block__title-nav {
-			width: 150% !important;
+	}
+	@media(min-width: 400px) and(max-width: 768px) {
+		.AL-best_category .s-products-slider-slider {
+			max-width: 45%;
 		}
-		.s-product-card-entry {
-			background: transparent;
+	}
+	.AL-best_category .s-products-slider-slider .swiper {
+		margin: 0 auto !important;
+		padding: 0 !important;
+	}
+	.AL-best_category .s-slider-block__title-nav {
+		width: 150% !important;
+	}
+	.AL-best_category .s-product-card-entry {
+		background: transparent;
+	}
+	.AL-best_category .s-product-card-shadow:hover {
+		box-shadow: none;
+	}
+	.AL-best_category .s-product-card-image {
+		border-radius: 0;
+		aspect-ratio: 1 / 1.5;
+	}
+	.AL-best_category .s-product-card-content-footer {
+		display: none;
+	}
+	.AL-best_category .s-product-card-vertical {
+		box-shadow: none;
+	}
+	.AL-best_category .product-unique-feature {
+		--border-color: #000;
+		position: absolute;
+		padding-bottom: 15px;
+		padding-inline: 15px;
+		font-size: 29.021px;
+		line-height: 29px;
+		z-index: 2;
+		width: 50%;
+	}
+	.AL-best_category .product-unique-feature span {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
+		max-width: 58%;
+		text-overflow: ellipsis;
+		white-space: normal;
+	}
+	@media(max-width: 768px) {
+		.AL-best_category .product-unique-feature span {
+			max-width: 100%;
 		}
-		.s-product-card-shadow:hover {
-			box-shadow: none;
+	}
+	.AL-best_category .product-unique-feature .dot {
+		border: 1px solid var(--border-color);
+		margin-top: 8px;
+		width: 55%;
+		position: relative;
+	}
+	@media(max-width: 768px) {
+		.AL-best_category .product-unique-feature .dot {
+			width: 85%;
 		}
-		.s-product-card-image {
-			border-radius: 0;
+	}
+	.AL-best_category .product-unique-feature.feature-1 {
+		top: 15%;
+		right: 9%;
+		font-size: 30px;
+	}
+	@media(max-width: 768px) {
+		.AL-best_category .product-unique-feature.feature-1 {
+			right: 0;
+			font-size: 20px;
 		}
-		.s-product-card-content-footer {
-			display: none;
+	}
+	.AL-best_category .product-unique-feature.feature-2 {
+		top: 60%;
+		right: 9%;
+		font-size: 30px;
+	}
+	@media(max-width: 768px) {
+		.AL-best_category .product-unique-feature.feature-2 {
+			right: 0;
+			font-size: 20px;
 		}
-		.s-product-card-image {
-			aspect-ratio: 1/1.5;
-		} 
-        .s-product-card-vertical {
-            box-shadow: none;
-        }
-		.product-unique-feature {
-			position: absolute;
-            padding-bottom: 15px;
-            padding-inline: 15px;
-            font-size: 29.021px;
-            line-height: 29px; 
-            z-index: 2;
-            width: 50%;
+	}
+	.AL-best_category .product-unique-feature.feature-3 {
+		top: 55%;
+		left: 0;
+		text-align: left;
+		text-align: -webkit-left;
+	}
+	.AL-best_category .product-unique-feature.feature-3 span {
+		font-size: 30px;
+	}
+	@media(max-width: 768px) {
+		.AL-best_category .product-unique-feature.feature-3 span {
+			font-size: 20px;
 		}
-        .product-unique-feature span{
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
-            overflow: hidden;
-            max-width: 58%;
-            text-overflow: ellipsis;
-            white-space: normal;
-            @media (max-width:768px) {
-            max-width: 100%;
-            }
-        }
-        .product-unique-feature .dot{
-            border: 1px solid var(--border-color);
-            margin-top: 8px;
-            width: 55%;
-            position: relative;
-            @media (max-width : 768px) {
-                width: 85%;
-            }
-        }
-		.product-unique-feature.feature-1 {
-            top: 15%;
-            right: 9%;
-            @media (max-width:768px) {
-                right: 0%;
-            }
+	}
+	.AL-best_category .product-unique-feature.feature-3 .dot {
+		margin-right: -22px;
+	}
+	.AL-best_category .product-unique-feature.feature-1 .dot::after,
+	.AL-best_category .product-unique-feature.feature-2 .dot::after {
+		content: '';
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		top: -50%;
+		left: -20px;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		border: 1px solid var(--border-color);
+	}
+	.AL-best_category .product-unique-feature.feature-1 .dot::before,
+	.AL-best_category .product-unique-feature.feature-2 .dot::before {
+		content: '';
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		background-color: var(--border-color);
+		top: -4px;
+		left: -4px;
+		border-radius: 50%;
+	}
+	.AL-best_category .product-unique-feature.feature-3 .dot::after {
+		content: '';
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		top: -50%;
+		right: -20px;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		border: 1px solid var(--border-color);
+	}
+	.AL-best_category .product-unique-feature.feature-3 .dot::before {
+		content: '';
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		top: -4px;
+		right: -4px;
+		border-radius: 50%;
+		background-color: var(--border-color);
+	}
+	.AL-best_category .AL-best_category_titles .AL-best_category_titles_description::after {
+		content: "";
+		position: absolute;
+		bottom: -15px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 40%;
+		height: 2px;
+		background-color: var(--color-primary);
+	}
+	@media(max-width: 500px) {
+		.AL-best_category .AL-best_category_titles .AL-best_category_titles_description::after {
+			width: 75% !important;
 		}
-        .product-unique-feature {
-            --border-color: #000;
-        }
-        .product-unique-feature.feature-1 .dot::after ,.product-unique-feature.feature-2 .dot::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-color: transparent;
-            top: -50%;
-            left: -20px;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            border: 1px solid var(--border-color); 
-        }
-
-        .product-unique-feature.feature-1 .dot::before,.product-unique-feature.feature-2 .dot::before {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: var(--border-color);
-            top: -4px;
-            left: -4px;
-            border-radius: 50%;
-        }
-        .product-unique-feature.feature-1,.product-unique-feature.feature-2{
-            font-size :30px;
-            @media (max-width:768px) {
-                font-size :20px;
-            }
-        }
-		.product-unique-feature.feature-2 {
-            top: 60%;
-            right: 9%;
-            @media (max-width:768px) {
-                right: 0%;
-            }
+	}
+	@media(max-width: 768px) {
+		.AL-best_category .AL-best_category_titles .AL-best_category_titles_description::after {
+			width: 60%;
 		}
-
-        .product-unique-feature.feature-3 .dot::after{
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-color: transparent;
-            top: -50%;
-            right: -20px;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            border: 1px solid var(--border-color); 
-        }
-
-        .product-unique-feature.feature-3 .dot::before {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            top: -4px;
-            right: -4px;;
-            border-radius: 50%;
-            background-color: var(--border-color);
-        }
-        .product-unique-feature.feature-3 span{
-            font-size :30px;
-            @media (max-width:768px) {
-                font-size :20px;
-            }
-        }
-		.product-unique-feature.feature-3 {
-            top: 55%;
-            left: 0%;
-            text-align: left;
-            text-align: -webkit-left;
-		}
-        .product-unique-feature.feature-3 .dot{
-            margin-right: -22px;
-        }
-        .AL-best_category_tabs_container {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 32px;
-        }
-        .AL-best_category_tabs_item .AL-best_category_tabs_btn {
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            position: relative;
-            padding-right: 0;
-            font-weight: 700;
-            font-size: clamp(1.25rem, 1.0656rem + 0.7869vw, 2rem);
-            opacity: 0.5;
-        }
-        .AL-best_category_tabs_item.tab_active .AL-best_category_tabs_btn {
-            opacity: 1;
-        }
-        .AL-best_category_tabs_item.tab_active .AL-best_category_tabs_btn::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 0;
-            width: 100%;
-            height: 2px;
-            background: #000;
-        }
 	}
 </style>

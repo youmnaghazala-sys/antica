@@ -91,23 +91,23 @@
 		</nav>
 		<div class="flex flex-col items-start md:flex-row All_singlepage" id="product-{{ product.id }}">
 			<div class="sidebar md:sticky top-24 w-full md:!w-2/4 rtl:ml-8 ltr:mr-8 pb-8 md:pb-16 overflow-hidden shrink-0">
-				<div class="flex rtl:space-x-reverse space-x-3 justify-end relative top-[4rem] z-[3]">
+				<div class="flex rtl:space-x-reverse space-x-3 justify-end relative top-20 z-2">
 					<salla-social-share class="inline-flex mb-5" aria-label="social share"></salla-social-share>
 
-					<salla-button class="btn--wishlist animated hidden sm:inline-flex" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light" aria-label="add to wishlist">
+					<salla-button class="btn--wishlist animated inline-flex" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light" aria-label="add to wishlist">
 						<i class="sicon-heart"></i>
 					</salla-button>
 				</div>
 
 				{% set has_many_images = product.images|length > 1 %}
-				<salla-slider id="details-slider-{{ product.id }}" class="slider-single details-slider rounded-md image-slider sm:flex-row-reverse" type="thumbs" loop="false" vertical-thumbs="true" auto-height listen-to-thumbnails-option show-thumbs-controls="false" thumbs-config='{"slidesPerView":3,"spaceBetween":20}'>
+				<salla-slider id="details-slider-{{ product.id }}" class="slider-single details-slider rounded-md image-slider sm:flex-row-reverse" type="thumbs" loop="false" vertical-thumbs="true" auto-height listen-to-thumbnails-option show-thumbs-controls="false" thumbs-config='{"slidesPerView":3,"spaceBetween":10}'>
 					{% if product.promotion_title %}
 						<div class="promotion-title">{{ product.promotion_title }}</div>
 					{% endif %}
 
-					<salla-button class="btn--wishlist animated sws" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light">
+					{# <salla-button class="btn--wishlist animated sws" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light">
 						<i class="sicon-heart"></i>
-					</salla-button>
+					</salla-button> #}
 
 					{# Calories Badge #}
 					{% if product.calories %}
@@ -194,7 +194,7 @@
 				</div>
 
 				<div
-					class="flex justify-between pb-3.5">
+					class="flex flex-col md:flex-row justify-between md:items-center pb-3.5">
 					{# Price #}
 					<div class="flex whitespace-nowrap gap-4 items-center">
 						<div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
@@ -209,9 +209,9 @@
 								{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
 						</div>
 					</div>
-					{# {% if product.rating %} #}
+					{% if product.rating %}
 					<salla-rating-stars value="{{ product.rating.stars }}" reviews="{{ product.rating.count }}"></salla-rating-stars>
-					{# {% endif %} #}
+					{% endif %}
 				</div>
 				{% if theme.settings.get('is_note_product') %}
 					<p class="text-sm text-[#BD1C1C] pb-4">{{theme.settings.get('note_of_product')}}</p>
@@ -382,10 +382,9 @@
 		<salla-tabs>
 			<!-- Tab One -->
 			{% if product.description %}
-			
-			<salla-tab-header slot="header" name="tab_one">
-				<span>{{trans('pages.cart.desproduct')}}</span>
-			</salla-tab-header>
+				<salla-tab-header slot="header" name="tab_one">
+					<span>{{trans('pages.cart.desproduct')}}</span>
+				</salla-tab-header>
 			{% endif %}
 			<salla-tab-content slot="content" name="tab_one">
 				{% if product.description %}
@@ -414,25 +413,6 @@
 	<div class="container">
 		<salla-products-slider source="related" source-value="{{product.id}}" block-title="{{trans('pages.products.similar_products')}}" display-all-url></salla-products-slider>
 	</div>
-
-	<style>
-		.s-slider-v-centered .s-slider-block__title-nav {
-			left: 46% !important;
-   			top: 56% !important;
-			justify-content: center !important;
-			gap: 26rem !important;
-		}
-		    salla-slider.details-slider .s-slider-block__title-nav{
-			display: flex !important;
-			flex-direction: column !important;
-			justify-content: space-between !important;
-			align-items: baseline !important;
-			gap: 27rem !important;
-    	}
-
-
-
-	</style>
 {% endblock %}
 
 {% block scripts %}
