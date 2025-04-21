@@ -569,4 +569,3 @@ class TabComponent extends HTMLElement {
 window.customElements.define('custom-tabs', TabComponent);
 
 salla.onReady(() => (new App).loadTheApp());
-
