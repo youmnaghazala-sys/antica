@@ -534,6 +534,17 @@
             "searchable": true,
             "required": false,
             "value": []
+        },
+        {
+            "id": "product_card_btns_backgroundColor",
+            "type": "string",
+            "format": "color",
+            "inputType": "color",
+            "label": "لون خلفيه ازرار بطاقه المنتج",
+            "description": null,
+            "icon": "sicon-format-fill",
+            "value": "#000000",
+            "required": false
         }
     ],
     "components": [
@@ -3632,9 +3643,3 @@
         "en": null
     }
 }
-
-
-
-
-
-
