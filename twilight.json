@@ -536,6 +536,17 @@
             "value": []
         },
         {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "تفعيل خاصية لون خلفيه ازرار بطاقه المنتج",
+            "description": null,
+            "id": "enable_product_card_btns_backgroundColor",
+            "format": "switch",
+            "required": false,
+            "value": false,
+            "selected": false
+        },
+        {
             "id": "product_card_btns_backgroundColor",
             "type": "string",
             "format": "color",
@@ -544,7 +555,14 @@
             "description": null,
             "icon": "sicon-format-fill",
             "value": "#000000",
-            "required": false
+            "required": false,
+            "conditions": [
+                {
+                    "id": "enable_product_card_btns_backgroundColor",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         }
     ],
     "components": [
