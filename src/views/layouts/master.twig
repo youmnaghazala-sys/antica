@@ -86,7 +86,10 @@
                 --color-primary-op-30: {{ theme.color.primary }}59;
                 --color-primary-reverse: {{ theme.color.reverse_text }};
                 --footer-text-color: {{theme.settings.get('footer_color')}};
-                --btns_backgrondColor: {{ theme.settings.get('product_card_btns_backgroundColor') }};
+                {% if theme.settings.get('enable_product_card_btns_backgroundColor') %}
+                    --btns_backgrondColor: {{ theme.settings.get('product_card_btns_backgroundColor') }};
+                    --fill_color: #fff;
+                {% endif %}
             }
         </style>
         {% hook 'head:end' %}
