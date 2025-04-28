@@ -562,6 +562,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .mt-5{margin-top:1.25rem}
 .mt-6{margin-top:1.5rem}
 .mt-8{margin-top:2rem}
+.mt-\[50px\]{margin-top:50px}
 .\!line-clamp-2{overflow:hidden !important;display:-webkit-box !important;-webkit-box-orient:vertical !important;-webkit-line-clamp:2 !important}
 .line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}
 .line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
@@ -752,6 +753,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .break-all{word-break:break-all}
 .\!rounded-3xl{border-radius:1.5rem !important}
 .\!rounded-none{border-radius:0px !important}
+.\!rounded-xl{border-radius:0.75rem !important}
 .rounded{border-radius:.75rem}
 .rounded-3xl{border-radius:1.5rem}
 .rounded-full{border-radius:9999px}
@@ -6377,6 +6379,13 @@ salla-breadcrumb .s-breadcrumb-item{font-size:0.75rem;line-height:1rem}
 salla-breadcrumb .s-breadcrumb-item{font-size:1.25rem;line-height:1.75rem}}
 @media (max-width: 480px) {
   .s-slider-vertical .s-slider-thumbs-container{margin-right:0px;width:84vw}
+}
+salla-product-card .s-product-card-content .s-product-card-content-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 .brands-nav{display:flex;flex-wrap:wrap;justify-content:center}
 .brands-nav > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * 0);margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * (1 - 0));margin-left:calc(0.5rem * (1 - var(--tw-space-x-reverse)));margin-left:calc(0.5rem * calc(1 - 0));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));--tw-space-y-reverse:0;margin-top:calc(0.5rem * (1 - 0));margin-top:calc(0.5rem * (1 - var(--tw-space-y-reverse)));margin-top:calc(0.5rem * calc(1 - 0));margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * 0);margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}
