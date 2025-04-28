@@ -1,9 +1,8 @@
 <section id = "AL_best_seller-{{ position }}" class="AL_best_seller mb-5 pb-12" style="background-color : {{component.section_bgcolor}}">  
-    <div class="background container relative !overflow-hidden ">
-
+    <div class="background container relative !overflow-hidden mt-[50px]">
         {% if component.bg_video %}
             <div class="video-background w-full h-[580px] relative Al__anime" data-anim-allura="fade" data-dur-allura="0.8s">
-                <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover">
+                <video id="background-video-{{ position }}" autoplay muted loop playsinline class="w-full h-full object-cover !rounded-xl">
                     <source src="{{ component.video_url }}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
@@ -40,7 +39,6 @@
         </div>
     </div>
 </section>
-
 <style>
     .AL_best_seller .products custom-salla-product-card {
         height: 178px;
@@ -51,14 +49,13 @@
         .AL_best_seller .products custom-salla-product-card {
             height: 151px;
             width:326px !important;
-    }
+        }
     }
     .AL_best_seller .products custom-salla-product-card .s-product-card-image  {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 40%;
     }
-    
     .AL_best_seller .products custom-salla-product-card .s-product-card-content {
         justify-content: center;
         margin: auto;
@@ -66,19 +63,14 @@
     .AL_best_seller .products custom-salla-product-card .s-product-card-image img {
         background-color: #fff;
     }
-    
 </style>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-       
         const productsContainer = document.querySelector("#products-{{ position }}");
-        
         function handleScroll() {
             const section = document.querySelector("#AL_best_seller-{{ position }}");
             const sectionPosition = section.getBoundingClientRect().top;
             const screenHeight = window.innerHeight;
-
             if (sectionPosition < screenHeight * 0.75) {
                 if (window.innerWidth > 768) { 
                     productsContainer.style.transform = "translateX(-1%)";
@@ -86,13 +78,10 @@
                 }
             }
         }
-
         window.addEventListener("scroll", handleScroll);
         handleScroll(); 
-
         const video = document.querySelector("#background-video-{{ position }}");
         const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
-
         if (video && toggleButton) {
             toggleButton.addEventListener("click", () => {
                 if (video.paused) {
@@ -103,16 +92,13 @@
                     toggleButton.innerHTML = '<i class="sicon-play"></i>'; 
                 }
             });
-
             if (video.paused) {
                 toggleButton.innerHTML = '<i class="sicon-pause"></i>';
             } else {
                 toggleButton.innerHTML = '<i class="sicon-play"></i>';
             }
         }
-        
         let iconElements = document.querySelectorAll(".text-base.sicon-shopping-bag");
-
         iconElements.forEach(icon => {
             icon.classList.replace("sicon-shopping-bag", "sicon-cart2");
         });
