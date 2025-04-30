@@ -6382,13 +6382,6 @@ salla-breadcrumb .s-breadcrumb-item{font-size:1.25rem;line-height:1.75rem}}
 @media (max-width: 480px) {
   .s-slider-vertical .s-slider-thumbs-container{margin-right:0px;width:84vw}
 }
-salla-product-card .s-product-card-content .s-product-card-content-title {
-  display: -webkit-box !important;
-  -webkit-line-clamp: 1 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
 .sticky-product-bar {
   background-color: white !important;
 }
