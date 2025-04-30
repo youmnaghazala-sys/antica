@@ -533,13 +533,6 @@ salla-breadcrumb .s-breadcrumb-item{
     @apply w-[84vw]  mr-0;
   }
 }
-salla-product-card .s-product-card-content .s-product-card-content-title{
-  display: -webkit-box !important;
-  -webkit-line-clamp: 1 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
 .sticky-product-bar{
   background-color: white !important;
 }

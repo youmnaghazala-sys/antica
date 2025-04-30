@@ -91,6 +91,15 @@
                     --fill_color: #fff;
                 {% endif %}
             }
+            {% if not theme.settings.get('enable_product_card_description_multiline') %}
+                salla-product-card .s-product-card-content .s-product-card-content-title{
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 1 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis !important;
+                }
+            {% endif %}
         </style>
         {% hook 'head:end' %}
     </head>
