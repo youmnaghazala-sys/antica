@@ -13,6 +13,10 @@ class ProductCard extends HTMLElement {
     } else {
       document.addEventListener('theme::ready', () => this.onReady() )
     }
+    salla.lang.add("pages.products.out_of_stock", {
+      ar: "غير متوفر",
+      en: "Out of stock",
+    })
   }
 
   onReady(){
@@ -58,8 +62,15 @@ class ProductCard extends HTMLElement {
 
   getProductBadge() {
     if (this.product.promotion_title) {
-      return `<div class="s-product-card-promotion-title">${this.product.promotion_title}-</div>`
+      return `
+        <div class="s-product-card-promotion-title">
+          ${this.product.quantity === 0 
+            ? `${salla.lang.get('pages.products.out_of_stock')}` 
+            : this.product.promotion_title + '-'}
+        </div>
+      `;
     }
+    
     if (this.showQuantity && this.product?.quantity) {
       return `<div
         class="s-product-card-quantity">${this.remained} ${salla.helpers.number(this.product?.quantity)}</div>`
@@ -175,7 +186,7 @@ class ProductCard extends HTMLElement {
     this.product?.is_out_of_stock?  this.classList.add('s-product-card-out-of-stock') : '';
     this.isInWishlist = !salla.config.isGuest() && salla.storage.get('salla::wishlist', []).includes(this.product.id);
     this.innerHTML = `
-        <div class="${!this.fullImage ? 's-product-card-image' : 's-product-card-image-full'}">
+        <div class="${!this.fullImage ? 's-product-card-image' : 's-product-card-image-full'}" style="${this.product.quantity === 0 ? 'filter: grayscale(1);' : ''}">
           <a href="${this.product?.url}">
             <img class="s-product-card-image-${salla.url.is_placeholder(this.product?.image?.url)
               ? 'contain'
@@ -203,7 +214,7 @@ class ProductCard extends HTMLElement {
             </salla-button>` : ``
           }
         </div>
-        <div class="s-product-card-content">
+        <div class="s-product-card-content" style="${this.product.quantity === 0 ? 'filter: grayscale(1);' : ''}">
           ${this.isSpecial && this.product?.quantity ?
             `<div class="s-product-card-content-pie">
               <span>

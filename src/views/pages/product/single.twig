@@ -306,9 +306,7 @@
 				<form class="form product-form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
 					<input type="hidden" name="id" value="{{ product.id }}">
 					{% hook 'product:single.form.start' %}
-
-					{% include 'pages.partials.product.options' %}
-
+						{% include 'pages.partials.product.options' %}
 					{% hook 'product:single.form.end' %}
 
 					<section class="flex mb-4">
@@ -337,6 +335,7 @@
 							<div class="out-of-stock min-h-7 leading-7 hidden text-base text-red-600 !opacity-50 font-bold">{{ trans('pages.products.out_of_stock')}}</div>
 						</div>
 					</section>
+					
 					<section class="sticky-product-bar !bg-[white]">
 						{# Quantity #}
 						{% if product.is_hidden_quantity or product.type == 'booking' %}
