@@ -337,8 +337,7 @@
 							<div class="out-of-stock min-h-7 leading-7 hidden text-base text-red-600 !opacity-50 font-bold">{{ trans('pages.products.out_of_stock')}}</div>
 						</div>
 					</section>
-					<section
-						class="sticky-product-bar">
+					<section class="sticky-product-bar !bg-[white]">
 						{# Quantity #}
 						{% if product.is_hidden_quantity or product.type == 'booking' %}
 							<input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
