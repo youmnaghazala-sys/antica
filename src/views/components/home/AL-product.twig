@@ -2,6 +2,7 @@
     <div class="container">
         {% if component.grid_switch %}
         <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
+            "centerInsufficientSlides": true,
             "breakpoints": {
                 "320": { "slidesPerView": 2, "spaceBetween": 0 },
                 "640": { "slidesPerView": 3, "spaceBetween": 8 },
@@ -24,9 +25,3 @@
         {% endif %}
     </div>
 </section>
-<style>
-    .AL_product_slider salla-slider .swiper-wrapper{
-        display: flex;
-        justify-content: center;
-    }
-</style>
