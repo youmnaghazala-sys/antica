@@ -567,7 +567,7 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": " تفعيل عرص تفاصيل المنتج علي اكثر من سطر",
+            "label": "عرض العنوان كامل علي المنتج",
             "description": null,
             "id": "enable_product_card_description_multiline",
             "format": "switch",
