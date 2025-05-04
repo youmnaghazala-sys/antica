@@ -692,3 +692,9 @@ salla-filters {
   background-color: var(--btns_backgrondColor) !important;
   color: var(--fill_color) !important;
 }
+
+salla-slider salla-product-card.swiper-slide {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}

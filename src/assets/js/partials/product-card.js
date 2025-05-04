@@ -66,7 +66,7 @@ class ProductCard extends HTMLElement {
         <div class="s-product-card-promotion-title">
           ${this.product.quantity === 0 
             ? `${salla.lang.get('pages.products.out_of_stock')}` 
-            : this.product.promotion_title + '-'}
+            : this.product.promotion_title}
         </div>
       `;
     }
