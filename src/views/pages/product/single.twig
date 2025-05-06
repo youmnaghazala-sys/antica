@@ -268,14 +268,14 @@
 					</div>
 				{% endif %}
                 	{% if product.weight %}
-					<div class="mb-4 flex py-2">
-						<div class="flex items-center text-base text-black">
-							<i class="sicon-stack ml-2 text-primary"></i>
-							{{ trans('pages.cart.weight') }}
+						<div class="mb-4 flex py-2">
+							<div class="flex items-center text-base text-black">
+								<i class="sicon-stack ml-2 text-primary"></i>
+								{{ trans('pages.cart.weight') }}
+							</div>
+							<div class="text-unicode text-base">{{ product.weight }}</div>
 						</div>
-						<div class="text-unicode text-base">{{ product.weight }}</div>
-					</div>
-				{% endif %}
+					{% endif %}
 				{% hook 'product:single.description' %}
 
 				{# Installment Methods #}
@@ -313,7 +313,7 @@
 						<div class="center-between w-full">
 							<label class="form-label">
 								<b class="block">
-							<i class="sicon-money-card ml-2 text-primary text-lg"></i>
+									<i class="sicon-money-card ml-2 text-primary text-lg"></i>
 									{{ trans('pages.products.price') }}
 								</b>
 							</label>
