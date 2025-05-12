@@ -31,6 +31,7 @@ class App extends AppHelpers {
     this.addCartListener();
     initTootTip();
     this.loadModalImgOnclick();
+    this.renderFollowUsInIndex();
 
     salla.comment.event.onAdded(() => window.location.reload());
 
@@ -520,6 +521,39 @@ class App extends AppHelpers {
         );
       }
     });
+  }
+
+  async renderFollowUsInIndex(){
+    let wrapElem = app.element('#index-followus-wrapper');
+
+    if (wrapElem) {
+      await salla.api.request('component/list', { params: { paths: ['home.AS-followus'] } })
+        .then((res) => {
+          let component = res.data[0]?.component;
+          console.log("component", component)
+          let is_in_cat = salla.config.get('page.slug') === 'product.index';
+          
+          if (is_in_cat) {
+            wrapElem.innerHTML =`
+            <section class="followUs w-full relative my-14">
+              <div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
+                ${component.section_images.map((img) => (
+                  `<a href="${img.img_link}">
+                    ${img.image ? `<img src="${ img.image }" alt="image" class="h-[244px] w-full" loading="lazy"/>` :'' }
+                  </a>`
+                )).join("")}
+              </div>
+              
+              ${component.enable_floating_banner ? `
+                <a href="https://instagram.com/${component.username}/" target="_blank" class="floatingbanner absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white text-center rounded-md p-4 w-[254px] bg-[rgba(89,116,69,0.16)] backdrop-blur-md">
+                  ${component.username ? `<p class="text-2xl font-semibold">${ component.username }@</p>` : ''}
+                  ${component.slogan ? `<p class="text-xl leading-10">${ component.slogan }</p>` : ''}
+                </a>` : ''}
+            </section>
+            `;
+          }
+        });
+    }
   }
 }
 class TabComponent extends HTMLElement {

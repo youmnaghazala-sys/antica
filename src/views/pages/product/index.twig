@@ -103,9 +103,10 @@
 	{% if store.settings.category.testimonial_enabled %}
 		{% component 'home.testimonials' %}
 	{% endif %}
-	{% if theme.settings.get('followus_images') and theme.settings.get('username') and theme.settings.get('slogan') %}
+	{# {% if theme.settings.get('followus_images') and theme.settings.get('username') and theme.settings.get('slogan') %}
 		{% include 'components.custom.followus' with {'section_images': theme.settings.get('followus_images'),'username': theme.settings.get('username'), 'slogan': theme.settings.get('slogan') } %}
-	{% endif %}
+	{% endif %} #}
+	<div id="index-followus-wrapper"></div>
 {% endblock %}
 {% block scripts %}
 	<script defer src="{{ 'product.js' | asset }}"></script>
