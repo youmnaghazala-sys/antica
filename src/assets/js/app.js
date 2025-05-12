@@ -527,13 +527,12 @@ class App extends AppHelpers {
     let wrapElem = app.element('#index-followus-wrapper');
 
     if (wrapElem) {
-      await salla.api.request('component/list', { params: { paths: ['home.AS-followus'] } })
+      await salla.api.request('component/list', { params: { paths: ['home.AL-followus'] } })
         .then((res) => {
           let component = res.data[0]?.component;
-          console.log("component", component)
           let is_in_cat = salla.config.get('page.slug') === 'product.index';
           
-          if (is_in_cat) {
+          if (is_in_cat && component) {
             wrapElem.innerHTML =`
             <section class="followUs w-full relative my-14">
               <div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
