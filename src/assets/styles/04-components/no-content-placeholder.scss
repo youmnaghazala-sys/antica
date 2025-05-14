@@ -356,3 +356,10 @@
 
   &-donation-input {}
 }
+
+@media (max-width: 768px) {
+  #icons_wrapper svg[data="three"],
+  #icons_wrapper svg[data="four"] {
+    display: none;
+  }
+}

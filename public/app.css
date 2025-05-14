@@ -6778,6 +6778,10 @@ salla-breadcrumb .s-breadcrumb-item{font-size:1.25rem;line-height:1.75rem}}
   .s-product-card-content-title a {
     font-size: 13.79px;
   }
+  #icons_wrapper svg[data=three],
+  #icons_wrapper svg[data=four] {
+    display: none;
+  }
 }
 .s-gifting-modal .s-checkbox {
   background-color: #fff !important;
