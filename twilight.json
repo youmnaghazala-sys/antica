@@ -3607,6 +3607,115 @@
                     "required": false
                 }
             ]
+        },
+        {
+            "key": "b2f3c348-797c-46c0-be45-72fd15a614dc",
+            "title": "مواقعنا - الوري",
+            "icon": "sicon-store",
+            "image": "",
+            "path": "home.AL_maps",
+            "fields": [
+                {
+                    "id": "locations",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "قائمة الفروع",
+                    "description": "أضف معلومات الفروع، بما في ذلك الاسم والعنوان ورقم الهاتف والرابط الخاص بالخريطة.",
+                    "labelHTML": null,
+                    "item_label": "فرع جديد",
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "locations.name",
+                            "type": "string",
+                            "format": "text",
+                            "label": "اسم الفــرع",
+                            "description": "أدخل اسم الفرع لتمييزه بسهولة.",
+                            "labelHTML": null,
+                            "placeholder": "على سبيل المثال: فرع الرياض",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": true,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": "500"
+                        },
+                        {
+                            "id": "locations.location_address",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العنوان التفصيلي",
+                            "description": "حدد موقع الفرع باستخدام عنوان واضح ودقيق.",
+                            "labelHTML": null,
+                            "placeholder": "على سبيل المثال: شارع الملك فهد، الرياض",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": true,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": "500"
+                        },
+                        {
+                            "id": "locations.location_phone",
+                            "type": "string",
+                            "format": "text",
+                            "label": "هاتف للتواصل",
+                            "description": "أدخل رقم هاتف الفرع ليتمكن العملاء من التواصل بسهولة.",
+                            "labelHTML": null,
+                            "placeholder": "على سبيل المثال: 0123456789",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": true,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": "15"
+                        },
+                        {
+                            "id": "locations.url",
+                            "type": "string",
+                            "format": "url",
+                            "inputType": "url",
+                            "label": "رابط موقع الفرع",
+                            "description": "أدخل رابط خريطة Google Maps أو أي رابط يساعد في الوصول إلى الفرع.",
+                            "labelHTML": null,
+                            "placeholder": "مثال: https://goo.gl/maps/xyz",
+                            "icon": "sicon-link",
+                            "value": null,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": "10000"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "locations.name": {
+                                "ar": "الفرع الاول",
+                                "en": "frist location"
+                            },
+                            "locations.location_address": {
+                                "ar": "الرياض , شارع النخله جاليري مول",
+                                "en": "Riyadh, Nakhla Street, Gallery Mall"
+                            },
+                            "locations.location_phone": "+966 555 222 11",
+                            "locations.url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628783.395661073!2d45.03430056413694!3d24.725398119360007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f02e9d9b1211f%3A0x3e17a1a0b18d57e!2sRiyadh!5e0!3m2!1sen!2ssa!4v1698650484354!5m2!1sen!2ssa"
+                        },
+                        {
+                            "locations.name": {
+                                "ar": "الفرع الثانى",
+                                "en": "secound location"
+                            },
+                            "locations.location_address": {
+                                "ar": "الرياض , شارع النخله جاليري مول",
+                                "en": "Riyadh, Nakhla Street, Gallery Mall"
+                            },
+                            "locations.location_phone": "+966 555 222 11",
+                            "locations.url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628468.235382445!2d38.696734572190635!3d21.48581107981211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d69b1d1b2a1f%3A0xbd99ad43f119b0c4!2sJeddah!5e0!3m2!1sen!2ssa!4v1698650754304!5m2!1sen!2ssa"
+                        }
+                    ],
+                    "minLength": 1,
+                    "maxLength": "3"
+                }
+            ]
         }
     ],
     "support_url": "https://themiify.com/",
