@@ -9,7 +9,10 @@
       "download_now": "download now"
     },
     "footer":{
-      "email":"أدخل بريدك الالكتروني"
+      "email":"أدخل بريدك الالكتروني",
+      "title":"address",
+      "piece":"Piece",
+      "phone":"phone number"
     }
   },
   "pages": {
