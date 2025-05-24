@@ -701,7 +701,6 @@ salla-slider salla-product-card.swiper-slide {
 // maps component
 .AL__maps {
   @apply mt-20 sm:mt-0;
-
   &-content {
     @apply w-[75%] lg:w-[630px] h-[318px] sm:h-[514px] py-4 px-6 bg-no-repeat bg-cover absolute top-[-10%] sm:top-[13%] right-[15%] sm:right-[10%];
     background: #F2F4F7;
@@ -722,7 +721,6 @@ salla-slider salla-product-card.swiper-slide {
       @apply absolute left-1/2 -translate-x-1/2 sm:translate-x-0 bottom-[-80px] sm:bottom-1/2 sm:translate-y-1/2 sm:left-[-120px];
     }
   }
-
   &-socialIcons {
     @apply bg-[var(--scound-color)] text-[var(--scound-color)] absolute bottom-8 sm:bottom-0 left-[0%] sm:left-[28%] py-4 sm:py-7 px-9 sm:px-14;
 
@@ -731,29 +729,25 @@ salla-slider salla-product-card.swiper-slide {
 
       svg {
         @apply w-3 sm:w-5 h-3 sm:h-5;
+        fill: var(--color-primary);
       }
     }
   }
-
   .s-tabs-header {
     @apply absolute top-[-10%] sm:top-[12%] right-[28%] sm:right-[17%] mt-0 sm:mt-[6px] z-2 border-none;
 
     @media (max-width:375px) {
-      right: 24% !important;
+      right: 10% !important;
     }
   }
-
   .s-tabs-header-item {
-    @apply rounded-none sm:w-[205px] sm:h-[59px] text-center bg-[#F2F4F7];
-
+    @apply rounded-[5px] sm:w-[205px] sm:h-[59px] text-center bg-[#F2F4F7];
   }
-
   .s-tabs-active {
-    @apply bg-[var(--scound-color)] text-white rounded-none;
+    @apply bg-[var(--scound-color)] text-white rounded-[5px];
 
     span {
       @apply font-bold text-base sm:text-2xl;
-
     }
   }
 }

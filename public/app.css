@@ -6037,6 +6037,10 @@ input[type=radio].sr-only:checked ~ div.AL__maps-socialIcons {
 .AL__maps-socialIcons a svg{height:0.75rem;width:0.75rem}
 @media (min-width: 640px){
 .AL__maps-socialIcons a svg{height:1.25rem;width:1.25rem}}
+.AL__maps-socialIcons a svg {
+  fill: #414042;
+  fill: var(--color-primary);
+}
 .AL__maps .s-tabs-header{position:absolute;top:-10%;right:28%;z-index:2;margin-top:0px;border-style:none}
 input[type=radio].sr-only div.AL__maps .s-tabs-header {
   transition: all 0.3s;
@@ -6048,13 +6052,13 @@ input[type=radio].sr-only:checked ~ div.AL__maps .s-tabs-header {
 .AL__maps .s-tabs-header{top:12%;right:17%;margin-top:6px}}
 @media (max-width: 375px) {
   .AL__maps .s-tabs-header {
-    right: 24% !important;
+    right: 10% !important;
   }
 }
-.AL__maps .s-tabs-header-item{border-radius:0px;--tw-bg-opacity:1;background-color:rgba(242, 244, 247, 1);background-color:rgba(242, 244, 247, var(--tw-bg-opacity, 1));text-align:center}
+.AL__maps .s-tabs-header-item{border-radius:5px;--tw-bg-opacity:1;background-color:rgba(242, 244, 247, 1);background-color:rgba(242, 244, 247, var(--tw-bg-opacity, 1));text-align:center}
 @media (min-width: 640px){
 .AL__maps .s-tabs-header-item{height:59px;width:205px}}
-.AL__maps .s-tabs-active{border-radius:0px;background-color:var(--scound-color);--tw-text-opacity:1;color:rgba(255, 255, 255, 1);color:rgba(255, 255, 255, var(--tw-text-opacity, 1))}
+.AL__maps .s-tabs-active{border-radius:5px;background-color:var(--scound-color);--tw-text-opacity:1;color:rgba(255, 255, 255, 1);color:rgba(255, 255, 255, var(--tw-text-opacity, 1))}
 .AL__maps .s-tabs-active span{font-size:1rem;line-height:1.5rem;font-weight:700}
 @media (min-width: 640px){
 .AL__maps .s-tabs-active span{font-size:1.5rem;line-height:2rem}}
@@ -7581,6 +7585,8 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .sm\:text-base{font-size:1rem;line-height:1.5rem}
 .sm\:text-sm{font-size:0.875rem;line-height:1.25rem}
 .sm\:text-xl{font-size:1.25rem;line-height:1.75rem}
+.sm\:text-\[1\.5rem\]{font-size:1.5rem}
+.sm\:leading-6{line-height:1.5rem}
 .sm\:placeholder\:text-base::-moz-placeholder{font-size:1rem;line-height:1.5rem}
 .sm\:placeholder\:text-base::placeholder{font-size:1rem;line-height:1.5rem}}
 @media (min-width: 768px){
