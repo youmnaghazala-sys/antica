@@ -363,3 +363,8 @@
     display: none;
   }
 }
+@media (min-width: 640px) {
+  .main-content #mobile_form{
+    display: none !important;
+  }
+}
