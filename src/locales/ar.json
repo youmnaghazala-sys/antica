@@ -8,8 +8,8 @@
     "appBanner": {
       "download_now": "حمله الان"
     },
-    "footer":{
-      "email":"أدخل بريدك الالكتروني",
+    "footer": {
+      "email": "أدخل بريدك الالكتروني",
       "title": "العنوان",
       "piece": "قطعة",
       "phone": "رقم الهاتف"
@@ -18,15 +18,16 @@
   "pages": {
     "cart": {
       "cart_options": "خيارات السلة",
-      "newlettert":"الاشتراك في النشرة البريدية",
-      "email":"أدخل بريدك الالكتروني",
-      "sendus":"راسلنا",
-      "contactus":"اتصل بنا",
-      "verification":"موثق لدى منصة العملاء",
+      "newlettert": "الاشتراك في النشرة البريدية",
+      "email": "أدخل بريدك الالكتروني",
+      "sendus": "راسلنا",
+      "contactus": "اتصل بنا",
+      "verification": "موثق لدى منصة العملاء",
       "product_percent": "أصلي 100%",
       "product_percent_txt": "اضغط هنا للمزيد من ",
-      "desproduct":"وصف المنتج",
-      "ratingproduct":"التقيمات",
+      "brand": "البراند",
+      "desproduct": "وصف المنتج",
+      "ratingproduct": "التقيمات",
       "add": "أضف",
       "tocart": "إلى السلة واحصل على شحن مجانى",
       "free_shipping_done": "طلبك مؤهل للشحن المجانى",
@@ -34,8 +35,8 @@
       "price": "السعر",
       "quantity": "الكمية",
       "total": "الاجمالى",
-      "sku":"رقم القطعه :",
-      "weight":"الوزن :"
+      "sku": "رقم القطعه :",
+      "weight": "الوزن :"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
@@ -51,9 +52,9 @@
     "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر أحد البطاقات البنكة التالية واحصل على الخصم المحدد",
     "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر أحد بطاقات بنك :bank_name واحصل على خصم بنسبة ",
 
-    "peice":"قطعة"
+    "peice": "قطعة"
   },
-  "blog" : {
+  "blog": {
     "read_more": " عرض المقالة "
   }
 }

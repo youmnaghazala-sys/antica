@@ -91,7 +91,7 @@
 		</nav>
 		<div class="flex flex-col items-start md:flex-row All_singlepage" id="product-{{ product.id }}">
 			<div class="sidebar md:sticky top-24 w-full md:!w-2/4 rtl:ml-8 ltr:mr-8 pb-8 md:pb-16 overflow-hidden shrink-0">
-				<div class="flex rtl:space-x-reverse space-x-3 justify-end relative top-20 z-2">
+				<div class="flex rtl:space-x-reverse space-x-3 justify-end relative top-20 z-2 likeabdsharebtn">
 					<salla-social-share class="inline-flex mb-5" aria-label="social share"></salla-social-share>
 
 					<salla-button class="btn--wishlist animated inline-flex" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light" aria-label="add to wishlist">
@@ -161,9 +161,15 @@
 					{% if theme.settings.get('is_original') %}
 						<a href="{{product.category.url}}" class="pr-4 py-2 mb-4 text-black block">
 							<p class="text-sm text-primary">{{trans('pages.cart.product_percent')}}</p>
-							<p class="text-sm text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
-								{{product.category.name}}
-							</p>
+							{% if theme.settings.get('show_brand_insteadof_catname') %}
+								<p class="text-sm text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
+									{{ trans('pages.cart.brand') }}
+								</p>
+							{% else %}
+								<p class="text-sm text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
+									{{ product.category.name }}
+								</p>
+							{% endif %}
 						</a>
 					{% endif %}
 				</div>
