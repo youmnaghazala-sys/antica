@@ -517,6 +517,18 @@
             "required": false,
             "value": false,
             "selected": false
+        },
+        {
+            "id": "show_brand_insteadof_catname",
+            "type": "boolean",
+            "format": "switch",
+            "label": " عرض اسم الماركة بدلاً من اسم التصنيف",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": false,
+            "selected": false,
+            "required": false
         }
     ],
     "components": [
