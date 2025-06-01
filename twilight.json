@@ -529,6 +529,18 @@
             "value": false,
             "selected": false,
             "required": false
+        },
+        {
+            "id": "enable_product_options_above_description",
+            "type": "boolean",
+            "format": "switch",
+            "label": " عرض خيارات المنتج فوق الوصف",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": false,
+            "selected": false,
+            "required": false
         }
     ],
     "components": [

@@ -182,72 +182,74 @@
 					</h2>
 				{% endif %}
 
-				<form class="form product-form" id="mobile_form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
-					<input type="hidden" name="id" value="{{ product.id }}">
-					{% hook 'product:single.form.start' %}
-						{% include 'pages.partials.product.options' %}
-					{% hook 'product:single.form.end' %}
+				{% if not theme.settings.get('enable_product_options_above_description') %}
+					<form class="form product-form" id="mobile_form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
+						<input type="hidden" name="id" value="{{ product.id }}">
+						{% hook 'product:single.form.start' %}
+							{% include 'pages.partials.product.options' %}
+						{% hook 'product:single.form.end' %}
 
-					<section class="flex mb-4">
-						<div class="center-between w-full">
-							<label class="form-label">
-								<b class="block">
-									<i class="sicon-money-card ml-2 text-primary text-lg"></i>
-									{{ trans('pages.products.price') }}
-								</b>
-							</label>
-
-							<div class="flex whitespace-nowrap price-wrapper gap-4 items-center">
-								<div class="{{ product.is_on_sale ? '' : 'hidden' }} price_is_on_sale space-x-2 rtl:space-x-reverse whitespace-nowrap">
-									<h2 class="total-price text-[#BD1C1C] font-bold text-xl inline-block">{{product.sale_price|money}}</h2>
-									<span class="before-price text-black line-through">{{product.regular_price|money}}</span>
-								</div>
-								<div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
-									{% if product.starting_price %}
-										<span class="starting-price-title">{{ trans('pages.products.starting_price') }}</span>
-									{% endif %}
-									<h2 class="total-price font-bold text-xl inline-block">
-										{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
-								</div>
-							</div>
-
-							<div class="out-of-stock min-h-7 leading-7 hidden text-base text-red-600 !opacity-50 font-bold">{{ trans('pages.products.out_of_stock')}}</div>
-						</div>
-					</section>
-					
-					<section class="sticky-product-bar !bg-[white]">
-						{# Quantity #}
-						{% if product.is_hidden_quantity or product.type == 'booking' %}
-							<input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
-						{% else %}
-							<div class="sticky-product-bar__quantity center-between mb-4">
-							
-								<label class="form-label font-bold !flex items-center">
-									<svg width="18" class="ml-2" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12 17.0625H2.25C1.53 17.0625 0.9375 16.47 0.9375 15.75V6C0.9375 2.685 2.685 0.9375 6 0.9375H12C15.315 0.9375 17.0625 2.685 17.0625 6V12C17.0625 15.315 15.315 17.0625 12 17.0625ZM6 2.0625C3.315 2.0625 2.0625 3.315 2.0625 6V15.75C2.0625 15.855 2.145 15.9375 2.25 15.9375H12C14.685 15.9375 15.9375 14.685 15.9375 12V6C15.9375 3.315 14.685 2.0625 12 2.0625H6Z" fill="var(--color-primary)"/>
-									<path d="M5.96231 13.3126C5.60981 13.3126 5.28731 13.1851 5.04731 12.9526C4.76231 12.6676 4.63479 12.2626 4.70229 11.8276L4.91229 10.3426C4.95729 10.0201 5.1598 9.6076 5.3923 9.3751L9.2848 5.4826C10.6198 4.1476 11.7823 4.7476 12.5173 5.4826C13.0948 6.0601 13.3573 6.6676 13.2973 7.2751C13.2523 7.7701 12.9898 8.2351 12.5173 8.7151L8.6248 12.6076C8.3923 12.8401 7.98729 13.0426 7.65729 13.0951L6.17231 13.3051C6.10481 13.3051 6.02981 13.3126 5.96231 13.3126ZM10.8973 5.8126C10.6198 5.8126 10.3723 5.9926 10.0873 6.2701L6.19481 10.1626C6.13481 10.2226 6.04481 10.4101 6.02981 10.4926L5.81981 11.9776C5.81231 12.0526 5.81979 12.1201 5.84979 12.1501C5.87979 12.1801 5.9473 12.1876 6.0223 12.1801L7.50731 11.9701C7.59731 11.9551 7.77731 11.8651 7.83731 11.8051L11.7298 7.9126C12.0148 7.6276 12.1648 7.3801 12.1873 7.1551C12.2098 6.9001 12.0598 6.6001 11.7298 6.2701C11.3998 5.9551 11.1373 5.8126 10.8973 5.8126Z" fill="var(--color-primary)"/>
-									<path d="M11.565 9.43504C11.5125 9.43504 11.46 9.42754 11.415 9.41254C10.0575 9.03004 8.96999 7.95004 8.58749 6.58504C8.50499 6.28504 8.67748 5.97754 8.97748 5.88754C9.27748 5.80504 9.58499 5.97754 9.66749 6.27754C9.94499 7.26004 10.7325 8.04754 11.715 8.32504C12.015 8.40754 12.1875 8.72254 12.105 9.02254C12.0375 9.27004 11.8125 9.43504 11.565 9.43504Z" fill="var(--color-primary)"/>
-									</svg>
-									<p>{{ trans('pages.products.quantity') }}</p>
+						<section class="flex mb-4">
+							<div class="center-between w-full">
+								<label class="form-label">
+									<b class="block">
+										<i class="sicon-money-card ml-2 text-primary text-lg"></i>
+										{{ trans('pages.products.price') }}
+									</b>
 								</label>
-								<salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity" aria-label="Quantity" class="border-gray-200 flex justify-end"></salla-quantity-input>
+
+								<div class="flex whitespace-nowrap price-wrapper gap-4 items-center">
+									<div class="{{ product.is_on_sale ? '' : 'hidden' }} price_is_on_sale space-x-2 rtl:space-x-reverse whitespace-nowrap">
+										<h2 class="total-price text-[#BD1C1C] font-bold text-xl inline-block">{{product.sale_price|money}}</h2>
+										<span class="before-price text-black line-through">{{product.regular_price|money}}</span>
+									</div>
+									<div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
+										{% if product.starting_price %}
+											<span class="starting-price-title">{{ trans('pages.products.starting_price') }}</span>
+										{% endif %}
+										<h2 class="total-price font-bold text-xl inline-block">
+											{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
+									</div>
+								</div>
+
+								<div class="out-of-stock min-h-7 leading-7 hidden text-base text-red-600 !opacity-50 font-bold">{{ trans('pages.products.out_of_stock')}}</div>
 							</div>
+						</section>
+						
+						<section class="sticky-product-bar !bg-[white]">
+							{# Quantity #}
+							{% if product.is_hidden_quantity or product.type == 'booking' %}
+								<input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
+							{% else %}
+								<div class="sticky-product-bar__quantity center-between mb-4">
+								
+									<label class="form-label font-bold !flex items-center">
+										<svg width="18" class="ml-2" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M12 17.0625H2.25C1.53 17.0625 0.9375 16.47 0.9375 15.75V6C0.9375 2.685 2.685 0.9375 6 0.9375H12C15.315 0.9375 17.0625 2.685 17.0625 6V12C17.0625 15.315 15.315 17.0625 12 17.0625ZM6 2.0625C3.315 2.0625 2.0625 3.315 2.0625 6V15.75C2.0625 15.855 2.145 15.9375 2.25 15.9375H12C14.685 15.9375 15.9375 14.685 15.9375 12V6C15.9375 3.315 14.685 2.0625 12 2.0625H6Z" fill="var(--color-primary)"/>
+										<path d="M5.96231 13.3126C5.60981 13.3126 5.28731 13.1851 5.04731 12.9526C4.76231 12.6676 4.63479 12.2626 4.70229 11.8276L4.91229 10.3426C4.95729 10.0201 5.1598 9.6076 5.3923 9.3751L9.2848 5.4826C10.6198 4.1476 11.7823 4.7476 12.5173 5.4826C13.0948 6.0601 13.3573 6.6676 13.2973 7.2751C13.2523 7.7701 12.9898 8.2351 12.5173 8.7151L8.6248 12.6076C8.3923 12.8401 7.98729 13.0426 7.65729 13.0951L6.17231 13.3051C6.10481 13.3051 6.02981 13.3126 5.96231 13.3126ZM10.8973 5.8126C10.6198 5.8126 10.3723 5.9926 10.0873 6.2701L6.19481 10.1626C6.13481 10.2226 6.04481 10.4101 6.02981 10.4926L5.81981 11.9776C5.81231 12.0526 5.81979 12.1201 5.84979 12.1501C5.87979 12.1801 5.9473 12.1876 6.0223 12.1801L7.50731 11.9701C7.59731 11.9551 7.77731 11.8651 7.83731 11.8051L11.7298 7.9126C12.0148 7.6276 12.1648 7.3801 12.1873 7.1551C12.2098 6.9001 12.0598 6.6001 11.7298 6.2701C11.3998 5.9551 11.1373 5.8126 10.8973 5.8126Z" fill="var(--color-primary)"/>
+										<path d="M11.565 9.43504C11.5125 9.43504 11.46 9.42754 11.415 9.41254C10.0575 9.03004 8.96999 7.95004 8.58749 6.58504C8.50499 6.28504 8.67748 5.97754 8.97748 5.88754C9.27748 5.80504 9.58499 5.97754 9.66749 6.27754C9.94499 7.26004 10.7325 8.04754 11.715 8.32504C12.015 8.40754 12.1875 8.72254 12.105 9.02254C12.0375 9.27004 11.8125 9.43504 11.565 9.43504Z" fill="var(--color-primary)"/>
+										</svg>
+										<p>{{ trans('pages.products.quantity') }}</p>
+									</label>
+									<salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity" aria-label="Quantity" class="border-gray-200 flex justify-end"></salla-quantity-input>
+								</div>
+							{% endif %}
+							{# Add to cart #}
+							<salla-add-product-button quick-buy {{theme.settings.get('sticky_add_to_cart') ? ' support-sticky-bar' : ''}} {{product.is_require_shipping ? 'required-shipping' : ''}} amount="{{ product.base_currency_price }}" class="mt-5 w-full sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" loader-position="end" type="submit" width="wide" {# Notify availability props#} {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.5 8.63005C16.09 8.63005 15.75 8.29005 15.75 7.88005V6.50005C15.75 5.45006 15.3 4.43005 14.52 3.72005C13.73 3.00005 12.71 2.67005 11.63 2.77005C9.83 2.94005 8.25 4.78005 8.25 6.70005V7.67005C8.25 8.08005 7.91 8.42005 7.5 8.42005C7.09 8.42005 6.75 8.08005 6.75 7.67005V6.69005C6.75 4.00005 8.92 1.52005 11.49 1.27005C12.99 1.13005 14.43 1.60005 15.53 2.61005C16.62 3.60005 17.25 5.02005 17.25 6.50005V7.88005C17.25 8.29005 16.91 8.63005 16.5 8.63005Z" fill="#FCFDFF"/>
+									<path d="M14.9998 22.75H8.99982C4.37982 22.75 3.51982 20.6 3.29982 18.51L2.54982 12.52C2.43982 11.44 2.39982 9.89 3.44982 8.73C4.34982 7.73 5.83982 7.25 7.99982 7.25H15.9998C18.1698 7.25 19.6598 7.74 20.5498 8.73C21.5898 9.89 21.5598 11.44 21.4498 12.5L20.6998 18.51C20.4798 20.6 19.6198 22.75 14.9998 22.75ZM7.99982 8.75C6.30982 8.75 5.14982 9.08 4.55982 9.74C4.06982 10.28 3.90982 11.11 4.03982 12.35L4.78982 18.34C4.95982 19.94 5.39982 21.26 8.99982 21.26H14.9998C18.5998 21.26 19.0398 19.95 19.2098 18.36L19.9598 12.35C20.0898 11.13 19.9298 10.3 19.4398 9.75C18.8498 9.08 17.6898 8.75 15.9998 8.75H7.99982Z" fill="#FCFDFF"/>
+									<path d="M15.4202 13.1499C14.8602 13.1499 14.4102 12.6999 14.4102 12.1499C14.4102 11.5999 14.8602 11.1499 15.4102 11.1499C15.9602 11.1499 16.4102 11.5999 16.4102 12.1499C16.4102 12.6999 15.9702 13.1499 15.4202 13.1499Z" fill="#FCFDFF"/>
+									<path d="M8.42016 13.1499C7.86016 13.1499 7.41016 12.6999 7.41016 12.1499C7.41016 11.5999 7.86016 11.1499 8.41016 11.1499C8.96016 11.1499 9.41016 11.5999 9.41016 12.1499C9.41016 12.6999 8.97016 13.1499 8.42016 13.1499Z" fill="#FCFDFF"/>
+									</svg>
+								{{ product.add_to_cart_label }}
+							</salla-add-product-button>
+						</section>
+						{% if product.is_giftable %}
+							<salla-gifting class="mt-5" widget-subtitle="{{ gifting_intro }}" product-id="{{ product.id }}"></salla-gifting>
 						{% endif %}
-						{# Add to cart #}
-						<salla-add-product-button quick-buy {{theme.settings.get('sticky_add_to_cart') ? ' support-sticky-bar' : ''}} {{product.is_require_shipping ? 'required-shipping' : ''}} amount="{{ product.base_currency_price }}" class="mt-5 w-full sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" loader-position="end" type="submit" width="wide" {# Notify availability props#} {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M16.5 8.63005C16.09 8.63005 15.75 8.29005 15.75 7.88005V6.50005C15.75 5.45006 15.3 4.43005 14.52 3.72005C13.73 3.00005 12.71 2.67005 11.63 2.77005C9.83 2.94005 8.25 4.78005 8.25 6.70005V7.67005C8.25 8.08005 7.91 8.42005 7.5 8.42005C7.09 8.42005 6.75 8.08005 6.75 7.67005V6.69005C6.75 4.00005 8.92 1.52005 11.49 1.27005C12.99 1.13005 14.43 1.60005 15.53 2.61005C16.62 3.60005 17.25 5.02005 17.25 6.50005V7.88005C17.25 8.29005 16.91 8.63005 16.5 8.63005Z" fill="#FCFDFF"/>
-								<path d="M14.9998 22.75H8.99982C4.37982 22.75 3.51982 20.6 3.29982 18.51L2.54982 12.52C2.43982 11.44 2.39982 9.89 3.44982 8.73C4.34982 7.73 5.83982 7.25 7.99982 7.25H15.9998C18.1698 7.25 19.6598 7.74 20.5498 8.73C21.5898 9.89 21.5598 11.44 21.4498 12.5L20.6998 18.51C20.4798 20.6 19.6198 22.75 14.9998 22.75ZM7.99982 8.75C6.30982 8.75 5.14982 9.08 4.55982 9.74C4.06982 10.28 3.90982 11.11 4.03982 12.35L4.78982 18.34C4.95982 19.94 5.39982 21.26 8.99982 21.26H14.9998C18.5998 21.26 19.0398 19.95 19.2098 18.36L19.9598 12.35C20.0898 11.13 19.9298 10.3 19.4398 9.75C18.8498 9.08 17.6898 8.75 15.9998 8.75H7.99982Z" fill="#FCFDFF"/>
-								<path d="M15.4202 13.1499C14.8602 13.1499 14.4102 12.6999 14.4102 12.1499C14.4102 11.5999 14.8602 11.1499 15.4102 11.1499C15.9602 11.1499 16.4102 11.5999 16.4102 12.1499C16.4102 12.6999 15.9702 13.1499 15.4202 13.1499Z" fill="#FCFDFF"/>
-								<path d="M8.42016 13.1499C7.86016 13.1499 7.41016 12.6999 7.41016 12.1499C7.41016 11.5999 7.86016 11.1499 8.41016 11.1499C8.96016 11.1499 9.41016 11.5999 9.41016 12.1499C9.41016 12.6999 8.97016 13.1499 8.42016 13.1499Z" fill="#FCFDFF"/>
-								</svg>
-							{{ product.add_to_cart_label }}
-						</salla-add-product-button>
-					</section>
-					{% if product.is_giftable %}
-						<salla-gifting class="mt-5" widget-subtitle="{{ gifting_intro }}" product-id="{{ product.id }}"></salla-gifting>
-					{% endif %}
-				</form>
+					</form>
+				{% endif %}
 
 				<div class="product__description p-2 px-5 sm:p-1 leading-7 mb-3">
 					{% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
@@ -353,7 +355,7 @@
 				{# Installment Methods #}
 				<salla-installment price="{{ product.price }}"></salla-installment>
 				{% if product.has_metadata %}
-				<salla-metadata></salla-metadata>
+					<salla-metadata></salla-metadata>
 				{% endif %}
 
 				{% if product.show_availability %}
@@ -375,72 +377,74 @@
 					</section>
 				{% endif %}
 
-				<form class="form product-form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
-					<input type="hidden" name="id" value="{{ product.id }}">
-					{% hook 'product:single.form.start' %}
-						{% include 'pages.partials.product.options' %}
-					{% hook 'product:single.form.end' %}
+				{% if theme.settings.get('enable_product_options_above_description') %}
+					<form class="form product-form" id="mobile_form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
+						<input type="hidden" name="id" value="{{ product.id }}">
+						{% hook 'product:single.form.start' %}
+							{% include 'pages.partials.product.options' %}
+						{% hook 'product:single.form.end' %}
 
-					<section class="flex mb-4">
-						<div class="center-between w-full">
-							<label class="form-label">
-								<b class="block">
-									<i class="sicon-money-card ml-2 text-primary text-lg"></i>
-									{{ trans('pages.products.price') }}
-								</b>
-							</label>
-
-							<div class="flex whitespace-nowrap price-wrapper gap-4 items-center">
-								<div class="{{ product.is_on_sale ? '' : 'hidden' }} price_is_on_sale space-x-2 rtl:space-x-reverse whitespace-nowrap">
-									<h2 class="total-price text-[#BD1C1C] font-bold text-xl inline-block">{{product.sale_price|money}}</h2>
-									<span class="before-price text-black line-through">{{product.regular_price|money}}</span>
-								</div>
-								<div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
-									{% if product.starting_price %}
-										<span class="starting-price-title">{{ trans('pages.products.starting_price') }}</span>
-									{% endif %}
-									<h2 class="total-price font-bold text-xl inline-block">
-										{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
-								</div>
-							</div>
-
-							<div class="out-of-stock min-h-7 leading-7 hidden text-base text-red-600 !opacity-50 font-bold">{{ trans('pages.products.out_of_stock')}}</div>
-						</div>
-					</section>
-					
-					<section class="sticky-product-bar !bg-[white]">
-						{# Quantity #}
-						{% if product.is_hidden_quantity or product.type == 'booking' %}
-							<input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
-						{% else %}
-							<div class="sticky-product-bar__quantity center-between mb-4">
-							
-								<label class="form-label font-bold !flex items-center">
-									<svg width="18" class="ml-2" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12 17.0625H2.25C1.53 17.0625 0.9375 16.47 0.9375 15.75V6C0.9375 2.685 2.685 0.9375 6 0.9375H12C15.315 0.9375 17.0625 2.685 17.0625 6V12C17.0625 15.315 15.315 17.0625 12 17.0625ZM6 2.0625C3.315 2.0625 2.0625 3.315 2.0625 6V15.75C2.0625 15.855 2.145 15.9375 2.25 15.9375H12C14.685 15.9375 15.9375 14.685 15.9375 12V6C15.9375 3.315 14.685 2.0625 12 2.0625H6Z" fill="var(--color-primary)"/>
-									<path d="M5.96231 13.3126C5.60981 13.3126 5.28731 13.1851 5.04731 12.9526C4.76231 12.6676 4.63479 12.2626 4.70229 11.8276L4.91229 10.3426C4.95729 10.0201 5.1598 9.6076 5.3923 9.3751L9.2848 5.4826C10.6198 4.1476 11.7823 4.7476 12.5173 5.4826C13.0948 6.0601 13.3573 6.6676 13.2973 7.2751C13.2523 7.7701 12.9898 8.2351 12.5173 8.7151L8.6248 12.6076C8.3923 12.8401 7.98729 13.0426 7.65729 13.0951L6.17231 13.3051C6.10481 13.3051 6.02981 13.3126 5.96231 13.3126ZM10.8973 5.8126C10.6198 5.8126 10.3723 5.9926 10.0873 6.2701L6.19481 10.1626C6.13481 10.2226 6.04481 10.4101 6.02981 10.4926L5.81981 11.9776C5.81231 12.0526 5.81979 12.1201 5.84979 12.1501C5.87979 12.1801 5.9473 12.1876 6.0223 12.1801L7.50731 11.9701C7.59731 11.9551 7.77731 11.8651 7.83731 11.8051L11.7298 7.9126C12.0148 7.6276 12.1648 7.3801 12.1873 7.1551C12.2098 6.9001 12.0598 6.6001 11.7298 6.2701C11.3998 5.9551 11.1373 5.8126 10.8973 5.8126Z" fill="var(--color-primary)"/>
-									<path d="M11.565 9.43504C11.5125 9.43504 11.46 9.42754 11.415 9.41254C10.0575 9.03004 8.96999 7.95004 8.58749 6.58504C8.50499 6.28504 8.67748 5.97754 8.97748 5.88754C9.27748 5.80504 9.58499 5.97754 9.66749 6.27754C9.94499 7.26004 10.7325 8.04754 11.715 8.32504C12.015 8.40754 12.1875 8.72254 12.105 9.02254C12.0375 9.27004 11.8125 9.43504 11.565 9.43504Z" fill="var(--color-primary)"/>
-									</svg>
-									<p>{{ trans('pages.products.quantity') }}</p>
+						<section class="flex mb-4">
+							<div class="center-between w-full">
+								<label class="form-label">
+									<b class="block">
+										<i class="sicon-money-card ml-2 text-primary text-lg"></i>
+										{{ trans('pages.products.price') }}
+									</b>
 								</label>
-								<salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity" aria-label="Quantity" class="border-gray-200 flex justify-end"></salla-quantity-input>
+
+								<div class="flex whitespace-nowrap price-wrapper gap-4 items-center">
+									<div class="{{ product.is_on_sale ? '' : 'hidden' }} price_is_on_sale space-x-2 rtl:space-x-reverse whitespace-nowrap">
+										<h2 class="total-price text-[#BD1C1C] font-bold text-xl inline-block">{{product.sale_price|money}}</h2>
+										<span class="before-price text-black line-through">{{product.regular_price|money}}</span>
+									</div>
+									<div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
+										{% if product.starting_price %}
+											<span class="starting-price-title">{{ trans('pages.products.starting_price') }}</span>
+										{% endif %}
+										<h2 class="total-price font-bold text-xl inline-block">
+											{{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
+									</div>
+								</div>
+
+								<div class="out-of-stock min-h-7 leading-7 hidden text-base text-red-600 !opacity-50 font-bold">{{ trans('pages.products.out_of_stock')}}</div>
 							</div>
+						</section>
+						
+						<section class="sticky-product-bar !bg-[white]">
+							{# Quantity #}
+							{% if product.is_hidden_quantity or product.type == 'booking' %}
+								<input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
+							{% else %}
+								<div class="sticky-product-bar__quantity center-between mb-4">
+								
+									<label class="form-label font-bold !flex items-center">
+										<svg width="18" class="ml-2" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M12 17.0625H2.25C1.53 17.0625 0.9375 16.47 0.9375 15.75V6C0.9375 2.685 2.685 0.9375 6 0.9375H12C15.315 0.9375 17.0625 2.685 17.0625 6V12C17.0625 15.315 15.315 17.0625 12 17.0625ZM6 2.0625C3.315 2.0625 2.0625 3.315 2.0625 6V15.75C2.0625 15.855 2.145 15.9375 2.25 15.9375H12C14.685 15.9375 15.9375 14.685 15.9375 12V6C15.9375 3.315 14.685 2.0625 12 2.0625H6Z" fill="var(--color-primary)"/>
+										<path d="M5.96231 13.3126C5.60981 13.3126 5.28731 13.1851 5.04731 12.9526C4.76231 12.6676 4.63479 12.2626 4.70229 11.8276L4.91229 10.3426C4.95729 10.0201 5.1598 9.6076 5.3923 9.3751L9.2848 5.4826C10.6198 4.1476 11.7823 4.7476 12.5173 5.4826C13.0948 6.0601 13.3573 6.6676 13.2973 7.2751C13.2523 7.7701 12.9898 8.2351 12.5173 8.7151L8.6248 12.6076C8.3923 12.8401 7.98729 13.0426 7.65729 13.0951L6.17231 13.3051C6.10481 13.3051 6.02981 13.3126 5.96231 13.3126ZM10.8973 5.8126C10.6198 5.8126 10.3723 5.9926 10.0873 6.2701L6.19481 10.1626C6.13481 10.2226 6.04481 10.4101 6.02981 10.4926L5.81981 11.9776C5.81231 12.0526 5.81979 12.1201 5.84979 12.1501C5.87979 12.1801 5.9473 12.1876 6.0223 12.1801L7.50731 11.9701C7.59731 11.9551 7.77731 11.8651 7.83731 11.8051L11.7298 7.9126C12.0148 7.6276 12.1648 7.3801 12.1873 7.1551C12.2098 6.9001 12.0598 6.6001 11.7298 6.2701C11.3998 5.9551 11.1373 5.8126 10.8973 5.8126Z" fill="var(--color-primary)"/>
+										<path d="M11.565 9.43504C11.5125 9.43504 11.46 9.42754 11.415 9.41254C10.0575 9.03004 8.96999 7.95004 8.58749 6.58504C8.50499 6.28504 8.67748 5.97754 8.97748 5.88754C9.27748 5.80504 9.58499 5.97754 9.66749 6.27754C9.94499 7.26004 10.7325 8.04754 11.715 8.32504C12.015 8.40754 12.1875 8.72254 12.105 9.02254C12.0375 9.27004 11.8125 9.43504 11.565 9.43504Z" fill="var(--color-primary)"/>
+										</svg>
+										<p>{{ trans('pages.products.quantity') }}</p>
+									</label>
+									<salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity" aria-label="Quantity" class="border-gray-200 flex justify-end"></salla-quantity-input>
+								</div>
+							{% endif %}
+							{# Add to cart #}
+							<salla-add-product-button quick-buy {{theme.settings.get('sticky_add_to_cart') ? ' support-sticky-bar' : ''}} {{product.is_require_shipping ? 'required-shipping' : ''}} amount="{{ product.base_currency_price }}" class="mt-5 w-full sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" loader-position="end" type="submit" width="wide" {# Notify availability props#} {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.5 8.63005C16.09 8.63005 15.75 8.29005 15.75 7.88005V6.50005C15.75 5.45006 15.3 4.43005 14.52 3.72005C13.73 3.00005 12.71 2.67005 11.63 2.77005C9.83 2.94005 8.25 4.78005 8.25 6.70005V7.67005C8.25 8.08005 7.91 8.42005 7.5 8.42005C7.09 8.42005 6.75 8.08005 6.75 7.67005V6.69005C6.75 4.00005 8.92 1.52005 11.49 1.27005C12.99 1.13005 14.43 1.60005 15.53 2.61005C16.62 3.60005 17.25 5.02005 17.25 6.50005V7.88005C17.25 8.29005 16.91 8.63005 16.5 8.63005Z" fill="#FCFDFF"/>
+									<path d="M14.9998 22.75H8.99982C4.37982 22.75 3.51982 20.6 3.29982 18.51L2.54982 12.52C2.43982 11.44 2.39982 9.89 3.44982 8.73C4.34982 7.73 5.83982 7.25 7.99982 7.25H15.9998C18.1698 7.25 19.6598 7.74 20.5498 8.73C21.5898 9.89 21.5598 11.44 21.4498 12.5L20.6998 18.51C20.4798 20.6 19.6198 22.75 14.9998 22.75ZM7.99982 8.75C6.30982 8.75 5.14982 9.08 4.55982 9.74C4.06982 10.28 3.90982 11.11 4.03982 12.35L4.78982 18.34C4.95982 19.94 5.39982 21.26 8.99982 21.26H14.9998C18.5998 21.26 19.0398 19.95 19.2098 18.36L19.9598 12.35C20.0898 11.13 19.9298 10.3 19.4398 9.75C18.8498 9.08 17.6898 8.75 15.9998 8.75H7.99982Z" fill="#FCFDFF"/>
+									<path d="M15.4202 13.1499C14.8602 13.1499 14.4102 12.6999 14.4102 12.1499C14.4102 11.5999 14.8602 11.1499 15.4102 11.1499C15.9602 11.1499 16.4102 11.5999 16.4102 12.1499C16.4102 12.6999 15.9702 13.1499 15.4202 13.1499Z" fill="#FCFDFF"/>
+									<path d="M8.42016 13.1499C7.86016 13.1499 7.41016 12.6999 7.41016 12.1499C7.41016 11.5999 7.86016 11.1499 8.41016 11.1499C8.96016 11.1499 9.41016 11.5999 9.41016 12.1499C9.41016 12.6999 8.97016 13.1499 8.42016 13.1499Z" fill="#FCFDFF"/>
+									</svg>
+								{{ product.add_to_cart_label }}
+							</salla-add-product-button>
+						</section>
+						{% if product.is_giftable %}
+							<salla-gifting class="mt-5" widget-subtitle="{{ gifting_intro }}" product-id="{{ product.id }}"></salla-gifting>
 						{% endif %}
-						{# Add to cart #}
-						<salla-add-product-button quick-buy {{theme.settings.get('sticky_add_to_cart') ? ' support-sticky-bar' : ''}} {{product.is_require_shipping ? 'required-shipping' : ''}} amount="{{ product.base_currency_price }}" class="mt-5 w-full sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" loader-position="end" type="submit" width="wide" {# Notify availability props#} {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M16.5 8.63005C16.09 8.63005 15.75 8.29005 15.75 7.88005V6.50005C15.75 5.45006 15.3 4.43005 14.52 3.72005C13.73 3.00005 12.71 2.67005 11.63 2.77005C9.83 2.94005 8.25 4.78005 8.25 6.70005V7.67005C8.25 8.08005 7.91 8.42005 7.5 8.42005C7.09 8.42005 6.75 8.08005 6.75 7.67005V6.69005C6.75 4.00005 8.92 1.52005 11.49 1.27005C12.99 1.13005 14.43 1.60005 15.53 2.61005C16.62 3.60005 17.25 5.02005 17.25 6.50005V7.88005C17.25 8.29005 16.91 8.63005 16.5 8.63005Z" fill="#FCFDFF"/>
-								<path d="M14.9998 22.75H8.99982C4.37982 22.75 3.51982 20.6 3.29982 18.51L2.54982 12.52C2.43982 11.44 2.39982 9.89 3.44982 8.73C4.34982 7.73 5.83982 7.25 7.99982 7.25H15.9998C18.1698 7.25 19.6598 7.74 20.5498 8.73C21.5898 9.89 21.5598 11.44 21.4498 12.5L20.6998 18.51C20.4798 20.6 19.6198 22.75 14.9998 22.75ZM7.99982 8.75C6.30982 8.75 5.14982 9.08 4.55982 9.74C4.06982 10.28 3.90982 11.11 4.03982 12.35L4.78982 18.34C4.95982 19.94 5.39982 21.26 8.99982 21.26H14.9998C18.5998 21.26 19.0398 19.95 19.2098 18.36L19.9598 12.35C20.0898 11.13 19.9298 10.3 19.4398 9.75C18.8498 9.08 17.6898 8.75 15.9998 8.75H7.99982Z" fill="#FCFDFF"/>
-								<path d="M15.4202 13.1499C14.8602 13.1499 14.4102 12.6999 14.4102 12.1499C14.4102 11.5999 14.8602 11.1499 15.4102 11.1499C15.9602 11.1499 16.4102 11.5999 16.4102 12.1499C16.4102 12.6999 15.9702 13.1499 15.4202 13.1499Z" fill="#FCFDFF"/>
-								<path d="M8.42016 13.1499C7.86016 13.1499 7.41016 12.6999 7.41016 12.1499C7.41016 11.5999 7.86016 11.1499 8.41016 11.1499C8.96016 11.1499 9.41016 11.5999 9.41016 12.1499C9.41016 12.6999 8.97016 13.1499 8.42016 13.1499Z" fill="#FCFDFF"/>
-								</svg>
-							{{ product.add_to_cart_label }}
-						</salla-add-product-button>
-					</section>
-					{% if product.is_giftable %}
-						<salla-gifting class="mt-5" widget-subtitle="{{ gifting_intro }}" product-id="{{ product.id }}"></salla-gifting>
-					{% endif %}
-				</form>
+					</form>
+				{% endif %}
 
 				{% hook 'product:single.description.end' %}
 				<salla-quick-order class="mt-5 md:-mb-2 block"></salla-quick-order>
