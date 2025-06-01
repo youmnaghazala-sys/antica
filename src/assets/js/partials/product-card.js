@@ -24,12 +24,15 @@ class ProductCard extends HTMLElement {
       this.placeholder = salla.url.asset(salla.config.get('theme.settings.placeholder'));
       this.getProps()
 
-	  this.source = salla.config.get("page.slug");
-    // If the card is in the landing page, hide the add button and show the quantity
-	  if (this.source == "landing-page") {
-	  	this.hideAddBtn = true;
-	  	this.showQuantity = window.showQuantity;
-	  }
+      this.source = salla.config.get("page.slug");
+      // If the card is in the landing page, hide the add button and show the quantity
+      if (this.source == "landing-page") {
+        this.hideAddBtn = true;
+        this.showQuantity = window.showQuantity;
+      }
+
+      
+
 
       salla.lang.onLoaded(() => {
         // Language
@@ -44,6 +47,16 @@ class ProductCard extends HTMLElement {
       })
       
       this.render()
+  }
+
+  async hasOptions(productId) {
+    try {
+      const res = await salla.api.product.getDetails(productId, ["options"]);
+      return (res.data?.options || []).length > 0;
+    } catch (err) {
+      console.error("Error:", err);
+      return false;
+    }
   }
 
   initCircleBar() {
@@ -172,7 +185,7 @@ class ProductCard extends HTMLElement {
     this.showQuantity = this.hasAttribute('showQuantity');
   }
 
-  render(){
+  async render(){
     this.classList.add('s-product-card-entry'); 
     this.setAttribute('id', this.product.id);
     !this.horizontal && !this.fullImage && !this.minimal? this.classList.add('s-product-card-vertical') : '';
@@ -185,6 +198,7 @@ class ProductCard extends HTMLElement {
     this.shadowOnHover?  this.classList.add('s-product-card-shadow') : '';
     this.product?.is_out_of_stock?  this.classList.add('s-product-card-out-of-stock') : '';
     this.isInWishlist = !salla.config.isGuest() && salla.storage.get('salla::wishlist', []).includes(this.product.id);
+    this.hasProductOptions = await this.hasOptions(this.product.id);
     this.innerHTML = `
         <div class="${!this.fullImage ? 's-product-card-image' : 's-product-card-image-full'}" style="${this.product.quantity === 0 ? 'filter: grayscale(1);' : ''}">
           <a href="${this.product?.url}">
@@ -284,8 +298,8 @@ class ProductCard extends HTMLElement {
                 product-status="${this.product.status}"
                 product-type="${this.product.type}">
                 ${this.product.status == 'sale' ? 
-                    `<i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>` : ``
-                  }
+                  `<i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>` : ``
+                }
                 <span>${this.product.add_to_cart_label ? this.product.add_to_cart_label : this.getAddButtonLabel() }</span>
               </salla-add-product-button>
 
@@ -307,12 +321,18 @@ class ProductCard extends HTMLElement {
         </div>
         ${!this.hideAddBtn && this.horizontal ?
           `<div class="s-product-card-content-footer gap-4">
-            <salla-add-product-button shape="icon" color="primary" fill="outline"
-              product-id="${this.product.id}"
-              product-status="${this.product.status}"
-              product-type="${this.product.type}">
-              <i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>
-            </salla-add-product-button>
+            ${
+              this.hasProductOptions
+                ? `<a href="${this.product?.url}" class="border !border-[var(--color-primary-op-30)] rounded-full w-[35px] h-[35px] flex items-center justify-center">
+                      <i class="text-base sicon-shopping-bag"></i>
+                    </a>`
+                : `<salla-add-product-button shape="icon" color="primary" fill="outline"
+                    product-id="${this.product.id}"
+                    product-status="${this.product.status}"
+                    product-type="${this.product.type}">
+                    <i class="text-base sicon-${ this.product.type == 'booking' ? 'calendar-time' : 'shopping-bag'}"></i>
+                  </salla-add-product-button>`
+            }
 
             <salla-button 
               shape="icon" 
