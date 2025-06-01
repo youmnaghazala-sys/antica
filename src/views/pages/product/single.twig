@@ -182,7 +182,7 @@
 					</h2>
 				{% endif %}
 
-				{% if not theme.settings.get('enable_product_options_above_description') %}
+				{% if theme.settings.get('enable_product_options_above_description') %}
 					<form class="form product-form" id="mobile_form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
 						<input type="hidden" name="id" value="{{ product.id }}">
 						{% hook 'product:single.form.start' %}
@@ -268,9 +268,7 @@
 					{% endif %}
 				</div>
 
-				<div
-					class="flex flex-col md:flex-row justify-between md:items-center pb-3.5">
-					{# Price #}
+				<div class="flex flex-col md:flex-row justify-between md:items-center pb-3.5">
 					<div class="flex whitespace-nowrap gap-4 items-center">
 						<div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
 							<h4 class="text-[#BD1C1C] font-bold text-xl inline-block">{{product.sale_price|money}}</h4>
@@ -288,6 +286,7 @@
 					<salla-rating-stars value="{{ product.rating.stars }}" reviews="{{ product.rating.count }}"></salla-rating-stars>
 					{% endif %}
 				</div>
+
 				{% if theme.settings.get('is_note_product') %}
 					<p class="text-sm text-[#BD1C1C] pb-4">{{theme.settings.get('note_of_product')}}</p>
 				{% endif %}
@@ -377,8 +376,8 @@
 					</section>
 				{% endif %}
 
-				{% if theme.settings.get('enable_product_options_above_description') %}
-					<form class="form product-form" id="mobile_form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
+				{% if not theme.settings.get('enable_product_options_above_description') %}
+					<form class="form product-form" enctype="multipart/form-data" method="post" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
 						<input type="hidden" name="id" value="{{ product.id }}">
 						{% hook 'product:single.form.start' %}
 							{% include 'pages.partials.product.options' %}
