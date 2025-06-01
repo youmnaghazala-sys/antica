@@ -83,9 +83,7 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
-	<div
-		class="container">
-		{# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
+	<div class="container">
 		<nav class="breadcrumbs w-full py-5">
 			<salla-breadcrumb></salla-breadcrumb>
 		</nav>
@@ -105,17 +103,13 @@
 						<div class="promotion-title">{{ product.promotion_title }}</div>
 					{% endif %}
 
-					{# <salla-button class="btn--wishlist animated sws" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light">
-						<i class="sicon-heart"></i>
-					</salla-button> #}
-
-					{# Calories Badge #}
 					{% if product.calories %}
 						<div class="absolute z-[2] top-4 rtl:left-4 ltr:right-4 bg-white shadow-sm flex flex-col justify-center items-center rounded-full w-20 h-20 md:w-24 md:h-24">
 							<span class="text-red-500 text-xl leading-none font-bold">{{ product.calories }}</span>
 							<span class="text-xs text-gray-500">{{ trans('pages.products.calories') }}</span>
 						</div>
 					{% endif %}
+
 					<div slot="items">
 						{% for image in product.images %}
 							{% if image.three_d_image_url %}
@@ -303,7 +297,6 @@
 						{% endfor %}
 					</div>
 				{% endif %}
-
 
 				{% if product.sold_quantity or product.can_show_remained_quantity %}
 					<div class="bg-white py-2.5 mb-5 rounded-md inline-flex text-sm">
@@ -494,4 +487,3 @@
 		<script type="module" defer src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 	{% endif %}
 {% endblock %}
-
