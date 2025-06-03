@@ -6,12 +6,12 @@
 		{% if theme.settings.get('has_newsletter') %}
 			<div class="container flex flex-wrap flex-col sm:flex-row sm:items-center gap-7 pb-5 md:pb-12 border-b border-solid  border-[#0000001a]">
 				<h4 class="text-lg md:text-2xl font-medium whitespace-nowrap">{{ trans('pages.cart.newlettert')}}</h4>
-						<form action="{{ theme.settings.get('newsletter_action') }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center flex-1 justify-between" target="_blank">
+						<form action="{{ theme.settings.get('newsletter_action') }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="gap-1 flex bg-white rounded-sm p-1.5 md:p-2 w-full items-center flex-1 justify-between" target="_blank">
 							<div id="mc_embed_signup_scroll" class="w-full">
-								<input type="email" name="EMAIL" id="mce-EMAIL" required placeholder="{{ trans('blocks.footer.email') }}" class="w-full border-none focus:outline-none placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-sm"/>
+								<input type="email" name="EMAIL" id="mce-EMAIL" required placeholder="{{ trans('blocks.footer.email') }}" class="w-full placeholder:text-xxs sm:placeholder:text-base placeholder:text-gray-400 rounded-2xl border border-[grey]"/>
 							</div>
 							<button type="submit" name="subscribe">
-								<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2 "></i>
+								<i class="sicon-send-mail block rotate-[224deg] text-xxs md:text-base text-white bg-footercolor rounded-full p-1.5 md:p-2"></i>
 							</button>
 						</form>
 				<div class="flex gap-2 md:gap-3">
