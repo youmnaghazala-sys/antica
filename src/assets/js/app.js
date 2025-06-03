@@ -59,6 +59,7 @@ class App extends AppHelpers {
       });
     });
   }
+
   ALU_extractfooterimage() {
     setTimeout(() => {
       const sallaPayments = document.querySelector(".salla-payments_footer");
@@ -85,6 +86,7 @@ class App extends AppHelpers {
       }
     }, 200);
   }
+
   ALU_searchIcon() {
     // salla search
     let searchElements = document.querySelectorAll(".Moa_search");
@@ -110,6 +112,7 @@ class App extends AppHelpers {
       });
     });
   }
+
   ALU__removeShadowroot() {
     setTimeout(() => {
       const hostElements = document.querySelectorAll('.s-add-product-button-main .s-add-product-button-mini-checkout');
@@ -128,6 +131,7 @@ class App extends AppHelpers {
       });
     }, 200);
   }
+
   loadModalImgOnclick() {
     document.querySelectorAll(".load-img-onclick").forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -488,7 +492,6 @@ class App extends AppHelpers {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     sections_anime.forEach(section => observer.observe(section));
   }
-  
   
   initAddToCart() {
     salla.cart.event.onUpdated((summary) => {
