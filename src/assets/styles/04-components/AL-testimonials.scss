@@ -1,110 +1,93 @@
-.al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+.al-testimonial {
+  .s-slider-v-centered .s-slider-block__title-nav {
     color: white;
     width: 35px;
     height: 35px;
     border-radius: 50%;
     position: absolute;
-}
-
-.al-testimonial .s-slider-prev::after{
-    content: "";
-    position: absolute;
-    top: 8px;
-    right: 7px;
-    left: 0px;
-    height: 101%;
-    width: 101%;
-    border-width: 0.5px;
-    border-style: solid;
-    border-color: var(--btn-bg);
-    background-color: transparent;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-}
-
-
-.al-testimonial .s-slider-next::before{
-    content: "";
-    position: absolute;
-    bottom: -7px;
-    right: 48px;
-    left: 0px;
-    height: 101%;
-    width: 101%;
-    border-width: 0.5px;
-    border-style: solid;
-    border-color: var(--btn-bg);
-    background-color: transparent;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-}
-
-
-.s-slider-v-centered .s-slider-block__title-nav button.swiper-button-disabled {
-    opacity: 0.5;
-}
-
-.al-testimonial .s-slider-v-centered .s-slider-block__title-nav{
     top: -22% !important;
     left: 10%;
+  }
+  .s-slider-prev {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 7px;
+      left: 0px;
+      height: 101%;
+      width: 101%;
+      border-width: 0.5px;
+      border-style: solid;
+      border-color: var(--btn-bg);
+      background-color: transparent;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+  }
+  .s-slider-next {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      right: 48px;
+      left: 0px;
+      height: 101%;
+      width: 101%;
+      border-width: 0.5px;
+      border-style: solid;
+      border-color: var(--btn-bg);
+      background-color: transparent;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+  }
 }
-
+.s-slider-v-centered .s-slider-block__title-nav button.swiper-button-disabled {
+  opacity: 0.5;
+}
 .s-slider-nav-arrow {
-    border-radius: 0px;
-    padding: 10px;
-    box-shadow: 1px 1px 2px 2px white !important;
+  border-radius: 0px;
+  padding: 10px;
+  box-shadow: 1px 1px 2px 2px white !important;
 }
-
-  
-@media (max-width: 576px) { 
-    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
-        left: 20%;
-        top: -27% !important;
-    }
-
-    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
-        color: white;
-        width: 30px;
-        height: 30px;
-    }
-
-    .al-testimonial .s-slider-prev::after{
-        top: 12px;
-        right: 12px;
-    }
-    .al-testimonial .s-slider-next::before {
-        bottom: -12px;
-        right: 48px;
-    }
+.s-slider-nav-arrow svg {
+  fill: var(--color-primary) !important;
 }
-
-@media (max-width: 375px) { 
-    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
-        left: 23%;
-        top: -26% !important;
-    }
-
-    .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
-        width: 30px;
-        height: 30px;
-    }
-
-    .al-testimonial .s-slider-prev::after{
-        top: 40%;
-        right: 38%;
-        left: 0px;
-    }
-    
-    .al-testimonial .s-slider-next::before{
-        bottom: -41%;
-        right: 160%;
-        left: 0px;
-    }
-    
+@media (max-width: 576px) {
+  .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+    left: 20%;
+    top: -27% !important;
+    color: white;
+    width: 30px;
+    height: 30px;
+  }
+  .al-testimonial .s-slider-prev::after {
+    top: 12px;
+    right: 12px;
+  }
+  .al-testimonial .s-slider-next::before {
+    bottom: -12px;
+    right: 48px;
+  }
 }
-
-.s-slider-nav-arrow svg{
-    fill: #fff  !important;
+@media (max-width: 375px) {
+  .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
+    left: 23%;
+    top: -26% !important;
+    width: 30px;
+    height: 30px;
+  }
+  .al-testimonial .s-slider-prev::after {
+    top: 40%;
+    right: 38%;
+    left: 0px;
+  }
+  .al-testimonial .s-slider-next::before {
+    bottom: -41%;
+    right: 160%;
+    left: 0px;
+  }
 }

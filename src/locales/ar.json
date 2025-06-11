@@ -6,10 +6,10 @@
       "english": "English"
     },
     "appBanner": {
-      "download_now": "حمله الان"
+      "download_now": "حمّله الآن"
     },
     "footer": {
-      "email": "أدخل بريدك الالكتروني",
+      "email": "أدخل بريدك الإلكتروني",
       "title": "العنوان",
       "piece": "قطعة",
       "phone": "رقم الهاتف"
@@ -19,42 +19,41 @@
     "cart": {
       "cart_options": "خيارات السلة",
       "newlettert": "الاشتراك في النشرة البريدية",
-      "email": "أدخل بريدك الالكتروني",
+      "email": "أدخل بريدك الإلكتروني",
       "sendus": "راسلنا",
       "contactus": "اتصل بنا",
-      "verification": "موثق لدى منصة العملاء",
+      "verification": "موثّق لدى منصة العملاء",
       "product_percent": "أصلي 100%",
-      "product_percent_txt": "اضغط هنا للمزيد من ",
+      "product_percent_txt": "اضغط هنا للمزيد من",
       "brand": "البراند",
       "desproduct": "وصف المنتج",
-      "ratingproduct": "التقيمات",
+      "ratingproduct": "التقييمات",
       "add": "أضف",
-      "tocart": "إلى السلة واحصل على شحن مجانى",
-      "free_shipping_done": "طلبك مؤهل للشحن المجانى",
+      "tocart": "إلى السلة واحصل على شحن مجاني",
+      "free_shipping_done": "طلبك مؤهل للشحن المجاني",
       "product": "المنتج",
       "price": "السعر",
       "quantity": "الكمية",
-      "total": "الاجمالى",
-      "sku": "رقم القطعه :",
-      "weight": "الوزن :"
+      "total": "الإجمالي",
+      "sku": "رقم القطعة:",
+      "weight": "الوزن:"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
-      "edit_period_ended": "تم انتهاء المدة المحددة لتعديل التقييم",
-      "delete_period_ended": "تم انتهاء المدة المحددة لحذف التقييم",
-      "days_since_added": "أيام من إضافته",
+      "edit_period_ended": "انتهت المدة المحددة لتعديل التقييم",
+      "delete_period_ended": "انتهت المدة المحددة لحذف التقييم",
+      "days_since_added": "أيام منذ إضافته",
       "option_name": "الخيار",
       "option_content": "المحتوى",
       "show_more": "عرض المقالة"
     }
   },
   "common": {
-    "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر أحد البطاقات البنكة التالية واحصل على الخصم المحدد",
-    "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر أحد بطاقات بنك :bank_name واحصل على خصم بنسبة ",
-
+    "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر إحدى البطاقات البنكية التالية واحصل على الخصم المحدد",
+    "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر بطاقة بنك :bank_name واحصل على خصم بنسبة",
     "peice": "قطعة"
   },
   "blog": {
-    "read_more": " عرض المقالة "
+    "read_more": "عرض المقالة"
   }
 }

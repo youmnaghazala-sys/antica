@@ -2,58 +2,58 @@
   "blocks": {
     "header": {
       "cart": "Cart",
-      "arabic": "arabic",
+      "arabic": "Arabic",
       "english": "English"
     },
     "appBanner": {
-      "download_now": "download now"
+      "download_now": "Download Now"
     },
     "footer": {
-      "email": "أدخل بريدك الالكتروني",
-      "title": "address",
+      "email": "أدخل بريدك الإلكتروني",
+      "title": "Address",
       "piece": "Piece",
-      "phone": "phone number"
+      "phone": "Phone Number"
     }
   },
   "pages": {
     "cart": {
       "cart_options": "Cart Options",
-      "show_blog": "show article",
-      "newlettert": "Subscribe to the newsletter",
-      "email": "enter your email",
-      "sendus": "send to us",
-      "contactus": "contact us",
-      "verification": "Dating back to platform clients",
-      "show_more": "show article",
-      "product_percent_txt": "more of",
-      "brand": "brand",
-      "desproduct": "product description",
-      "ratingproduct": "ratting",
-      "add": "add",
-      "tocart": "to cart and get free shipping",
-      "free_shipping_done": "your order qualifies for free shipping",
+      "show_blog": "Show Article",
+      "newlettert": "Subscribe to the Newsletter",
+      "email": "Enter your email",
+      "sendus": "Send to Us",
+      "contactus": "Contact Us",
+      "verification": "Dating Back to Platform Clients",
+      "show_more": "Show Article",
+      "product_percent_txt": "More of",
+      "brand": "Brand",
+      "desproduct": "Product Description",
+      "ratingproduct": "Rating",
+      "add": "Add",
+      "tocart": "to Cart and Get Free Shipping",
+      "free_shipping_done": "Your Order Qualifies for Free Shipping",
       "product": "Product",
       "quantity": "Quantity",
       "price": "Price",
       "total": "Total",
-      "sku": "number of peice :",
-      "weight": "weight :"
+      "sku": "Number of Pieces:",
+      "weight": "Weight:"
     },
     "order": {
       "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
       "edit_period_ended": "The period to edit the review has ended",
       "delete_period_ended": "The period to delete the review has ended",
-      "days_since_added": "days since it was added",
-      "option_name": "Option name",
+      "days_since_added": "Days since it was added",
+      "option_name": "Option Name",
       "option_content": "Content"
     }
   },
   "common": {
     "bank_offer_sub_title_multiple": "Pay for your purchases via one of the following bank cards and get the specified discount",
-    "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get discount",
-    "peice": "peice"
+    "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get a discount",
+    "peice": "Piece"
   },
   "blog": {
-    "read_more": " View Blog "
+    "read_more": "View Blog"
   }
 }

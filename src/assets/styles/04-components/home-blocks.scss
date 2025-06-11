@@ -264,38 +264,30 @@
   }
 }
 
-/* slider with bg block */
 .s-block--slider-with-bg {
   @apply bg-gray-100 pb-8 sm:pb-16 mt-8 sm:mt-16 first-of-type:mt-0;
-
   .slider-bg {
     @apply h-96 sm:h-116 transition-opacity bg-center bg-cover text-white relative;
-
-    &:before {
+    &::before {
       content: "";
       @apply h-full w-full bg-black opacity-60 absolute top-0 left-0;
     }
   }
-
   .s-slider-block {
     &__title-right {
       @apply hidden;
     }
-
     &__title-left {
       @apply w-full flex justify-between;
     }
-
     &__display-all {
-      @apply block btn btn--outline light btn--rounded-full;
-      @apply grow-0 bg-transparent text-white #{!important};
+      @apply block btn btn--outline light btn--rounded-full grow-0 bg-transparent text-white;
+      color: white !important;
+      background-color: transparent !important;
+      flex-grow: 0 !important;
     }
   }
 }
-
-/*
-  Main Links Block
-*/
 .slide--cat-entry {
   @apply bg-white rounded-md h-36 p-3 text-center flex flex-col items-center justify-center transition duration-500 hover:shadow-default hover:text-gray-500 border border-gray-100;
 
@@ -308,9 +300,6 @@
   }
 }
 
-/*
-  offers slider
-*/
 .slide--offer-entry {
   @apply bg-white rounded-md h-36 text-center flex flex-col items-center justify-between text-gray-600 transition duration-500 hover:shadow-default border border-gray-200;
 }
@@ -688,7 +677,7 @@ salla-filters {
 .sicon-heart {
   fill: white !important;
 }
-.s-product-card-horizontal .s-product-card-content-footer .s-button-icon{
+.s-product-card-horizontal .s-product-card-content-footer .s-button-icon {
   background-color: var(--btns_backgrondColor) !important;
   color: var(--fill_color) !important;
 }
@@ -703,19 +692,19 @@ salla-slider salla-product-card.swiper-slide {
   @apply mt-20 sm:mt-0;
   &-content {
     @apply w-[75%] lg:w-[630px] h-[318px] sm:h-[514px] py-4 px-6 bg-no-repeat bg-cover absolute top-[-10%] sm:top-[13%] right-[15%] sm:right-[10%];
-    background: #F2F4F7;
+    background: #f2f4f7;
     box-shadow: 0px 0px 10.52px 0px #00000040;
 
-    @media (max-width:375px) {
+    @media (max-width: 375px) {
       right: 8% !important;
     }
 
     &::after {
       content: "";
       border: 60px solid;
-      border-color: transparent #F2F4F7 transparent transparent;
-      @media ( max-width: 640px ) {
-        border-color: #F2F4F7 transparent transparent transparent !important;
+      border-color: transparent #f2f4f7 transparent transparent;
+      @media (max-width: 640px) {
+        border-color: #f2f4f7 transparent transparent transparent !important;
         border: 40px solid;
       }
       @apply absolute left-1/2 -translate-x-1/2 sm:translate-x-0 bottom-[-80px] sm:bottom-1/2 sm:translate-y-1/2 sm:left-[-120px];
@@ -736,7 +725,7 @@ salla-slider salla-product-card.swiper-slide {
   .s-tabs-header {
     @apply absolute top-[-10%] sm:top-[12%] right-[28%] sm:right-[17%] mt-0 sm:mt-[6px] z-2 border-none;
 
-    @media (max-width:375px) {
+    @media (max-width: 375px) {
       right: 10% !important;
     }
   }

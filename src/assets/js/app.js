@@ -33,6 +33,13 @@ class App extends AppHelpers {
     this.loadModalImgOnclick();
     this.renderFollowUsInIndex();
 
+    salla.lang.add("pages.products.select_item_message", {
+      ar: "الرجاء اختيار عنصر من القائمة",
+      en: "Please select an item from the list",
+    });
+
+    this.addCustomSelectValidation(salla.lang.get('pages.products.select_item_message'));
+
     salla.comment.event.onAdded(() => window.location.reload());
 
     this.status = "ready";
@@ -43,6 +50,22 @@ class App extends AppHelpers {
   log(message) {
     salla.log(`ThemeApp(Raed)::${message}`);
     return this;
+  }
+
+  addCustomSelectValidation(message) {
+    const select = document.querySelector('salla-product-options .s-product-options-option .s-form-control');
+
+    if (!select) return;
+
+    select.addEventListener("invalid", function () {
+      if (!select.value) {
+        select.setCustomValidity(message);
+      }
+    });
+
+    select.addEventListener("change", function () {
+      select.setCustomValidity("");
+    });
   }
 
   // fix Menu Direction at the third level >> The menu at the third level was popping off the page
