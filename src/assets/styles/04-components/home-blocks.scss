@@ -723,7 +723,7 @@ salla-slider salla-product-card.swiper-slide {
     }
   }
   .s-tabs-header {
-    @apply absolute top-[-10%] sm:top-[12%] right-[28%] sm:right-[17%] mt-0 sm:mt-[6px] z-2 border-none;
+    @apply absolute top-[-10%] sm:top-[14%] right-[28%] sm:right-[17%] mt-0 sm:mt-[6px] z-2 border-none;
 
     @media (max-width: 375px) {
       right: 10% !important;
