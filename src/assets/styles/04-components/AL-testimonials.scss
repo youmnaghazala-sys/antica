@@ -5,7 +5,7 @@
     height: 35px;
     border-radius: 50%;
     position: absolute;
-    top: -22% !important;
+    top: 0% !important;
     left: 10%;
   }
   .s-slider-prev {
@@ -54,7 +54,7 @@
   box-shadow: 1px 1px 2px 2px white !important;
 }
 .s-slider-nav-arrow svg {
-  fill: var(--color-primary) !important;
+  fill: white !important;
 }
 @media (max-width: 576px) {
   .al-testimonial .s-slider-v-centered .s-slider-block__title-nav {
