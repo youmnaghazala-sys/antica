@@ -155,15 +155,9 @@
 					{% if theme.settings.get('is_original') %}
 						<a href="{{product.category.url}}" class="pr-4 py-2 mb-4 text-black block">
 							<p class="text-sm text-primary">{{trans('pages.cart.product_percent')}}</p>
-							{% if theme.settings.get('show_brand_insteadof_catname') %}
-								<p class="text-sm text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
-									{{ trans('pages.cart.brand') }}
-								</p>
-							{% else %}
-								<p class="text-sm text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
-									{{ product.category.name }}
-								</p>
-							{% endif %}
+							<p class="text-sm text-[#F55157]">{{ trans('pages.cart.product_percent_txt') }}
+								{{ product.category.name }}
+							</p>
 						</a>
 					{% endif %}
 				</div>
