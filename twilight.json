@@ -541,6 +541,18 @@
             "value": false,
             "selected": false,
             "required": false
+        },
+        {
+            "id": "enable_product_description_below",
+            "type": "boolean",
+            "format": "switch",
+            "label": " عرض وصف المنتج أسفل خيارات المنتج",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
         }
     ],
     "components": [
