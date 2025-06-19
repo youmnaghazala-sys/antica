@@ -531,28 +531,6 @@
             "required": false
         },
         {
-            "id": "custom_text_for_product",
-            "type": "string",
-            "format": "text",
-            "label": "",
-            "description": null,
-            "labelHTML": null,
-            "placeholder": "Placeholder text ..",
-            "icon": "sicon-format-text-alt",
-            "value": "test test",
-            "multilanguage": false,
-            "required": false,
-            "minLength": "1",
-            "maxLength": 100,
-            "conditions": [
-                {
-                    "id": "enable_text_and_link_for_product",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
             "id": "enable_product_options_above_description",
             "type": "boolean",
             "format": "switch",
