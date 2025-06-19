@@ -246,7 +246,7 @@
 					</form>
 				{% endif %}
 				
-				{# {% if not theme.settings.get('enable_product_description_below') %} #}
+				{% if not theme.settings.get('enable_product_description_below') %}
 					<div class="product__description p-2 px-5 sm:p-1 leading-7 mb-3">
 						{% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
 						{% if product.has_read_more %}
@@ -263,7 +263,7 @@
 							</article>
 						{% endif %}
 					</div>
-				{# {% endif %} #}
+				{% endif %}
 
 				<div class="flex flex-col md:flex-row justify-between md:items-center pb-3.5">
 					<div class="flex whitespace-nowrap gap-4 items-center">
@@ -448,53 +448,45 @@
 		</div>
 		<salla-offer></salla-offer>
 	</div>
-	<div class="container mb-12" id="new-place">
-		<salla-tabs>
-			<!-- Tab One -->
-			{% if product.description %}
-				<salla-tab-header slot="header" name="tab_one">
-					<span>{{trans('pages.cart.desproduct')}}</span>
-				</salla-tab-header>
-			{% endif %}
-			<salla-tab-content slot="content" name="tab_one">
-				{% if product.description %}
-					<div class="" id="new-place">
-						{% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
-						<article class="article--main pb-1 text-base">
-							{{ product_desc|raw }}
-						</article>
-					</div>
-				{% endif %}
-			</salla-tab-content>
-			<!-- Tab Two -->
-			<salla-tab-header slot="header" name="tab_two">
-				<span>{{trans('pages.cart.ratingproduct')}}</span>
-			</salla-tab-header>
-			<salla-tab-content
-				slot="content" name="tab_two">
-				{# Comments Area #}
-				<salla-comments item-id="{{product.id}}" type="product"></salla-comments>
-			</salla-tab-content>
 
-		</salla-tabs>
+	<div class="container mb-12" id="new-place">
+		{% if theme.settings.get('enable_product_description_below') %}
+			<salla-tabs>
+				<!-- Tab One -->
+				{% if product.description %}
+					<salla-tab-header slot="header" name="tab_one">
+						<span>{{trans('pages.cart.desproduct')}}</span>
+					</salla-tab-header>
+				{% endif %}
+				<salla-tab-content slot="content" name="tab_one">
+					{% if product.description %}
+						<div class="" id="new-place">
+							{% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
+							<article class="article--main pb-1 text-base">
+								{{ product_desc|raw }}
+							</article>
+						</div>
+					{% endif %}
+				</salla-tab-content>
+				<!-- Tab Two -->
+				<salla-tab-header slot="header" name="tab_two">
+					<span>{{trans('pages.cart.ratingproduct')}}</span>
+				</salla-tab-header>
+				<salla-tab-content
+					slot="content" name="tab_two">
+					{# Comments Area #}
+					<salla-comments item-id="{{product.id}}" type="product"></salla-comments>
+				</salla-tab-content>
+			</salla-tabs>
+		{% else %}
+			<salla-comments item-id="{{product.id}}" type="product"></salla-comments>
+		{% endif %}
 	</div>
 
 	{# Similar Products Area #}
 	<div class="container">
 		<salla-products-slider source="related" source-value="{{product.id}}" block-title="{{trans('pages.products.similar_products')}}" display-all-url></salla-products-slider>
 	</div>
-
-	<style>
-		{% if theme.settings.get('enable_product_description_below') %}
-			.main-content .product__description{
-				display: none !important;
-			}
-		{% else %}
-			#new-place salla-tab-content:first-child{
-				display: none !important;
-			}
-		{% endif %}
-	</style>
 {% endblock %}
 
 {% block scripts %}
