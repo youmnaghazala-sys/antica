@@ -526,8 +526,8 @@
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
-            "value": true,
-            "selected": true,
+            "value": false,
+            "selected": false,
             "required": false
         },
         {
