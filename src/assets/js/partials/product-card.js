@@ -255,7 +255,7 @@ class ProductCard extends HTMLElement {
             </h5>`: ''}
 
             <h3 class="s-product-card-content-title">
-              <a class="!line-clamp-2" href="${this.product?.url}">${this.product?.name}</a>
+              <a class="line-clamp-2" href="${this.product?.url}">${this.product?.name}</a>
             </h3>
 
             ${this.product?.subtitle && !this.minimal ?
