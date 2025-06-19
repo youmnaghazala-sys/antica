@@ -519,22 +519,22 @@
             "selected": false
         },
         {
+            "id": "enable_product_description_below",
+            "type": "boolean",
+            "format": "switch",
+            "label": " عرض وصف المنتج أسفل خيارات المنتج",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": true,
+            "selected": true,
+            "required": false
+        },
+        {
             "id": "enable_text_and_link_for_product",
             "type": "boolean",
             "format": "switch",
             "label": "تفعيل النص والرابط المخصص في صفحه المنتج",
-            "description": null,
-            "labelHTML": null,
-            "icon": "sicon-toggle-off",
-            "value": false,
-            "selected": false,
-            "required": false
-        },
-        {
-            "id": "enable_product_options_above_description",
-            "type": "boolean",
-            "format": "switch",
-            "label": "عرض خيارات المنتج فوق الوصف",
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
@@ -556,6 +556,18 @@
             "required": false,
             "minLength": "1",
             "maxLength": "100"
+        },
+        {
+            "id": "enable_product_options_above_description",
+            "type": "boolean",
+            "format": "switch",
+            "label": "عرض خيارات المنتج فوق الوصف",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": false,
+            "selected": false,
+            "required": false
         }
     ],
     "components": [
