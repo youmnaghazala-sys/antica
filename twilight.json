@@ -519,10 +519,10 @@
             "selected": false
         },
         {
-            "id": "show_brand_insteadof_catname",
+            "id": "enable_text_and_link_for_product",
             "type": "boolean",
             "format": "switch",
-            "label": "عرض اسم الماركة بدلاً من اسم التصنيف",
+            "label": "تفعيل النص والرابط المخصص في صفحه المنتج",
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
