@@ -250,7 +250,7 @@
             "type": "boolean",
             "format": "switch",
             "label": "اظهار جملة (اصلى 100%)",
-            "description": "",
+            "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
             "value": true,
@@ -262,7 +262,7 @@
             "type": "boolean",
             "format": "switch",
             "label": "إضافة ملاحظة على المنتجات",
-            "description": "",
+            "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
             "value": true,
@@ -522,7 +522,11 @@
             "id": "enable_text_and_link_for_product",
             "type": "boolean",
             "format": "switch",
+<<<<<<< HEAD
             "label": "تفعيل النص والرابط المخصص في صفحه المنتج",
+=======
+            "label": "عرض اسم الماركة بدلاً من اسم التصنيف",
+>>>>>>> 510e5c417805ff05c964695aec764c4d81db98a3
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
@@ -534,7 +538,7 @@
             "id": "enable_product_options_above_description",
             "type": "boolean",
             "format": "switch",
-            "label": " عرض خيارات المنتج فوق الوصف",
+            "label": "عرض خيارات المنتج فوق الوصف",
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
@@ -543,6 +547,7 @@
             "required": false
         },
         {
+<<<<<<< HEAD
             "id": "enable_product_description_below",
             "type": "boolean",
             "format": "switch",
@@ -553,6 +558,21 @@
             "value": true,
             "selected": true,
             "required": false
+=======
+            "id": "custom_text_for_product",
+            "type": "string",
+            "format": "text",
+            "label": "الاسم المخصص في صفحه المنتج",
+            "description": null,
+            "labelHTML": null,
+            "placeholder": "Placeholder text ..",
+            "icon": "sicon-format-text-alt",
+            "value": "اشتر الان بخصم خاص",
+            "multilanguage": true,
+            "required": false,
+            "minLength": "1",
+            "maxLength": "100"
+>>>>>>> 510e5c417805ff05c964695aec764c4d81db98a3
         }
     ],
     "components": [
