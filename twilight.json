@@ -519,10 +519,10 @@
             "selected": false
         },
         {
-            "id": "enable_text_and_link_for_product",
+            "id": "enable_product_description_below",
             "type": "boolean",
             "format": "switch",
-            "label": "تفعيل النص والرابط المخصص في صفحه المنتج",
+            "label": " عرض وصف المنتج أسفل خيارات المنتج",
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
@@ -531,10 +531,10 @@
             "required": false
         },
         {
-            "id": "enable_product_options_above_description",
+            "id": "enable_text_and_link_for_product",
             "type": "boolean",
             "format": "switch",
-            "label": "عرض خيارات المنتج فوق الوصف",
+            "label": "تفعيل النص والرابط المخصص في صفحه المنتج",
             "description": null,
             "labelHTML": null,
             "icon": "sicon-toggle-off",
@@ -556,6 +556,32 @@
             "required": false,
             "minLength": "1",
             "maxLength": "100"
+        },
+        {
+            "id": "custom_url_for_product",
+            "type": "string",
+            "format": "url",
+            "inputType": "url",
+            "label": "الرابط المخصص في صفحه المنتج",
+            "description": "أدخل رابط الفيديو الذي تريد عرضه في المعرض.",
+            "placeholder": "مثال: https://salla.sa",
+            "icon": "sicon-link",
+            "value": null,
+            "required": false,
+            "minLength": 6,
+            "maxLength": 5000
+        },
+        {
+            "id": "enable_product_options_above_description",
+            "type": "boolean",
+            "format": "switch",
+            "label": "عرض خيارات المنتج فوق الوصف",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-toggle-off",
+            "value": false,
+            "selected": false,
+            "required": false
         }
     ],
     "components": [
