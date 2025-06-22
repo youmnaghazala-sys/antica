@@ -1,0 +1,23 @@
+.s-product-card-vertical {
+  .s-product-card-content-footer {
+    background-color: var(--color-primary);
+    width: 100%;
+    salla-add-product-button {
+      width: 100%;
+      .s-button-element {
+        border-radius: 0 !important;
+        color: white !important;
+        border: none !important;
+        width: 100%;
+        margin: 0;
+        .s-button-primary-outline {
+          &:hover {
+            background-color: transparent !important;
+            color: var(--color-primary) !important;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

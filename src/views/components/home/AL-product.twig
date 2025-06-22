@@ -1,27 +1,27 @@
 <section class="AL_product_slider my-5">
-    <div class="container">
-        {% if component.grid_switch %}
-        <salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
-            "centerInsufficientSlides": true,
-            "breakpoints": {
-                "320": { "slidesPerView": 2, "spaceBetween": 0 },
-                "640": { "slidesPerView": 3, "spaceBetween": 8 },
-                "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
-            }
-        }'>
+	<div class="container">
+		{% if component.grid_switch %}
+			<salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
+					                "centerInsufficientSlides": true,
+					                "breakpoints": {
+					                    "320": { "slidesPerView": 2, "spaceBetween": 8 },
+					                    "640": { "slidesPerView": 3, "spaceBetween": 8 },
+					                    "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
+					                }
+					            }'>
 
-            <div slot="items">
-                {% for product in component.show_product_drop %}
-                    <salla-product-card product="{{ product }}"></salla-product-card>
-                {% endfor %}
-            </div>
-        </salla-slider>
-        {% else %}
-            <div class="product-grid">
-                {% for product in component.show_product_drop %}
-                    <salla-product-card product="{{ product }}"></salla-product-card>
-                {% endfor %}
-            </div>    
-        {% endif %}
-    </div>
+				<div slot="items">
+					{% for product in component.show_product_drop %}
+						<custom-salla-product-card product="{{ product }}"></custom-salla-product-card>
+					{% endfor %}
+				</div>
+			</salla-slider>
+		{% else %}
+			<div class="product-grid">
+				{% for product in component.show_product_drop %}
+					<custom-salla-product-card product="{{ product }}"></custom-salla-product-card>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
 </section>
