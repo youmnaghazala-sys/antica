@@ -2,13 +2,13 @@
 	<div class="container">
 		{% if component.grid_switch %}
 			<salla-slider id="thumbs" show-controls="true" type="thumbs" slider-config='{
-					                "centerInsufficientSlides": true,
-					                "breakpoints": {
-					                    "320": { "slidesPerView": 2, "spaceBetween": 8 },
-					                    "640": { "slidesPerView": 3, "spaceBetween": 8 },
-					                    "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
-					                }
-					            }'>
+										                "centerInsufficientSlides": true,
+										                "breakpoints": {
+										                    "320": { "slidesPerView": 2, "spaceBetween": 8 },
+										                    "640": { "slidesPerView": 3, "spaceBetween": 8 },
+										                    "1024": { "slidesPerView": {{component.slider_num_preview}}, "spaceBetween": 7 }
+										                }
+										            }'>
 
 				<div slot="items">
 					{% for product in component.show_product_drop %}
