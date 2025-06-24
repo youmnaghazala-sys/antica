@@ -32,13 +32,16 @@ class App extends AppHelpers {
     initTootTip();
     this.loadModalImgOnclick();
     this.renderFollowUsInIndex();
+    this.otptionsSingle();
 
     salla.lang.add("pages.products.select_item_message", {
       ar: "الرجاء اختيار عنصر من القائمة",
       en: "Please select an item from the list",
     });
 
-    this.addCustomSelectValidation(salla.lang.get('pages.products.select_item_message'));
+    this.addCustomSelectValidation(
+      salla.lang.get("pages.products.select_item_message")
+    );
 
     salla.comment.event.onAdded(() => window.location.reload());
 
@@ -53,7 +56,9 @@ class App extends AppHelpers {
   }
 
   addCustomSelectValidation(message) {
-    const select = document.querySelector('salla-product-options .s-product-options-option .s-form-control');
+    const select = document.querySelector(
+      "salla-product-options .s-product-options-option .s-form-control"
+    );
 
     if (!select) return;
 
@@ -80,6 +85,43 @@ class App extends AppHelpers {
             app.addClass(item, "change-menu-dir");
         }
       });
+    });
+    // const htmlElement = document.documentElement;
+    // const language = htmlElement.lang;
+    // const poup_more_options = {
+    //   ar: "هذا المنتج له خيارات اضغط علي اعرف المزيد",
+    //   en: "This product has options click on learn more",
+    // };
+    // console.log(language == "en" ? poup_more_options.en : poup_more_options.ar);
+  }
+  otptionsSingle() {
+    const options = {
+      en: "Please select one of the available options",
+      ar: "يرجى اختيار أحد الألوان",
+    };
+
+    const language = document.documentElement.lang || "ar"; // Default to Arabic
+
+    const observer = new MutationObserver(() => {
+      const input = document.querySelector("input[required]"); // نجيب أول واحد فقط
+
+      if (input) {
+        input.oninvalid = function () {
+          this.setCustomValidity(language === "en" ? options.en : options.ar);
+        };
+
+        input.oninput = function () {
+          this.setCustomValidity("");
+
+          // بمجرد ما يختار، نوقف المراقبة ونشيل الرسائل
+          observer.disconnect();
+        };
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
     });
   }
 
@@ -138,18 +180,20 @@ class App extends AppHelpers {
 
   ALU__removeShadowroot() {
     setTimeout(() => {
-      const hostElements = document.querySelectorAll('.s-add-product-button-main .s-add-product-button-mini-checkout');
-      hostElements.forEach(el => {
+      const hostElements = document.querySelectorAll(
+        ".s-add-product-button-main .s-add-product-button-mini-checkout"
+      );
+      hostElements.forEach((el) => {
         if (el && el.shadowRoot) {
-          const button = el.shadowRoot.querySelector('.s-fast-checkout-button');
+          const button = el.shadowRoot.querySelector(".s-fast-checkout-button");
           if (button) {
-            button.style.borderRadius = '0';
-            console.log('Button styled successfully!');
+            button.style.borderRadius = "0";
+            console.log("Button styled successfully!");
           } else {
-            console.error('Button not found inside shadow root');
+            console.error("Button not found inside shadow root");
           }
         } else {
-          console.error('Shadow root not found or not accessible');
+          console.error("Shadow root not found or not accessible");
         }
       });
     }, 200);
@@ -173,16 +217,25 @@ class App extends AppHelpers {
   }
 
   addCartListener() {
-    const free_shipping_element = document.querySelector('.free_shipping_progress_bar');
+    const free_shipping_element = document.querySelector(
+      ".free_shipping_progress_bar"
+    );
     if (!free_shipping_element) return;
-    const free_shipping_limit = parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
+    const free_shipping_limit =
+      parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
 
-    salla.event.on('cart::updated', function (data) {
-      document.querySelector('.progress_filler').style.width = `${(data.total / free_shipping_limit) * 100}%`;
-      const freeShippingLimitRemaining = document.querySelector('.free_shipping_limit_remaining');
+    salla.event.on("cart::updated", function (data) {
+      document.querySelector(".progress_filler").style.width = `${
+        (data.total / free_shipping_limit) * 100
+      }%`;
+      const freeShippingLimitRemaining = document.querySelector(
+        ".free_shipping_limit_remaining"
+      );
       if (freeShippingLimitRemaining) {
         freeShippingLimitRemaining.innerText = salla.money(
-          free_shipping_limit - data.total > 0 ? free_shipping_limit - data.total : 0
+          free_shipping_limit - data.total > 0
+            ? free_shipping_limit - data.total
+            : 0
         );
       }
     });
@@ -482,8 +535,8 @@ class App extends AppHelpers {
 
   Al_anime() {
     const sections_anime = document.querySelectorAll(".Al__anime");
-  
-    sections_anime.forEach(section => {
+
+    sections_anime.forEach((section) => {
       const animationType = section.getAttribute("data-anim-allura") || "fade";
       const duration = section.getAttribute("data-dur-allura") || "1s";
       section.classList.add(animationType);
@@ -492,14 +545,14 @@ class App extends AppHelpers {
       section.style.opacity = "0";
       section.style.transform = "translateY(150px) scale(0.8)";
     });
-  
+
     const observerOptions = {
       rootMargin: "0px 0px -100px 0px", // يبدأ التأثير قبل دخول العنصر للشاشة بالكامل
-      threshold: 0.2 // يضمن أن التأثير يبدأ عند اقتراب العنصر من الشاشة
+      threshold: 0.2, // يضمن أن التأثير يبدأ عند اقتراب العنصر من الشاشة
     };
-  
+
     function observerCallback(entries) {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
           entry.target.style.opacity = "1";
@@ -511,11 +564,14 @@ class App extends AppHelpers {
         }
       });
     }
-  
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections_anime.forEach(section => observer.observe(section));
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+    sections_anime.forEach((section) => observer.observe(section));
   }
-  
+
   initAddToCart() {
     salla.cart.event.onUpdated((summary) => {
       document
@@ -534,46 +590,77 @@ class App extends AppHelpers {
   }
 
   addCartListener() {
-    const free_shipping_element = document.querySelector('.free_shipping_progress_bar');
+    const free_shipping_element = document.querySelector(
+      ".free_shipping_progress_bar"
+    );
     if (!free_shipping_element) return;
-    const free_shipping_limit = parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
+    const free_shipping_limit =
+      parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
 
-    salla.event.on('cart::updated', function (data) {
-      document.querySelector('.progress_filler').style.width = `${(data.total / free_shipping_limit) * 100}%`;
-      const freeShippingLimitRemaining = document.querySelector('.free_shipping_limit_remaining');
+    salla.event.on("cart::updated", function (data) {
+      document.querySelector(".progress_filler").style.width = `${
+        (data.total / free_shipping_limit) * 100
+      }%`;
+      const freeShippingLimitRemaining = document.querySelector(
+        ".free_shipping_limit_remaining"
+      );
       if (freeShippingLimitRemaining) {
         freeShippingLimitRemaining.innerText = salla.money(
-          free_shipping_limit - data.total > 0 ? free_shipping_limit - data.total : 0
+          free_shipping_limit - data.total > 0
+            ? free_shipping_limit - data.total
+            : 0
         );
       }
     });
   }
 
-  async renderFollowUsInIndex(){
-    let wrapElem = app.element('#index-followus-wrapper');
+  async renderFollowUsInIndex() {
+    let wrapElem = app.element("#index-followus-wrapper");
 
     if (wrapElem) {
-      await salla.api.request('component/list', { params: { paths: ['home.AL-followus'] } })
+      await salla.api
+        .request("component/list", { params: { paths: ["home.AL-followus"] } })
         .then((res) => {
           let component = res.data[0]?.component;
-          let is_in_cat = salla.config.get('page.slug') === 'product.index';
-          
+          let is_in_cat = salla.config.get("page.slug") === "product.index";
+
           if (is_in_cat && component) {
-            wrapElem.innerHTML =`
+            wrapElem.innerHTML = `
             <section class="followUs w-full relative my-14">
               <div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
-                ${component.section_images.map((img) => (
-                  `<a href="${img.img_link}">
-                    ${img.image ? `<img src="${ img.image }" alt="image" class="h-[244px] w-full" loading="lazy"/>` :'' }
+                ${component.section_images
+                  .map(
+                    (img) =>
+                      `<a href="${img.img_link}">
+                    ${
+                      img.image
+                        ? `<img src="${img.image}" alt="image" class="h-[244px] w-full" loading="lazy"/>`
+                        : ""
+                    }
                   </a>`
-                )).join("")}
+                  )
+                  .join("")}
               </div>
               
-              ${component.enable_floating_banner ? `
-                <a href="https://instagram.com/${component.username}/" target="_blank" class="floatingbanner absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white text-center rounded-md p-4 w-[254px] bg-[rgba(89,116,69,0.16)] backdrop-blur-md">
-                  ${component.username ? `<p class="text-2xl font-semibold">${ component.username }@</p>` : ''}
-                  ${component.slogan ? `<p class="text-xl leading-10">${ component.slogan }</p>` : ''}
-                </a>` : ''}
+              ${
+                component.enable_floating_banner
+                  ? `
+                <a href="https://instagram.com/${
+                  component.username
+                }/" target="_blank" class="floatingbanner absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white text-center rounded-md p-4 w-[254px] bg-[rgba(89,116,69,0.16)] backdrop-blur-md">
+                  ${
+                    component.username
+                      ? `<p class="text-2xl font-semibold">${component.username}@</p>`
+                      : ""
+                  }
+                  ${
+                    component.slogan
+                      ? `<p class="text-xl leading-10">${component.slogan}</p>`
+                      : ""
+                  }
+                </a>`
+                  : ""
+              }
             </section>
             `;
           }
@@ -585,23 +672,23 @@ class TabComponent extends HTMLElement {
   constructor() {
     super();
 
-    const template = document.querySelector('#AL-best_category_tabs');
+    const template = document.querySelector("#AL-best_category_tabs");
     if (!template) {
       console.error("Template #AL-best_category_tabs not found!");
       return;
     }
 
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(template.content.cloneNode(true));
 
     this.initTabs();
   }
 
   initTabs() {
-    const tabs = this.shadowRoot.querySelectorAll('.AL-best_category_tabs_btn');
+    const tabs = this.shadowRoot.querySelectorAll(".AL-best_category_tabs_btn");
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
         this.changeTab(tab);
       });
     });
@@ -610,21 +697,28 @@ class TabComponent extends HTMLElement {
   }
 
   changeTab(selectedTab) {
-    this.shadowRoot.querySelectorAll('.AL-best_category_tabs_item')
-      .forEach(tab => tab.classList.remove('tab_active'));
+    this.shadowRoot
+      .querySelectorAll(".AL-best_category_tabs_item")
+      .forEach((tab) => tab.classList.remove("tab_active"));
 
-    selectedTab.closest('.AL-best_category_tabs_item').classList.add('tab_active');
+    selectedTab
+      .closest(".AL-best_category_tabs_item")
+      .classList.add("tab_active");
 
-    const slots = this.parentElement.querySelectorAll('custom-tabs tab-content');
+    const slots = this.parentElement.querySelectorAll(
+      "custom-tabs tab-content"
+    );
 
-    slots.forEach(slot => slot.setAttribute('hidden', ''));
+    slots.forEach((slot) => slot.setAttribute("hidden", ""));
 
-    const activeSlot = this.parentElement.querySelector(`custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`);
+    const activeSlot = this.parentElement.querySelector(
+      `custom-tabs tab-content[slot="${selectedTab.textContent.trim()}"]`
+    );
 
-    if (activeSlot) activeSlot.removeAttribute('hidden');
+    if (activeSlot) activeSlot.removeAttribute("hidden");
   }
 }
 
-window.customElements.define('custom-tabs', TabComponent);
+window.customElements.define("custom-tabs", TabComponent);
 
-salla.onReady(() => (new App).loadTheApp());
+salla.onReady(() => new App().loadTheApp());
