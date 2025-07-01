@@ -72,6 +72,22 @@ class ProductCard extends HTMLElement {
     return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
   }
 
+
+  async handelProductBrand(id) {
+    try {
+      const response = await salla.api.product.getDetails(id, ["brand"]);
+      return `<h5><span> ${ response?.data?.brand?.name } </span></h5>`
+      
+    }
+    catch (err) { console.error("err", err) }
+    finally { console.log("handel brand work") }
+  }
+
+  getBrandOptionValue() {
+    const input = document.querySelector("#show-brand");
+    return input.value === 'is_brand';
+  }
+
   getProductBadge() {
     if (this.product.promotion_title) {
       return `
@@ -215,6 +231,7 @@ class ProductCard extends HTMLElement {
       !salla.config.isGuest() &&
       salla.storage.get("salla::wishlist", []).includes(this.product.id);
     this.hasProductOptions = await this.hasOptions(this.product.id);
+    this.handelBrand = await this.handelProductBrand(this.product?.id);
     this.innerHTML = `
         <div class="${
           !this.fullImage ? "s-product-card-image" : "s-product-card-image-full"
@@ -290,13 +307,18 @@ class ProductCard extends HTMLElement {
               : ``
           }
 
-            ${
-              this.product?.category
-                ? `<h5 class="s-product-card-content-category mb-2.5">
-              <a href="${this.product?.category?.url}">${this.product?.category?.name} </a>
-            </h5>`
-                : ""
-            }
+            
+            ${ this.getBrandOptionValue() ? `
+              ${ this.product?.brand ? `${ this.handelBrand }` : `` }
+            ` : `
+              ${
+                this.product?.category
+                  ? `<h5 class="s-product-card-content-category mb-2.5">
+                      <a href="${this.product?.category?.url}">${this.product?.category?.name} </a>
+                    </h5>`
+                  : ""
+                }
+            ` }
 
             <h3 class="s-product-card-content-title">
               <a class="" href="${this.product?.url}">${this.product?.name}</a>
