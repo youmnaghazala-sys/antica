@@ -72,6 +72,26 @@ class ProductCard extends HTMLElement {
     return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
   }
 
+
+  async handelProductBrand(id) {
+    
+    try {
+
+      const response = await salla.api.product.getDetails(id, ["brand"]);
+
+      console.log("done with brand ", response?.data?.brand?.name);
+
+      return `<h5><span> ${ response?.data?.brand?.name } </span></h5>`
+
+    } catch (err) {
+      console.error("err", err);
+    } finally {
+      console.log("function work");
+    }
+
+
+  }
+
   getProductBadge() {
     if (this.product.promotion_title) {
       return `
@@ -215,6 +235,7 @@ class ProductCard extends HTMLElement {
       !salla.config.isGuest() &&
       salla.storage.get("salla::wishlist", []).includes(this.product.id);
     this.hasProductOptions = await this.hasOptions(this.product.id);
+    this.handelBrand = await this.handelProductBrand(this.product?.id);
     this.innerHTML = `
         <div class="${
           !this.fullImage ? "s-product-card-image" : "s-product-card-image-full"
@@ -297,6 +318,8 @@ class ProductCard extends HTMLElement {
             </h5>`
                 : ""
             }
+
+            ${ this.product?.brand ? `${ this.handelBrand }` : `` }
 
             <h3 class="s-product-card-content-title">
               <a class="" href="${this.product?.url}">${this.product?.name}</a>

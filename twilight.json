@@ -386,6 +386,36 @@
             "required": true
         },
         {
+            "id": "show_brand",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "عرض التصنيف او البراند فى كارد المنتج",
+            "description": null,
+            "labelHTML": null,
+            "icon": "sicon-list",
+            "selected": [
+                {
+                    "label": "عرض التصنيف",
+                    "value": "is_category",
+                    "key": "e9c8ea8f-c5c6-438e-9d45-3bge26d5fde4"
+                }
+            ],
+            "options": [
+                {
+                    "label": "عرض التصنيف",
+                    "value": "is_category",
+                    "key": "e9c8ea8f-c5c6-438e-9d45-3bge26d5fde4"
+                },
+                {
+                    "label": "عرض البراند",
+                    "value": "is_brand",
+                    "key": "f4adec13-6e4c-433b-b151-b2905935ced9"
+                }
+            ],
+            "source": "Manual",
+            "required": true
+        },
+        {
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تكبير الصور في سليدر صور المنتج",
