@@ -109,7 +109,7 @@
     {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
     ">
 
-          <input type="hidden" brand="theme.settings.get('show_brand')" id="show-brand" aria-describedby="helpId" placeholder="">
+        <input type="hidden" value="{{ theme.settings.get('show_brand') }}" id="show-brand" aria-describedby="helpId" placeholder="">
 
         <div class="loader-init">
             <div class="circle">

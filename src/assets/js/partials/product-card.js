@@ -74,22 +74,18 @@ class ProductCard extends HTMLElement {
 
 
   async handelProductBrand(id) {
-    
     try {
-
       const response = await salla.api.product.getDetails(id, ["brand"]);
-
-      console.log("done with brand ", response?.data?.brand?.name);
-
       return `<h5><span> ${ response?.data?.brand?.name } </span></h5>`
-
-    } catch (err) {
-      console.error("err", err);
-    } finally {
-      console.log("function work");
+      
     }
+    catch (err) { console.error("err", err) }
+    finally { console.log("handel brand work") }
+  }
 
-
+  getBrandOptionValue() {
+    const input = document.querySelector("#show-brand");
+    return input.value === 'is_brand';
   }
 
   getProductBadge() {
@@ -311,15 +307,18 @@ class ProductCard extends HTMLElement {
               : ``
           }
 
-            ${
-              this.product?.category
-                ? `<h5 class="s-product-card-content-category mb-2.5">
-              <a href="${this.product?.category?.url}">${this.product?.category?.name} </a>
-            </h5>`
-                : ""
-            }
-
-            ${ this.product?.brand ? `${ this.handelBrand }` : `` }
+            
+            ${ this.getBrandOptionValue() ? `
+              ${ this.product?.brand ? `${ this.handelBrand }` : `` }
+            ` : `
+              ${
+                this.product?.category
+                  ? `<h5 class="s-product-card-content-category mb-2.5">
+                      <a href="${this.product?.category?.url}">${this.product?.category?.name} </a>
+                    </h5>`
+                  : ""
+                }
+            ` }
 
             <h3 class="s-product-card-content-title">
               <a class="" href="${this.product?.url}">${this.product?.name}</a>
