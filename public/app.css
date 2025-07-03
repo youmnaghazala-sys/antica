@@ -1043,7 +1043,7 @@ textarea.s-input{height:6rem}
 }
 .s-form-group{margin-top:0.75rem;margin-bottom:0.75rem}
 .s-checkbox{cursor:pointer;--tw-border-opacity:1;border-color:rgba(209, 213, 219, 1);border-color:rgba(209, 213, 219, var(--tw-border-opacity, 1));-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:#fff;margin:0;width:18px;height:18px;border-width:1px;border-radius:4px;display:grid;align-content:center;justify-content:center;place-content:center}
-.s-checkbox:before{content:'';width:10px;height:10px;clip-path:polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);transform:scale(0);transform-origin:bottom left;transition:120ms transform ease-in-out;box-shadow:inset 1em 1em #444;background-color:#444}
+.s-checkbox:before{content:;width:10px;height:10px;clip-path:polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);transform:scale(0);transform-origin:bottom left;transition:120ms transform ease-in-out;box-shadow:inset 1em 1em #444;background-color:#444}
 .s-checkbox:checked:before{transform:scale(1)}
 .s-checkbox * {
   pointer-events: none;
@@ -7348,7 +7348,7 @@ h3.ql-direction-rtl span {
 .s-product-card-vertical .s-product-card-content-footer salla-add-product-button .s-button-element .s-button-primary-outline:hover {
   opacity: 0.8;
 }
-.whatsapp-info{position:fixed;bottom:85px;right:40px;z-index:30;display:inline-block;height:55px;width:55px;cursor:pointer;border-radius:9999px;--tw-bg-opacity:1;background-color:rgba(73, 230, 112, 1);background-color:rgba(73, 230, 112, var(--tw-bg-opacity, 1));text-align:center;font-size:45px;--tw-text-opacity:1;color:rgba(255, 255, 255, 1);color:rgba(255, 255, 255, var(--tw-text-opacity, 1))}
+.whatsapp-info{position:fixed;bottom:25px;right:25px;z-index:30;display:inline-block;height:55px;width:55px;cursor:pointer;border-radius:9999px;--tw-bg-opacity:1;background-color:rgba(73, 230, 112, 1);background-color:rgba(73, 230, 112, var(--tw-bg-opacity, 1));text-align:center;font-size:45px;--tw-text-opacity:1;color:rgba(255, 255, 255, 1);color:rgba(255, 255, 255, var(--tw-text-opacity, 1))}
 .whatsapp-info * {
   pointer-events: none;
 }

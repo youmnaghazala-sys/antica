@@ -1,5 +1,5 @@
 .whatsapp-info {
-  @apply inline-block text-white bg-[#49E670] fixed bottom-[85px] right-[40px] text-[45px] text-center z-[30] rounded-full h-[55px] w-[55px] cursor-pointer;
+  @apply inline-block text-white bg-[#49E670] fixed bottom-[25px] right-[25px] text-[45px] text-center z-[30] rounded-full h-[55px] w-[55px] cursor-pointer;
   &.fixSingle {
     @media (max-width: 641px) {
       @apply bottom-[210px];
