@@ -76,7 +76,11 @@ class ProductCard extends HTMLElement {
   async handelProductBrand(id) {
     try {
       const response = await salla.api.product.getDetails(id, ["brand"]);
-      return `<h5><span> ${ response?.data?.brand?.name } </span></h5>`
+      return `<h5>
+                <a href='${ response?.data?.brand?.url }' class="block">
+                  <span> ${response?.data?.brand?.name} </span>
+                </a>
+              </h5>`
       
     }
     catch (err) { console.error("err", err) }
