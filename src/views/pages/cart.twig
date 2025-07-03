@@ -113,14 +113,14 @@
 												<img src="{{ 'images/s-empty.png' | cdn }}" data-src="{{ item.product_image }}" alt="{{ item.product_name }}" class="lazy flex-none w-24 h-20 border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
 											{% endif %}
 										</a>
-										<h1 class="text-gray-900 leading-6" style="font-size: clamp(0.464rem, 0.2617rem + 0.8633vw, 1.125rem)">
-											<a href="{{ item.url }}" class="text-base" style="font-size: clamp(0.564rem, 0.2617rem + 0.8633vw, 1.125rem);font-weight: 600;">{{ item.product_name }}</a>
-										</h1>
+											<h3 class="text-gray-900 leading-6" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
+											<a href="{{ item.url }}" class="text-base">{{ item.product_name }}</a>
+										</h3>
 									</div>
 
 									<div>
 										<span class="text-sm text-gray-500 line-through item-regular-price {{ item.offer?'':'hidden' }}">{{ item.product_price|money }}</span>
-										<span class="item-price {{ item.offer?'text-red-800':'text-[#434343]' }}" style="font-size: clamp(0.6rem, 0.2617rem + 0.8633vw, 1.125rem); font-weight: 600;">{{ item.price|money }}</span>
+										<span class="item-price {{ item.offer ? 'text-red-800' : 'text-[#434343]' }}" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">{{ item.price|money }}</span>
 										{% if item.weight_label %}
 											<p class="text-sm text-gray-500 ">
 												{{ trans('pages.products.weight') }}
@@ -143,8 +143,8 @@
 									</div>
 
 									<div>
-										<p class="text-secondary flex-none font-normal" style="font-size: clamp(0.664rem, 0.2617rem + 0.8633vw, 1.125rem);font-weight: 600;">
-											<span style="font-size: clamp(0.664rem, 0.2617rem + 0.8633vw, 1.125rem);font-weight: 600;" class="inline-block item-total">{{ item.is_available?item.total|money: trans('pages.cart.out_of_stock') }}</span>
+										<p class="text-secondary flex-none font-normal" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
+											<span style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;" class="inline-block item-total">{{ item.is_available?item.total|money: trans('pages.cart.out_of_stock') }}</span>
 										</p>
 									</div>
 									
