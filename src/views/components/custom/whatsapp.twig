@@ -1,0 +1,12 @@
+
+{% if is_page('product.single') %}
+  <a style="color: #fff" target="blank" href="https://api.whatsapp.com/send?phone={{phone_number}}&text={{whats_mesage}}" target="_blank" class="whatsapp-info fixSingle"> 
+{% else %}
+  <a style="color: #fff" target="blank" href="https://api.whatsapp.com/send?phone={{phone_number}}&text={{whats_mesage}}" target="_blank" class="whatsapp-info"> 
+{% endif %}
+  <span class="whatsapp flex justify-center items-center h-[100%]">
+    <i class="sicon-whatsapp2 text-white text-3xl"></i>
+  </span>
+
+  <span class='num flex items-center justify-center absolute top-0 right-0 w-[16px] h-[16px] bg-[#ff6060] rounded-full text-[10px]'>1</span>
+</a>

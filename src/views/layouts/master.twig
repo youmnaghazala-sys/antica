@@ -138,6 +138,9 @@
             {% hook 'body:start' %}
             {% component 'header.header' %}
             {% block content %}{% endblock %}
+            {% if  theme.settings.get('whatsapp_icon')  %}
+				{% include 'components.custom.whatsapp' with {phone_number: theme.settings.get('whatsapp_number'), whats_mesage: theme.settings.get('whatsapp_mesage')}  %}
+			{% endif %}
             {% component 'footer.footer' %}
         </div>
         {% hook 'body:end' %}

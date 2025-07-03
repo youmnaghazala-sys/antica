@@ -594,7 +594,9 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-7{height:1.75rem}
 .h-80{height:20rem}
 .h-96{height:24rem}
+.h-\[100\%\]{height:100%}
 .h-\[100px\]{height:100px}
+.h-\[16px\]{height:16px}
 .h-\[244px\]{height:244px}
 .h-\[24px\]{height:24px}
 .h-\[2px\]{height:2px}
@@ -654,6 +656,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .w-8{width:2rem}
 .w-\[100px\]{width:100px}
 .w-\[140px\]{width:140px}
+.w-\[16px\]{width:16px}
 .w-\[24px\]{width:24px}
 .w-\[254px\]{width:254px}
 .w-\[286px\]{width:286px}
@@ -787,6 +790,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .\!bg-primary{background-color:#414042 !important;background-color:var(--color-primary) !important}
 .\!bg-transparent{background-color:transparent !important}
 .bg-\[\#D9D9D9\]{--tw-bg-opacity:1;background-color:rgba(217, 217, 217, 1);background-color:rgba(217, 217, 217, var(--tw-bg-opacity, 1))}
+.bg-\[\#ff6060\]{--tw-bg-opacity:1;background-color:rgba(255, 96, 96, 1);background-color:rgba(255, 96, 96, var(--tw-bg-opacity, 1))}
 .bg-\[rgba\(89\2c 116\2c 69\2c 0\.16\)\]{background-color:rgba(89,116,69,0.16)}
 .bg-black{--tw-bg-opacity:1;background-color:rgba(0, 0, 0, 1);background-color:rgba(0, 0, 0, var(--tw-bg-opacity, 1))}
 .bg-blue-50{--tw-bg-opacity:1;background-color:rgba(239, 246, 255, 1);background-color:rgba(239, 246, 255, var(--tw-bg-opacity, 1))}
@@ -875,9 +879,11 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .text-start{text-align:left}
 .text-end{text-align:right}
 .text-2xl{font-size:1.5rem;line-height:2rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
 .text-6xl{font-size:3.75rem;line-height:1}
 .text-7xl{font-size:4.5rem;line-height:1}
 .text-\[1\.1rem\]{font-size:1.1rem}
+.text-\[10px\]{font-size:10px}
 .text-\[12px\]{font-size:12px}
 .text-\[13px\]{font-size:13px}
 .text-\[14px\]{font-size:14px}
@@ -1037,7 +1043,7 @@ textarea.s-input{height:6rem}
 }
 .s-form-group{margin-top:0.75rem;margin-bottom:0.75rem}
 .s-checkbox{cursor:pointer;--tw-border-opacity:1;border-color:rgba(209, 213, 219, 1);border-color:rgba(209, 213, 219, var(--tw-border-opacity, 1));-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:#fff;margin:0;width:18px;height:18px;border-width:1px;border-radius:4px;display:grid;align-content:center;justify-content:center;place-content:center}
-.s-checkbox:before{content:;width:10px;height:10px;clip-path:polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);transform:scale(0);transform-origin:bottom left;transition:120ms transform ease-in-out;box-shadow:inset 1em 1em #444;background-color:#444}
+.s-checkbox:before{content:'';width:10px;height:10px;clip-path:polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);transform:scale(0);transform-origin:bottom left;transition:120ms transform ease-in-out;box-shadow:inset 1em 1em #444;background-color:#444}
 .s-checkbox:checked:before{transform:scale(1)}
 .s-checkbox * {
   pointer-events: none;
@@ -7341,6 +7347,48 @@ h3.ql-direction-rtl span {
 }
 .s-product-card-vertical .s-product-card-content-footer salla-add-product-button .s-button-element .s-button-primary-outline:hover {
   opacity: 0.8;
+}
+.whatsapp-info{position:fixed;bottom:85px;right:40px;z-index:30;display:inline-block;height:55px;width:55px;cursor:pointer;border-radius:9999px;--tw-bg-opacity:1;background-color:rgba(73, 230, 112, 1);background-color:rgba(73, 230, 112, var(--tw-bg-opacity, 1));text-align:center;font-size:45px;--tw-text-opacity:1;color:rgba(255, 255, 255, 1);color:rgba(255, 255, 255, var(--tw-text-opacity, 1))}
+.whatsapp-info * {
+  pointer-events: none;
+}
+.whatsapp-info {
+  font-family: "Lato", sans-serif;
+  transition: all 0.2s;
+  box-shadow: 2px 2px 9px rgba(33, 35, 33, 0.2901960784);
+  animation: 5s infinite buzz-whatsapp;
+}
+@media (max-width: 641px) {
+  .whatsapp-info.fixSingle{bottom:210px}
+}
+@media (min-width: 641px) {
+  .whatsapp-info{bottom:30px;right:30px}
+}
+@keyframes buzz-whatsapp {
+  0% {
+    transform: none;
+  }
+  10% {
+    transform: rotateZ(-20deg) scale(1.2);
+  }
+  13% {
+    transform: rotateZ(25deg) scale(1.2);
+  }
+  15% {
+    transform: rotateZ(-15deg) scale(1.2);
+  }
+  17% {
+    transform: rotateZ(15deg) scale(1.2);
+  }
+  20% {
+    transform: rotateZ(-12deg) scale(1.2);
+  }
+  22% {
+    transform: rotateZ(0) scale(1.2);
+  }
+  100%, 24% {
+    transform: rotateZ(0) scale(1);
+  }
 }
 body.mm-ocd-opened,
 body.modal-is-open,
