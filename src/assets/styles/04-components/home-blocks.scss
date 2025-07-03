@@ -494,11 +494,17 @@ salla-filters {
 // cart page
 .cart_item_wrapper {
   display: grid;
+  position: relative;
   grid-template-columns:
-    minmax(min-content, 3fr) minmax(min-content, 1fr) minmax(min-content, 1fr)
-    minmax(min-content, 1fr) minmax(min-content, 0.5fr);
-  align-items: center;
-  justify-items: center;
+    minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr)
+    minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 0.5fr);
+    align-items: center;
+    justify-items: center;
+    @media(max-width: 640px) {
+    grid-template-columns:
+      minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr);
+      margin-top: 20px;
+  }
 }
 .cart-submit-wrap salla-button button {
   border-radius: 5px;
