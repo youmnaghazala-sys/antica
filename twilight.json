@@ -3616,7 +3616,7 @@
               "value": null,
               "multilanguage": false,
               "required": true,
-              "minLength": 6,
+              "minLength": 1,
               "maxLength": 30
             },
             {
