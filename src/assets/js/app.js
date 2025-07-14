@@ -672,7 +672,6 @@ class App extends AppHelpers {
   }
 
   observeProductBrands() {
-    console.log("function is work")
     const brandElements = document.querySelectorAll(".handel-brand");
     if (!brandElements.length) return;
 
@@ -687,8 +686,7 @@ class App extends AppHelpers {
         try {
           container.innerHTML = ``;
 
-          const { data } = await salla.api.product.getDetails(productId, ["brand"]);
-          const brand = data?.brand;
+          const { data: { brand } } = await salla.api.product.getDetails(productId, ["brand"]);
 
           if (!brand?.name || !brand?.url) return;
 

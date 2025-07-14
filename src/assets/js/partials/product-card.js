@@ -14,12 +14,6 @@ class ProductCard extends HTMLElement {
     } else {
       document.addEventListener("theme::ready", () => this.onReady());
     }
-
-    salla.lang.add("pages.products.out_of_stock", {
-      ar: "غير متوفر",
-      en: "Out of stock",
-    });
-
   }
 
   onReady() {
@@ -35,6 +29,10 @@ class ProductCard extends HTMLElement {
     }
 
     salla.lang.onLoaded(() => {
+      salla.lang.add("pages.products.out_of_stock", {
+        ar: "غير متوفر",
+        en: "Out of stock",
+      });
       // Language
       this.remained = salla.lang.get("pages.products.remained");
       this.donationAmount = salla.lang.get("pages.products.donation_amount");
