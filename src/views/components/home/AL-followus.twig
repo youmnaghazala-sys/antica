@@ -1,20 +1,20 @@
 <section class="followUs w-full relative my-14">
 	<div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
 		{% for img in component.section_images %}
-			<a href="{{ img.img_link }}" class="{{ theme.settings.get('has_animation') ? 'Al__anime' : '' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{ loop.index + 2 }}s" {% endif %}>
+			<a href="{{ img.img_link }}" {% if theme.settings.get('has_animation') %} class="Al__anime" data-anim-allura="fade" data-dur-allura="0.{{ loop.index }}s" {% else %} class="" {% endif %}>
 				{% if img.image %}
 					<img src="{{ img.image }}" alt="image" class="h-[244px] w-full" loading="lazy"/>
 				{% endif %}
 			</a>
 		{% endfor %}
 	</div>
-	
+
 	{% if component.enable_floating_banner %}
 		<a href="https://instagram.com/{{ component.username }}/" target="_blank" class="floatingbanner absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white text-center rounded-md p-4 w-[254px] bg-[rgba(89,116,69,0.16)] backdrop-blur-md">
 			{% if component.username %}
 				<p class="text-2xl font-semibold">{{ component.username }}@</p>
 			{% endif %}
-			
+
 			{% if component.slogan %}
 				<p class="text-xl leading-10">{{ component.slogan }}</p>
 			{% endif %}
