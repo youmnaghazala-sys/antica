@@ -223,7 +223,7 @@
       "icon": "sicon-link",
       "value": null,
       "required": false,
-      "minLength": 6,
+      "minLength": 2,
       "maxLength": 3000,
       "conditions": [
         {
@@ -281,7 +281,7 @@
       "value": "*هذا المنتج لا يمكن استرجعه",
       "multilanguage": false,
       "required": false,
-      "minLength": 6,
+      "minLength": 2,
       "maxLength": 300,
       "conditions": [
         {
@@ -598,7 +598,7 @@
       "icon": "sicon-link",
       "value": null,
       "required": false,
-      "minLength": 6,
+      "minLength": 2,
       "maxLength": 5000
     },
     {
@@ -637,7 +637,7 @@
       "value": "+966115622229",
       "multilanguage": false,
       "required": false,
-      "minLength": 6,
+      "minLength": 2,
       "maxLength": 30,
       "conditions": [
         {
@@ -1845,7 +1845,7 @@
           "value": "منتجات للعناية بالبشرة والوجه",
           "multilanguage": false,
           "required": false,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": 200
         },
         {
@@ -1870,7 +1870,7 @@
           "value": "اكتشفي أفضل منتجات العناية ببشرتك ووجهك لروتين يومي فعّال ومناسب لك",
           "multilanguage": false,
           "required": false,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": 200
         },
         {
@@ -2025,7 +2025,7 @@
               "icon": "sicon-link",
               "value": null,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": 5000,
               "conditions": [
                 {
@@ -2117,7 +2117,7 @@
           "icon": "sicon-link",
           "value": null,
           "required": true,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": 2000000,
           "conditions": [
             {
@@ -2515,7 +2515,7 @@
           "value": "تسوق جميع العروض",
           "multilanguage": false,
           "required": false,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": 30
         },
         {
@@ -2836,7 +2836,7 @@
           "value": null,
           "multilanguage": false,
           "required": false,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": "50"
         },
         {
@@ -2887,7 +2887,7 @@
           "value": null,
           "multilanguage": false,
           "required": false,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": "50"
         },
         {
@@ -2953,7 +2953,7 @@
           "icon": "sicon-link",
           "value": "https://s3-figma-videos-production-sig.figma.com/video/TEAM/1173991632806411733/1182cf6309397c974ebe0781f227c1af9e9d012e?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=e0CvPDT~O6dsXOb9r8pk~o519fZBdVYLZL7yiIHp-yRIcJmx-ieVP8TFXqjpG84JffKr2DVjRfWRwycMuNrfexSr3YuK-zUc1PNY3dfXkhwm-0zH6AxKCNxFv6a0-aHiZs7w4Ufd2bjUWRsQbIPjMtgVyOMbWwNn9Cl08a0EGWBhiD24u4Z1TtrhRR7fwHlcdCJvAkenkWfKC4wo8K6RRyja3dV4RuAW4SrvHxBam-oFRO2tQdivaUkwgLB5fMDNr92Ln~It4ZBZlmImrZ~cwqkpVgxGocB-yZoC-V7SVBnX5ryS80ooU0DvPtGrPC6C9fs6IrFckuhmNDssR3LZ0A__",
           "required": false,
-          "minLength": 6,
+          "minLength": 2,
           "maxLength": "2000000000000",
           "conditions": [
             {
@@ -3647,7 +3647,7 @@
               "value": null,
               "multilanguage": false,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": 20
             },
             {
@@ -3662,7 +3662,7 @@
               "value": null,
               "multilanguage": false,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": 20
             },
             {
@@ -3677,7 +3677,7 @@
               "value": null,
               "multilanguage": false,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": 20
             }
           ],
@@ -3788,7 +3788,7 @@
               "value": null,
               "multilanguage": true,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": "500"
             },
             {
@@ -3803,7 +3803,7 @@
               "value": null,
               "multilanguage": true,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": "500"
             },
             {
@@ -3818,7 +3818,7 @@
               "value": null,
               "multilanguage": true,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": "15"
             },
             {
@@ -3833,7 +3833,7 @@
               "icon": "sicon-link",
               "value": null,
               "required": false,
-              "minLength": 6,
+              "minLength": 2,
               "maxLength": "10000"
             }
           ],

@@ -10,7 +10,7 @@
                     <h3 class="AL-best_category_titles_title md:text-xl opacity-70 mb-3 {{ has_animation ? 'Al__anime' }}" style="color: {{ component.category_title_color }}"
                         {% if has_animation %} data-anim-allura="fade" data-dur-allura="0.5s" {% endif %}
                     >
-                        {{ component.category_title }}
+                        {{ component.category_title }} 
                     </h3>
                 {% endif %}
 
@@ -99,17 +99,17 @@
 						{% endif %}
 
 						{% if category.unique_feature_2 %}
-                        <div class="product-unique-feature feature-2" >
-							<span > {{ category.unique_feature_2 }} </span>
-                            <div style="--borderColor: {{ component.category_name_color }};"  class="dot"></div>
-                        </div>
+							<div class="product-unique-feature feature-2" >
+								<span > {{ category.unique_feature_2 }} </span>
+								<div style="--borderColor: {{ component.category_name_color }};"  class="dot"></div>
+							</div>
 						{% endif %}
 						
 						{% if category.unique_feature_3 %}
-                        <div class="product-unique-feature feature-3" >
-							<span> {{ category.unique_feature_3 }} </span>
-                            <div  style="--borderColor: {{ component.category_name_color }};" class="dot"></div>
-                        </div>
+							<div class="product-unique-feature feature-3" >
+								<span> {{ category.unique_feature_3 }} </span>
+								<div  style="--borderColor: {{ component.category_name_color }};" class="dot"></div>
+							</div>
 						{% endif %}
 
                     </tab-content>
@@ -169,18 +169,7 @@
 		width: 50%;
 	}
 	.AL-best_category .product-unique-feature span {
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		overflow: hidden;
-		max-width: 58%;
-		text-overflow: ellipsis;
-		white-space: normal;
-	}
-	@media(max-width: 768px) {
-		.AL-best_category .product-unique-feature span {
-			max-width: 100%;
-		}
+		text-wrap: nowrap;
 	}
 	.AL-best_category .product-unique-feature .dot {
 		border: 1px solid var(--border-color);
