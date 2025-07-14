@@ -686,7 +686,8 @@ class App extends AppHelpers {
         try {
           container.innerHTML = ``;
 
-          const { data: { brand } } = await salla.api.product.getDetails(productId, ["brand"]);
+          const { data } = await salla.api.product.getDetails(productId, ["brand"]);
+          const brand = data?.brand;
 
           if (!brand?.name || !brand?.url) return;
 
