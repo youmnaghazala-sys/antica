@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import Anime from "./partials/anime";
 import initTootTip from "./partials/tooltip";
 import AppHelpers from "./app-helpers";
+import { parse } from "postcss";
 
 class App extends AppHelpers {
   constructor() {
@@ -48,6 +49,8 @@ class App extends AppHelpers {
     this.status = "ready";
     document.dispatchEvent(new CustomEvent("theme::ready"));
     this.log("Theme Loaded 🎉");
+
+    document.addEventListener("DOMContentLoaded", this.observeProductBrands)
   }
 
   log(message) {
@@ -667,7 +670,48 @@ class App extends AppHelpers {
         });
     }
   }
+
+  observeProductBrands() {
+    const brandElements = document.querySelectorAll(".handel-brand");
+    if (!brandElements.length) return;
+
+    const observer = new IntersectionObserver(async (entries, obs) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+
+        const container = entry.target;
+        const productId = parseInt(container.id);
+        if (isNaN(productId)) return;
+
+        try {
+          container.innerHTML = ``;
+
+          const { data: { brand } } = await salla.api.product.getDetails(productId, ["brand"]);
+
+          if (!brand?.name || !brand?.url) return;
+
+          container.innerHTML = `
+            <h5>
+              <a href="${brand.url}" class="block">
+                <span>${brand.name}</span>
+              </a>
+            </h5>
+          `;
+        } catch (err) {
+          console.error(`brand not found ${productId}:`, err);
+        }
+
+        obs.unobserve(container);
+      }
+    }, {
+      rootMargin: "200px",
+      threshold: 0.1
+    });
+
+    brandElements.forEach(el => observer.observe(el));
+  }
 }
+
 class TabComponent extends HTMLElement {
   constructor() {
     super();

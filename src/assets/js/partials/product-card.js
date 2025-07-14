@@ -1,4 +1,5 @@
 import BasePage from "../base-page";
+
 class ProductCard extends HTMLElement {
   constructor() {
     super();
@@ -13,17 +14,11 @@ class ProductCard extends HTMLElement {
     } else {
       document.addEventListener("theme::ready", () => this.onReady());
     }
-    salla.lang.add("pages.products.out_of_stock", {
-      ar: "غير متوفر",
-      en: "Out of stock",
-    });
   }
 
   onReady() {
     this.fitImageHeight = salla.config.get("store.settings.product.fit_type");
-    this.placeholder = salla.url.asset(
-      salla.config.get("theme.settings.placeholder")
-    );
+    this.placeholder = salla.url.asset( salla.config.get("theme.settings.placeholder") );
     this.getProps();
 
     this.source = salla.config.get("page.slug");
@@ -34,6 +29,10 @@ class ProductCard extends HTMLElement {
     }
 
     salla.lang.onLoaded(() => {
+      salla.lang.add("pages.products.out_of_stock", {
+        ar: "غير متوفر",
+        en: "Out of stock",
+      });
       // Language
       this.remained = salla.lang.get("pages.products.remained");
       this.donationAmount = salla.lang.get("pages.products.donation_amount");
@@ -48,16 +47,6 @@ class ProductCard extends HTMLElement {
     this.render();
   }
 
-  async hasOptions(productId) {
-    try {
-      const res = await salla.api.product.getDetails(productId, ["options"]);
-      return (res.data?.options || []).length > 0;
-    } catch (err) {
-      console.error("Error:", err);
-      return false;
-    }
-  }
-
   initCircleBar() {
     let qty = this.product.quantity,
       total = this.product.quantity > 100 ? this.product.quantity * 2 : 100,
@@ -70,26 +59,6 @@ class ProductCard extends HTMLElement {
   formatDate(date) {
     let d = new Date(date);
     return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  }
-
-
-  async handelProductBrand(id) {
-    try {
-      const response = await salla.api.product.getDetails(id, ["brand"]);
-      return `<h5>
-                <a href='${ response?.data?.brand?.url }' class="block">
-                  <span> ${response?.data?.brand?.name} </span>
-                </a>
-              </h5>`
-      
-    }
-    catch (err) { console.error("err", err) }
-    finally { console.log("handel brand work") }
-  }
-
-  getBrandOptionValue() {
-    const input = document.querySelector("#show-brand");
-    return input.value === 'is_brand';
   }
 
   getProductBadge() {
@@ -174,6 +143,16 @@ class ProductCard extends HTMLElement {
     }).join("");
   }
 
+  getBrandOptionValue() {
+    const input = document.querySelector("#show-brand");
+    return input.value === 'is_brand';
+  }
+
+  // fetch products
+  hasOptions() {
+    return this.product?.has_options
+  }
+
   getProps() {
     /**
      *  Horizontal card.
@@ -234,8 +213,7 @@ class ProductCard extends HTMLElement {
     this.isInWishlist =
       !salla.config.isGuest() &&
       salla.storage.get("salla::wishlist", []).includes(this.product.id);
-    this.hasProductOptions = await this.hasOptions(this.product.id);
-    this.handelBrand = await this.handelProductBrand(this.product?.id);
+    this.hasProductOptions = this.hasOptions();
     this.innerHTML = `
         <div class="${
           !this.fullImage ? "s-product-card-image" : "s-product-card-image-full"
@@ -313,7 +291,7 @@ class ProductCard extends HTMLElement {
 
             
             ${ this.getBrandOptionValue() ? `
-              ${ this.product?.brand ? `${ this.handelBrand }` : `` }
+              ${ this.product?.brand ? `<div class="handel-brand" id="${ this.product.id }"></div>` : `` }
             ` : `
               ${
                 this.product?.category
@@ -451,7 +429,7 @@ class ProductCard extends HTMLElement {
               data-id="${this.product.id}">
               <i class="sicon-heart"></i> 
             </salla-button>
-              
+
           </div>`
         }
       `;
@@ -471,6 +449,7 @@ class ProductCard extends HTMLElement {
       this.initCircleBar();
     }
   }
+
 }
 
 customElements.define("custom-salla-product-card", ProductCard);
