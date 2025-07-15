@@ -95,13 +95,13 @@
 							<div>{{trans('pages.cart.product')}}</div>
 							<div class="opacity-0">{{trans('pages.cart.price')}}</div>
 							<div>{{trans('pages.cart.quantity')}}</div>
-							<div>{{trans('pages.cart.total')}}</div>
-							<div></div>
+							<div class="mx-6 md:mx-0">{{trans('pages.cart.total')}}</div>
+							<div class="hidden md:inline"></div>
 						</div>
 					{% endif %}
 
 					<form onchange="salla.form.onChange('cart.updateItem', event)" id="item-{{ item.id }}" style="border-bottom: 1px solid #CCC;">
-						<section class="cart-item bg-white p-1 sm:p-3 md:p-5 rounded-md relative">
+						<section class="cart-item bg-white p-1 sm:p-3 md:p-5 rounded-md relative my-5">
 							<input
 							type="hidden" name="id" value="{{ item.id }}">
 							<!-- product -->
@@ -288,27 +288,36 @@
 	</div>
 
 	<style>
-		.product-info {
-			@media(max-width: 640px) {
+		.product-info
+		{
+			@media(max-width: 640px)
+			{
 				grid-row: span 2;
 			}
 		}
-		.product-info-text {
-			@media(max-width: 640px) {
+		.product-info-text
+		{
+			@media(max-width: 640px)
+			{
 				grid-column: 2 / -1;
 				margin-left: auto;
 			}
 		}
-		.remove-product-btn {
-			@media(max-width: 640px) {
+		.remove-product-btn
+		{
+			@media(max-width: 640px)
+			{
 				position: absolute;
 				top: 0;
-				left: 25px;
+				left: 0px;
 			}
 		}
-		.cart_item_wrapper-content {
-			@media(max-width: 640px) {
-				display: none;
+		.cart_item_wrapper-content
+		{
+			@media(max-width: 640px)
+			{
+				display: flex;
+				justify-content: space-between;
 			}
 		}
 	</style>
@@ -316,5 +325,5 @@
 {% endblock %}
 
 {% block scripts %}
-	<script defer src="{{ 'checkout.js' | asset }}"></script>
+	 <script defer src="{{ 'checkout.js' | asset }}"></script>
 {% endblock %}
