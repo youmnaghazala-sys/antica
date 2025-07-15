@@ -92,10 +92,9 @@
 							</div>
 						{% endif %}
 						<div class="cart_item_wrapper cart_item_wrapper-content p-2 sm:p-3 md:p-5 lg:p-6 mt-8 text-secondary bg-white" style="border-bottom: 1px solid #CCC;">
-							<div>{{trans('pages.cart.product')}}</div>
-							<div class="opacity-0">{{trans('pages.cart.price')}}</div>
-							<div>{{trans('pages.cart.quantity')}}</div>
-							<div class="mx-6 md:mx-0">{{trans('pages.cart.total')}}</div>
+							<div class="col-[1_/_3] mx-8 md:mx-0">{{trans('pages.cart.product')}}</div>
+							<div class="md:ml-5">{{trans('pages.cart.quantity')}}</div>
+							<div class="mx-6 md:rtl:mr-0 md:ltr:ml-0">{{trans('pages.cart.total')}}</div>
 							<div class="hidden md:inline"></div>
 						</div>
 					{% endif %}
@@ -309,7 +308,7 @@
 			{
 				position: absolute;
 				top: 0;
-				left: 0px;
+				left: 0;
 			}
 		}
 		.cart_item_wrapper-content
