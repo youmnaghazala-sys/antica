@@ -497,13 +497,15 @@ salla-filters {
   position: relative;
   grid-template-columns:
     minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr)
-    minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 0.5fr);
-    align-items: center;
-    justify-items: center;
-    @media(max-width: 640px) {
-    grid-template-columns:
-      minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr);
-      margin-top: 20px;
+    minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 0fr);
+  align-items: center;
+  justify-items: center;
+  @media (max-width: 640px) {
+    grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(
+        min-content,
+        1fr
+      );
+
   }
 }
 .cart-submit-wrap salla-button button {
@@ -628,7 +630,6 @@ salla-filters {
     transform: translateY(0);
   }
 
-  /* تأخير ظهور النصوص */
   .swiper-slide-active .centered > *:nth-child(1) {
     transition-delay: 0.5s;
   }
@@ -641,7 +642,6 @@ salla-filters {
     transition-delay: 1.4s;
   }
 
-  /* تأثير ظهور الصور */
   .spacespacespace img {
     opacity: 0;
     transform: translateY(-100%);
