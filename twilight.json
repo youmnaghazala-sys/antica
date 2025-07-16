@@ -591,7 +591,7 @@
       "type": "boolean",
       "format": "switch",
       "label": "عرض خيارات المنتج فوق الوصف",
-      "description": null,
+      "description": "يتم تبديل بين الوصف وخيارات المنتج في صفحة المنتج",
       "labelHTML": null,
       "icon": "sicon-toggle-off",
       "value": false,
