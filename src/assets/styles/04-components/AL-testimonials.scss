@@ -47,6 +47,9 @@
 }
 .s-slider-v-centered .s-slider-block__title-nav button.swiper-button-disabled {
   opacity: 0.5;
+  @include tablet{
+    
+  }
 }
 .s-slider-nav-arrow {
   border-radius: 0px;

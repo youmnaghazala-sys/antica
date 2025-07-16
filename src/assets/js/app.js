@@ -50,7 +50,7 @@ class App extends AppHelpers {
     document.dispatchEvent(new CustomEvent("theme::ready"));
     this.log("Theme Loaded 🎉");
 
-    document.addEventListener("DOMContentLoaded", this.observeProductBrands)
+    document.addEventListener("DOMContentLoaded", this.observeProductBrands);
   }
 
   log(message) {
@@ -224,8 +224,9 @@ class App extends AppHelpers {
       ".free_shipping_progress_bar"
     );
     if (!free_shipping_element) return;
-    const free_shipping_limit =
-      parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
+    const free_shipping_limit = parseInt(
+      free_shipping_element?.dataset.freeShippingLimit
+    );
 
     salla.event.on("cart::updated", function (data) {
       document.querySelector(".progress_filler").style.width = `${
@@ -592,31 +593,6 @@ class App extends AppHelpers {
     });
   }
 
-  addCartListener() {
-    const free_shipping_element = document.querySelector(
-      ".free_shipping_progress_bar"
-    );
-    if (!free_shipping_element) return;
-    const free_shipping_limit =
-      parseInt(free_shipping_element?.dataset.freeShippingLimit) || 1000;
-
-    salla.event.on("cart::updated", function (data) {
-      document.querySelector(".progress_filler").style.width = `${
-        (data.total / free_shipping_limit) * 100
-      }%`;
-      const freeShippingLimitRemaining = document.querySelector(
-        ".free_shipping_limit_remaining"
-      );
-      if (freeShippingLimitRemaining) {
-        freeShippingLimitRemaining.innerText = salla.money(
-          free_shipping_limit - data.total > 0
-            ? free_shipping_limit - data.total
-            : 0
-        );
-      }
-    });
-  }
-
   async renderFollowUsInIndex() {
     let wrapElem = app.element("#index-followus-wrapper");
 
@@ -675,41 +651,46 @@ class App extends AppHelpers {
     const brandElements = document.querySelectorAll(".handel-brand");
     if (!brandElements.length) return;
 
-    const observer = new IntersectionObserver(async (entries, obs) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
+    const observer = new IntersectionObserver(
+      async (entries, obs) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
 
-        const container = entry.target;
-        const productId = parseInt(container.id);
-        if (isNaN(productId)) return;
+          const container = entry.target;
+          const productId = parseInt(container.id);
+          if (isNaN(productId)) return;
 
-        try {
-          container.innerHTML = ``;
+          try {
+            container.innerHTML = ``;
 
-          const { data } = await salla.api.product.getDetails(productId, ["brand"]);
-          const brand = data?.brand;
+            const { data } = await salla.api.product.getDetails(productId, [
+              "brand",
+            ]);
+            const brand = data?.brand;
 
-          if (!brand?.name || !brand?.url) return;
+            if (!brand?.name || !brand?.url) return;
 
-          container.innerHTML = `
+            container.innerHTML = `
             <h5>
               <a href="${brand.url}" class="block">
                 <span>${brand.name}</span>
               </a>
             </h5>
           `;
-        } catch (err) {
-          console.error(`brand not found ${productId}:`, err);
+          } catch (err) {
+            console.error(`brand not found ${productId}:`, err);
+          }
+
+          obs.unobserve(container);
         }
-
-        obs.unobserve(container);
+      },
+      {
+        rootMargin: "200px",
+        threshold: 0.1,
       }
-    }, {
-      rootMargin: "200px",
-      threshold: 0.1
-    });
+    );
 
-    brandElements.forEach(el => observer.observe(el));
+    brandElements.forEach((el) => observer.observe(el));
   }
 }
 

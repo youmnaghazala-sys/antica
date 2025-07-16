@@ -67,22 +67,23 @@
 		<div class="pt-5 flex flex-col items-start lg:flex-row pb-6 lg:pb-20">
 			<div class="main-content flex-1 w-full">
 				{% hook 'cart:items.start' %}
+
 				{% for item in cart.items %}
 					{% if loop.index == 1 %}
-						{% if theme.settings.get('free_shipping_limit') > 0 %}
-							<div data-free-shipping-limit="{{ theme.settings.get('free_shipping_limit') }}" class="free_shipping_progress_bar p-2 sm:p-3 md:p-5 lg:p-6 bg-white">
-								{% if (theme.settings.get('free_shipping_limit') - cart.total) <= 0 %}
+						{% if cart.free_shipping_bar.minimum_amount > 0 %}
+							<div data-free-shipping-limit="{{cart.free_shipping_bar.minimum_amount}}" class="free_shipping_progress_bar p-2 px-4 sm:p-3 md:p-5 lg:p-6 bg-white">
+								{% if (cart.free_shipping_bar.minimum_amount - cart.total) <= 0 %}
 									<h5 class="mb-5">{{ trans('pages.cart.free_shipping_done')}}</h5>
 								{% else %}
 									<h5 class="mb-5 text-base md:text-xl leading-[25.811px] font-medium">{{ trans('pages.cart.add')}}
-										<span class="free_shipping_limit_remaining font-bold">{{ theme.settings.get('free_shipping_limit') - cart.total }}
+										<span class="free_shipping_limit_remaining font-bold">{{ cart.free_shipping_bar.minimum_amount - cart.total }}
 											{{ currency.symbol }}</span>
 										{{ trans('pages.cart.tocart')}}
 									</h5>
 								{% endif %}
 								<div class="slider_track w-full h-4 rounded-lg bg-gray-200">
 									<div class="progress_filler max-w-full h-full rounded-lg bg-secondary relative {{cart.total}}" style="background-color: var(--color-primary); width: {{ cart.total / theme.settings.get('free_shipping_limit') * 100 }}%;">
-										<div class="progress_filler_icon absolute left-0 ltr:right-0 bottom-[-2px] -translate-x-3/4">
+										<div class="progress_filler_icon absolute left-1 ltr:right-0 bottom-[-2px] -translate-x-3/4">
 											<svg xmlns="http://www.w3.org/2000/svg" width="31" height="20" viewbox="0 0 31 20" fill="none">
 												<path d="M26.2917 7.68651L26.2906 7.68651C25.5532 7.68442 24.9562 7.08604 24.9562 6.34826C24.9562 5.95008 25.0881 5.60979 25.3612 5.37655C25.6239 5.15227 25.9637 5.07299 26.2944 5.07299H31.0555C31.3602 5.07299 31.6071 4.8261 31.6071 4.52141C31.6071 4.21672 31.3602 3.96982 31.0555 3.96982H29.9216H29.5282V3.57648V1.49766C29.5282 1.19297 29.2813 0.946068 28.9766 0.946068H12.2354V6.22227C12.2354 6.96142 11.6363 7.56052 10.8971 7.56052H3.63999L3.6266 7.56187C3.60817 7.5638 3.58064 7.56688 3.54519 7.57168C3.47409 7.58129 3.37077 7.59782 3.24606 7.62561C2.99494 7.68155 2.66566 7.78126 2.34069 7.95591C1.70658 8.29671 1.08531 8.91788 1.08531 10.1279V15.7975C1.08531 16.1022 1.33221 16.3491 1.6369 16.3491H3.28436H3.60587L3.66983 16.6641C3.97156 18.1504 5.2855 19.2468 6.83397 19.2468C8.38244 19.2468 9.69638 18.1504 9.99811 16.6641L10.0621 16.3491H10.3836H19.978H20.2995L20.3635 16.6641C20.6652 18.1504 21.9791 19.2468 23.5276 19.2468C25.0761 19.2468 26.39 18.1504 26.6917 16.6641L26.7557 16.3491H27.0772H28.9766C29.2813 16.3491 29.5282 16.1022 29.5282 15.7975V12.9627V12.5694H29.9216H32.0004C32.3051 12.5694 32.552 12.3225 32.552 12.0178C32.552 11.7131 32.3051 11.4662 32.0004 11.4662H23.4924C22.7532 11.4662 22.1541 10.8671 22.1541 10.1279C22.1541 9.38781 22.7528 8.78969 23.4961 8.78969H32.0004C32.3051 8.78969 32.552 8.54279 32.552 8.2381C32.552 7.93359 32.305 7.68651 32.0004 7.68651L26.2917 7.68651ZM9.55888 4.88401V1.25311C8.48698 1.57242 7.71787 2.06156 7.07863 2.6899C6.47011 3.28804 5.97157 4.01878 5.44139 4.88401H9.55888ZM5.33089 17.5213C4.50083 16.6912 4.50083 15.3449 5.33089 14.5149C6.66679 13.179 8.95966 14.1286 8.95966 16.018C8.95966 17.9075 6.66684 18.8572 5.33089 17.5213ZM22.0245 17.5213C21.1944 16.6912 21.1944 15.3449 22.0245 14.5149C23.3604 13.179 25.6533 14.1286 25.6533 16.018C25.6533 17.9075 23.3605 18.8572 22.0245 17.5213Z" fill="var(--color-primary)" stroke="#E0D8CA" stroke-width="0.786667"/>
 											</svg>
@@ -205,7 +206,7 @@
 			<!-- sidebar -->
 			{% if cart.items|length %}
 				<div class="sticky top-48 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
-					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative {{ cart.free_shipping_bar ? '' : 'hidden' }}" id="free-shipping">
+					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative  {{ cart.total >= cart.free_shipping_bar.minimum_amount ? '' : 'hidden' }}" id="free-shipping">
 						<div class="flex rtl:space-x-reverse space-x-3 items-center">
 							<i class="bg-primary text-white rounded-icon sicon-shipping-fast {{ theme.is_rtl ? 'flip-x':'' }}"></i>
 							{% set is_free = cart.free_shipping_bar.has_free_shipping %}
