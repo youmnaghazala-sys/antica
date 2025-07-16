@@ -71,7 +71,7 @@
 				{% for item in cart.items %}
 					{% if loop.index == 1 %}
 						{% if cart.free_shipping_bar.minimum_amount > 0 %}
-							<div data-free-shipping-limit="{{cart.free_shipping_bar.minimum_amount}}" class="free_shipping_progress_bar p-2 sm:p-3 md:p-5 lg:p-6 bg-white">
+							<div data-free-shipping-limit="{{cart.free_shipping_bar.minimum_amount}}" class="free_shipping_progress_bar p-2 px-4 sm:p-3 md:p-5 lg:p-6 bg-white">
 								{% if (cart.free_shipping_bar.minimum_amount - cart.total) <= 0 %}
 									<h5 class="mb-5">{{ trans('pages.cart.free_shipping_done')}}</h5>
 								{% else %}
