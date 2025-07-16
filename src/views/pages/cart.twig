@@ -67,15 +67,16 @@
 		<div class="pt-5 flex flex-col items-start lg:flex-row pb-6 lg:pb-20">
 			<div class="main-content flex-1 w-full">
 				{% hook 'cart:items.start' %}
+
 				{% for item in cart.items %}
 					{% if loop.index == 1 %}
-						{% if theme.settings.get('free_shipping_limit') > 0 %}
-							<div data-free-shipping-limit="{{ theme.settings.get('free_shipping_limit') }}" class="free_shipping_progress_bar p-2 sm:p-3 md:p-5 lg:p-6 bg-white">
-								{% if (theme.settings.get('free_shipping_limit') - cart.total) <= 0 %}
+						{% if cart.free_shipping_bar.minimum_amount > 0 %}
+							<div data-free-shipping-limit="{{cart.free_shipping_bar.minimum_amount}}" class="free_shipping_progress_bar p-2 sm:p-3 md:p-5 lg:p-6 bg-white">
+								{% if (cart.free_shipping_bar.minimum_amount - cart.total) <= 0 %}
 									<h5 class="mb-5">{{ trans('pages.cart.free_shipping_done')}}</h5>
 								{% else %}
 									<h5 class="mb-5 text-base md:text-xl leading-[25.811px] font-medium">{{ trans('pages.cart.add')}}
-										<span class="free_shipping_limit_remaining font-bold">{{ theme.settings.get('free_shipping_limit') - cart.total }}
+										<span class="free_shipping_limit_remaining font-bold">{{ cart.free_shipping_bar.minimum_amount - cart.total }}
 											{{ currency.symbol }}</span>
 										{{ trans('pages.cart.tocart')}}
 									</h5>
@@ -202,10 +203,12 @@
 				{% hook 'cart:items.end' %}
 			</div>
 			{% hook 'cart:summary.start' %}
+			{{cart.free_shipping_bar.minimum_amount}}
+			{{cart.total}}
 			<!-- sidebar -->
 			{% if cart.items|length %}
 				<div class="sticky top-48 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
-					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative {{ cart.free_shipping_bar ? '' : 'hidden' }}" id="free-shipping">
+					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative  {{ cart.total >= cart.free_shipping_bar.minimum_amount ? '' : 'hidden' }}" id="free-shipping">
 						<div class="flex rtl:space-x-reverse space-x-3 items-center">
 							<i class="bg-primary text-white rounded-icon sicon-shipping-fast {{ theme.is_rtl ? 'flip-x':'' }}"></i>
 							{% set is_free = cart.free_shipping_bar.has_free_shipping %}
