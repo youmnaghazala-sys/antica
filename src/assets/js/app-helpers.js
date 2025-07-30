@@ -1,5 +1,4 @@
 export default class AppHelpers {
-
   /**
    * @param {string} selector
    * @param {array<string>} classes1
@@ -7,16 +6,25 @@ export default class AppHelpers {
    * @param callback
    */
   toggleClassIf(selector, classes1, classes2, callback) {
-    document.querySelectorAll(selector).forEach(element => this.toggleElementClassIf(element, classes1, classes2, callback));
+    document
+      .querySelectorAll(selector)
+      .forEach((element) =>
+        this.toggleElementClassIf(element, classes1, classes2, callback)
+      );
     return this;
   }
+  toggleElementClassIf(elements, classes1, classes2, callback) {
+    classes1 = Array.isArray(classes1) ? classes1 : classes1.split(" ");
+    classes2 = Array.isArray(classes2) ? classes2 : classes2.split(" ");
+    const elementsArray = Array.isArray(elements) ? elements : [elements];
 
-  toggleElementClassIf(element, classes1, classes2, callback) {
-    classes1 = Array.isArray(classes1) ? classes1 : classes1.split(' ');
-    classes2 = Array.isArray(classes2) ? classes2 : classes2.split(' ');
-    let isClasses1 = callback(element);
-    element?.classList.remove(...(isClasses1 ? classes2 : classes1));
-    element?.classList.add(...(isClasses1 ? classes1 : classes2));
+    elementsArray.forEach((element) => {
+      if (!element) return;
+      const isClasses1 = callback(element);
+      element.classList.remove(...(isClasses1 ? classes2 : classes1));
+      element.classList.add(...(isClasses1 ? classes1 : classes2));
+    });
+
     return this;
   }
 
@@ -25,10 +33,10 @@ export default class AppHelpers {
    * @return {null|HTMLElement}
    */
   element(selector) {
-    if (typeof selector == 'object') {
+    if (typeof selector == "object") {
       return selector;
     }
-    if (selector === '.total-price' || selector === '.before-price') {
+    if (selector === ".total-price" || selector === ".before-price") {
       return document.querySelectorAll(selector);
     }
     return document.querySelector(selector);
@@ -48,7 +56,9 @@ export default class AppHelpers {
    * @param {Object.<string, string>} elements
    */
   watchElements(elements) {
-    Object.entries(elements).forEach(element => this.watchElement(element[0], element[1]));
+    Object.entries(elements).forEach((element) =>
+      this.watchElement(element[0], element[1])
+    );
     return this;
   }
 
@@ -60,13 +70,15 @@ export default class AppHelpers {
    * @return {AppHelpers}
    */
   on(action, element, callback, options = {}) {
-    if (typeof element == 'object') {
+    if (typeof element == "object") {
       this.element(element).addEventListener(action, callback, options);
       return this;
     }
 
     //if it's selector loop through all of the elements
-    document.querySelectorAll(element).forEach(el => el.addEventListener(action, callback, options));
+    document
+      .querySelectorAll(element)
+      .forEach((el) => el.addEventListener(action, callback, options));
     return this;
   }
 
@@ -76,7 +88,7 @@ export default class AppHelpers {
    * @return {AppHelpers}
    */
   onClick(element, callback) {
-    return this.on('click', element, callback);
+    return this.on("click", element, callback);
   }
 
   /**
@@ -85,7 +97,7 @@ export default class AppHelpers {
    * @return {AppHelpers}
    */
   onKeyUp(element, callback) {
-    return this.on('keyup', element, callback);
+    return this.on("keyup", element, callback);
   }
 
   /**
@@ -103,7 +115,7 @@ export default class AppHelpers {
    * @return {AppHelpers}
    */
   hideElement(element) {
-    this.element(element).style.display = 'none';
+    this.element(element).style.display = "none";
     return this;
   }
 
@@ -111,7 +123,7 @@ export default class AppHelpers {
    * @param {string|HTMLElement} element
    * @return {AppHelpers}
    */
-  showElement(element, display = 'block') {
+  showElement(element, display = "block") {
     this.element(element).style.display = display;
     return this;
   }

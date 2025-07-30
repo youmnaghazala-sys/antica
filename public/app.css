@@ -488,7 +488,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .relative{position:relative}
 .sticky{position:sticky}
 .inset-0{top:0px;right:0px;bottom:0px;left:0px}
-.-top-5{top:-1.25rem}
 .bottom-1{bottom:0.25rem}
 .bottom-2{bottom:0.5rem}
 .bottom-\[-2px\]{bottom:-2px}
@@ -519,6 +518,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .col-span-2{grid-column:span 2 / span 2}
 .row-span-2{grid-row:span 2 / span 2}
 .m-0{margin:0px}
+.m-2{margin:0.5rem}
 .m-8{margin:2rem}
 .m-auto{margin:auto}
 .-mx-6{margin-left:-1.5rem;margin-right:-1.5rem}
@@ -588,7 +588,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-14{height:3.5rem}
 .h-16{height:4rem}
 .h-2{height:0.5rem}
-.h-2\.5{height:0.625rem}
 .h-20{height:5rem}
 .h-24{height:6rem}
 .h-4{height:1rem}
@@ -601,6 +600,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .h-96{height:24rem}
 .h-\[100\%\]{height:100%}
 .h-\[100px\]{height:100px}
+.h-\[150px\]{height:150px}
 .h-\[16px\]{height:16px}
 .h-\[244px\]{height:244px}
 .h-\[24px\]{height:24px}
@@ -649,7 +649,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .w-18{width:4.5rem}
 .w-2\/3{width:66.666667%}
 .w-20{width:5rem}
-.w-24{width:6rem}
 .w-4{width:1rem}
 .w-4\/5{width:80%}
 .w-4\/6{width:66.666667%}
@@ -917,7 +916,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .leading-9{line-height:2.25rem}
 .leading-\[18px\]{line-height:18px}
 .leading-\[22px\]{line-height:22px}
-.leading-\[25\.811px\]{line-height:25.811px}
 .leading-\[28px\]{line-height:28px}
 .leading-\[30px\]{line-height:30px}
 .leading-\[48px\]{line-height:48px}
@@ -7701,6 +7699,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .md\:bottom-\[15\%\]{bottom:15%}
 .md\:col-span-1{grid-column:span 1 / span 1}
 .md\:col-span-2{grid-column:span 2 / span 2}
+.md\:m-6{margin:1.5rem}
 .md\:mx-0{margin-left:0px;margin-right:0px}
 .md\:my-10{margin-top:2.5rem;margin-bottom:2.5rem}
 .md\:-mb-2{margin-bottom:-0.5rem}
@@ -7886,7 +7885,6 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .ltr\:lg\:mr-8:where([dir="ltr"], [dir="ltr"] *){margin-right:2rem}
 .ltr\:lg\:pl-20:where([dir="ltr"], [dir="ltr"] *){padding-left:5rem}
 .ltr\:lg\:pr-11:where([dir="ltr"], [dir="ltr"] *){padding-right:2.75rem}}
-.rtl\:left-0:where([dir="rtl"], [dir="rtl"] *){left:0px}
 .rtl\:left-1:where([dir="rtl"], [dir="rtl"] *){left:0.25rem}
 .rtl\:left-4:where([dir="rtl"], [dir="rtl"] *){left:1rem}
 .rtl\:right-0:where([dir="rtl"], [dir="rtl"] *){right:0px}
