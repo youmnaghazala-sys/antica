@@ -49,13 +49,13 @@
 
 {% extends "layouts.master" %}
 {% block content %}
-	<div class="mb-2 md:mb-10 w-full flex items-center justify-center" style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;">
+	<div class="mb-2 md:mb-10 w-full flex items-center {{ theme.settings.get('index_banner_img') ? 'justify-center' : 'm-2 md:m-6' }} " {% if theme.settings.get('index_banner_img') %} style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;" {% endif %}>
 		<div class="wrapper flex items-center justify-center flex-col">
-			<nav class="breadcrumbs py-5">
+			<nav class="breadcrumbs pt-5">
 				<salla-breadcrumb></salla-breadcrumb>
 			</nav>
 			{% if theme.settings.get('enable_banner_logo') %}
-				<a href="https://salla.design/dev-qvuxklgz9lyczmb7" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
+				<a href="{{url('/')}}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
 					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
 				</a>
 			{% endif %}
@@ -75,11 +75,20 @@
 								{% if (cart.free_shipping_bar.minimum_amount - cart.total) <= 0 %}
 									<h5 class="mb-5">{{ trans('pages.cart.free_shipping_done')}}</h5>
 								{% else %}
-									<h5 class="mb-5 text-base md:text-xl leading-[25.811px] font-medium">{{ trans('pages.cart.add')}}
-										<span class="free_shipping_limit_remaining font-bold">{{ cart.free_shipping_bar.minimum_amount - cart.total }}
-											{{ currency.symbol }}</span>
-										{{ trans('pages.cart.tocart')}}
-									</h5>
+
+									<p class="shipping-item text-xl mb-2 text-gray-500">
+										<span id="free-shipping-msg">{{ (is_free
+												?trans('pages.cart.has_free_shipping')
+												:trans('pages.cart.free_shipping_alert', {'amount': cart.free_shipping_bar.remaining|money}))
+												| raw }}</span>
+										<span class="emoji {{ is_free?'':'hidden' }}" id="free-shipping-applied">🎉</span>
+									</p>
+
+
+									<div id="shipping-cost" class="flex justify-between text-sm mb-5 {{ cart.has_shipping ? '' : 'hidden' }}">
+										<span class="text-gray-500">{{ trans('pages.cart.shipping_cost') }}</span>
+										<b>{{ cart.real_shipping_cost|money }}</b>
+									</div>
 								{% endif %}
 								<div class="slider_track w-full h-4 rounded-lg bg-gray-200">
 									<div class="progress_filler max-w-full h-full rounded-lg bg-secondary relative {{cart.total}}" style="background-color: var(--color-primary); width: {{ cart.total / theme.settings.get('free_shipping_limit') * 100 }}%;">
@@ -109,9 +118,9 @@
 								<div class="flex items-center justify-self-start product-info">
 									<a href="{{ item.url }}" class="shrink-0 block w-full">
 										{% if loop.first %}
-											<img src="{{ item.product_image }}" alt="{{ item.product_name }}" class="flex-none w-24 h-20 border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
+											<img src="{{ item.product_image }}" alt="{{ item.product_name }}" class="flex-none h-[150px] border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
 										{% else %}
-											<img src="{{ 'images/s-empty.png' | cdn }}" data-src="{{ item.product_image }}" alt="{{ item.product_name }}" class="lazy flex-none w-24 h-20 border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
+											<img src="{{ 'images/s-empty.png' | cdn }}" data-src="{{ item.product_image }}" alt="{{ item.product_name }}" class="lazy flex-none h-[150px] border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
 										{% endif %}
 									</a>
 								</div>
@@ -206,27 +215,7 @@
 			<!-- sidebar -->
 			{% if cart.items|length %}
 				<div class="sticky top-48 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
-					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative  {{ cart.total >= cart.free_shipping_bar.minimum_amount ? '' : 'hidden' }}" id="free-shipping">
-						<div class="flex rtl:space-x-reverse space-x-3 items-center">
-							<i class="bg-primary text-white rounded-icon sicon-shipping-fast {{ theme.is_rtl ? 'flip-x':'' }}"></i>
-							{% set is_free = cart.free_shipping_bar.has_free_shipping %}
-							<div class="flex-1">
-								<h4 class="shipping-item font-bold text-sm mb-1.5">{{ trans('pages.cart.free_shipping') }}</h4>
-								<p class="shipping-item text-sm font- text-gray-500">
-									<span id="free-shipping-msg">{{ (is_free
-												?trans('pages.cart.has_free_shipping')
-												:trans('pages.cart.free_shipping_alert', {'amount': cart.free_shipping_bar.remaining|money}))
-												| raw }}</span>
-									<span class="emoji {{ is_free?'':'hidden' }}" id="free-shipping-applied">🎉</span>
-								</p>
-							</div>
-						</div>
-						<div class="mt-8 bg-border-color rounded-full {{ is_free ? ' hidden' : '' }}" id="free-shipping-bar">
-							<div class="progress-bg transition-all duration-500 h-2.5 bg-primary relative rounded-full flex justify-end" style="width:{{ cart.free_shipping_bar.percent }}%">
-								<i class="inline-block sicon-shipping-fast absolute -top-5 rtl:left-0 ltr:right-0 {{ theme.is_rtl ? 'flip-x':'' }}"></i>
-							</div>
-						</div>
-					</div>
+
 					{% if loyalty and user.loyalty_points %}
 						<div class="shadow-default mb-5 rounded-md p-3 xs:p-7 bg-white">
 							<salla-loyalty customer-points='{{ user.loyalty_points }}' prize-points='{{ loyalty.prize.points }}' prize-title='{{ loyalty.prize.title }}'></salla-loyalty>
