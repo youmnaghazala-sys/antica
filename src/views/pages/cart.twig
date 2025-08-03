@@ -160,7 +160,7 @@
 
 								<div class="remove-product-btn justify-self-end">
 									<span class="">
-										<salla-button type="button" shape="icon" size="small" class="btn--delete" aria-label="Remove from the cart" onclick="salla.cart.deleteItem({{ item.id }}).then(() => document.querySelector('#item-{{ item.id }}').remove())">
+										<salla-button type="button" shape="icon" size="small" class="btn--delete" aria-label="Remove from the cart" onclick="salla.cart.deleteItem('{{ item.id }}').then(() => document.querySelector('#item-{{ item.id }}').remove())">
 											<i class="sicon-cancel"></i>
 										</salla-button>
 									</span>
