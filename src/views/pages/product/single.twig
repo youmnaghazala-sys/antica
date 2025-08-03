@@ -92,7 +92,7 @@
 				<div class="flex rtl:space-x-reverse space-x-3 justify-end relative top-20 z-2 likeabdsharebtn">
 					<salla-social-share class="inline-flex mb-5" aria-label="social share"></salla-social-share>
 
-					<salla-button class="btn--wishlist animated inline-flex" data-id="{{ product.id }}" onclick="salla.wishlist.toggle({{ product.id }})" shape="icon" fill="outline" color="light" aria-label="add to wishlist">
+					<salla-button class="btn--wishlist animated inline-flex" data-id="{{ product.id }}" onclick="salla.wishlist.toggle('{{ product.id }}')" shape="icon" fill="outline" color="light" aria-label="add to wishlist">
 						<i class="sicon-heart"></i>
 					</salla-button>
 				</div>
@@ -365,7 +365,7 @@
 							</label>
 							<div class="mt-1 sm:mt-0 sm:col-span-2 text-end">
 								<div class="flex rtl:space-x-reverse space-x-3">
-									<a href="#!" onclick="salla.event.dispatch('scopes::open', {mode: 'availability', product_id: {{ product.id }} })" class="group text-primary flex items-center justify-center">
+									<a href="#!" onclick="salla.event.dispatch('scopes::open', {mode: 'availability', product_id: '{{ product.id }}' })" class="group text-primary flex items-center justify-center">
 										<span>{{ trans('pages.products.select_branch') }}</span>
 										<span class="sicon-keyboard_arrow_left mr-2 transition-all group-hover:-translate-x-1"></span>
 									</a>

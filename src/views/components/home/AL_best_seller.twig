@@ -65,43 +65,54 @@
     }
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const productsContainer = document.querySelector("#products-{{ position }}");
-        function handleScroll() {
-            const section = document.querySelector("#AL_best_seller-{{ position }}");
-            const sectionPosition = section.getBoundingClientRect().top;
-            const screenHeight = window.innerHeight;
-            if (sectionPosition < screenHeight * 0.75) {
-                if (window.innerWidth > 768) { 
-                    productsContainer.style.transform = "translateX(-1%)";
-                    productsContainer.style.transition = "transform 6s linear";
-                }
-            }
-        }
-        window.addEventListener("scroll", handleScroll);
-        handleScroll(); 
-        const video = document.querySelector("#background-video-{{ position }}");
-        const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
-        if (video && toggleButton) {
-            toggleButton.addEventListener("click", () => {
-                if (video.paused) {
-                    video.play();
-                    toggleButton.innerHTML = '<i class="sicon-pause"></i>'; 
-                } else {
-                    video.pause();
-                    toggleButton.innerHTML = '<i class="sicon-play"></i>'; 
-                }
-            });
-            if (video.paused) {
-                toggleButton.innerHTML = '<i class="sicon-pause"></i>';
-            } else {
-                toggleButton.innerHTML = '<i class="sicon-play"></i>';
-            }
-        }
-        let iconElements = document.querySelectorAll(".text-base.sicon-shopping-bag");
-        iconElements.forEach(icon => {
-            icon.classList.replace("sicon-shopping-bag", "sicon-cart2");
-        });
-    
-    });
+  window.onload = function () {
+      const productsContainer = document.querySelector("#products-{{ position }}");
+
+      function handleScroll() {
+          const section = document.querySelector("#AL_best_seller-{{ position }}");
+          const sectionPosition = section.getBoundingClientRect().top;
+          const screenHeight = window.innerHeight;
+          if (sectionPosition < screenHeight * 0.75) {
+              if (window.innerWidth > 768) { 
+                  productsContainer.style.transform = "translateX(-1%)";
+                  productsContainer.style.transition = "transform 6s linear";
+              }
+          }
+      }
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+
+      const video = document.querySelector("#background-video-{{ position }}");
+      const toggleButton = document.querySelector("#toggle-video-button-{{ position }}");
+      if (video && toggleButton) {
+          toggleButton.addEventListener("click", () => {
+              if (video.paused) {
+                  video.play();
+                  toggleButton.innerHTML = '<i class="sicon-pause"></i>'; 
+              } else {
+                  video.pause();
+                  toggleButton.innerHTML = '<i class="sicon-play"></i>'; 
+              }
+          });
+          if (video.paused) {
+              toggleButton.innerHTML = '<i class="sicon-pause"></i>';
+          } else {
+              toggleButton.innerHTML = '<i class="sicon-play"></i>';
+          }
+      }
+
+      // إعادة تهيئة السليدر بعد ما العناصر كلها تتـrender
+      setTimeout(() => {
+          const slider = document.querySelector('salla-slider#thumbs');
+          if(slider && slider.init){
+              slider.init();
+          }
+      }, 600);
+
+      let iconElements = document.querySelectorAll(".text-base.sicon-shopping-bag");
+      iconElements.forEach(icon => {
+          icon.classList.replace("sicon-shopping-bag", "sicon-cart2");
+      });
+  };
 </script>
+ 
