@@ -653,6 +653,17 @@
           "value": true
         }
       ]
+    },
+    {
+      "id": "enable_product_count_index",
+      "label": "تفعيل عداد المنتجات في صفحة التصنيفات",
+      "description": null,
+      "type": "boolean",
+      "icon": "sicon-toggle-off",
+      "format": "switch",
+      "required": false,
+      "value": false,
+      "selected": false
     }
   ],
   "components": [
@@ -3318,6 +3329,17 @@
           ],
           "minLength": 1,
           "maxLength": "10"
+        },
+        {
+          "id": "enable_autoplay",
+          "label": "تفعيل التشغيل التلقائي",
+          "description": "يتم تشغيل الشرائح تلقائيًا عند تحميل الصفحة.",
+          "type": "boolean",
+          "icon": "sicon-toggle-off",
+          "format": "switch",
+          "required": false,
+          "value": false,
+          "selected": false
         }
       ]
     },

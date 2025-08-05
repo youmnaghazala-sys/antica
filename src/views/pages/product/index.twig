@@ -46,8 +46,10 @@
 
 			<div class="main-content flex-1 w-full {{ filters ? 'ltr:lg:ml-8 rtl:lg:mr-8' : '' }}">
 				<div class="mb-4 sm:mb-6 flex justify-between items-center">
-					<h1 class="font-medium text-base md:text-[1.5rem] rtl:pl-3 ltr:pr-3" id="page-main-title">{{ page.title|raw }}</h1>
-
+					{% if theme.settings.get('enable_product_count_index') %}
+						<h1 class="font-medium text-base md:text-[1.5rem] rtl:pl-3 ltr:pr-3" id="page-main-title">{{ page.title|raw }}</h1>
+					{% endif %}
+				
 					<div id="icons_wrapper" class="flex items-center justify-between gap-1 md:gap-3">
 
 						<svg data="four" aria-label="Toggle view" class="viewToggle transform scale-140 sicon-list cursor-pointer transition-all duration-500" onclick="formatCols(true, this)" width="34" height="34" viewbox="0 0 29 34" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,18 @@
 <section class="Alo__main">
-	<salla-slider id="main-slider-{{ position }}" type="fullwidth" show-controls="false" pagination="true" slider-config='{"centeredSlides": true}'>
+	<salla-slider
+		id="main-slider-{{ position }}"
+		type="fullwidth"
+		show-controls="false"
+		pagination="true"
+		slider-config='{
+			{% if component.enable_autoplay %}
+				"autoplay": {
+					"delay": 3000,
+					"disableOnInteraction": false
+				},
+			{% endif %}
+			"centeredSlides": true
+		}'>
 		<div slot="items">
 			{% for i in component.slider_images %}
 				<div class="swiper-slide {{ theme.settings.get('has_animation') ? 'Al__anime' }}" {% if theme.settings.get('has_animation') %} data-anim-allura="fade" data-dur-allura="0.{{loop.index +2}}s" {% endif %}>
