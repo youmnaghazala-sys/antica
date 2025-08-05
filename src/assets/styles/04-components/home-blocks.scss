@@ -752,3 +752,6 @@ salla-slider salla-product-card.swiper-slide {
   -ms-border-radius: 50% !important;
   -o-border-radius: 50% !important;
 }
+.swiper-backface-hidden .swiper-slide {
+  height: auto;
+}
