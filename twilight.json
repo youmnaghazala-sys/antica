@@ -653,6 +653,17 @@
           "value": true
         }
       ]
+    },
+    {
+      "id": "enable_product_count_index",
+      "label": "تفعيل عداد المنتجات في صفحة التصنيفات",
+      "description": null,
+      "type": "boolean",
+      "icon": "sicon-toggle-off",
+      "format": "switch",
+      "required": false,
+      "value": false,
+      "selected": false
     }
   ],
   "components": [
