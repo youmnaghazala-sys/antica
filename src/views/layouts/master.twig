@@ -71,9 +71,7 @@
             window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
         </script>
 
-        {% block head_scripts %}
-        {% endblock %}
-
+        {% block head_scripts %}{% endblock %}
         {% block styles %}{% endblock %}
 
         {% hook 'head:start' %}{% hook head %}
@@ -158,8 +156,9 @@
         {% if user.type=='guest' %}
             <salla-login-modal></salla-login-modal>
         {% endif %}
+        
+        <script defer src="{{ 'app.js' | asset }}"></script>
 
         {% block scripts %}{% endblock %}
-        <script defer src="{{ 'app.js' | asset }}"></script>
     </body>
 </html>
