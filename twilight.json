@@ -26,6 +26,25 @@
   ],
   "settings": [
     {
+      "type": "static",
+      "format": "title",
+      "id": "static-loading-section-title",
+      "value": "⚙️ إعدادات التحميل - تخصيص شاشة التحميل للموقع",
+      "variant": "h6"
+    },
+    {
+      "id": "loading_theme",
+      "type": "boolean",
+      "format": "switch",
+      "label": "تفعيل شاشة التحميل",
+      "description": "قم بتفعيل أو إيقاف شاشة التحميل التي تظهر أثناء تحميل الموقع لتعزيز تجربة المستخدم.",
+      "labelHTML": "<strong>تفعيل شاشة التحميل</strong> <span >(عرض شاشة أنيقة أثناء فتح الموقع)</span>",
+      "icon": "sicon-toggle-off",
+      "value": true,
+      "selected": false,
+      "required": false
+    },
+    {
       "type": "boolean",
       "icon": "sicon-toggle-off",
       "label": "وضع عمودي للمنتجات في مربع المنتجات الثابتة في الصفحة الرئيسية",
