@@ -114,7 +114,7 @@
         <input type="hidden" value="{{ theme.settings.get('show_brand') }}" id="show-brand" aria-describedby="helpId" placeholder="">
 
         {% if theme.settings.get('loading_theme') %}
-        <div class="loader-init">
+        <div class="loader-init loader-circles">
             <div class="circle">
                 <div class="dot"></div>
                 <div class="outline"></div>
@@ -133,7 +133,7 @@
             </div>
         </div>
         {% else %}
-<div class="loader-init"></div>
+<div class="loader-init loader-spinner"></div>
 {% endif %}
 
         <noscript>
