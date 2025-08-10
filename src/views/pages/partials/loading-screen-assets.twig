@@ -21,8 +21,20 @@
       opacity: 0;
       visibility: hidden;
   }
-
-.loader-init .circle {
+  .loader-spinner::after {
+  content: "";
+  width: 36px;
+  height: 36px;
+ border: 3px solid #eee;
+ border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+@keyframes loading {
+  from { transform: rotate(0turn); }
+  to { transform: rotate(1turn); }
+}
+.loader-circles .circle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +48,7 @@
   animation: circle-keys var(--animation);
 }
 
-.loader-init .circle .dot {
+.loader-circles .circle .dot {
   position: absolute;
   transform: translate(-50%, -50%);
   width: 16px;
@@ -46,7 +58,7 @@
   animation: dot-keys var(--animation);
 }
 
-.loader-init .circle .outline {
+.loader-circles .circle .outline {
   position: absolute;
   transform: translate(-50%, -50%);
   width: 20px;
@@ -106,7 +118,9 @@
 .circle:nth-child(5) .outline {
   animation-delay: 2.1s;
 }
-
+.loader-circles::after {
+  content: none; /* يمنع شكل القديم */
+}
 @keyframes circle-keys {
   0% {
     transform: scale(1);
@@ -155,12 +169,29 @@
 }
 </style>
 <script>
-  window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader-init");
-    loader.classList.add("loader-init--hidden");
-    loader.addEventListener("transitionend", () => {
-  if (!document.querySelector(".loader-init")) return;
-      document.body.removeChild(loader);
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const loaderInit = document.querySelector(".loader-init");
+    if (loaderInit) {
+      loaderInit.classList.add("loader-init--hidden");
+      loaderInit.addEventListener("transitionend", () => {
+        if (loaderInit.parentNode) {
+          loaderInit.parentNode.removeChild(loaderInit);
+        }
       });
-  });
+    }
+
+    const contentLoading = document.querySelector(".content-loading");
+    if (contentLoading) {
+      contentLoading.classList.add("content-loading--hidden");
+      contentLoading.addEventListener("transitionend", () => {
+        if (contentLoading.parentNode) {
+          contentLoading.parentNode.removeChild(contentLoading);
+        }
+      });
+    }
+ 
+    document.body.style.overflow = ""; 
+  }, 1000);
+});
 </script>

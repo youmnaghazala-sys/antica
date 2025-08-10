@@ -113,7 +113,8 @@
     <body id="app" class="overflow-x-hidden {% hook 'body:classes' %} {{ theme.settings.get('footer_is_dark') ? ' footer-is-dark' : ' footer-is-light' }} {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }} {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}">
         <input type="hidden" value="{{ theme.settings.get('show_brand') }}" id="show-brand" aria-describedby="helpId" placeholder="">
 
-        <div class="loader-init">
+        {% if theme.settings.get('loading_theme') %}
+        <div class="loader-init loader-circles">
             <div class="circle">
                 <div class="dot"></div>
                 <div class="outline"></div>
@@ -131,6 +132,9 @@
                 <div class="outline"></div>
             </div>
         </div>
+        {% else %}
+<div class="loader-init loader-spinner"></div>
+{% endif %}
 
         <noscript>
             To get full functionality of this site you need to enable JavaScript. Here is how
