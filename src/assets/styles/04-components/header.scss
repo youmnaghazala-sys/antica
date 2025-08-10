@@ -54,7 +54,7 @@
 
 // contacs menu items - pages menu items
 .topnav-link-item{
-  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
+  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-xs sm:text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
 
   &.right-side{
     @apply rtl:first:pr-0 ltr:first:pl-0
