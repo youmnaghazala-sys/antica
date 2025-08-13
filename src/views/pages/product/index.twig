@@ -39,8 +39,10 @@
 				{% endif %}
 
 				<div class="special_product_card w-full hidden lg:block">
-					<h3 class="my-7 text-[20px] leading-8 font-medium">{{ theme.settings.get('sub_category_section_name') }}</h3>
-					<salla-products-list class="w-full" source="{{theme.settings.get('sub_categories_products')[0]}}" limit="4" horizontal-cards="true"></salla-products-list>
+					{% if theme.settings.get('sub_categories_products') %}
+						<h3 class="my-7 text-[20px] leading-8 font-medium">{{ theme.settings.get('sub_category_section_name') }}</h3>
+						<salla-products-list class="w-full" source="{{theme.settings.get('sub_categories_products')[0]}}" limit="4" horizontal-cards="true"></salla-products-list>
+					{% endif %}
 				</div>
 			</div>
 
@@ -100,103 +102,106 @@
 			</div>
 		</div>
 	</div>
+	
 	{% if store.settings.category.testimonial_enabled %}
 		{% component 'home.testimonials' %}
 	{% endif %}
+
 	<div id="index-followus-wrapper"></div>
 {% endblock %}
+
 {% block scripts %}
 	<script defer src="{{ 'product.js' | asset }}"></script>
 
 	<script defer>
-	function handleSVGClick(event) {
-		// Reset all SVGs to default state
-		const svgs = document.querySelectorAll('#icons_wrapper svg');
-		svgs.forEach(svg => {
-		// Reset background and border radius
-		svg.style.background = 'transparent';
-		svg.style.borderRadius = '0';
+		function handleSVGClick(event) {
+			// Reset all SVGs to default state
+			const svgs = document.querySelectorAll('#icons_wrapper svg');
+			svgs.forEach(svg => {
+			// Reset background and border radius
+			svg.style.background = 'transparent';
+			svg.style.borderRadius = '0';
 
-		// Reset paths
-		const paths = svg.querySelectorAll('path');
-		paths.forEach(path => {
-			path.setAttribute('fill', 'var(--color-primary)');
-			path.setAttribute('fill-opacity', '0.4');
-		});
-		});
+			// Reset paths
+			const paths = svg.querySelectorAll('path');
+			paths.forEach(path => {
+				path.setAttribute('fill', 'var(--color-primary)');
+				path.setAttribute('fill-opacity', '0.4');
+			});
+			});
 
-		// Style the clicked SVG
-		const clickedSVG = event.currentTarget;
-		clickedSVG.style.background = 'var(--color-primary)';
-		clickedSVG.style.borderRadius = '50%';
+			// Style the clicked SVG
+			const clickedSVG = event.currentTarget;
+			clickedSVG.style.background = 'var(--color-primary)';
+			clickedSVG.style.borderRadius = '50%';
 
-		// Make paths white
-		const paths = clickedSVG.querySelectorAll('path');
-		paths.forEach(path => {
-		path.setAttribute('fill', 'white');
-		path.setAttribute('fill-opacity', '1');
-		});
-	}
+			// Make paths white
+			const paths = clickedSVG.querySelectorAll('path');
+			paths.forEach(path => {
+			path.setAttribute('fill', 'white');
+			path.setAttribute('fill-opacity', '1');
+			});
+		}
 
-	document.addEventListener('DOMContentLoaded', () => {
-		const svgs = document.querySelectorAll('#icons_wrapper svg');
-		svgs.forEach(svg => {
-		svg.removeEventListener('click', handleSVGClick);
-		svg.addEventListener('click', handleSVGClick);
+		document.addEventListener('DOMContentLoaded', () => {
+			const svgs = document.querySelectorAll('#icons_wrapper svg');
+			svgs.forEach(svg => {
+			svg.removeEventListener('click', handleSVGClick);
+			svg.addEventListener('click', handleSVGClick);
+			});
 		});
-	});
 	</script>
 
 	<script defer>
-	function formatCols(isAdd, element) {
-		const resultsDiv = document.querySelector('.main-content .s-products-list-wrapper');
-		const allToggles = document.querySelectorAll('.viewToggle');
-		const horizontalCards = document.querySelectorAll('.main-content .s-products-list-wrapper custom-salla-product-card');
+		function formatCols(isAdd, element) {
+			const resultsDiv = document.querySelector('.main-content .s-products-list-wrapper');
+			const allToggles = document.querySelectorAll('.viewToggle');
+			const horizontalCards = document.querySelectorAll('.main-content .s-products-list-wrapper custom-salla-product-card');
 
-		// Reset all toggle icons
-		allToggles.forEach(toggle => {
-		const path = toggle.querySelector('path');
-		if (path) {
-			path.setAttribute('fill-opacity', '0.4');
-		}
-		});
-
-		// Highlight selected toggle
-		const selectedPath = element.querySelector('path');
-		if (selectedPath) {
-		selectedPath.setAttribute('fill-opacity', '1');
-		}
-
-		// Get selected column layout
-		const columns = element.getAttribute('data');
-
-		// Reset cards to vertical by default
-		horizontalCards.forEach(card => {
-			card.classList.remove('s-product-card-horizontal');
-			card.classList.add('s-product-card-vertical');
-		});
-
-		// Apply selected layout
-		switch (columns) {
-		case 'one':
-			resultsDiv.style.gridTemplateColumns = '1fr';
-			horizontalCards.forEach(card => {
-				card.classList.add('s-product-card-horizontal');
-				card.classList.remove('s-product-card-vertical');
+			// Reset all toggle icons
+			allToggles.forEach(toggle => {
+			const path = toggle.querySelector('path');
+			if (path) {
+				path.setAttribute('fill-opacity', '0.4');
+			}
 			});
-			break;
-		case 'two':
-			resultsDiv.style.gridTemplateColumns = '1fr 1fr';
-			break;
-		case 'three':
-			resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
-			break;
-		case 'four':
-			resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
-			break;
-		default:
-			resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
+
+			// Highlight selected toggle
+			const selectedPath = element.querySelector('path');
+			if (selectedPath) {
+			selectedPath.setAttribute('fill-opacity', '1');
+			}
+
+			// Get selected column layout
+			const columns = element.getAttribute('data');
+
+			// Reset cards to vertical by default
+			horizontalCards.forEach(card => {
+				card.classList.remove('s-product-card-horizontal');
+				card.classList.add('s-product-card-vertical');
+			});
+
+			// Apply selected layout
+			switch (columns) {
+			case 'one':
+				resultsDiv.style.gridTemplateColumns = '1fr';
+				horizontalCards.forEach(card => {
+					card.classList.add('s-product-card-horizontal');
+					card.classList.remove('s-product-card-vertical');
+				});
+				break;
+			case 'two':
+				resultsDiv.style.gridTemplateColumns = '1fr 1fr';
+				break;
+			case 'three':
+				resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
+				break;
+			case 'four':
+				resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
+				break;
+			default:
+				resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
+			}
 		}
-	}
 	</script>
 {% endblock %}
