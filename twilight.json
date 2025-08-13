@@ -1496,6 +1496,36 @@
           "value": "<div ><h6 >معاينة العنصر</h6><img class='w-full' src='https://cdn.salla.sa/form-builder/MUOqQRbjhfz86swqd2spLR4QADDtwwtTNvuOu5LP.png'></div>"
         },
         {
+          "id": "is_background_color",
+          "type": "boolean",
+          "format": "switch",
+          "label": " تفعيل لون الخلفية",
+          "description": "يمكنك تفعيل لون الخلفية للعنصر",
+          "icon": "sicon-toggle-off",
+          "value": false,
+          "selected": false,
+          "required": false
+        },
+        {
+          "id": "test_background_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية العنصر",
+          "description": null,
+          "labelHTML": null,
+          "icon": "sicon-format-fill",
+          "value": "#597445",
+          "required": false,
+          "conditions": [
+            {
+              "id": "is_background_color",
+              "operation": "=",
+              "value": true
+            }
+          ]
+        },
+        {
           "id": "m_img",
           "type": "string",
           "format": "image",
