@@ -1,0 +1,81 @@
+<section class="landing-page-first-banner">
+  {% set is_pagination = component.is_pagination ? 'true' : 'false' %}
+
+  {% if component.is_video != 1 %}
+    <salla-slider id="slider-{{position}}" {{ component.slider_auto_play_first_baner ? 'auto-play="true"' : '' }} show-controls="false" pagination="{{ component.collection|length > 1 ? is_pagination : false }}">
+      {% for item in component.collection %}
+        <div slot="items">
+          {% if item.button_text == '' %}<a href="{{ item.url }}">{% endif %}
+            <div class="mb-[56px] slider-banner-main-{{position}} landing-banner landing-page-fixed-banner-{{loop.index}} flex justify-center items-center bg-cover bg-no-repeat bg-center relative w-full">
+                <picture class="-z-1">
+                <source media="(min-width:769px)" srcset="{{ item.img }}">
+                <source media="(max-width:768px)" srcset="{{ item.ph_bg }}">
+                <img src="{{ item.img }}" alt="image" class="absolute top-0 w-full h-full object-cover">
+                </picture>
+
+                <div class="txt flex justify-center flex-col w-full h-full {{ item.is_over_title ? 'md:container' : 'container' }}" style="align-items: {{ component.text_place }};">
+                <div class="item-text w-full md:w-fit flex flex-col z-2 max-w-[700px] {{ item.is_over_title ? 'bg-[#ffffff59] backdrop-blur-sm py-5 px-3 md:rounded-lg md:bg-transparent md:backdrop-blur-[unset]' : '' }}" style="text-align: {{ component.text_alignment }}; align-items: {{ component.text_alignment }};">
+                    <h1 class="animate__animated animate__fadeInUp custom-dlay-heading max-w-full w-[285px] md:w-full text-[22px] md:text-[48px] font-bold leading-[1.5] {% if component.text_alignment == 'start' %}!text-end{% elseif component.text_alignment == 'end' %}!text-start{% endif %}" style="color:{{ item.title_color }};">
+                    {{ item.title }} 
+                    </h1>
+                    <p class="animate__animated animate__fadeInUp custom-dlay-p font-medium text-xs md:text-[20px] max-w-[80%] leading-[1.5] my-3 {{ item.is_des ? 'block' : 'hidden md:block' }}" style="color:{{ item.des_color }};">
+                    {{ item.des }}
+                    </p>
+                    {% if item.button_text != '' %}
+                    <div class="relative w-auto pa-fbanner-star animate__animated animate__fadeInUp custom-dlay-a mt-[32px] duration-300 hover:opacity-70">
+                        <img class="absolute top-2.5 right-0 w-7" src="{{ theme.settings.get('star_img') }}" />
+                        <a href="{{ item.url }}" class="fbanner-star-btn py-[8px] px-[25px] md:py-[15px] md:px-[40px]" style="color:{{ item.button_text_color }}; background: {{ item.button_bg_color }};">
+                        {{ item.button_text }}
+                        </a>
+                        <img class="absolute bottom-2.5 left-0 w-7" src="{{ theme.settings.get('star_img') }}" />
+                    </div>
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+          {% if item.button_text == '' %}</a>{% endif %}
+        </div>
+      {% endfor %}
+    </salla-slider>
+  {% else %}
+    <div class="video-banner-main-{{position}} relative">
+      <div class="txt flex justify-center flex-col w-full h-full {{ component.video_is_over_title ? 'md:container' : 'container' }} relative z-2" style="align-items: {{ component.text_place }};">
+        <div class="item-text w-full md:w-fit flex flex-col z-2 max-w-[700px] {{ component.video_is_over_title ? 'bg-[#ffffff94] backdrop-blur-sm py-5 px-3 md:rounded-lg' : '' }}" style="text-align: {{ component.text_alignment }}; align-items: {{ component.text_alignment }};">
+          <h1 class="animate__animated animate__fadeInUp custom-dlay-heading max-w-full w-[285px] md:w-full text-[22px] md:text-[48px] font-bold leading-[1.5]  {% if component.text_alignment == 'start' %}!text-end{% elseif component.text_alignment == 'end' %}!text-start{% endif %}" style="color:{{ component.video_title_color }};">
+            {{ component.video_title }}
+          </h1>
+          <p class="animate__animated animate__fadeInUp custom-dlay-p hidden md:block font-medium text-[20px] leading-[70px]" style="color:{{ component.video_des_color }};">
+            {{ component.video_des }}
+          </p>
+          {% if component.video_button_text != '' %}
+            <div class="relative w-auto pa-fbanner-star animate__animated animate__fadeInUp custom-dlay-a mt-[32px] duration-300 hover:opacity-70">
+              <img class="absolute top-2.5 right-0 w-7" src="{{ theme.settings.get('star_img') }}" />
+              <a href="{{ component.video_url }}" class="fbanner-star-btn py-[8px] px-[25px] md:py-[15px] md:px-[40px]" style="color:{{ component.video_button_text_color }}; background: {{ component.video_button_bg_color }};">
+                {{ component.video_button_text }}
+              </a>
+              <img class="absolute bottom-2.5 left-0 w-7" src="{{ theme.settings.get('star_img') }}" />
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <video id="videoBanner" class="w-full object-cover absolute h-full top-0 left-0" autoplay loop muted webkit-playsinline playsinline>
+        <source src="{{ component.video_banner }}" type="video/mp4">
+      </video>
+    </div>
+  {% endif %}
+</section>
+
+<style>   
+  @media(max-width:767px) {
+    .slider-banner-main-{{position}},
+    .video-banner-main-{{position}} {
+      height: {{ component.is_height_mb }}vh;
+    }
+  }
+  @media(min-width:768px) {
+    .slider-banner-main-{{position}},
+    .video-banner-main-{{position}} {
+      height: {{ component.is_height_ds }}vh;
+    }
+  }
+</style>
