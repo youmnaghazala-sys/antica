@@ -8,9 +8,9 @@
           {% if item.button_text == '' %}<a href="{{ item.url }}">{% endif %}
             <div class="mb-[56px] slider-banner-main-{{position}} landing-banner landing-page-fixed-banner-{{loop.index}} flex justify-center items-center bg-cover bg-no-repeat bg-center relative w-full">
                 <picture class="-z-1">
-                <source media="(min-width:769px)" srcset="{{ item.img }}">
-                <source media="(max-width:768px)" srcset="{{ item.ph_bg }}">
-                <img src="{{ item.img }}" alt="image" class="absolute top-0 w-full h-full object-cover">
+                    <source media="(min-width:769px)" srcset="{{ item.img }}">
+                    <source media="(max-width:768px)" srcset="{{ item.ph_bg }}">
+                    <img src="{{ item.img }}" alt="image" class="absolute top-0 w-full h-full object-cover">
                 </picture>
 
                 <div class="txt flex justify-center flex-col w-full h-full {{ item.is_over_title ? 'md:container' : 'container' }}" style="align-items: {{ component.text_place }};">
@@ -24,8 +24,8 @@
                     {% if item.button_text != '' %}
                     <div class="relative w-auto pa-fbanner-star animate__animated animate__fadeInUp custom-dlay-a mt-[32px] duration-300 hover:opacity-70">
                         <img class="absolute top-2.5 right-0 w-7" src="{{ theme.settings.get('star_img') }}" />
-                        <a href="{{ item.url }}" class="fbanner-star-btn py-[8px] px-[25px] md:py-[15px] md:px-[40px]" style="color:{{ item.button_text_color }}; background: {{ item.button_bg_color }};">
-                        {{ item.button_text }}
+                        <a href="{{ item.url }}" class="fbanner-star-btn py-[8px] px-[25px] md:py-[10px] md:px-[40px] rounded-md" style="color:{{ item.button_text_color }}; background: {{ item.button_bg_color }};">
+                         {{ item.button_text }}
                         </a>
                         <img class="absolute bottom-2.5 left-0 w-7" src="{{ theme.settings.get('star_img') }}" />
                     </div>

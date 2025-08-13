@@ -4171,7 +4171,7 @@
           "description": null,
           "labelHTML": null,
           "icon": "sicon-format-fill",
-          "value": "#ce5a67",
+          "value": "#3a582b",
           "conditions": [
             {
               "id": "is_video",
