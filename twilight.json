@@ -1764,7 +1764,7 @@
               "placeholder": "e.g. https://hostname.com/image.png",
               "icon": "sicon-image",
               "value": "https://cdn.salla.sa/form-builder/VU920FDi9HEMdd3lWjKPYGrA8RUa79Hgh4lSFpdN.jpg",
-              "required": true
+              "required": false
             },
             {
               "id": "slider_collection.comment_writer_name",
@@ -1792,7 +1792,7 @@
               "icon": "sicon-format-text-alt",
               "value": "رائدة اعمال",
               "multilanguage": false,
-              "required": true,
+              "required": false,
               "minLength": "1",
               "maxLength": "15"
             }
