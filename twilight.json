@@ -2710,7 +2710,7 @@
         {
           "type": "items",
           "icon": "sicon-link",
-          "label": "الرابط",
+          "label": "رابط البانر ",
           "id": "img_link",
           "value": [],
           "description": "عند إختيار رابط فارغ سيتم إخفاء زر 'عرض الكل'",
