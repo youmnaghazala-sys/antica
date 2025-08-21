@@ -460,14 +460,13 @@
     {
       "id": "enable_banner_logo",
       "type": "boolean",
-      "format": "checkbox",
+      "format": "switch",
       "label": "اظهار لوجو المتجر في البنر",
       "description": null,
-      "labelHTML": null,
-      "icon": "sicon-check-square",
+      "icon": "sicon-toggle-off",
+      "required": false,
       "value": true,
-      "selected": false,
-      "required": false
+      "selected": true
     },
     {
       "id": "blog_banner_image",

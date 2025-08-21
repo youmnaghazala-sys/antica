@@ -13,7 +13,7 @@
 | cart.discount                                     | float               | final discount                                                 |
 | cart.coupon                                       | ?string             |                                                                |
 | cart.total                                        | float               |                                                                |
-| cart.tax_amount                                   | float               | Calculate Tax amount                                                               |
+| cart.tax_amount                                   | float               | Calculate Tax amount                                           |                  
 | cart.free_shipping_bar                            | ?object             |                                                                |
 | cart.free_shipping_bar.minimum_amount             | float               | how much cart total should be to apply free shipping ex: 1000  |
 | cart.free_shipping_bar.has_free_shipping          | bool                | true when `cart.free_shipping_bar.percent==100`                |
@@ -46,7 +46,6 @@
 | cart.items[].attachments[].item_id                | int                 |                                                                |
 | cart.items[].attachments[].name                   | int                 | image file name                                                |
 #}
-
 {% extends "layouts.master" %}
 {% block content %}
 	<div class="mb-2 md:mb-10 w-full flex items-center {{ theme.settings.get('index_banner_img') ? 'justify-center' : 'm-2 md:m-6' }} " {% if theme.settings.get('index_banner_img') %} style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;" {% endif %}>
@@ -55,263 +54,243 @@
 				<salla-breadcrumb></salla-breadcrumb>
 			</nav>
 			{% if theme.settings.get('enable_banner_logo') %}
-				<a href="{{url('/')}}" class="flex items-center m-0 max-w-16 md:max-w-[90px]">
+				<a href="{{url('/')}}" class="flex items-center m-0 mt-2 max-w-16 md:max-w-[90px]">
 					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
 				</a>
 			{% endif %}
 		</div>
 	</div>
+
 	<div class="container">
 		<h1 class="sr-only">{{ trans('blocks.header.cart') }}</h1>
 		<salla-conditional-offer></salla-conditional-offer>
 		<div class="pt-5 flex flex-col items-start lg:flex-row pb-6 lg:pb-20">
 			<div class="main-content flex-1 w-full">
 				{% hook 'cart:items.start' %}
+					{% for item in cart.items %}
+						{% if loop.index == 1 %}
+							{% if cart.free_shipping_bar.minimum_amount > 0 %}
+								<div data-free-shipping-limit="{{cart.free_shipping_bar.minimum_amount}}" class="free_shipping_progress_bar p-2 px-4 sm:p-3 md:p-5 lg:p-6 bg-white">
+									{% if (cart.free_shipping_bar.minimum_amount - cart.total) <= 0 %}
+										<h5 class="mb-5">{{ trans('pages.cart.free_shipping_done')}}</h5>
+									{% else %}
+										<p class="shipping-item text-xl mb-2 text-gray-500">
+											<span id="free-shipping-msg">{{ (is_free
+													?trans('pages.cart.has_free_shipping')
+													:trans('pages.cart.free_shipping_alert', {'amount': cart.free_shipping_bar.remaining|money}))
+													| raw }}</span>
+											<span class="emoji {{ is_free?'':'hidden' }}" id="free-shipping-applied">🎉</span>
+										</p>
 
-				{% for item in cart.items %}
-					{% if loop.index == 1 %}
-						{% if cart.free_shipping_bar.minimum_amount > 0 %}
-							<div data-free-shipping-limit="{{cart.free_shipping_bar.minimum_amount}}" class="free_shipping_progress_bar p-2 px-4 sm:p-3 md:p-5 lg:p-6 bg-white">
-								{% if (cart.free_shipping_bar.minimum_amount - cart.total) <= 0 %}
-									<h5 class="mb-5">{{ trans('pages.cart.free_shipping_done')}}</h5>
-								{% else %}
+										<div id="shipping-cost" class="flex justify-between text-sm mb-5 {{ cart.has_shipping ? '' : 'hidden' }}">
+											<span class="text-gray-500">{{ trans('pages.cart.shipping_cost') }}</span>
+											<b>{{ cart.real_shipping_cost|money }}</b>
+										</div>
+									{% endif %}
 
-									<p class="shipping-item text-xl mb-2 text-gray-500">
-										<span id="free-shipping-msg">{{ (is_free
-												?trans('pages.cart.has_free_shipping')
-												:trans('pages.cart.free_shipping_alert', {'amount': cart.free_shipping_bar.remaining|money}))
-												| raw }}</span>
-										<span class="emoji {{ is_free?'':'hidden' }}" id="free-shipping-applied">🎉</span>
-									</p>
-
-									<div id="shipping-cost" class="flex justify-between text-sm mb-5 {{ cart.has_shipping ? '' : 'hidden' }}">
-										<span class="text-gray-500">{{ trans('pages.cart.shipping_cost') }}</span>
-										<b>{{ cart.real_shipping_cost|money }}</b>
-									</div>
-								{% endif %}
-								<div class="slider_track w-full h-4 rounded-lg bg-gray-200">
-									<div class="progress_filler max-w-full h-full rounded-lg bg-secondary relative" style="background-color: var(--color-primary); width: {{ cart.total / cart.free_shipping_bar.minimum_amount * 100 }}%;">
-										<div class="progress_filler_icon absolute left-1 ltr:right-0 bottom-[-2px] -translate-x-3/4">
-											<svg xmlns="http://www.w3.org/2000/svg" width="31" height="20" viewbox="0 0 31 20" fill="none">
-												<path d="M26.2917 7.68651L26.2906 7.68651C25.5532 7.68442 24.9562 7.08604 24.9562 6.34826C24.9562 5.95008 25.0881 5.60979 25.3612 5.37655C25.6239 5.15227 25.9637 5.07299 26.2944 5.07299H31.0555C31.3602 5.07299 31.6071 4.8261 31.6071 4.52141C31.6071 4.21672 31.3602 3.96982 31.0555 3.96982H29.9216H29.5282V3.57648V1.49766C29.5282 1.19297 29.2813 0.946068 28.9766 0.946068H12.2354V6.22227C12.2354 6.96142 11.6363 7.56052 10.8971 7.56052H3.63999L3.6266 7.56187C3.60817 7.5638 3.58064 7.56688 3.54519 7.57168C3.47409 7.58129 3.37077 7.59782 3.24606 7.62561C2.99494 7.68155 2.66566 7.78126 2.34069 7.95591C1.70658 8.29671 1.08531 8.91788 1.08531 10.1279V15.7975C1.08531 16.1022 1.33221 16.3491 1.6369 16.3491H3.28436H3.60587L3.66983 16.6641C3.97156 18.1504 5.2855 19.2468 6.83397 19.2468C8.38244 19.2468 9.69638 18.1504 9.99811 16.6641L10.0621 16.3491H10.3836H19.978H20.2995L20.3635 16.6641C20.6652 18.1504 21.9791 19.2468 23.5276 19.2468C25.0761 19.2468 26.39 18.1504 26.6917 16.6641L26.7557 16.3491H27.0772H28.9766C29.2813 16.3491 29.5282 16.1022 29.5282 15.7975V12.9627V12.5694H29.9216H32.0004C32.3051 12.5694 32.552 12.3225 32.552 12.0178C32.552 11.7131 32.3051 11.4662 32.0004 11.4662H23.4924C22.7532 11.4662 22.1541 10.8671 22.1541 10.1279C22.1541 9.38781 22.7528 8.78969 23.4961 8.78969H32.0004C32.3051 8.78969 32.552 8.54279 32.552 8.2381C32.552 7.93359 32.305 7.68651 32.0004 7.68651L26.2917 7.68651ZM9.55888 4.88401V1.25311C8.48698 1.57242 7.71787 2.06156 7.07863 2.6899C6.47011 3.28804 5.97157 4.01878 5.44139 4.88401H9.55888ZM5.33089 17.5213C4.50083 16.6912 4.50083 15.3449 5.33089 14.5149C6.66679 13.179 8.95966 14.1286 8.95966 16.018C8.95966 17.9075 6.66684 18.8572 5.33089 17.5213ZM22.0245 17.5213C21.1944 16.6912 21.1944 15.3449 22.0245 14.5149C23.3604 13.179 25.6533 14.1286 25.6533 16.018C25.6533 17.9075 23.3605 18.8572 22.0245 17.5213Z" fill="var(--color-primary)" stroke="#E0D8CA" stroke-width="0.786667"/>
-											</svg>
+									<div class="slider_track w-full h-4 rounded-lg bg-gray-200">
+										<div class="progress_filler max-w-full h-full rounded-lg bg-secondary relative" style="background-color: var(--color-primary); width: {{ cart.total / cart.free_shipping_bar.minimum_amount * 100 }}%;">
+											<div class="progress_filler_icon absolute left-1 ltr:right-0 bottom-[-2px] -translate-x-3/4">
+												<svg xmlns="http://www.w3.org/2000/svg" width="31" height="20" viewbox="0 0 31 20" fill="none">
+													<path d="M26.2917 7.68651L26.2906 7.68651C25.5532 7.68442 24.9562 7.08604 24.9562 6.34826C24.9562 5.95008 25.0881 5.60979 25.3612 5.37655C25.6239 5.15227 25.9637 5.07299 26.2944 5.07299H31.0555C31.3602 5.07299 31.6071 4.8261 31.6071 4.52141C31.6071 4.21672 31.3602 3.96982 31.0555 3.96982H29.9216H29.5282V3.57648V1.49766C29.5282 1.19297 29.2813 0.946068 28.9766 0.946068H12.2354V6.22227C12.2354 6.96142 11.6363 7.56052 10.8971 7.56052H3.63999L3.6266 7.56187C3.60817 7.5638 3.58064 7.56688 3.54519 7.57168C3.47409 7.58129 3.37077 7.59782 3.24606 7.62561C2.99494 7.68155 2.66566 7.78126 2.34069 7.95591C1.70658 8.29671 1.08531 8.91788 1.08531 10.1279V15.7975C1.08531 16.1022 1.33221 16.3491 1.6369 16.3491H3.28436H3.60587L3.66983 16.6641C3.97156 18.1504 5.2855 19.2468 6.83397 19.2468C8.38244 19.2468 9.69638 18.1504 9.99811 16.6641L10.0621 16.3491H10.3836H19.978H20.2995L20.3635 16.6641C20.6652 18.1504 21.9791 19.2468 23.5276 19.2468C25.0761 19.2468 26.39 18.1504 26.6917 16.6641L26.7557 16.3491H27.0772H28.9766C29.2813 16.3491 29.5282 16.1022 29.5282 15.7975V12.9627V12.5694H29.9216H32.0004C32.3051 12.5694 32.552 12.3225 32.552 12.0178C32.552 11.7131 32.3051 11.4662 32.0004 11.4662H23.4924C22.7532 11.4662 22.1541 10.8671 22.1541 10.1279C22.1541 9.38781 22.7528 8.78969 23.4961 8.78969H32.0004C32.3051 8.78969 32.552 8.54279 32.552 8.2381C32.552 7.93359 32.305 7.68651 32.0004 7.68651L26.2917 7.68651ZM9.55888 4.88401V1.25311C8.48698 1.57242 7.71787 2.06156 7.07863 2.6899C6.47011 3.28804 5.97157 4.01878 5.44139 4.88401H9.55888ZM5.33089 17.5213C4.50083 16.6912 4.50083 15.3449 5.33089 14.5149C6.66679 13.179 8.95966 14.1286 8.95966 16.018C8.95966 17.9075 6.66684 18.8572 5.33089 17.5213ZM22.0245 17.5213C21.1944 16.6912 21.1944 15.3449 22.0245 14.5149C23.3604 13.179 25.6533 14.1286 25.6533 16.018C25.6533 17.9075 23.3605 18.8572 22.0245 17.5213Z" fill="var(--color-primary)" stroke="#E0D8CA" stroke-width="0.786667"/>
+												</svg>
+											</div>
 										</div>
 									</div>
 								</div>
+							{% endif %}
+							<div class="cart_item_wrapper cart_item_wrapper-content p-2 sm:p-3 md:p-5 lg:p-6 mt-8 text-secondary bg-white" style="border-bottom: 1px solid #CCC;">
+								<div class="col-[1_/_3] mx-8 md:mx-0">{{trans('pages.cart.product')}}</div>
+								<div class="md:ml-5">{{trans('pages.cart.quantity')}}</div>
+								<div class="mx-6 md:rtl:mr-0 md:ltr:ml-0">{{trans('pages.cart.total')}}</div>
+								<div class="hidden md:inline"></div>
 							</div>
 						{% endif %}
-						<div class="cart_item_wrapper cart_item_wrapper-content p-2 sm:p-3 md:p-5 lg:p-6 mt-8 text-secondary bg-white" style="border-bottom: 1px solid #CCC;">
-							<div class="col-[1_/_3] mx-8 md:mx-0">{{trans('pages.cart.product')}}</div>
-							<div class="md:ml-5">{{trans('pages.cart.quantity')}}</div>
-							<div class="mx-6 md:rtl:mr-0 md:ltr:ml-0">{{trans('pages.cart.total')}}</div>
-							<div class="hidden md:inline"></div>
+
+						<form onchange="salla.form.onChange('cart.updateItem', event)" id="item-{{ item.id }}" style="border-bottom: 1px solid #CCC;">
+							<section class="cart-item bg-white p-1 sm:p-3 md:p-5 rounded-md relative my-5">
+								<input
+								type="hidden" name="id" value="{{ item.id }}">
+								<!-- product -->
+								<div class="cart_item_wrapper gap-5">
+									<div class="flex items-center justify-self-start product-info">
+										<a href="{{ item.url }}" class="shrink-0 block w-full">
+											{% if loop.first %}
+												<img src="{{ item.product_image }}" alt="{{ item.product_name }}" class="flex-none h-[150px] border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
+											{% else %}
+												<img src="{{ 'images/s-empty.png' | cdn }}" data-src="{{ item.product_image }}" alt="{{ item.product_name }}" class="lazy flex-none h-[150px] border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
+											{% endif %}
+										</a>
+									</div>
+									<h3 class="text-gray-900 leading-6 product-info-text" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
+										<a href="{{ item.url }}" class="text-base">{{ item.product_name }}</a>
+									</h3>
+
+									<div class="flex justify-between items-center md:items-start quantity-increase-decrease">
+										{% if item.type == 'donating' %}
+											<span></span>
+										{% elseif item.is_hidden_quantity %}
+											<input type="hidden" value="{{ item.quantity }}" name="quantity" aria-label="Quantity"/>
+											<span class="w-10 text-center">{{ item.quantity }}</span>
+										{% else %}
+											<salla-quantity-input cart-item-id="{{ item.id }}" max="{{ product.max_quantity }}" class="transtion transition-color duration-300" aria-label="Quantity" value="{{ item.quantity }}" name="quantity"></salla-quantity-input>
+										{% endif %}
+									</div>
+
+									<div class="hidden">
+										<span class="text-sm text-gray-500 line-through item-regular-price {{ item.offer?'':'hidden' }}">{{ item.product_price|money }}</span>
+										<span class="item-price {{ item.offer ? 'text-red-800' : 'text-[#434343]' }}" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">{{ item.price|money }}</span>
+										{% if item.weight_label %}
+											<p class="text-sm text-gray-500 ">
+												{{ trans('pages.products.weight') }}
+												<span>{{ item.weight_label }}</span>
+											</p>
+										{% endif %}
+										<i class="sicon-discount-calculator text-gray-500 offer-icon {{ item.offer?'':'hidden' }}"></i>
+										<span class="text-sm text-gray-500 offer-name {{ item.offer?'':'hidden' }}">{{ item.offer.names }}</span>
+									</div>
+
+									<div>
+										<p class="text-secondary flex-none font-normal" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
+											<span style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;" class="inline-block item-total">{{ item.is_available?item.total|money: trans('pages.cart.out_of_stock') }}</span>
+										</p>
+									</div>
+
+									<div class="remove-product-btn justify-self-end">
+										<span class="">
+											<salla-button type="button" shape="icon" size="small" class="btn--delete" aria-label="Remove from the cart" onclick="salla.cart.deleteItem('{{ item.id }}').then(() => document.querySelector('#item-{{ item.id }}').remove())">
+												<i class="sicon-cancel"></i>
+											</salla-button>
+										</span>
+									</div>
+								</div>
+
+								{% include 'pages.partials.product.options' with {product:item} %}
+							</section>
+						</form>
+					{% else %}
+						<div class="no-content-placeholder">
+							<i class="sicon-shopping-bag icon"></i>
+							<p>{{ trans('pages.cart.empty_cart') }}</p>
+							<a href="{{ link('/') }}" class="btn btn--outline-primary btn--rounded-full">{{ trans('common.elements.back_home') }}</a>
+						</div>
+					{% endfor %}
+
+					{% if store.settings.cart.apply_coupon_enabled %}
+						<div class="border-t border-gray-200 border-b py-5 mb-5">
+							<div class="mt-2.5 w-[40%] min-w-[300px] relative">
+								<input placeholder="{{ trans('pages.cart.coupon_placeholder') }}" {{ cart.coupon ? 'disabled':'' }} class="!rounded-none outline-none rtl:pl-24 ltr:pr-24 form-input" value="{{ cart.coupon }}" id="coupon-input" name="coupon" aria-label="Apply coupon" type="text">
+								<salla-button class="btn--coupon {{ cart.coupon?'has-coupon btn--danger':'has-not-coupon btn--default' }}" loader-position="center" id="coupon-btn">
+									<span class="coupon-text">{{ trans('pages.cart.save_coupon') }}</span>
+									<i class="sicon-cancel icon text-xl w-8"></i>
+								</salla-button>
+							</div>
+							<span class="text-xs text-red-700" id="coupon-error"></span>
 						</div>
 					{% endif %}
 
-					<form onchange="salla.form.onChange('cart.updateItem', event)" id="item-{{ item.id }}" style="border-bottom: 1px solid #CCC;">
-						<section class="cart-item bg-white p-1 sm:p-3 md:p-5 rounded-md relative my-5">
-							<input
-							type="hidden" name="id" value="{{ item.id }}">
-							<!-- product -->
-							<div class="cart_item_wrapper gap-5">
-								<div class="flex items-center justify-self-start product-info">
-									<a href="{{ item.url }}" class="shrink-0 block w-full">
-										{% if loop.first %}
-											<img src="{{ item.product_image }}" alt="{{ item.product_name }}" class="flex-none h-[150px] border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
-										{% else %}
-											<img src="{{ 'images/s-empty.png' | cdn }}" data-src="{{ item.product_image }}" alt="{{ item.product_name }}" class="lazy flex-none h-[150px] border border-gray-200 bg-gray-100 rounded-md object-center object-cover">
-										{% endif %}
-									</a>
-								</div>
-								<h3 class="text-gray-900 leading-6 product-info-text" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
-									<a href="{{ item.url }}" class="text-base">{{ item.product_name }}</a>
-								</h3>
-
-								<div class="flex justify-between items-center md:items-start quantity-increase-decrease">
-									{% if item.type == 'donating' %}
-										<span></span>
-									{% elseif item.is_hidden_quantity %}
-										<input type="hidden" value="{{ item.quantity }}" name="quantity" aria-label="Quantity"/>
-										<span class="w-10 text-center">{{ item.quantity }}</span>
-									{% else %}
-										<salla-quantity-input cart-item-id="{{ item.id }}" max="{{ product.max_quantity }}" class="transtion transition-color duration-300" aria-label="Quantity" value="{{ item.quantity }}" name="quantity"></salla-quantity-input>
-									{% endif %}
-								</div>
-
-								<div class="hidden">
-									<span class="text-sm text-gray-500 line-through item-regular-price {{ item.offer?'':'hidden' }}">{{ item.product_price|money }}</span>
-									<span class="item-price {{ item.offer ? 'text-red-800' : 'text-[#434343]' }}" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">{{ item.price|money }}</span>
-									{% if item.weight_label %}
-										<p class="text-sm text-gray-500 ">
-											{{ trans('pages.products.weight') }}
-											<span>{{ item.weight_label }}</span>
-										</p>
-									{% endif %}
-									<i class="sicon-discount-calculator text-gray-500 offer-icon {{ item.offer?'':'hidden' }}"></i>
-									<span class="text-sm text-gray-500 offer-name {{ item.offer?'':'hidden' }}">{{ item.offer.names }}</span>
-								</div>
-
-								<div>
-									<p class="text-secondary flex-none font-normal" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
-										<span style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;" class="inline-block item-total">{{ item.is_available?item.total|money: trans('pages.cart.out_of_stock') }}</span>
-									</p>
-								</div>
-
-								<div class="remove-product-btn justify-self-end">
-									<span class="">
-										<salla-button type="button" shape="icon" size="small" class="btn--delete" aria-label="Remove from the cart" onclick="salla.cart.deleteItem('{{ item.id }}').then(() => document.querySelector('#item-{{ item.id }}').remove())">
-											<i class="sicon-cancel"></i>
-										</salla-button>
-									</span>
-								</div>
-							</div>
-
-							{% include 'pages.partials.product.options' with {product:item} %}
-						</section>
-					</form>
-				{% else %}
-					<div class="no-content-placeholder">
-						<i class="sicon-shopping-bag icon"></i>
-						<p>{{ trans('pages.cart.empty_cart') }}</p>
-						<a href="{{ link('/') }}" class="btn btn--outline-primary btn--rounded-full">{{ trans('common.elements.back_home') }}</a>
-					</div>
-				{% endfor %}
-
-				{% if store.settings.cart.apply_coupon_enabled %}
-					<div
-						class="border-t border-gray-200 border-b py-5 mb-5">
-						{# <label for="coupon" class="block text-sm ">{{ trans('pages.cart.have_coupon') }}</label> #}
-						<div class="mt-2.5 w-[40%] min-w-[300px] relative">
-							<input placeholder="{{ trans('pages.cart.coupon_placeholder') }}" {{ cart.coupon ? 'disabled':'' }} class="!rounded-none outline-none rtl:pl-24 ltr:pr-24 form-input" value="{{ cart.coupon }}" id="coupon-input" name="coupon" aria-label="Apply coupon" type="text">
-							<salla-button class="btn--coupon {{ cart.coupon?'has-coupon btn--danger':'has-not-coupon btn--default' }}" loader-position="center" id="coupon-btn">
-								<span class="coupon-text">{{ trans('pages.cart.save_coupon') }}</span>
-								<i class="sicon-cancel icon text-xl w-8"></i>
-							</salla-button>
+					{% if cart.options|length %}
+						<div class="cart-options">
+							{% for product_option in cart.options %}
+								<form class="first:pt-5 relative" onchange="salla.form.onChange('cart.updateItem', event)" id="item-{{ product_option.id }}">
+									<input type="hidden" name="id" value="{{ product_option.id }}">
+									<input type="hidden" name="quantity" value="{{ product_option.quantity }}">
+									{% include 'pages.partials.product.options' with { product: product_option } %}
+								</form>
+							{% endfor %}
 						</div>
-						<span class="text-xs text-red-700" id="coupon-error"></span>
-					</div>
-				{% endif %}
+					{% endif %}
 
-				{% if cart.options|length %}
-					<div class="cart-options">
-						{% for product_option in cart.options %}
-							<form class="first:pt-5 relative" onchange="salla.form.onChange('cart.updateItem', event)" id="item-{{ product_option.id }}">
-								<input type="hidden" name="id" value="{{ product_option.id }}">
-								<input type="hidden" name="quantity" value="{{ product_option.quantity }}">
-								{% include 'pages.partials.product.options' with { product: product_option } %}
-							</form>
-						{% endfor %}
-					</div>
-				{% endif %}
-
-				{% if cart.offer %}
-					{# TODO: Replace it with salla-offer #}
-					{% include 'components.product.offer' with { offer: cart.offer } %}
-				{% endif %}
+					{% if cart.offer %}
+						{% include 'components.product.offer' with { offer: cart.offer } %}
+					{% endif %}
 				{% hook 'cart:items.end' %}
 			</div>
 			{% hook 'cart:summary.start' %}
-			<!-- sidebar -->
-			{% if cart.items|length %}
-				<div class="sticky top-48 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
-
-					{% if loyalty and user.loyalty_points %}
-						<div class="shadow-default mb-5 rounded-md p-3 xs:p-7 bg-white">
-							<salla-loyalty customer-points='{{ user.loyalty_points }}' prize-points='{{ loyalty.prize.points }}' prize-title='{{ loyalty.prize.title }}'></salla-loyalty>
-						</div>
-					{% endif %}
-
-					<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative transition-height duration-1000">
-						<h2 class="font-medium text-[16.901px] mb-5">{{ trans('pages.cart.summary') }}</h2>
-
-						<div class="flex justify-between text-sm mb-5" style="border-bottom: 1px solid #CCC; padding-bottom: 20px;">
-							<span class="text-gray-500">
-								{{ trans(cart.tax_amount ? "pages.cart.items_total_without_tax" : "pages.cart.items_total") }}
-							</span>
-							<b id="sub-total">{{ cart.sub_total|money }}</b>
-						</div>
-
-						{% if cart.options|length %}
-							<div class="flex justify-between text-sm mb-5">
-								<span class="text-gray-500">{{ trans('pages.cart.order_options_total') }}</span>
-								<b id="cart-options-total">{{ cart.options_total|money }}</b>
+				{% if cart.items|length %}
+					<div class="sticky top-48 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
+						{% if loyalty and user.loyalty_points %}
+							<div class="shadow-default mb-5 rounded-md p-3 xs:p-7 bg-white">
+								<salla-loyalty customer-points='{{ user.loyalty_points }}' prize-points='{{ loyalty.prize.points }}' prize-title='{{ loyalty.prize.title }}'></salla-loyalty>
 							</div>
 						{% endif %}
 
-						<div id="shipping-cost" class="flex justify-between text-sm mb-5 {{ cart.has_shipping ? '' : 'hidden' }}">
-							<span class="text-gray-500">{{ trans('pages.cart.shipping_cost') }}</span>
-							<b>{{ cart.real_shipping_cost|money }}</b>
-						</div>
+						<div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative transition-height duration-1000">
+							<h2 class="font-medium text-[16.901px] mb-5">{{ trans('pages.cart.summary') }}</h2>
 
-						<!-- coupon discount -->
-						<div id="total-discount" class="flex justify-between text-sm {{ cart.total_discount ? '' : 'hidden' }}">
-							<span class="text-gray-500 block  h-10">{{ trans('pages.cart.discount') }}</span>
-							<b>-{{ cart.total_discount|money }}</b>
-						</div>
-
-						{% if cart.tax_amount %}
-							<div class="flex justify-between text-sm mb-5">
-								<span class="text-gray-500">{{ trans('pages.cart.VAT_tax_amount') }}</span>
-								<b id="tax-amount">{{ cart.tax_amount|money }}</b>
+							<div class="flex justify-between text-sm mb-5" style="border-bottom: 1px solid #CCC; padding-bottom: 20px;">
+								<span class="text-gray-500">
+									{{ trans(cart.tax_amount ? "pages.cart.items_total_without_tax" : "pages.cart.items_total") }}
+								</span>
+								<b id="sub-total">{{ cart.sub_total|money }}</b>
 							</div>
-						{% endif %}
 
-						<div class="flex justify-between text-lg mb-5">
-							<span class="text-gray-500">{{ trans('pages.cart.final_total') }}</span>
-							<b data-cart-total>{{ cart.total|money }}</b>
-						</div>
+							{% if cart.options|length %}
+								<div class="flex justify-between text-sm mb-5">
+									<span class="text-gray-500">{{ trans('pages.cart.order_options_total') }}</span>
+									<b id="cart-options-total">{{ cart.options_total|money }}</b>
+								</div>
+							{% endif %}
 
-						<div class="cart-submit-wrap">
-							{% hook 'cart:submit.start' %}
-							<salla-button id="cart-submit" loader-position="center" width="wide">
-								{{ trans('pages.cart.complete_order') }}
-							</salla-button>
-							{% hook 'cart:submit.end' %}
+							<div id="shipping-cost" class="flex justify-between text-sm mb-5 {{ cart.has_shipping ? '' : 'hidden' }}">
+								<span class="text-gray-500">{{ trans('pages.cart.shipping_cost') }}</span>
+								<b>{{ cart.real_shipping_cost|money }}</b>
+							</div>
+
+							<!-- coupon discount -->
+							<div id="total-discount" class="flex justify-between text-sm {{ cart.total_discount ? '' : 'hidden' }}">
+								<span class="text-gray-500 block  h-10">{{ trans('pages.cart.discount') }}</span>
+								<b>-{{ cart.total_discount|money }}</b>
+							</div>
+
+							{% if cart.tax_amount %}
+								<div class="flex justify-between text-sm mb-5">
+									<span class="text-gray-500">{{ trans('pages.cart.VAT_tax_amount') }}</span>
+									<b id="tax-amount">{{ cart.tax_amount|money }}</b>
+								</div>
+							{% endif %}
+
+							<div class="flex justify-between text-lg mb-5">
+								<span class="text-gray-500">{{ trans('pages.cart.final_total') }}</span>
+								<b data-cart-total>{{ cart.total|money }}</b>
+							</div>
+
+							<div class="cart-submit-wrap">
+								{% hook 'cart:submit.start' %}
+									<salla-button id="cart-submit" loader-position="center" width="wide">
+										{{ trans('pages.cart.complete_order') }}
+									</salla-button>
+								{% hook 'cart:submit.end' %}
+							</div>
 						</div>
 					</div>
-				</div>
-			{% endif %}
+				{% endif %}
 			{% hook 'cart:summary.end' %}
 		</div>
 	</div>
 
 	<style>
-		.product-info
-		{
-			@media(max-width: 640px)
-			{
+		@media (max-width: 640px) {
+			.product-info {
 				grid-row: span 2;
 			}
-		}
-		.product-info-text
-		{
-			@media(max-width: 640px)
-			{
+			.product-info-text {
 				grid-column: 2 / -1;
 				margin-left: auto;
 			}
-		}
-		.remove-product-btn
-		{
-			@media(max-width: 640px)
-			{
+			.remove-product-btn {
 				position: absolute;
 				top: 0;
 				left: 0;
 			}
-		}
-		.cart_item_wrapper-content
-		{
-			@media(max-width: 640px)
-			{
+			.cart_item_wrapper-content {
 				display: flex;
 				justify-content: space-between;
 			}
 		}
 	</style>
-
 {% endblock %}
 
 {% block scripts %}
-	 <script defer src="{{ 'checkout.js' | asset }}"></script>
+	<script defer src="{{ 'checkout.js' | asset }}"></script>
 {% endblock %}
