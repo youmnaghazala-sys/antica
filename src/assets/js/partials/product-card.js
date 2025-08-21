@@ -291,7 +291,7 @@ class ProductCard extends HTMLElement {
 
             
             ${ this.getBrandOptionValue() ? `
-              ${ this.product?.brand ? `<div class="handel-brand" id="${ this.product.id }"></div>` : `` }
+              ${ this.product?.brand ? `<div class="handel-brand" id="${ this.product.id }"></div>` : `<br />` }
             ` : `
               ${
                 this.product?.category
