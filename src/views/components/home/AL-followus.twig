@@ -1,7 +1,9 @@
+{% set img_link = component.img_link %}
+
 <section class="followUs w-full relative my-14">
 	<div class="imageWrapper grid grid-cols-2 md:grid-cols-4">
 		{% for img in component.section_images %}
-			<a href="{{ img.img_link }}" {% if theme.settings.get('has_animation') %} class="Al__anime" data-anim-allura="fade" data-dur-allura="0.{{ loop.index }}s" {% else %} class="" {% endif %}>
+			<a href="{{ img_link }}" {% if theme.settings.get('has_animation') %} class="Al__anime" data-anim-allura="fade" data-dur-allura="0.{{ loop.index }}s"{% endif %}>
 				{% if img.image %}
 					<img src="{{ img.image }}" alt="image" class="h-[244px] w-full" loading="lazy"/>
 				{% endif %}
