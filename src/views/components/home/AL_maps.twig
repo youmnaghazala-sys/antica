@@ -27,7 +27,7 @@
 								<i class="sicon-phone-talking text-[var(--scound-color)] ml-2"></i>
 								{{ trans('blocks.footer.phone') }}
 							</h1>
-							<p class="text-base text-primary">
+							<p class="text-base text-primary location_phone">
 								{{ location.location_phone }}
 							</p>
 						</div>
@@ -39,3 +39,13 @@
 		{% endfor %}
 	</salla-tabs>
 </section>
+
+{% if user.language.dir == 'rtl' %}
+  <style>
+    .location_phone{
+      width: fit-content;
+      direction: ltr;
+      margin-top: 5px;
+    }
+  </style>
+{% endif %}
