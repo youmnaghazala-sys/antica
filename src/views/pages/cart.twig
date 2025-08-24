@@ -47,12 +47,14 @@
 | cart.items[].attachments[].name                   | int                 | image file name                                                |
 #}
 {% extends "layouts.master" %}
+
 {% block content %}
-	<div class="mb-2 md:mb-10 w-full flex items-center {{ theme.settings.get('index_banner_img') ? 'justify-center' : 'm-2 md:m-6' }} " {% if theme.settings.get('index_banner_img') %} style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;" {% endif %}>
+	<div class="mb-2 md:mb-10 w-full flex items-center justify-center {{ theme.settings.get('index_banner_img') ? '' : 'm-2 md:m-6' }} " {% if theme.settings.get('index_banner_img') %} style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;" {% endif %}>
 		<div class="wrapper flex items-center justify-center flex-col">
 			<nav class="breadcrumbs pt-5">
 				<salla-breadcrumb></salla-breadcrumb>
 			</nav>
+
 			{% if theme.settings.get('enable_banner_logo') %}
 				<a href="{{url('/')}}" class="flex items-center m-0 mt-2 max-w-16 md:max-w-[90px]">
 					<img src="{{store.logo}}" alt="{{store.name}}" width="100%">
@@ -64,6 +66,7 @@
 	<div class="container">
 		<h1 class="sr-only">{{ trans('blocks.header.cart') }}</h1>
 		<salla-conditional-offer></salla-conditional-offer>
+
 		<div class="pt-5 flex flex-col items-start lg:flex-row pb-6 lg:pb-20">
 			<div class="main-content flex-1 w-full">
 				{% hook 'cart:items.start' %}
@@ -99,6 +102,7 @@
 									</div>
 								</div>
 							{% endif %}
+
 							<div class="cart_item_wrapper cart_item_wrapper-content p-2 sm:p-3 md:p-5 lg:p-6 mt-8 text-secondary bg-white" style="border-bottom: 1px solid #CCC;">
 								<div class="col-[1_/_3] mx-8 md:mx-0">{{trans('pages.cart.product')}}</div>
 								<div class="md:ml-5">{{trans('pages.cart.quantity')}}</div>
@@ -109,8 +113,8 @@
 
 						<form onchange="salla.form.onChange('cart.updateItem', event)" id="item-{{ item.id }}" style="border-bottom: 1px solid #CCC;">
 							<section class="cart-item bg-white p-1 sm:p-3 md:p-5 rounded-md relative my-5">
-								<input
-								type="hidden" name="id" value="{{ item.id }}">
+								<input type="hidden" name="id" value="{{ item.id }}">
+
 								<!-- product -->
 								<div class="cart_item_wrapper gap-5">
 									<div class="flex items-center justify-self-start product-info">
@@ -122,6 +126,7 @@
 											{% endif %}
 										</a>
 									</div>
+
 									<h3 class="text-gray-900 leading-6 product-info-text" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
 										<a href="{{ item.url }}" class="text-base">{{ item.product_name }}</a>
 									</h3>
@@ -152,7 +157,7 @@
 
 									<div>
 										<p class="text-secondary flex-none font-normal" style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;">
-											<span style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;" class="inline-block item-total">{{ item.is_available?item.total|money: trans('pages.cart.out_of_stock') }}</span>
+											<span style="font-size: clamp(0.875rem, 0.7870rem + 0.3756vw, 1.125rem); font-weight: 600;" class="inline-block item-total">{{ item.is_available ? item.total|money : trans('pages.cart.out_of_stock') }}</span>
 										</p>
 									</div>
 
@@ -206,6 +211,7 @@
 					{% endif %}
 				{% hook 'cart:items.end' %}
 			</div>
+
 			{% hook 'cart:summary.start' %}
 				{% if cart.items|length %}
 					<div class="sticky top-48 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">

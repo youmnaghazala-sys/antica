@@ -17,8 +17,9 @@
 | search_query               | ?string     |                                                                      |
 #}
 {% extends "layouts.master" %}
+
 {% block content %}
-	<div class="mb-10 w-full flex items-center justify-center" style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;">
+	<div class="mb-10 w-full flex items-center justify-center" {% if theme.settings.get('index_banner_img') %}style="background-image: url('{{ theme.settings.get('index_banner_img') }}'); background-size: cover; background-position: center; height: 300px;"{% endif %}>
 		<div class="wrapper flex items-center justify-center flex-col">
 			<nav class="breadcrumbs py-5">
 				<salla-breadcrumb></salla-breadcrumb>
@@ -30,6 +31,7 @@
 			{% endif %}
 		</div>
 	</div>
+
 	<div class="container px-2.5 ms:px-5 mb-10">
 		<div class="flex items-start flex-col lg:flex-row">
 			<div class="flex flex-col gap-4 md:w-[300px] ml-[30px]">
@@ -48,10 +50,9 @@
 
 			<div class="main-content flex-1 w-full {{ filters ? 'ltr:lg:ml-8 rtl:lg:mr-8' : '' }}">
 				<div class="mb-4 sm:mb-6 flex justify-between items-center">
-						<h1 class="font-medium text-base md:text-[1.5rem] rtl:pl-3 ltr:pr-3" id="page-main-title">{{ page.title|raw }}</h1>
+					<h1 class="font-medium text-base md:text-[1.5rem] rtl:pl-3 ltr:pr-3" id="page-main-title">{{ page.title|raw }}</h1>
 				
 					<div id="icons_wrapper" class="flex items-center justify-between gap-1 md:gap-3">
-
 						<svg data="four" aria-label="Toggle view" class="viewToggle transform scale-140 sicon-list cursor-pointer transition-all duration-500" onclick="formatCols(true, this)" width="34" height="34" viewbox="0 0 29 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M3.08333 18.2917C2.67129 18.2917 2.2685 18.4139 1.9259 18.6428C1.58329 18.8717 1.31627 19.1971 1.15859 19.5777C1.0009 19.9584 0.959646 20.3773 1.04003 20.7814C1.12042 21.1856 1.31884 21.5568 1.6102 21.8481C1.90155 22.1395 2.27277 22.3379 2.6769 22.4183C3.08102 22.4987 3.49991 22.4574 3.88059 22.2998C4.26127 22.1421 4.58664 21.875 4.81556 21.5324C5.04448 21.1898 5.16667 20.787 5.16667 20.375C5.16667 19.8225 4.94717 19.2926 4.55647 18.9019C4.16577 18.5112 3.63587 18.2917 3.08333 18.2917ZM10.375 15.1667C10.787 15.1667 11.1898 15.0445 11.5324 14.8156C11.875 14.5866 12.1421 14.2613 12.2998 13.8806C12.4574 13.4999 12.4987 13.081 12.4183 12.6769C12.3379 12.2728 12.1395 11.9016 11.8481 11.6102C11.5568 11.3188 11.1856 11.1204 10.7814 11.04C10.3773 10.9596 9.95842 11.0009 9.57774 11.1586C9.19707 11.3163 8.87169 11.5833 8.64277 11.9259C8.41385 12.2685 8.29167 12.6713 8.29167 13.0833C8.29167 13.6359 8.51116 14.1658 8.90186 14.5565C9.29256 14.9472 9.82247 15.1667 10.375 15.1667ZM3.08333 11C2.67129 11 2.2685 11.1222 1.9259 11.3511C1.58329 11.58 1.31627 11.9054 1.15859 12.2861C1.0009 12.6668 0.959646 13.0856 1.04003 13.4898C1.12042 13.8939 1.31884 14.2651 1.6102 14.5565C1.90155 14.8478 2.27277 15.0463 2.6769 15.1266C3.08102 15.207 3.49991 15.1658 3.88059 15.0081C4.26127 14.8504 4.58664 14.5834 4.81556 14.2408C5.04448 13.8982 5.16667 13.4954 5.16667 13.0833C5.16667 12.5308 4.94717 12.0009 4.55647 11.6102C4.16577 11.2195 3.63587 11 3.08333 11ZM10.375 18.2917C9.96296 18.2917 9.56017 18.4139 9.21756 18.6428C8.87496 18.8717 8.60793 19.1971 8.45025 19.5777C8.29257 19.9584 8.25131 20.3773 8.3317 20.7814C8.41208 21.1856 8.6105 21.5568 8.90186 21.8481C9.19322 22.1395 9.56444 22.3379 9.96856 22.4183C10.3727 22.4987 10.7916 22.4574 11.1723 22.2998C11.5529 22.1421 11.8783 21.875 12.1072 21.5324C12.3362 21.1898 12.4583 20.787 12.4583 20.375C12.4583 19.8225 12.2388 19.2926 11.8481 18.9019C11.4574 18.5112 10.9275 18.2917 10.375 18.2917Z" fill="var(--color-primary)" fill-opacity="0.4"/>
 							<path d="M17.6654 15.1667C18.0774 15.1667 18.4802 15.0445 18.8228 14.8156C19.1654 14.5866 19.4324 14.2613 19.5901 13.8806C19.7478 13.4999 19.7891 13.081 19.7087 12.6769C19.6283 12.2728 19.4299 11.9016 19.1385 11.6102C18.8471 11.3188 18.4759 11.1204 18.0718 11.04C17.6677 10.9596 17.2488 11.0009 16.8681 11.1586C16.4874 11.3163 16.1621 11.5833 15.9331 11.9259C15.7042 12.2685 15.582 12.6713 15.582 13.0833C15.582 13.6359 15.8015 14.1658 16.1922 14.5565C16.5829 14.9472 17.1128 15.1667 17.6654 15.1667ZM17.6654 18.2917C17.2533 18.2917 16.8505 18.4139 16.5079 18.6428C16.1653 18.8717 15.8983 19.1971 15.7406 19.5777C15.5829 19.9584 15.5417 20.3773 15.6221 20.7814C15.7024 21.1856 15.9009 21.5568 16.1922 21.8481C16.4836 22.1395 16.8548 22.3379 17.2589 22.4183C17.6631 22.4987 18.0819 22.4574 18.4626 22.2998C18.8433 22.1421 19.1687 21.875 19.3976 21.5324C19.6265 21.1898 19.7487 20.787 19.7487 20.375C19.7487 19.8225 19.5292 19.2926 19.1385 18.9019C18.7478 18.5112 18.2179 18.2917 17.6654 18.2917Z" fill="var(--color-primary)" fill-opacity="0.4"/>
@@ -70,7 +71,6 @@
 						<svg data="one" onclick="formatCols(true, this)" aria-label="Toggle view" class="viewToggle special-display-horizontal transform scale-140 sicon-list cursor-pointer transition-all duration-500" width="34" height="34" viewbox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M25.1666 16.0001C24.3612 16.0001 23.7083 15.3285 23.7083 14.5C23.7083 13.6716 24.3612 13 25.1666 13C25.9721 13 26.625 13.6716 26.625 14.5C26.625 15.3285 25.9721 16.0001 25.1666 16.0001ZM25.1666 21.0003C24.3612 21.0003 23.7083 20.3288 23.7083 19.5003C23.7083 18.6718 24.3612 18.0003 25.1666 18.0003C25.9721 18.0003 26.625 18.6718 26.625 19.5003C26.625 20.3288 25.9721 21.0003 25.1666 21.0003ZM19.3331 13C20.1386 13 20.7915 13.6716 20.7915 14.5C20.7915 15.3285 20.1386 16.0001 19.3331 16.0001H1.83264C1.02718 16.0001 0.374268 15.3285 0.374268 14.5C0.374268 13.6716 1.02718 13 1.83264 13H19.3331ZM20.7915 19.5003C20.7915 18.6718 20.1386 18.0003 19.3331 18.0003H1.83264C1.02718 18.0003 0.374268 18.6718 0.374268 19.5003C0.374268 20.3288 1.02718 21.0003 1.83264 21.0003H19.3331C20.1386 21.0003 20.7915 20.3288 20.7915 19.5003Z" fill="var(--color-primary)" fill-opacity="0.4"/>
 						</svg>
-
 					</div>
 
 					<div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -79,6 +79,7 @@
 								<i class="sicon-filter text-gray-text text-2xl me-2.5"></i>
 							</a>
 						{% endif %}
+
 						{% if sort_options|length %}
 							<div class="flex items-center">
 								<select id="product-filter" class="form-input pt-0 pb-1 rtl:md:pl-10 ltr:md:pr-10 text-[#666] text-[18px] font-normal">
@@ -95,9 +96,9 @@
 				</div>
 
 				{% hook 'product:index.items.start' %}
-				<div class="flex min-h-screen">
-					<salla-products-list class="flex-1 min-w-0 overflow-auto" source="{{ page.slug }}" source-value="{{ page.id }}" {{ filters ?'filters-Results':'' }}></salla-products-list>
-				</div>
+					<div class="flex min-h-screen">
+						<salla-products-list class="flex-1 min-w-0 overflow-auto" source="{{ page.slug }}" source-value="{{ page.id }}" {{ filters ?'filters-Results':'' }}></salla-products-list>
+					</div>
 				{% hook 'product:index.items.end' %}
 			</div>
 		</div>
@@ -118,16 +119,16 @@
 			// Reset all SVGs to default state
 			const svgs = document.querySelectorAll('#icons_wrapper svg');
 			svgs.forEach(svg => {
-			// Reset background and border radius
-			svg.style.background = 'transparent';
-			svg.style.borderRadius = '0';
+				// Reset background and border radius
+				svg.style.background = 'transparent';
+				svg.style.borderRadius = '0';
 
-			// Reset paths
-			const paths = svg.querySelectorAll('path');
-			paths.forEach(path => {
-				path.setAttribute('fill', 'var(--color-primary)');
-				path.setAttribute('fill-opacity', '0.4');
-			});
+				// Reset paths
+				const paths = svg.querySelectorAll('path');
+				paths.forEach(path => {
+					path.setAttribute('fill', 'var(--color-primary)');
+					path.setAttribute('fill-opacity', '0.4');
+				});
 			});
 
 			// Style the clicked SVG
@@ -138,16 +139,16 @@
 			// Make paths white
 			const paths = clickedSVG.querySelectorAll('path');
 			paths.forEach(path => {
-			path.setAttribute('fill', 'white');
-			path.setAttribute('fill-opacity', '1');
+				path.setAttribute('fill', 'white');
+				path.setAttribute('fill-opacity', '1');
 			});
 		}
 
 		document.addEventListener('DOMContentLoaded', () => {
 			const svgs = document.querySelectorAll('#icons_wrapper svg');
 			svgs.forEach(svg => {
-			svg.removeEventListener('click', handleSVGClick);
-			svg.addEventListener('click', handleSVGClick);
+				svg.removeEventListener('click', handleSVGClick);
+				svg.addEventListener('click', handleSVGClick);
 			});
 		});
 	</script>
@@ -160,16 +161,16 @@
 
 			// Reset all toggle icons
 			allToggles.forEach(toggle => {
-			const path = toggle.querySelector('path');
-			if (path) {
-				path.setAttribute('fill-opacity', '0.4');
-			}
+				const path = toggle.querySelector('path');
+				if (path) {
+					path.setAttribute('fill-opacity', '0.4');
+				}
 			});
 
 			// Highlight selected toggle
 			const selectedPath = element.querySelector('path');
 			if (selectedPath) {
-			selectedPath.setAttribute('fill-opacity', '1');
+				selectedPath.setAttribute('fill-opacity', '1');
 			}
 
 			// Get selected column layout
@@ -183,24 +184,24 @@
 
 			// Apply selected layout
 			switch (columns) {
-			case 'one':
-				resultsDiv.style.gridTemplateColumns = '1fr';
-				horizontalCards.forEach(card => {
-					card.classList.add('s-product-card-horizontal');
-					card.classList.remove('s-product-card-vertical');
-				});
-				break;
-			case 'two':
-				resultsDiv.style.gridTemplateColumns = '1fr 1fr';
-				break;
-			case 'three':
-				resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
-				break;
-			case 'four':
-				resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
-				break;
-			default:
-				resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
+				case 'one':
+					resultsDiv.style.gridTemplateColumns = '1fr';
+					horizontalCards.forEach(card => {
+						card.classList.add('s-product-card-horizontal');
+						card.classList.remove('s-product-card-vertical');
+					});
+					break;
+				case 'two':
+					resultsDiv.style.gridTemplateColumns = '1fr 1fr';
+					break;
+				case 'three':
+					resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
+					break;
+				case 'four':
+					resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
+					break;
+				default:
+					resultsDiv.style.gridTemplateColumns = '1fr 1fr 1fr';
 			}
 		}
 	</script>
