@@ -774,3 +774,10 @@ salla-slider salla-product-card.swiper-slide {
     color: gray;
   }
 }
+custom-wishlist-card salla-add-product-button button {
+  border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  -ms-border-radius: 5px !important;
+  -o-border-radius: 5px !important;
+}
