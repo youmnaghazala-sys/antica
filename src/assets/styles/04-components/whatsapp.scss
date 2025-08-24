@@ -15,36 +15,28 @@
   box-shadow: 2px 2px 9px #2123214a;
   animation: 5s infinite buzz-whatsapp;
 }
-
 @keyframes buzz-whatsapp {
   0% {
     transform: none;
   }
-
   10% {
     transform: rotateZ(-20deg) scale(1.2);
   }
-
   13% {
     transform: rotateZ(25deg) scale(1.2);
   }
-
   15% {
     transform: rotateZ(-15deg) scale(1.2);
   }
-
   17% {
     transform: rotateZ(15deg) scale(1.2);
   }
-
   20% {
     transform: rotateZ(-12deg) scale(1.2);
   }
-
   22% {
     transform: rotateZ(0) scale(1.2);
   }
-
   100%,
   24% {
     transform: rotateZ(0) scale(1);

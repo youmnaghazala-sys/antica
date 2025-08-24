@@ -1,24 +1,23 @@
-
 .store-footer {
   @apply relative bg-darker text-white mt-8 sm:mt-16;
 
-  a{
+  a {
     @apply transition-opacity hover:opacity-75;
   }
 
-  &__inner{
+  &__inner {
     @apply bg-dark py-8 lg:py-16 border-b border-dashed border-b-white/10;
-  }  
+  }
 
-  h3{
+  h3 {
     @apply text-lg font-bold mb-3 lg:mb-5;
   }
 
   .social-link {
-    @apply border rounded-full w-8 h-8 justify-center flex items-center hover:opacity-75 transition duration-300 text-sm
+    @apply border rounded-full w-8 h-8 justify-center flex items-center hover:opacity-75 transition duration-300 text-sm;
   }
 
-  .contact-social{
+  .contact-social {
     @apply mt-5 pt-5 border-t border-white/10;
 
     ul {
@@ -37,38 +36,37 @@
       @apply border-gray-300;
     }
 
-    .contact-social{
+    .contact-social {
       @apply border-gray-100;
     }
   }
 }
 
-
-.copyright-text p{
+.copyright-text p {
   @apply text-gray-700;
 }
 
-.s-social-link a{
+.s-social-link a {
   @apply bg-primary text-white;
 }
-.s-payments-list-item{
+.s-payments-list-item {
   @apply rounded-sm;
 }
-.s-contacts-icon{
+.s-contacts-icon {
   @apply border-none text-primary;
 }
-.store-footer h3{
+.store-footer h3 {
   @apply text-lg md:text-xl font-semibold;
 }
-.s-contacts-item{
+.s-contacts-item {
   @apply text-base md:text-lg;
 }
 #new-location {
   .s-payments-list-item {
     @apply bg-transparent h-full;
     width: clamp(110px, 10vw, 157px);
-  
-    a{
+
+    a {
       @apply w-full h-full;
     }
     img {
@@ -76,9 +74,9 @@
     }
   }
 }
-.s-menu-footer-list a{
+.s-menu-footer-list a {
   @apply text-right text-lg font-normal leading-6;
 }
-.s-payments-list .s-payments-list-item{
-  @apply cursor-pointer ;
+.s-payments-list .s-payments-list-item {
+  @apply cursor-pointer;
 }
