@@ -34,11 +34,11 @@ class ProductCard extends HTMLElement {
         en: "Out of stock",
       });
       // Language
-      this.remained = salla.lang.get("pages.products.remained");
-      this.donationAmount = salla.lang.get("pages.products.donation_amount");
-      this.startingPrice = salla.lang.get("pages.products.starting_price");
-      this.addToCart = salla.lang.get("pages.cart.add_to_cart");
-      this.outOfStock = salla.lang.get("pages.products.out_of_stock");
+      this.remained = salla.lang.get('pages.products.remained');
+      this.donationAmount = salla.lang.get('pages.products.donation_amount');
+      this.startingPrice = salla.lang.get('pages.products.starting_price');
+      this.addToCart = salla.lang.get('pages.cart.add_to_cart');
+      this.outOfStock = salla.lang.get('pages.products.out_of_stock');
 
       // re-render to update translations
       this.render();
@@ -190,7 +190,7 @@ class ProductCard extends HTMLElement {
     this.showQuantity = this.hasAttribute("showQuantity");
   }
 
-  async render() {
+  render() {
     this.classList.add("s-product-card-entry");
     this.setAttribute("id", this.product.id);
     !this.horizontal && !this.fullImage && !this.minimal
@@ -449,7 +449,6 @@ class ProductCard extends HTMLElement {
       this.initCircleBar();
     }
   }
-
 }
 
 customElements.define("custom-salla-product-card", ProductCard);
