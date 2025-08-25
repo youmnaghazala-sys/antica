@@ -88,14 +88,8 @@ class App extends AppHelpers {
         }
       });
     });
-    // const htmlElement = document.documentElement;
-    // const language = htmlElement.lang;
-    // const poup_more_options = {
-    //   ar: "هذا المنتج له خيارات اضغط علي اعرف المزيد",
-    //   en: "This product has options click on learn more",
-    // };
-    // console.log(language == "en" ? poup_more_options.en : poup_more_options.ar);
   }
+
   otptionsSingle() {
     const options = {
       en: "Please select one of the available options",
@@ -114,8 +108,6 @@ class App extends AppHelpers {
 
         input.oninput = function () {
           this.setCustomValidity("");
-
-          // بمجرد ما يختار، نوقف المراقبة ونشيل الرسائل
           observer.disconnect();
         };
       }
@@ -234,6 +226,7 @@ class App extends AppHelpers {
         let modal = document.querySelector("#" + link.dataset.modalId),
           img = modal.querySelector("img"),
           imgSrc = img.dataset.src;
+
         modal.open();
 
         if (img.classList.contains("loaded")) return;
@@ -370,14 +363,12 @@ class App extends AppHelpers {
   initiateStickyMenu() {
     let header = this.element("#mainnav"),
       height = this.element("#mainnav .inner")?.clientHeight;
-    //when it's landing page, there is no header
-    if (!header) {
-      return;
-    }
+    if (!header) return;
 
     window.addEventListener("load", () =>
       setTimeout(() => this.setHeaderHeight(), 500)
     );
+
     window.addEventListener("resize", () => this.setHeaderHeight());
 
     window.addEventListener(
@@ -400,10 +391,6 @@ class App extends AppHelpers {
     header.style.height = height + "px";
   }
 
-  /**
-   * Because salla caches the response, it's important to keep the alert disabled if the visitor closed it.
-   * by store the status of the ad in local storage `salla.storage.set(...)`
-   */
   initiateAdAlert() {
     let ad = this.element(".salla-advertisement");
 
@@ -433,7 +420,6 @@ class App extends AppHelpers {
     this.onClick(".dropdown__trigger", ({ target: btn }) => {
       btn.parentElement.classList.toggle("is-opened");
       document.body.classList.toggle("dropdown--is-opened");
-      // Click Outside || Click on close btn
       window.addEventListener("click", ({ target: element }) => {
         if (
           (!element.closest(".dropdown__menu") && element !== btn) ||
@@ -692,7 +678,6 @@ class App extends AppHelpers {
     brandElements.forEach((el) => observer.observe(el));
   }
 }
-
 class TabComponent extends HTMLElement {
   constructor() {
     super();
